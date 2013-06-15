@@ -6,11 +6,7 @@
     </nav>
 </header>
 <section id="content">
-<<<<<<< HEAD
-	<article id="TEDxLausanne">
-=======
 	<article id="tedxlausanne">
->>>>>>> 0cdd1ef0b0f98979f112a03e552f58f0c093161c
 		<h1>About TEDxLausanne</h1>
 		<p>Phasellus rhoncus elit sit amet sapien blandit, quis gravida mauris hendrerit. Sed id venenatis eros. Integer iaculis nunc ligula, vitae congue turpis pretium accumsan. Nulla congue dolor at orci pellentesque, sed mattis sapien faucibus. Integer molestie auctor consectetur. Suspendisse potenti. Vivamus porta augue a ante ullamcorper, fermentum pulvinar justo pulvinar. Aenean eu est malesuada, porta justo eu, lacinia lorem. Morbi nec consequat elit. Vestibulum enim nunc, pharetra non egestas consectetur, accumsan vitae nisl. Morbi in interdum arcu.</p>
 		<p>Ut a nisi et mauris vestibulum molestie. Morbi nec augue congue, consectetur velit ac, porta nunc. Integer congue iaculis quam non gravida. Phasellus ac mi rhoncus neque tincidunt elementum sit amet eu tellus. Proin id accumsan augue. Proin arcu nibh, consectetur non euismod ut, bibendum vel felis. Curabitur tristique elementum sapien, pharetra consectetur risus aliquam bibendum. Duis a elit eget mi facilisis ultricies eu ac eros.</p>
