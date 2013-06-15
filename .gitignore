@@ -1,3 +1,3 @@
-/nbproject/*
-/.metadata/*
-/.DS_Store*
+nbproject/*
+*.metadata
+*.DS_Store
