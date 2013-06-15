@@ -1,5 +1,5 @@
 ========================================
-TEDx Event Manager Project - Project 143
+TEDx Event Manager - Project 143
 ========================================
 
 Version   : 0.1
