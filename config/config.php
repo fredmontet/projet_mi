@@ -10,7 +10,7 @@
 	 */	
 		
 	//Access to the application controller 
-	require_once('tedx-config.php');
+	require_once('../tedx-config.php');
 	
 	//Error reporting. 
 	ini_set("error_reporting", "true");  
