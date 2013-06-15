@@ -10,12 +10,12 @@
 	    <nav id="topheader">
 		    <ul id="globalnav">
 			    <li id="gn-about"><a {if $action=='about'}class="selected"{/if} href="?action=about">About</a></li>
-			    <li id="gn-events"><a {if $action=='events'}class="selected"{/if} href="?action=events">Events</li>
-			    <li id="gn-videos"><a {if $action=='videos'}class="selected"{/if} href="?action=videos">Videos</li>
-			    <li id="gn-partners"><a {if $action=='partners'}class="selected"{/if} href="?action=partners">Partners</li>
-				<li id="gn-press"><a {if $action=='press'}class="selected"{/if} href="?action=press">Press</li>
-				<li id="gn-contact"><a {if $action=='contact'}class="selected"{/if} href="?action=contact">Contact</li>
-				<li id="gn-gestion"><a {if $action=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</li>
+			    <li id="gn-events"><a {if $action=='events'}class="selected"{/if} href="?action=events">Events</a></li>
+			    <li id="gn-videos"><a {if $action=='videos'}class="selected"{/if} href="?action=videos">Videos</a></li>
+			    <li id="gn-partners"><a {if $action=='partners'}class="selected"{/if} href="?action=partners">Partners</a></li>
+				<li id="gn-press"><a {if $action=='press'}class="selected"{/if} href="?action=press">Press</a></li>
+				<li id="gn-contact"><a {if $action=='contact'}class="selected"{/if} href="?action=contact">Contact</a></li>
+				<li id="gn-gestion"><a {if $action=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a></li>
 		    </ul>
 		    {*if $userIsLogged}
 				<div id="userinfo">
