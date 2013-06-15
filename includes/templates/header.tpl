@@ -9,21 +9,27 @@
     <header id="globalheader">
 	    <nav id="topheader">
 		    <ul id="globalnav">
-			    <li id="gn-about">About</li>
-			    <li id="gn-event">Event</li>
-			    <li id="gn-videos">Videos</li>
-			    <li id="gn-partners">Partners</li>
-				<li id="gn-press">Press</li>
-				<li id="gn-contact">Contact</li>
-				<li id="gn-gestion">Gestion</li>
-				<li id="gn-about">About</li>
+			    <li id="gn-about"><a {if $action=='about'}class="selected"{/if} href="?action=about">About</a></li>
+			    <li id="gn-events"><a {if $action=='events'}class="selected"{/if} href="?action=events">Events</li>
+			    <li id="gn-videos"><a {if $action=='videos'}class="selected"{/if} href="?action=videos">Videos</li>
+			    <li id="gn-partners"><a {if $action=='partners'}class="selected"{/if} href="?action=partners">Partners</li>
+				<li id="gn-press"><a {if $action=='press'}class="selected"{/if} href="?action=press">Press</li>
+				<li id="gn-contact"><a {if $action=='contact'}class="selected"{/if} href="?action=contact">Contact</li>
+				<li id="gn-gestion"><a {if $action=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</li>
 		    </ul>
-		    <div id="login">
-		    	<a>Login</a>
-		    </div>
+		    {*if $userIsLogged}
+				<div id="userinfo">
+		    		<a>Louis</a>
+				</div>
+				<div id="logout">
+					<a>Logout</a>
+				</div>*}
+			{*else*}
+				<div id="login">
+		    		<a href="?action=login">Login</a>
+				</div>
+		  	{*/if*}
+		    
 	    </nav>
 	    <nav id="bottomheader">
 		    <div id="logo"></div>
-		    
-		    {* include the page about *}
-			{include file='./about.tpl'}
