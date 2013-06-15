@@ -5,7 +5,7 @@
 		</ul>
     </nav>
 </header>
-<section id"content">
+<section id="content">
 	<article id="TEDxLausanne">
 		<h1>About TEDxLausanne</h1>
 		<p>Phasellus rhoncus elit sit amet sapien blandit, quis gravida mauris hendrerit. Sed id venenatis eros. Integer iaculis nunc ligula, vitae congue turpis pretium accumsan. Nulla congue dolor at orci pellentesque, sed mattis sapien faucibus. Integer molestie auctor consectetur. Suspendisse potenti. Vivamus porta augue a ante ullamcorper, fermentum pulvinar justo pulvinar. Aenean eu est malesuada, porta justo eu, lacinia lorem. Morbi nec consequat elit. Vestibulum enim nunc, pharetra non egestas consectetur, accumsan vitae nisl. Morbi in interdum arcu.</p>
