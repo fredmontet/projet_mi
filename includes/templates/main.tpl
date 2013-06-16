@@ -3,7 +3,7 @@
     <head>
 	    <meta charset="utf-8" />
 	    <link rel="stylesheet" media="all" href="htdocs/css/style.css" />
-	    <title>project 143</title>
+	    <title>Project 143</title>
 	</head>
     <body>
     <header id="globalheader">

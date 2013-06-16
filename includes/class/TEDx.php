@@ -48,9 +48,42 @@ class TEDx {
      
     }       
     
+    public function curPageURL() {
+		$pageURL = 'http';
+		if ($_SERVER["HTTPS"] == "on") {
+			$pageURL .= "s";
+		}
+		$pageURL .= "://";
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+		} else {
+			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		}
+		return $pageURL;
+	}
+	    
     protected function getNextEvent() {
 	    $currentEvent = $this->tedx_manager->getEvent(1);
 	    return $currentEvent;
+    }
+    
+    protected function getHome() {
+	    //return $this->getNextEvent();
+	    //return "This is a dynamic page. This service is not yet implemented.";
+	    return $this->smarty->display('home.tpl');
+    }
+    
+    protected function getEvents() {
+    	//$allEvents = $this->tedx_manager->getEvents();
+	    return "This is a dynamic page. This service is not yet implemented.";
+    }
+    
+    protected function getContactForm() {
+	    return "This is a dynamic page. This service is not yet implemented.";
+    }
+    
+    protected function getUserInfo() {
+	    return ;
     }
     
     
@@ -61,16 +94,36 @@ class TEDx {
     protected function getContent($action) {
         switch($action) {
         	case 'home':
-        		$this->smarty->assign('nextEvent', $this->getNextEvent());
+        		return $this->getHome();
 			break;
 			case 'about':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/about.html');
-			break;			
+			break;
+			case 'events':
+				return $this->getEvents();
+			break;	
+			case 'videos':
+				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/videos.html');
+			break;	
+			case 'partners':
+				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/partners.html');
+			break;	
+			case 'press':
+				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/press.html');
+			break;		
+			case 'contact':
+				return $this->getContactForm();
+			break;		
+			case 'gestion':
+				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/gestion.html');
+			break;				
 			case 'logout':
 				$this->tedx_manager->logout();
+				header("Location: ?action=home");
 			break;
 			case 'login':
-				$this->tedx_manager->login('Penelope','anitakevinlove');
+				//$this->tedx_manager->login('Penelope','anitakevinlove');
+				$this->tedx_manager->login('admin','admin');
 			break;
 		}	
     }
@@ -82,7 +135,14 @@ class TEDx {
     public function main() {
 	
         // RŽcupŽration de l'action en cours, action par dŽfaut: list
-        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'list'; 
+        
+        if (isset($_REQUEST['action'])) {
+		    $action = $_REQUEST['action'];
+		} else {
+		    $action = 'home';
+		}
+
+        //$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'list'; 
         
         // Assigne l'action en cours (pour affichage du menu)        
         $this->smarty->assign('action', $action);
