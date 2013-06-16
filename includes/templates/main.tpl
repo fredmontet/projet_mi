@@ -17,22 +17,23 @@
 				<li id="gn-contact"><a {if $action=='contact'}class="selected"{/if} href="?action=contact">Contact</a></li>
 				<li id="gn-gestion"><a {if $action=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a></li>
 		    </ul>
-		    {*if $userIsLogged}
-				<div id="userinfo">
-		    		<a>Louis</a>
+		    {if $userIsLogged}
+		    	<div id="logout">
+					<a href="?action=logout">Logout</a>
 				</div>
-				<div id="logout">
-					<a>Logout</a>
-				</div>*}
-			{*else*}
+				<div id="userinfo">
+		    		<a href="?action=userinfo">{$username}</a>
+				</div>
+				
+			{else}
 				<div id="login">
 		    		<a href="?action=login">Login</a>
 				</div>
-		  	{*/if*}
+		  	{/if}
 		    
 	    </nav>
 	    <nav id="bottomheader">
-		    <div id="logo"></div>
+		    <a id="logo" href="?action=home"></a>
 			{$content}
     <footer id="globalfooter">
 		<p>This independent TEDx event is operated under license from TED.</p>

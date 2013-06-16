@@ -6,9 +6,9 @@
     
     // Smarty libs directory
     define('TEDx_SMARTY_DIR', 'includes/Smarty/libs/');
-
-    //Access to the application controller 
-	require_once('../tedx-config.php');
+    
+    //access to $tedx_manager;
+	require_once(TEDx_ROOTPATH . '../tedx-config.php');
 
 	//Error reporting. 
 	ini_set("error_reporting", "true");  

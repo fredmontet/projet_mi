@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-16 09:08:04
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-16 13:00:38
          compiled from "includes/templates/main.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:152501265751bd5ee3015234-12431342%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ec946d59eacd523e3bd54b805b0ac5f6ca723753' => 
     array (
       0 => 'includes/templates/main.tpl',
-      1 => 1371366483,
+      1 => 1371380437,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'action' => 0,
+    'userIsLogged' => 0,
+    'username' => 0,
     'content' => 0,
   ),
   'has_nocache_code' => false,
@@ -43,16 +45,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<li id="gn-contact"><a <?php if ($_smarty_tpl->tpl_vars['action']->value=='contact'){?>class="selected"<?php }?> href="?action=contact">Contact</a></li>
 				<li id="gn-gestion"><a <?php if ($_smarty_tpl->tpl_vars['action']->value=='gestion'){?>class="selected"<?php }?> href="?action=gestion">Gestion</a></li>
 		    </ul>
-		    
-			
+		    <?php if ($_smarty_tpl->tpl_vars['userIsLogged']->value){?>
+		    	<div id="logout">
+					<a href="?action=logout">Logout</a>
+				</div>
+				<div id="userinfo">
+		    		<a href="?action=userinfo"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</a>
+				</div>
+				
+			<?php }else{ ?>
 				<div id="login">
 		    		<a href="?action=login">Login</a>
 				</div>
-		  	
+		  	<?php }?>
 		    
 	    </nav>
 	    <nav id="bottomheader">
-		    <div id="logo"></div>
+		    <a id="logo" href="?action=home"></a>
 			<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 
     <footer id="globalfooter">

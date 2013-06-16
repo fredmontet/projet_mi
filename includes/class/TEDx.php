@@ -5,6 +5,7 @@ define('TEDx_ROOTPATH', '');
 require_once(TEDx_ROOTPATH . 'config/TEDx.php');
 require_once(TEDx_ROOTPATH . TEDx_SMARTY_DIR . 'Smarty.class.php');
 
+
 /**
  * IHM pour la gestion de TEDx
  * @package ContactBook
@@ -21,14 +22,22 @@ class TEDx {
      * Smarty object
      * @var Smarty
      */
-    protected $smarty;  
+    protected $smarty;
+    
+    /**
+     * ContactManager object 
+     * @var ContactManager
+     */
+    protected $tedx_manager;  
     
         
     /**
      * Constructor
      * Initialise les objets ContactManager, Smarty et auth
      */
-    public function __construct() {
+    public function __construct($tedx_manager) {
+    
+    	$this->tedx_manager = $tedx_manager;
         
         // Smarty instance
         $tplDir = TEDx_ROOTPATH . TEDx_TPL_DIR;      
@@ -37,7 +46,13 @@ class TEDx {
         $this->smarty->template_dir = $tplDir;
         $this->smarty->compile_dir = $tplcDir;
      
-    }        
+    }       
+    
+    protected function getNextEvent() {
+	    $currentEvent = $this->tedx_manager->getEvent(1);
+	    return $currentEvent;
+    }
+    
     
     /**
      * Interprte l'action utilisateur et retourne le code HTML correspondant
@@ -45,8 +60,17 @@ class TEDx {
      */
     protected function getContent($action) {
         switch($action) {
+        	case 'home':
+        		$this->smarty->assign('nextEvent', $this->getNextEvent());
+			break;
 			case 'about':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/about.html');
+			break;			
+			case 'logout':
+				$this->tedx_manager->logout();
+			break;
+			case 'login':
+				$this->tedx_manager->login('Penelope','anitakevinlove');
 			break;
 		}	
     }
@@ -56,18 +80,24 @@ class TEDx {
      * Effectue l'action correspondante ˆ l'action recue en POST ou GET  
      */
     public function main() {
+	
         // RŽcupŽration de l'action en cours, action par dŽfaut: list
         $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'list'; 
         
         // Assigne l'action en cours (pour affichage du menu)        
         $this->smarty->assign('action', $action);
-        
+              
         // RŽcupre le code HTML correspondant ˆ l'action utilisateur choisie        
         try {
             $content = $this->getContent($action);
         } catch (Exception $e) {
             //$this->displayMessage('UnknownError');        	
         }
+        
+        // Assigne les information utilisateur pour affichagge   
+        $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
+        $this->smarty->assign('username', $this->tedx_manager->getUsername());
+        
         $this->smarty->assign('content', $content);
 
         // Assignation des id de messages ˆ afficher
