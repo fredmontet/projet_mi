@@ -6,5 +6,62 @@
 @import url(grid.css);
 @import url(../font/font.css);
 
+#globalheader {
+	position: fixed;
+	top:0;
+	background-color: #fff;
+	width: 100%;
+}
 
+#globalnav,
+#login{
+	display: inline-block;
+}
 
+#login{
+	position: absolute;
+	right: 15px;
+	top: 5px;
+}
+
+#globalnav li{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+#globalnav{
+	margin: 5px 0 5px 5px;
+}
+
+#logo {
+	width: 305px;
+	height: 55px;
+	background-image: url("../img/layout/logo.svg");
+	margin-left: 5px; 
+}
+
+#subnav{
+	position: fixed;
+	margin: 0;
+	width: 100%;
+	top: 50px;
+	text-align: center;
+}
+
+#subnav li{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+#content {
+	width: 960px;
+	margin: 120px auto 0;
+}
+
+#globalfooter{
+	bottom: 0;
+}
+
+#globalfooter p {
+	text-align: center;
+}
