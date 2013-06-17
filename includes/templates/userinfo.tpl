@@ -4,5 +4,5 @@
     </nav>
 </header>
 <section id="content">
-	<h1>Welcome at user info page</h1>
+	<h1>{$title}</h1>
 </section>

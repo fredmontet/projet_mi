@@ -82,6 +82,7 @@ class TEDx {
     }
     
     protected function getUserInfo() {
+	    $this->smarty->assign('title', 'Hello world!');
 	    return $this->smarty->fetch('userinfo.tpl');
     }
     
@@ -118,6 +119,8 @@ class TEDx {
 			break;				
 			case 'logout':
 				$this->tedx_manager->logout();
+				
+				// Go to home page
 				header("Location: ?action=home");
 			break;
 			case 'login':
