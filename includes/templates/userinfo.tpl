@@ -4,5 +4,6 @@
     </nav>
 </header>
 <section id="content">
-	<h1>{$title}</h1>
+	<h1>User info</h1>
+	<p>{$firstname}</p>
 </section>

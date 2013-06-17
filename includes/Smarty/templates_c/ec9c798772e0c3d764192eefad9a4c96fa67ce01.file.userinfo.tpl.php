@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-17 10:02:47
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-17 11:41:45
          compiled from "includes/templates/userinfo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14643152051beae0da66764-59398346%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ec9c798772e0c3d764192eefad9a4c96fa67ce01' => 
     array (
       0 => 'includes/templates/userinfo.tpl',
-      1 => 1371456158,
+      1 => 1371461987,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_51beae0da993a6_58131749',
   'variables' => 
   array (
-    'title' => 0,
+    'firstname' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -29,6 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </nav>
 </header>
 <section id="content">
-	<h1><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
-</h1>
+	<h1>User info</h1>
+	<p><?php echo $_smarty_tpl->tpl_vars['firstname']->value;?>
+</p>
 </section><?php }} ?>

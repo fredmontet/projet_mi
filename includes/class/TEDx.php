@@ -48,6 +48,7 @@ class TEDx {
      
     }       
     
+    /*
     public function curPageURL() {
 		$pageURL = 'http';
 		if ($_SERVER["HTTPS"] == "on") {
@@ -61,28 +62,34 @@ class TEDx {
 		}
 		return $pageURL;
 	}
+	*/
 	    
     protected function getNextEvent() {
 	    $currentEvent = $this->tedx_manager->getEvent(1);
 	    return $currentEvent;
     }
     
-    protected function getHome() {
-	    //return $this->getNextEvent();
+    /**********************************************************/
+    /********************** Dynamic page **********************/
+    /**********************************************************/
+    
+    protected function getHomePage() {
 		return $this->smarty->fetch('home.tpl');
     }
     
-    protected function getEvents() {
-    	//$allEvents = $this->tedx_manager->getEvents();
+    protected function getEventsPage() {
+
 	    return $this->smarty->fetch('events.tpl');
     }
     
-    protected function getContactForm() {
+    protected function getContactPage() {
 	    return $this->smarty->fetch('contact.tpl');
     }
     
-    protected function getUserInfo() {
-	    $this->smarty->assign('title', 'Hello world!');
+    protected function getUserInfoPage() {
+    	// Assign variables
+	    $this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
+	    
 	    return $this->smarty->fetch('userinfo.tpl');
     }
     
@@ -94,13 +101,13 @@ class TEDx {
     protected function getContent($action) {
         switch($action) {
         	case 'home':
-        		return $this->getHome();
+        		return $this->getHomePage();
 			break;
 			case 'about':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/about.html');
 			break;
 			case 'events':
-				return $this->getEvents();
+				return $this->getEventsPage();
 			break;	
 			case 'videos':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/videos.html');
@@ -112,7 +119,7 @@ class TEDx {
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/press.html');
 			break;		
 			case 'contact':
-				return $this->getContactForm();
+				return $this->getContactPage();
 			break;		
 			case 'gestion':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/gestion.html');
@@ -128,7 +135,7 @@ class TEDx {
 				$this->tedx_manager->login('admin','admin');
 			break;
 			case 'userinfo':
-				return $this->getUserInfo();
+				return $this->getUserInfoPage();
 			break;
 		}	
     }
