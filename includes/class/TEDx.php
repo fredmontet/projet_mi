@@ -1,5 +1,5 @@
 <?php
-// Chemin vers la racine de l'application
+// Path to application root
 define('TEDx_ROOTPATH', '');  
 
 require_once(TEDx_ROOTPATH . 'config/TEDx.php');
@@ -7,13 +7,7 @@ require_once(TEDx_ROOTPATH . TEDx_SMARTY_DIR . 'Smarty.class.php');
 
 
 /**
- * IHM pour la gestion de TEDx
- * @package ContactBook
- * @uses PEAR::DB DB abstraction class
- * @uses PEAR::Auth Auth manager
- * @uses Contact 
- * @uses ContactManager 
- * @todo implémenter la suppression et la modification 
+ * IHM for the TEDx gestion 
  */
 class TEDx {    
    
@@ -33,13 +27,14 @@ class TEDx {
         
     /**
      * Constructor
-     * Initialise les objets TEDx Manager et Smarty
+     * Initializes TEDx Manager object and Smarty object
+     * @param global var TEDx manager
      */
     public function __construct($tedx_manager) {
     
     	$this->tedx_manager = $tedx_manager;
         
-        // Instance Smarty
+        // Instantiates Smarty
         $tplDir = TEDx_ROOTPATH . TEDx_TPL_DIR;      
         $tplcDir = TEDx_ROOTPATH . TEDx_TPLC_DIR;      
         $this->smarty = new Smarty;
@@ -47,47 +42,102 @@ class TEDx {
         $this->smarty->compile_dir = $tplcDir;
      
     }       
-    
-    /*
-    public function curPageURL() {
-		$pageURL = 'http';
-		if ($_SERVER["HTTPS"] == "on") {
-			$pageURL .= "s";
+	
+	
+	/**
+     * Display error messages
+     * @param string Id of the message to be displayed
+     */
+	protected function displayMessage($message) {
+		switch($message) {
+			case 'UnknownError':
+				echo "Unknow Error";
+			break;
+			default:
+				echo $message;
+			break;
 		}
-		$pageURL .= "://";
-		if ($_SERVER["SERVER_PORT"] != "80") {
-			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-		} else {
-			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-		}
-		return $pageURL;
 	}
-	*/
+	
+	
+	/**
+     * Get the next event
+     * @return object the next event
+     */    
+    protected function getNextEvent() {
+    	
+    	$searchArgs = array(
+		    "where"      => "StartingDate >= NOW()",
+		    "orderBy"    => "StartingDate",
+		    "orderByType" => "ASC",
+		);
+		
+		 
+		$messageSearchEvents = $this->tedx_manager->searchEvents($searchArgs);
+		
+		if($messageSearchEvents->getStatus()) {
+		    $allValideSearchEvents = $messageSearchEvents->getContent();
+		} else {
+		    $this->displayMessage('There isn\'t a next event!'); 
+	    }
 	    
-    protected function drawNextEvent() {
-	    $currentEvent = $this->tedx_manager->getEvent(1);
-	    return $currentEvent;
+	    $aValideNextEvent = $allValideSearchEvents[0];
+	    
+		return $aValideNextEvent;
     }
     
-    /**********************************************************/
-    /********************** Dynamic page **********************/
-    /**********************************************************/
     
+    
+    /**
+     * Draw the Home page
+     * @return content HTML of the Home page
+     */
     protected function drawHome() {
-    	$nextEvent = $this->tedx_manager->getEvent(1);
-    	$this->smarty->assign('nextEvent', $nextEvent->mainTopic);
-		var_dump($this->tedx_manager->getEvent(1));
+    	
+    	// get the next Event
+		$aValideNextEvent = $this->getNextEvent();
+		
+		// Draw the next event
+		$this->smarty->assign('nextEvent', $aValideNextEvent);
+		$home_event = $this->smarty->fetch('home_event.tpl');
+		
+		// Draw video playlist
+		$home_videos = $this->smarty->fetch('home_videos.tpl');
+    	
+    	// Assign variables
+    	$this->smarty->assign('home_event', $home_event);
+    	$this->smarty->assign('home_videos', $home_videos);
+		
+		// Draw Home page
 		return $this->smarty->fetch('home.tpl');
     }
     
+    
+    /**
+     * Draw the Events page
+     * @return content HTML of the Events page
+     */
     protected function drawEvents() {
+    
+    	//$events = $this->tedx_manager->getEvents(); 
+		
 	    return $this->smarty->fetch('events.tpl');
     }
     
+    
+    /**
+     * Draw the Contact page
+     * @return content HTML of the Contact page
+     */
     protected function drawContact() {
 	    return $this->smarty->fetch('contact.tpl');
     }
     
+    
+    /**
+     * Draw the User Info page
+     * @return content HTML of the User Info page
+     */
     protected function drawUserInfo() {
     	// Assign variables
 	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
@@ -97,8 +147,8 @@ class TEDx {
     
     
     /**
-     * Interprète l'action utilisateur et retourne le code HTML correspondant
-     * @return string Code HTML correspondant à l'action choisie par l'utilisateur
+     * Interprets the user action and returns the corresponding HTML
+     * @return string HTML corresponding to the action selected by the user
      */
     protected function getContent($action) {
         switch($action) {
@@ -143,39 +193,36 @@ class TEDx {
     }
 
     /**
-     * Point d'entrée principal
-     * Effectue l'action correspondante à l'action recue en POST ou GET  
+     * Main entry point
+     * Performs the corresponding action to action received POST or GET
      */
     public function main() {
 	
-        // Récupération de l'action en cours, action par défaut: list
-        
+        // Retrieving the current action, the default action: home
         if (isset($_REQUEST['action'])) {
 		    $action = $_REQUEST['action'];
 		} else {
 		    $action = 'home';
 		}
         
-        // Assigne l'action en cours (pour affichage du menu)        
+        // Assigns the current action (for menu display)       
         $this->smarty->assign('action', $action);
               
-        // Récupère le code HTML correspondant à l'action utilisateur choisie        
+        // Retrieves the corresponding action chosen user HTML       
         try {
             $content = $this->getContent($action);
         } catch (Exception $e) {
-            //$this->displayMessage('UnknownError');        	
+            $this->displayMessage('UnknownError');        	
         }
         
-        // Assigne les information utilisateur pour affichagge   
+        // Assigns user information to display  
         $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
         $this->smarty->assign('username', $this->tedx_manager->getUsername());
         
+        // Assigns the content
         $this->smarty->assign('content', $content);
 
-        // Assignation des id de messages à afficher
-        //$this->smarty->assign('messages', $this->messages);
-
-        // Affichage de l'IHM
+        // Display IHM
         $this->smarty->display('main.tpl');        
     }    
 }
