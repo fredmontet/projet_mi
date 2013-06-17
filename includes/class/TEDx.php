@@ -13,33 +13,33 @@ require_once(TEDx_ROOTPATH . TEDx_SMARTY_DIR . 'Smarty.class.php');
  * @uses PEAR::Auth Auth manager
  * @uses Contact 
  * @uses ContactManager 
- * @todo implŽmenter la suppression et la modification 
+ * @todo implÃ©menter la suppression et la modification 
  */
 class TEDx {    
    
 
     /**
      * Smarty object
-     * @var Smarty
+     * @var smarty
      */
     protected $smarty;
     
     /**
-     * ContactManager object 
-     * @var ContactManager
+     * TEDx Manager object 
+     * @var tedx_manager
      */
     protected $tedx_manager;  
     
         
     /**
      * Constructor
-     * Initialise les objets ContactManager, Smarty et auth
+     * Initialise les objets TEDx Manager et Smarty
      */
     public function __construct($tedx_manager) {
     
     	$this->tedx_manager = $tedx_manager;
         
-        // Smarty instance
+        // Instance Smarty
         $tplDir = TEDx_ROOTPATH . TEDx_TPL_DIR;      
         $tplcDir = TEDx_ROOTPATH . TEDx_TPLC_DIR;      
         $this->smarty = new Smarty;
@@ -64,7 +64,7 @@ class TEDx {
 	}
 	*/
 	    
-    protected function getNextEvent() {
+    protected function drawNextEvent() {
 	    $currentEvent = $this->tedx_manager->getEvent(1);
 	    return $currentEvent;
     }
@@ -73,41 +73,43 @@ class TEDx {
     /********************** Dynamic page **********************/
     /**********************************************************/
     
-    protected function getHomePage() {
+    protected function drawHome() {
+    	$nextEvent = $this->tedx_manager->getEvent(1);
+    	$this->smarty->assign('nextEvent', $nextEvent->mainTopic);
+		var_dump($this->tedx_manager->getEvent(1));
 		return $this->smarty->fetch('home.tpl');
     }
     
-    protected function getEventsPage() {
-
+    protected function drawEvents() {
 	    return $this->smarty->fetch('events.tpl');
     }
     
-    protected function getContactPage() {
+    protected function drawContact() {
 	    return $this->smarty->fetch('contact.tpl');
     }
     
-    protected function getUserInfoPage() {
+    protected function drawUserInfo() {
     	// Assign variables
-	    $this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
+	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
 	    
 	    return $this->smarty->fetch('userinfo.tpl');
     }
     
     
     /**
-     * Interprte l'action utilisateur et retourne le code HTML correspondant
-     * @return string Code HTML correspondant ˆ l'action choisie par l'utilisateur
+     * InterprÃ¨te l'action utilisateur et retourne le code HTML correspondant
+     * @return string Code HTML correspondant Ã  l'action choisie par l'utilisateur
      */
     protected function getContent($action) {
         switch($action) {
         	case 'home':
-        		return $this->getHomePage();
+        		return $this->drawHome();
 			break;
 			case 'about':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/about.html');
 			break;
 			case 'events':
-				return $this->getEventsPage();
+				return $this->drawEvents();
 			break;	
 			case 'videos':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/videos.html');
@@ -119,7 +121,7 @@ class TEDx {
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/press.html');
 			break;		
 			case 'contact':
-				return $this->getContactPage();
+				return $this->drawContact();
 			break;		
 			case 'gestion':
 				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/gestion.html');
@@ -135,31 +137,29 @@ class TEDx {
 				$this->tedx_manager->login('admin','admin');
 			break;
 			case 'userinfo':
-				return $this->getUserInfoPage();
+				return $this->drawUserInfo();
 			break;
 		}	
     }
 
     /**
-     * Point d'entrŽe principal
-     * Effectue l'action correspondante ˆ l'action recue en POST ou GET  
+     * Point d'entrÃ©e principal
+     * Effectue l'action correspondante Ã  l'action recue en POST ou GET  
      */
     public function main() {
 	
-        // RŽcupŽration de l'action en cours, action par dŽfaut: list
+        // RÃ©cupÃ©ration de l'action en cours, action par dÃ©faut: list
         
         if (isset($_REQUEST['action'])) {
 		    $action = $_REQUEST['action'];
 		} else {
 		    $action = 'home';
 		}
-
-        //$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'list'; 
         
         // Assigne l'action en cours (pour affichage du menu)        
         $this->smarty->assign('action', $action);
               
-        // RŽcupre le code HTML correspondant ˆ l'action utilisateur choisie        
+        // RÃ©cupÃ¨re le code HTML correspondant Ã  l'action utilisateur choisie        
         try {
             $content = $this->getContent($action);
         } catch (Exception $e) {
@@ -172,7 +172,7 @@ class TEDx {
         
         $this->smarty->assign('content', $content);
 
-        // Assignation des id de messages ˆ afficher
+        // Assignation des id de messages Ã  afficher
         //$this->smarty->assign('messages', $this->messages);
 
         // Affichage de l'IHM
