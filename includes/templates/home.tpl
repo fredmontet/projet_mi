@@ -4,5 +4,6 @@
     </nav>
 </header>
 <section id="content">
-	<h1>{$nextEvent}</h1>
+	{$home_event}
+	{$home_videos}
 </section>

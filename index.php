@@ -4,7 +4,7 @@
         $myTEDx = new TEDx($tedx_manager);
         $myTEDx->main();
     } catch (Exception $e) {
-    	print "L'application est momentanément indisponible. ";
-        print "Veuillez réessayer ultérieurement";
+    	print "L'application est momentanÃ©ment indisponible. ";
+        print "Veuillez rÃ©essayer ultÃ©rieurement";
     }
 ?>
