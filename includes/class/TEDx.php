@@ -69,21 +69,20 @@ class TEDx {
     
     protected function getHome() {
 	    //return $this->getNextEvent();
-	    //return "This is a dynamic page. This service is not yet implemented.";
-	    return $this->smarty->display('home.tpl');
+		return $this->smarty->fetch('home.tpl');
     }
     
     protected function getEvents() {
     	//$allEvents = $this->tedx_manager->getEvents();
-	    return "This is a dynamic page. This service is not yet implemented.";
+	    return $this->smarty->fetch('events.tpl');
     }
     
     protected function getContactForm() {
-	    return "This is a dynamic page. This service is not yet implemented.";
+	    return $this->smarty->fetch('contact.tpl');
     }
     
     protected function getUserInfo() {
-	    return ;
+	    return $this->smarty->fetch('userinfo.tpl');
     }
     
     
@@ -124,6 +123,9 @@ class TEDx {
 			case 'login':
 				//$this->tedx_manager->login('Penelope','anitakevinlove');
 				$this->tedx_manager->login('admin','admin');
+			break;
+			case 'userinfo':
+				return $this->getUserInfo();
 			break;
 		}	
     }
