@@ -4,3 +4,4 @@
     <li class="sn-location"><a href="?action=gestion_location">Location</a></li>
     <li class="sn-teamRole"><a href="?action=gestion_team">Team role</a></li>
 </ul>
+
