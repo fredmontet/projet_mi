@@ -1,3 +1,5 @@
 nbproject/*
 *.metadata
 *.DS_Store
+includes/Smarty/template_c/*
+
