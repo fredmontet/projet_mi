@@ -105,7 +105,7 @@ class TEDx {
 		$home_videos = $this->smarty->fetch('home_videos.tpl');
     	
     	// Assign variables
-    	
+    	$this->smarty->assign('home_event', $home_event);
     	$this->smarty->assign('home_videos', $home_videos);
 		
 		// Draw Home page
