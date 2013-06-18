@@ -40,6 +40,8 @@ class TEDx {
         $this->smarty = new Smarty;
         $this->smarty->template_dir = $tplDir;
         $this->smarty->compile_dir = $tplcDir;
+        
+        $this->main(); 
      
     }       
 	
@@ -71,19 +73,18 @@ class TEDx {
 		    "orderBy"    => "StartingDate",
 		    "orderByType" => "ASC",
 		);
-		
 		 
 		$messageSearchEvents = $this->tedx_manager->searchEvents($searchArgs);
 		
 		if($messageSearchEvents->getStatus()) {
-		    $allValideSearchEvents = $messageSearchEvents->getContent();
+		    $allValidSearchEvents = $messageSearchEvents->getContent();
 		} else {
 		    $this->displayMessage('There isn\'t a next event!'); 
 	    }
 	    
-	    $aValideNextEvent = $allValideSearchEvents[0];
+	    $aValidNextEvent = $allValidSearchEvents[0];
 	    
-		return $aValideNextEvent;
+		return $aValidNextEvent;
     }
     
     
@@ -95,10 +96,10 @@ class TEDx {
     protected function drawHome() {
     	
     	// get the next Event
-		$aValideNextEvent = $this->getNextEvent();
+		$aValidNextEvent = $this->getNextEvent();
 		
 		// Draw the next event
-		$this->smarty->assign('nextEvent', $aValideNextEvent);
+		$this->smarty->assign('nextEvent', $aValidNextEvent);
 		$home_event = $this->smarty->fetch('home_event.tpl');
 		
 		// Draw video playlist
@@ -122,12 +123,12 @@ class TEDx {
     	$messageEvents = $this->tedx_manager->getEvents();
     	
     	if($messageEvents->getStatus()) {
-		    $allValideEvents = $messageEvents->getContent();
+		    $allValidEvents = $messageEvents->getContent();
 		} else {
 		    $this->displayMessage('There isn\'t event!'); 
 	    }
 		
-		$this->smarty->assign('events', $allValideEvents);
+		$this->smarty->assign('events', $allValidvents);
 		
 	    return $this->smarty->fetch('events.tpl');
     }
@@ -143,6 +144,15 @@ class TEDx {
     
     
     /**
+     * Draw the Gestion page
+     * @return content HTML of the Gestion page
+     */
+    protected function drawGestion() {
+	    return $this->smarty->fetch('gestion_event.tpl');
+    }
+    
+    
+    /**
      * Draw the User Info page
      * @return content HTML of the User Info page
      */
@@ -152,6 +162,19 @@ class TEDx {
 	    
 	    return $this->smarty->fetch('userinfo.tpl');
     }
+    
+    
+    /**
+     * Draw the Login page
+     * @return content HTML of the Login page
+     */
+    protected function drawLogin() {
+    	// Assign variables
+	    $this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
+	    $this->tedx_manager->login('admin','admin');
+	    return $this->smarty->fetch('login.tpl');
+    }
+    
     
     
     /**
@@ -182,7 +205,7 @@ class TEDx {
 				return $this->drawContact();
 			break;		
 			case 'gestion':
-				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/gestion.html');
+				return $this->drawGestion();
 			break;				
 			case 'logout':
 				$this->tedx_manager->logout();
@@ -192,7 +215,8 @@ class TEDx {
 			break;
 			case 'login':
 				//$this->tedx_manager->login('Penelope','anitakevinlove');
-				$this->tedx_manager->login('admin','admin');
+				//
+				return $this->drawLogin();
 			break;
 			case 'userinfo':
 				return $this->drawUserInfo();
@@ -204,7 +228,7 @@ class TEDx {
      * Main entry point
      * Performs the corresponding action to action received POST or GET
      */
-    public function main() {
+    private function main() {
 	
         // Retrieving the current action, the default action: home
         if (isset($_REQUEST['action'])) {
