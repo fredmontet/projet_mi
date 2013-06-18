@@ -277,7 +277,6 @@ class TEDx {
     }
     
     
-    
     /**
      * Interprets the user action and returns the corresponding HTML
      * @return string HTML corresponding to the action selected by the user
@@ -352,7 +351,7 @@ class TEDx {
         
         // Assigns the current action (for menu display)       
         $this->smarty->assign('action', $action);
-              
+        
         // Retrieves the corresponding action chosen user HTML       
         try {
             $content = $this->getContent($action);
@@ -363,6 +362,9 @@ class TEDx {
         // Assigns user information to display  
         $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
         $this->smarty->assign('username', $this->tedx_manager->getUsername());
+        
+        // Assigns the subnav
+        // $this->smarty->assign('subnav', $subnav);
         
         // Assigns the content
         $this->smarty->assign('content', $content);
