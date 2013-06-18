@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 12:08:28
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 16:15:41
          compiled from "includes\templates\event_single.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:527351c04dbcc67310-36455338%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '036d02f50f0436293df7fe06291e279f26c9b3d9' => 
     array (
       0 => 'includes\\templates\\event_single.tpl',
-      1 => 1371557285,
+      1 => 1371564791,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_51c04dbccf0dc2_31647175',
   'variables' => 
   array (
     'event_date' => 0,
@@ -32,8 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'slot_speaker_name' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_51c04dbccf0dc2_31647175',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51c04dbccf0dc2_31647175')) {function content_51c04dbccf0dc2_31647175($_smarty_tpl) {?>
 <article class="event_single">
