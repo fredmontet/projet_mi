@@ -128,7 +128,7 @@ class TEDx {
 		    $this->displayMessage('There isn\'t event!'); 
 	    }
 		
-		$this->smarty->assign('events', $allValidvents);
+		$this->smarty->assign('events', $allValidEvents);
 		
 	    return $this->smarty->fetch('events.tpl');
     }
