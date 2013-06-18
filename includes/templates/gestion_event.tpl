@@ -1,11 +1,5 @@
 <!--subnav-->
-
-<ul id="subnav">
-            <li class="sn-event"><a href="#event">Event</a></li>
-            <li class="sn-speaker"><a href="#speaker">Speaker</a></li>
-            <li class="sn-location"><a href="#location">Location</a></li>
-            <li class="sn-teamRole"><a href="#teamRole">Team role</a></li>
-        </ul>
+		{$gestion_nav}
     </nav>
 </header>
 

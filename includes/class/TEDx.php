@@ -148,6 +148,8 @@ class TEDx {
      * @return content HTML of the Gestion page
      */
     protected function drawGestion() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
 	    return $this->smarty->fetch('gestion_event.tpl');
     }
     
@@ -206,6 +208,9 @@ class TEDx {
 			break;		
 			case 'gestion':
 				return $this->drawGestion();
+			break;
+			case 'gestion_speaker':
+				return $this->drawGestionSpeaker();
 			break;				
 			case 'logout':
 				$this->tedx_manager->logout();
