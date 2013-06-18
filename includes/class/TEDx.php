@@ -41,7 +41,7 @@ class TEDx {
         $this->smarty->template_dir = $tplDir;
         $this->smarty->compile_dir = $tplcDir;
         
-        $this->main(); 
+        $this->displayIHM(); 
      
     }       
 	
@@ -100,13 +100,13 @@ class TEDx {
 		
 		// Draw the next event
 		$this->smarty->assign('nextEvent', $aValidNextEvent);
-		$home_event = $this->smarty->fetch('home_event.tpl');
+		$event_single = $this->smarty->fetch('event_single.tpl');
 		
 		// Draw video playlist
 		$home_videos = $this->smarty->fetch('home_videos.tpl');
     	
     	// Assign variables
-    	$this->smarty->assign('home_event', $home_event);
+    	$this->smarty->assign('event_single', $event_single);
     	$this->smarty->assign('home_videos', $home_videos);
 		
 		// Draw Home page
@@ -148,7 +148,53 @@ class TEDx {
      * @return content HTML of the Gestion page
      */
     protected function drawGestion() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
 	    return $this->smarty->fetch('gestion_event.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Event Infos page
+     * @return content HTML of the Gestion Event Infos page
+     */
+    protected function drawGestionEventInfos() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_event_infos.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Speaker page
+     * @return content HTML of the Gestion Speaker page
+     */
+    protected function drawGestionSpeaker() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_speaker.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Location page
+     * @return content HTML of the Gestion Location page
+     */
+    protected function drawGestionLocation() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_location.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Location page
+     * @return content HTML of the Gestion Location page
+     */
+    protected function drawGestionTeamRole() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_team.tpl');
     }
     
     
@@ -206,7 +252,19 @@ class TEDx {
 			break;		
 			case 'gestion':
 				return $this->drawGestion();
-			break;				
+			break;
+			case 'gestion_event_infos':
+				return $this->drawGestionEventInfos();
+			break;
+			case 'gestion_speaker':
+				return $this->drawGestionSpeaker();
+			break;		
+			case 'gestion_location':
+				return $this->drawGestionLocation();
+			break;
+			case 'gestion_team':
+				return $this->drawGestionTeamRole();
+			break;		
 			case 'logout':
 				$this->tedx_manager->logout();
 				
@@ -225,10 +283,10 @@ class TEDx {
     }
 
     /**
-     * Main entry point
+     * Display IHM
      * Performs the corresponding action to action received POST or GET
      */
-    private function main() {
+    private function displayIHM() {
 	
         // Retrieving the current action, the default action: home
         if (isset($_REQUEST['action'])) {

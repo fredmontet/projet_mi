@@ -1,11 +1,5 @@
 <!--subnav-->
-
-<ul id="subnav">
-            <li class="sn-event"><a href="#event">Event</a></li>
-            <li class="sn-speaker"><a href="#speaker">Speaker</a></li>
-            <li class="sn-location"><a href="#location">Location</a></li>
-            <li class="sn-teamRole"><a href="#teamRole">Team role</a></li>
-        </ul>
+		{$gestion_nav}
     </nav>
 </header>
 
@@ -15,11 +9,13 @@
    
     <nav>
         <h1>Event</h1>
-        <a href="#event">All events</a>
-        <a href="#createAnEvent">Create an event</a>
-        <a href="#waitingList">Waiting list</a>
-        <a href="#mailingList">Mailing list</a>   
-        <a href="#eventRole">Event role</a>   
+        <ul>
+            <li><a href="?action=event">All events</a></li>
+            <li><a href="?action=createAnEvent">Create an event</a></li>
+            <li><a href="?action=waitingList">Waiting list</a></li>
+            <li><a href="?action=mailingList">Mailing list</a>   </li>
+            <li><a href="?action=eventRole">Event role</a></li>
+       </ul>
     </nav>
 
     <!--event line-->

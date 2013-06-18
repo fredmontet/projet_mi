@@ -12,7 +12,10 @@
         </ul>
     </nav>
 
-        {$home_event}
-        {$home_videos}
-   
+ 
+    <section id="content">
+            {$event_single}
+            {$home_videos}
+    </section>
+
 </section>
