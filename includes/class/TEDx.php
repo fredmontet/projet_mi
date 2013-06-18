@@ -155,20 +155,12 @@ class TEDx {
     
     
     /**
-<<<<<<< HEAD
-     * Draw the Gestion Event Infos page
-     * @return content HTML of the Gestion Event Infos page
-=======
      * Draw the Gestion Create Event page
      * @return content HTML of the Gestion Create Event page
->>>>>>> 9f7a819f2f8b06608f9b5187b17235ebd9474503
      */
     protected function drawGestionEventInfos() {
     	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
     	$this->smarty->assign('gestion_nav', $gestion_nav);
-<<<<<<< HEAD
-	    return $this->smarty->fetch('gestion_event_infos.tpl');
-=======
     	
     	$messageEvent = $this->tedx_manager->getEvent(1);
     	
@@ -181,7 +173,6 @@ class TEDx {
 	    $this->smarty->assign('event', $aValidEvent);
 		
 	    return $this->smarty->fetch('event_single.tpl');
->>>>>>> 9f7a819f2f8b06608f9b5187b17235ebd9474503
     }
     
     
