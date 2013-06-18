@@ -41,7 +41,7 @@ class TEDx {
         $this->smarty->template_dir = $tplDir;
         $this->smarty->compile_dir = $tplcDir;
         
-        $this->main(); 
+        $this->displayIHM(); 
      
     }       
 	
@@ -155,6 +155,39 @@ class TEDx {
     
     
     /**
+     * Draw the Gestion Speaker page
+     * @return content HTML of the Gestion Speaker page
+     */
+    protected function drawGestionSpeaker() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_speaker.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Location page
+     * @return content HTML of the Gestion Location page
+     */
+    protected function drawGestionLocation() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_location.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Location page
+     * @return content HTML of the Gestion Location page
+     */
+    protected function drawGestionTeamRole() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_team.tpl');
+    }
+    
+    
+    /**
      * Draw the User Info page
      * @return content HTML of the User Info page
      */
@@ -211,7 +244,13 @@ class TEDx {
 			break;
 			case 'gestion_speaker':
 				return $this->drawGestionSpeaker();
-			break;				
+			break;		
+			case 'gestion_location':
+				return $this->drawGestionLocation();
+			break;
+			case 'gestion_team':
+				return $this->drawGestionTeamRole();
+			break;		
 			case 'logout':
 				$this->tedx_manager->logout();
 				
@@ -230,10 +269,10 @@ class TEDx {
     }
 
     /**
-     * Main entry point
+     * Display IHM
      * Performs the corresponding action to action received POST or GET
      */
-    private function main() {
+    private function displayIHM() {
 	
         // Retrieving the current action, the default action: home
         if (isset($_REQUEST['action'])) {

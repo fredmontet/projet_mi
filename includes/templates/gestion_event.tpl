@@ -1,9 +1,6 @@
-<!--subnav-->
 		{$gestion_nav}
     </nav>
 </header>
-
-<!--gestion event nav-->
 
 <section id="content" class="getion_event">
    
