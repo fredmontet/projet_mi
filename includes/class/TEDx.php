@@ -105,7 +105,7 @@ class TEDx {
 		$home_videos = $this->smarty->fetch('home_videos.tpl');
     	
     	// Assign variables
-    	$this->smarty->assign('home_event', $home_event);
+    	
     	$this->smarty->assign('home_videos', $home_videos);
 		
 		// Draw Home page
@@ -119,7 +119,15 @@ class TEDx {
      */
     protected function drawEvents() {
     
-    	//$events = $this->tedx_manager->getEvents(); 
+    	$messageEvents = $this->tedx_manager->getEvents();
+    	
+    	if($messageEvents->getStatus()) {
+		    $allValideEvents = $messageEvents->getContent();
+		} else {
+		    $this->displayMessage('There isn\'t event!'); 
+	    }
+		
+		$this->smarty->assign('events', $allValideEvents);
 		
 	    return $this->smarty->fetch('events.tpl');
     }
