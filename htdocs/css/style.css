@@ -128,3 +128,15 @@
 #globalfooter p {
     text-align: center;
 }
+
+<!--videos-->
+#content.video {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#content.video article{
+    display: inline-block;
+    width: 300px; 
+    text-align: center;
+}
