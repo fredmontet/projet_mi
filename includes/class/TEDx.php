@@ -100,13 +100,13 @@ class TEDx {
 		
 		// Draw the next event
 		$this->smarty->assign('nextEvent', $aValidNextEvent);
-		$home_event = $this->smarty->fetch('home_event.tpl');
+		$event_single = $this->smarty->fetch('event_single.tpl');
 		
 		// Draw video playlist
 		$home_videos = $this->smarty->fetch('home_videos.tpl');
     	
     	// Assign variables
-    	$this->smarty->assign('home_event', $home_event);
+    	$this->smarty->assign('event_single', $event_single);
     	$this->smarty->assign('home_videos', $home_videos);
 		
 		// Draw Home page
@@ -151,6 +151,17 @@ class TEDx {
     	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
     	$this->smarty->assign('gestion_nav', $gestion_nav);
 	    return $this->smarty->fetch('gestion_event.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Event Infos page
+     * @return content HTML of the Gestion Event Infos page
+     */
+    protected function drawGestionEventInfos() {
+    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
+    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    return $this->smarty->fetch('gestion_event_infos.tpl');
     }
     
     
@@ -241,6 +252,9 @@ class TEDx {
 			break;		
 			case 'gestion':
 				return $this->drawGestion();
+			break;
+			case 'gestion_event_infos':
+				return $this->drawGestionEventInfos();
 			break;
 			case 'gestion_speaker':
 				return $this->drawGestionSpeaker();

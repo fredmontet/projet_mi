@@ -4,6 +4,6 @@
     </nav>
 </header>
 <section id="content">
-	{$home_event}
+	{$event_single}
 	{$home_videos}
 </section>
