@@ -99,7 +99,6 @@
 }
 
 #subnav{
-
     margin: 0 auto;
     display: block;
     margin-top: -40px;
@@ -135,7 +134,26 @@
 }
 #content{
     background-color: #fff;
+}
 
+#content nav{
+    display:inline-block;
+    float:left;   
+    width: 100%;
+    color:#fff;
+    background-color:#222;
+    text-decoration:none;
+    text-align:center;
+    padding:5px; 
+}
+#content nav li {
+    display:inline-block;
+    
+}
+#content li a:hover{
+    background-color:#fff;
+    color:#222;
+    text-decoration:none;   
 }
 #globalfooter{
     bottom: 0;
