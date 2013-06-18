@@ -1,4 +1,25 @@
-        <ul id="subnav">
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 16:43:33
+         compiled from "includes/templates/about.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:181152005951c0721533e1c0-46455501%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'fe4f37017dbcd2f1c43ad10695d70300b65bd52c' => 
+    array (
+      0 => 'includes/templates/about.tpl',
+      1 => 1371500670,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '181152005951c0721533e1c0-46455501',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_51c07215376263_12194995',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51c07215376263_12194995')) {function content_51c07215376263_12194995($_smarty_tpl) {?>        <ul id="subnav">
             <li class="sn-tedxlausanne"><a href="#tedxlausanne">TEDxLausanne</a></li>
             <li class="sn-ted"><a href="#ted">TED</a></li>
             <li class="sn-tedx"><a href="#tedx">TEDx</a></li>
@@ -58,4 +79,4 @@
         </p>
     </article>	
     
-</section>
+</section><?php }} ?>

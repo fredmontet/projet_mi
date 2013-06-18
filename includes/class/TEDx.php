@@ -115,6 +115,17 @@ class TEDx {
     
     
     /**
+     * Draw the About page
+     * @return content HTML of the About page
+     */
+    protected function drawAbout() {
+		
+		// Draw About page
+		return $this->smarty->fetch('about.tpl');
+    }
+    
+    
+    /**
      * Draw the Events page
      * @return content HTML of the Events page
      */
@@ -131,6 +142,39 @@ class TEDx {
 		$this->smarty->assign('events', $allValidEvents);
 		
 	    return $this->smarty->fetch('events.tpl');
+    }
+    
+    
+    /**
+     * Draw the Videos page
+     * @return content HTML of the Videos page
+     */
+    protected function drawVideos() {
+		
+		// Draw Videos page
+		return $this->smarty->fetch('videos.tpl');
+    }
+    
+    
+    /**
+     * Draw the Partners page
+     * @return content HTML of the Partners page
+     */
+    protected function drawPartners() {
+		
+		// Draw Partners page
+		return $this->smarty->fetch('partners.tpl');
+    }
+    
+    
+    /**
+     * Draw the Press page
+     * @return content HTML of the Press page
+     */
+    protected function drawPress() {
+		
+		// Draw Press page
+		return $this->smarty->fetch('press.tpl');
     }
     
     
@@ -244,19 +288,19 @@ class TEDx {
         		return $this->drawHome();
 			break;
 			case 'about':
-				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/about.html');
+				return $this->drawAbout();
 			break;
 			case 'events':
 				return $this->drawEvents();
 			break;	
 			case 'videos':
-				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/videos.html');
+				return $this->drawVideos();
 			break;	
 			case 'partners':
-				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/partners.html');
+				return $this->drawPartners();
 			break;	
 			case 'press':
-				return file_get_contents(TEDx_ROOTPATH . 'htdocs/html/press.html');
+				return $this->drawPress();
 			break;		
 			case 'contact':
 				return $this->drawContact();

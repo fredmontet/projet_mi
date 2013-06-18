@@ -1,4 +1,25 @@
-        <ul id="subnav">
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 16:44:35
+         compiled from "includes/templates/videos.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:109630862651c07253a93821-86739598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '6491d243e225c3e93de6332dae3036bfc82bb8a1' => 
+    array (
+      0 => 'includes/templates/videos.tpl',
+      1 => 1371563417,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '109630862651c07253a93821-86739598',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_51c07253ab7d18_62002724',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51c07253ab7d18_62002724')) {function content_51c07253ab7d18_62002724($_smarty_tpl) {?>        <ul id="subnav">
             <li class="sn-all"><a href="#all">All</a></li>
             <li class="sn-event"><a href="#event">Event</a></li>
             <li class="sn-speaker"><a href="#speaker">Speaker</a></li>
@@ -79,3 +100,4 @@
     </article>
 
 </section>
+<?php }} ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 13:52:19
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 16:05:44
          compiled from "includes/templates/gestion_event.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:39941330951c02b31c93464-04002460%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1933077ec974055a64e290315b2fbe16f7edb982' => 
     array (
       0 => 'includes/templates/gestion_event.tpl',
-      1 => 1371556272,
+      1 => 1371563417,
       2 => 'file',
     ),
   ),
@@ -45,11 +45,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <!--event line-->
 
     <section id="eventLine">
-        <article>
-            <h1>Title of event</h1>
-            <p>21 february 2013</p>
-            <p><img src="arrow.png"/></p>
-        </article>
+        <a href="?action=gestion_event_infos">
+            <article>
+                <h1>Title of event</h1>
+                <p>21 february 2013</p>
+                <div>Arrow</div>
+            </article>
+        </a>
     </section>
 
 </section><?php }} ?>
