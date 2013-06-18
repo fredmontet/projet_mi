@@ -11,11 +11,11 @@
 
 <!--gestion event nav-->
 
-<section id="content" class="getion_event">
+<section id="content" class="create_event">
    
     <nav>
         <h1>Event</h1>
-        <a href="#allEvent">All events</a>
+        <a href="#event">All events</a>
         <a href="#createAnEvent">Create an event</a>
         <a href="#waitingList">Waiting list</a>
         <a href="#mailingList">Mailing list</a>   
@@ -24,19 +24,12 @@
 
     <!--event line-->
 
-    <section>
-
-        <article id="content">
-                {foreach from=$events item=event}
-                        <article>
-                                <h1>{$event->getMainTopic()}</h1>
-                                <p>{$event->getStartingDate()}</p>
-                                <p>{$event->getDescription()}</p> <!--WTF ?-->
-                                <p><img src="arrow.png"/></p>
-                        </article>
-                {/foreach}
+    <section id="eventLine">
+        <article>
+            <h1>Title of event</h1>
+            <p>21 february 2013</p>
+            <p><img src="arrow.png"/></p>
         </article>
-
     </section>
 
 </section>
