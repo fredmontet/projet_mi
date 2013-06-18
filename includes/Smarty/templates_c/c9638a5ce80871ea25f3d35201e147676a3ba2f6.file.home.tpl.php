@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 15:52:20
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 20:46:52
          compiled from "includes/templates/home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:48412475851c02b2f5b29c4-59837022%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c9638a5ce80871ea25f3d35201e147676a3ba2f6' => 
     array (
       0 => 'includes/templates/home.tpl',
-      1 => 1371563417,
+      1 => 1371581209,
       2 => 'file',
     ),
   ),
@@ -24,26 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51c02b2f5c4227_63909073')) {function content_51c02b2f5c4227_63909073($_smarty_tpl) {?>
-    </nav>
-</header>
+<?php if ($_valid && !is_callable('content_51c02b2f5c4227_63909073')) {function content_51c02b2f5c4227_63909073($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['event_single']->value;?>
 
-<section id="content" class="home_infos">
-
-    <nav>
-        <ul>
-            <li class="infos"><a href="#infos">Infos</a></li>
-            <li class="details"><a href="#details">Details</a></li>
-            <li class="speaker"><a href="#speaker">Speaker</a></li>
-        </ul>
-    </nav>
-
- 
-    <section id="content">
-            <?php echo $_smarty_tpl->tpl_vars['event_single']->value;?>
-
-            <?php echo $_smarty_tpl->tpl_vars['home_videos']->value;?>
-
-    </section>
-
-</section><?php }} ?>
+<?php echo $_smarty_tpl->tpl_vars['home_videos']->value;?>
+<?php }} ?>

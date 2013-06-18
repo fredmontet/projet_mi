@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 16:45:50
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 19:02:39
          compiled from "includes/templates/partners.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:136752134051c0729e516aa7-88656519%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f08bee5e2ad63168fbf721706e3cf274b4213207' => 
     array (
       0 => 'includes/templates/partners.tpl',
-      1 => 1371545037,
+      1 => 1371571844,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.13',
   'unifunc' => 'content_51c0729e54d555_95531232',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51c0729e54d555_95531232')) {function content_51c0729e54d555_95531232($_smarty_tpl) {?>	<ul id="subnav">
             <li class="sn-tedxlauschange"><a href="#tedxlauschange">TEDxLausanneChange Partners</a></li>

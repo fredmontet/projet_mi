@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 13:52:14
+<?php /* Smarty version Smarty-3.1.13, created on 2013-06-18 18:12:01
          compiled from "includes/templates/event_single.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:181572725451c0490cb9de41-71328028%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85e4bbfabdcd637e4a6b6644f3be7e583fc8cfbf' => 
     array (
       0 => 'includes/templates/event_single.tpl',
-      1 => 1371556272,
+      1 => 1371571844,
       2 => 'file',
     ),
   ),

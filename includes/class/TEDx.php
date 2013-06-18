@@ -56,7 +56,7 @@ class TEDx {
 				echo "Unknow Error";
 			break;
 			default:
-				echo $message;
+				echo "<p id=\"errormessage\">" . $message . "</p>";
 			break;
 		}
 	}
@@ -103,14 +103,25 @@ class TEDx {
 		$event_single = $this->smarty->fetch('event_single.tpl');
 		
 		// Draw video playlist
-		$home_videos = $this->smarty->fetch('home_videos.tpl');
+		$video_list = $this->smarty->fetch('video_list.tpl');
     	
     	// Assign variables
     	$this->smarty->assign('event_single', $event_single);
-    	$this->smarty->assign('home_videos', $home_videos);
+    	$this->smarty->assign('home_videos', $video_list);
 		
 		// Draw Home page
 		return $this->smarty->fetch('home.tpl');
+    }
+    
+    
+    /**
+     * Draw the About navigator
+     * @return content HTML of the About page
+     */
+    protected function drawAboutNav() {
+		
+		// Draw About page
+		return $this->smarty->fetch('about_nav.tpl');
     }
     
     
@@ -199,12 +210,48 @@ class TEDx {
     
     
     /**
+     * Draw Gestion navigator
+     * @return content HTML of the Gestion navigator
+     */
+    protected function drawGestionNav() {
+	    return $this->smarty->fetch('gestion_nav.tpl');
+    }
+    
+    
+    /**
      * Draw the Gestion Create Event page
      * @return content HTML of the Gestion Create Event page
      */
-    protected function drawGestionEventInfos() {
-    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
-    	$this->smarty->assign('gestion_nav', $gestion_nav);
+    protected function drawGestionEvent($action) {
+    	$gestionEventNav = $this->smarty->fetch('gestion_event_nav.tpl');
+    	$this->smarty->assign('gestionEventNav', $gestionEventNav);
+    	
+    	switch($action) {
+	    	case 'gestion_event':
+	    		$gestionEventList = $this->smarty->fetch('gestion_event_list.tpl');
+				$this->smarty->assign('gestionEventContent', $gestionEventList);
+	    	break;
+	    	
+	    	case 'gestion_event_single':
+	    		$gestionEventSingle = $this->smarty->fetch('gestion_event_single.tpl');
+				$this->smarty->assign('gestionEventContent', $gestionEventSingle);
+	    	break;
+	    	
+	    	case 'gestion_event_motivation':
+	    		$gestionEventMotivation = $this->smarty->fetch('gestion_event_motivation.tpl');
+				$this->smarty->assign('gestionEventContent', $gestionEventMotivation);
+	    	break;
+	    	
+	    	case 'gestion_event_mail':
+	    		$gestionEventMail = $this->smarty->fetch('gestion_event_mail.tpl');
+				$this->smarty->assign('gestionEventContent', $gestionEventMail);
+	    	break;
+	    	
+	    	case 'gestion_event_role':
+	    		$gestionEventRole = $this->smarty->fetch('gestion_event_role.tpl');
+				$this->smarty->assign('gestionEventContent', $gestionEventRole);
+	    	break;
+    	}
     	
     	$messageEvent = $this->tedx_manager->getEvent(1);
     	
@@ -216,18 +263,12 @@ class TEDx {
     	
 	    $this->smarty->assign('event', $aValidEvent);
 		
-	    return $this->smarty->fetch('event_single.tpl');
+	    return $this->smarty->fetch('gestion_event.tpl');
     }
     
-    
-    /**
-     * Draw the Gestion Speaker page
-     * @return content HTML of the Gestion Speaker page
-     */
     protected function drawGestionSpeaker() {
-    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
-    	$this->smarty->assign('gestion_nav', $gestion_nav);
-	    return $this->smarty->fetch('gestion_speaker.tpl');
+	    $gestionSpeakerInfos = $this->smarty->fetch('gestion_speaker_infos.tpl');
+	    $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
     }
     
     
@@ -283,57 +324,180 @@ class TEDx {
      */
     protected function getContent($action) {
         switch($action) {
+        
+        	// Home
         	case 'home':
-        		return $this->drawHome();
+        		$topAction = 'home';
+        		$subnav = null;
+        		
+        		try {
+		            $content = $this->drawHome();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+        		
 			break;
+			
+			// About
 			case 'about':
-				return $this->drawAbout();
+				$topAction = 'about';
+				
+				try {
+		            $subnav = $this->drawAboutNav();
+					$content = $this->drawAbout();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
 			break;
+			
+			// Events
 			case 'events':
-				return $this->drawEvents();
+				$topAction = 'events';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawEvents();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
 			break;	
+			
+			// Event registration
+			case 'event_registration':
+				$topAction = 'event';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawEventRegistration();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Videos
 			case 'videos':
-				return $this->drawVideos();
-			break;	
+				$topAction = 'videos';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawVideos();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Partners
 			case 'partners':
-				return $this->drawPartners();
-			break;	
+				$topAction = 'partners';
+				
+				try {
+		            $subnav = $this->drawPartnersNav();
+					$content = $this->drawPartners();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+				
+			// Press
 			case 'press':
-				return $this->drawPress();
-			break;		
+				$topAction = 'press';
+				$subnav = null;
+				$content = $this->drawPress();
+			break;	
+			
+			// Press
+			case 'press':
+				$topAction = 'press';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawPress();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Contact
 			case 'contact':
-				return $this->drawContact();
-			break;		
+				$topAction = 'contact';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawContact();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Gestion
 			case 'gestion':
-				return $this->drawGestion();
+				$topAction = 'gestion';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawGestion();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
 			break;
-			case 'gestion_event_infos':
-				return $this->drawGestionEventInfos();
+			
+			// Gestion Event
+			case 'gestion_event':
+			case 'gestion_event_single':
+			case 'gestion_event_motivation':
+			case 'gestion_event_mail':
+			case 'gestion_event_role':
+				$topAction = 'gestion';
+				
+				try {
+		            $subnav = $this->drawGestionNav();
+					$content = $this->drawGestionEvent($action);
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
 			break;
+			
+			// Gestion Speaker
 			case 'gestion_speaker':
-				return $this->drawGestionSpeaker();
-			break;		
-			case 'gestion_location':
-				return $this->drawGestionLocation();
+				$topAction = 'gestion';
+				
+				try {
+		            $subnav = $this->drawGestionNav();
+					$content = $this->drawGestionSpeaker();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
 			break;
-			case 'gestion_team':
-				return $this->drawGestionTeamRole();
-			break;		
+					
 			case 'logout':
+				$topAction = 'logout';
+				$subnav = null;
 				$this->tedx_manager->logout();
 				
 				// Go to home page
 				header("Location: ?action=home");
 			break;
+			
 			case 'login':
+				$topAction = 'login';
+				$subnav = null;
 				//$this->tedx_manager->login('Penelope','anitakevinlove');
 				//
-				return $this->drawLogin();
+				$content = $this->drawLogin();
 			break;
-			case 'userinfo':
-				return $this->drawUserInfo();
+			
+			case 'user_infos':
+				$topAction = 'user_infos';
+				$subnav = null;
+				$content = $this->drawUserInfo();
 			break;
 		}	
+		
+		$subAction = $action;
+		
+		// Return all variables
+		return array($topAction, $subAction, $subnav, $content);
+		
     }
 
     /**
@@ -349,22 +513,22 @@ class TEDx {
 		    $action = 'home';
 		}
         
-        // Assigns the current action (for menu display)       
-        $this->smarty->assign('action', $action);
-        
         // Retrieves the corresponding action chosen user HTML       
         try {
-            $content = $this->getContent($action);
+            list ($topAction, $subAction, $subnav, $content) = $this->getContent($action);
         } catch (Exception $e) {
             $this->displayMessage('UnknownError');        	
         }
+        
+        // Assigns the current action (for menu display)       
+        $this->smarty->assign('topAction', $topAction);
         
         // Assigns user information to display  
         $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
         $this->smarty->assign('username', $this->tedx_manager->getUsername());
         
         // Assigns the subnav
-        // $this->smarty->assign('subnav', $subnav);
+        $this->smarty->assign('subnav', $subnav);
         
         // Assigns the content
         $this->smarty->assign('content', $content);
