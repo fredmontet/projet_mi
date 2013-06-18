@@ -6,11 +6,14 @@
    
     <nav>
         <h1>Event</h1>
-        <a href="?action=event">All events</a>
-        <a href="?action=createAnEvent">Create an event</a>
-        <a href="?action=waitingList">Waiting list</a>
-        <a href="?action=mailingList">Mailing list</a>   
-        <a href="?action=eventRole">Event role</a>   
+        <ul>
+            <li><a href="?action=event">All events</a></li>
+            <li><a href="?action=createAnEvent">Create an event</a></li>
+            <li><a href="?action=waitingList">Waiting list</a></li>
+            <li><a href="?action=mailingList">Mailing list</a>   </li>
+            <li><a href="?action=eventRole">Event role</a> </li>
+        
+        </ul>          
     </nav>
 
     <!--event line-->
