@@ -87,6 +87,11 @@ class TEDx {
 		return $aValidNextEvent;
     }
     
+    
+    /**
+     * Get the id of the object
+     * @return int id of the next object
+     */    
     protected function getId() {
 	    if (isset($_REQUEST['id'])) {
 		    $id = $_REQUEST['id'];
