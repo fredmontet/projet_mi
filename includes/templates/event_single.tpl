@@ -69,12 +69,8 @@
     <!--end speaker tab-->
  
     <!--registration button-->           
-<<<<<<< HEAD
     <button type="button" onclick="alert("Hello world!")">Registration</button>
-=======
     <div class="event_single"><a href="?action=event_registration&id=1">Registration</a></div>
-    
->>>>>>> 810bde45890f65dcf1ffb852e828bf2415cf5728
     <!--end button-->
      
         
