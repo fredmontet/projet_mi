@@ -1,4 +1,4 @@
-<section>
+<section class="gestion_event_motivation">
     <article>
         <h1>Jean-Paul Gaucher</h1>
         <p>
