@@ -69,7 +69,7 @@
     <!--end speaker tab-->
  
     <!--registration button-->           
-    <button type="button" onclick="alert("Hello world!")">Registration</button>
+    <button class="event_single" type="button" onclick="alert("Hello world!")">Registration</button>
     <!--end button-->
      
         
