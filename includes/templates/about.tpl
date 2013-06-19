@@ -1,5 +1,3 @@
-{$about_nav}
-
 <article class="about">
     
     <!--about tedxlausanne tab-->
