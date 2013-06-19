@@ -52,9 +52,6 @@ class TEDx {
      */
 	protected function displayMessage($message) {
 		switch($message) {
-			case 'UnknownError':
-				echo "Unknow Error";
-			break;
 			default:
 				echo "<p id=\"errormessage\">" . $message . "</p>";
 			break;
@@ -112,10 +109,14 @@ class TEDx {
     	
     	// get the next Event
 		$aValidNextEvent = $this->getNextEvent();
+		$id = $aValidNextEvent->getNo();
+		
+		$event_single = $this->drawEventSingle($id);
+		
 		
 		// Draw the next event
-		$this->smarty->assign('event', $aValidNextEvent);
-		$event_single = $this->smarty->fetch('event_single.tpl');
+		//$this->smarty->assign('event', $aValidNextEvent);
+		//$event_single = $this->smarty->fetch('event_single.tpl');
 		
 		// Draw video playlist
 		$video_list = $this->smarty->fetch('video_list.tpl');
@@ -174,19 +175,32 @@ class TEDx {
      * Draw the Event single page
      * @return content HTML of the Event single page
      */
-    protected function drawEventSingle() {
-    
-    	$messageEvent = $this->tedx_manager->getEvent(1);
+    protected function drawEventSingle($id) {
+    	
+    	// Get Event
+    	$messageEvent = $this->tedx_manager->getEvent($id);
     	
     	if($messageEvent->getStatus()) {
 		    $aValidEvent = $messageEvent->getContent();
+		    
+		    // Get Location
+			$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
+			
+			if($messageLocation->getStatus()) {
+			    $aValidLocation = $messageLocation->getContent();
+			} else {
+			    $this->displayMessage('No location found!');
+			}    
+					    
+			$this->smarty->assign('location', $aValidLocation); 
+			$this->smarty->assign('event', $aValidEvent);
+			
+			return $this->smarty->fetch('event_single.tpl');
+			
 		} else {
 		    $this->displayMessage('There isn\'t event!'); 
-	    }
-		
-		$this->smarty->assign('event', $aValidEvent);
-		
-	    return $this->smarty->fetch('event_single.tpl');
+		    return null;
+	    }	
     }
     
     
@@ -357,11 +371,17 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_speaker.tpl');
     }
     
-    protected function drawGestionLocation() {
-    	$direction = $_POST['direction'];            
-        $address = $_POST['address'];
-        $city = $_POST['city'];
-        $country = $_POST['country'];
+    protected function drawGestionLocation($action) {
+    	switch ($action) {
+	    	case 'gestion_location_edit':
+		    	$direction = $_POST['direction'];            
+		        $address = $_POST['address'];
+		        $city = $_POST['city'];
+		        $country = $_POST['country'];
+		    break;
+		    default:
+		    break;
+    	}
         
         
     
@@ -451,7 +471,8 @@ class TEDx {
         		try {
 		            $content = $this->drawHome();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('The home page doesn\'t exist!');
+		            $content = null;        	
 		        }
         		
 			break;
@@ -464,7 +485,8 @@ class TEDx {
 		            $subnav = $this->drawAboutNav();
 					$content = $this->drawAbout();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -476,7 +498,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawEvents();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;	
 			
@@ -488,7 +511,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawEventSingle();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;	
 			
@@ -500,7 +524,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawEventRegistration();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -512,7 +537,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawVideos();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -524,7 +550,8 @@ class TEDx {
 		            $subnav = $this->drawPartnersNav();
 					$content = $this->drawPartners();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 				
@@ -537,7 +564,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawPress();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -549,7 +577,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawContact();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;
 			
@@ -561,7 +590,8 @@ class TEDx {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestion();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -578,7 +608,8 @@ class TEDx {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestionEvent($action);
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;
 			
@@ -590,19 +621,22 @@ class TEDx {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestionSpeaker();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;
 			
 			// Gestion Location
 			case 'gestion_location':
+			case 'gestion_location_edit':
 				$topAction = 'gestion';
 				
 				try {
 		            $subnav = $this->drawGestionNav();
-					$content = $this->drawGestionLocation();
+					$content = $this->drawGestionLocation($action);
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;
 			
@@ -616,7 +650,8 @@ class TEDx {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestionTeam($action);
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');  
+		            $content = null;       	
 		        }
 			break;
 			
@@ -629,7 +664,8 @@ class TEDx {
 					$subnav = null;
 					$content = $this->drawLogin();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');    
+		            $content = null;     	
 		        }
 			break;
 					
@@ -642,7 +678,8 @@ class TEDx {
 		            $content = null;
 		            $this->tedx_manager->logout();
 		        } catch (Exception $e) {
-		            $this->displayMessage('You can\t logout.');        	
+		            $this->displayMessage('You can\t logout.');  
+		            $content = null;       	
 		        }
 				
 				// Go to home page
@@ -657,7 +694,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawUserInfos();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
 		        }
 			break;
 			
@@ -669,7 +707,8 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawRegister();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');   
+		            $content = null;      	
 		        }
 			break;
 			
@@ -681,7 +720,8 @@ class TEDx {
         		try {
 		            $content = $this->drawHome();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');        	
+		            $this->displayMessage('This page doesn\'t exist!');     
+		            $content = null;    	
 		        }
         		
 		}	
@@ -710,7 +750,11 @@ class TEDx {
         try {
             list ($topAction, $subAction, $subnav, $content) = $this->getContent($action);
         } catch (Exception $e) {
-            $this->displayMessage('UnknownError');        	
+            $this->displayMessage('There is no content.'); 
+            $topAction = null;
+            $subAction = null;
+            $subnav = null;
+            $content = null;
         }
         
         // Assigns the current action (for menu display)       
