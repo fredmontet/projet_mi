@@ -107,7 +107,7 @@ class TEDx {
     	
     	// Assign variables
     	$this->smarty->assign('event_single', $event_single);
-    	$this->smarty->assign('home_videos', $video_list);
+    	$this->smarty->assign('video_list', $video_list);
 		
 		// Draw Home page
 		return $this->smarty->fetch('home.tpl');
@@ -589,6 +589,18 @@ class TEDx {
 		            $this->displayMessage('This page doesn\'t exist!');        	
 		        }
 			break;
+			
+			// Default
+			default:
+        		$topAction = 'home';
+        		$subnav = null;
+        		
+        		try {
+		            $content = $this->drawHome();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+        		
 		}	
 		
 		$subAction = $action;

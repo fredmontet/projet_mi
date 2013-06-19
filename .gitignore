@@ -1,5 +1,4 @@
 nbproject/*
 *.metadata
 *.DS_Store
-includes/Smarty/template_c/*
-/Applications/MAMP/htdocs/tedxEventManager/projet_mi/includes/Smarty/template_c/*
+/includes/Smarty/templates_c/*
