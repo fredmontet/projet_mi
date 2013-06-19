@@ -566,6 +566,7 @@ class TEDx {
 			
 			// Gestion Event
 			case 'gestion_event':
+			case 'gestion_event_list':
 			case 'gestion_event_single':
 			case 'gestion_event_motivation':
 			case 'gestion_event_mail':
