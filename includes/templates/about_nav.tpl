@@ -1,5 +1,5 @@
-<ul id="subnav">
-    <li class="sn-tedxlausanne"><a href="#tedxlausanne">TEDxLausanne</a></li>
-    <li class="sn-ted"><a href="#ted">TED</a></li>
-    <li class="sn-tedx"><a href="#tedx">TEDx</a></li>
+<ul id="about_nav">
+    <li class="abtedxlausanne"><a href="#tedxlausanne">About TEDxLausanne</a></li>
+    <li class="ab_ted"><a href="#ted">About TED</a></li>
+    <li class="ab_tedx"><a href="#tedx">About TEDx</a></li>
 </ul>
