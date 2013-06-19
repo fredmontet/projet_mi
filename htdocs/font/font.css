@@ -2,4 +2,10 @@
 /*		@fonce-face kits imports	*/
 /************************************/
 
-@import url(/helvetica/stylesheet.css);
+@import url(/HelveticaNeueThin/helveticaneuethin.css);
+@import url(/HelveticaNeueLightRoman/helveticaneuelight.css);
+@import url(/HelveticaNeueRoman/helveticaneueroman.css);
+@import url(/HelveticaNeueItalic/helveticaneueitalic.css);
+@import url(/HelveticaNeueMedium/helveticaneuemedium.css);
+@import url(/HelveticaNeueBold/helveticaneueroman.css);
+

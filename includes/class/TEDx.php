@@ -87,6 +87,11 @@ class TEDx {
 		return $aValidNextEvent;
     }
     
+    
+    /**
+     * Get the id of the object
+     * @return int id of the next object
+     */    
     protected function getId() {
 	    if (isset($_REQUEST['id'])) {
 		    $id = $_REQUEST['id'];
@@ -109,7 +114,7 @@ class TEDx {
 		$aValidNextEvent = $this->getNextEvent();
 		
 		// Draw the next event
-		$this->smarty->assign('nextEvent', $aValidNextEvent);
+		$this->smarty->assign('event', $aValidNextEvent);
 		$event_single = $this->smarty->fetch('event_single.tpl');
 		
 		// Draw video playlist
@@ -164,6 +169,26 @@ class TEDx {
 		
 	    return $this->smarty->fetch('events.tpl');
     }
+    
+    /**
+     * Draw the Event single page
+     * @return content HTML of the Event single page
+     */
+    protected function drawEventSingle() {
+    
+    	$messageEvent = $this->tedx_manager->getEvent(1);
+    	
+    	if($messageEvent->getStatus()) {
+		    $aValidEvent = $messageEvent->getContent();
+		} else {
+		    $this->displayMessage('There isn\'t event!'); 
+	    }
+		
+		$this->smarty->assign('event', $aValidEvent);
+		
+	    return $this->smarty->fetch('event_single.tpl');
+    }
+    
     
     /**
      * Draw the Event Registration page
@@ -442,6 +467,18 @@ class TEDx {
 				try {
 		            $subnav = null;
 					$content = $this->drawEvents();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;	
+			
+			// Events
+			case 'event_single':
+				$topAction = 'events';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawEventSingle();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');        	
 		        }

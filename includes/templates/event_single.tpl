@@ -3,8 +3,8 @@
 <!--event header-->
 
         <header>
-            <h1 class="event_date">14 April 2013</h1>
-            <h1 class="event_title">Title of Event</h1>
+            <h1 class="event_date">{$event->getStartingDate()}</h1>
+            <h1 class="event_title">{$event->getMainTopic()}</h1>
             
             <nav class="event_nav">
                 <a href="#infos">Infos</a>
@@ -30,7 +30,7 @@
         <!--event tab-->
         <section class="event_programm">
             <h2 class="event_programm_title">Programme</h2>
-            <p class="event_programm_desc">description programme blablalalalblblblblba</p>
+            <p class="event_programm_desc">{$event->getDescription()}</p>
         </section>
         <!--end event tab-->  
     </section>
@@ -61,7 +61,7 @@
         <section class="event_speaker">
             <h2 class="event_speaker_title">Speaker of slot one</h2>
             <ul class="event_speaker_listbyslot">
-                <li>Jean-Paul Savary</li>              
+                <li>Jean-Paul Savary</li>
             </ul>            
         </section>
         <!--end speaker slot-->            
@@ -69,8 +69,8 @@
     <!--end speaker tab-->
  
     <!--registration button-->           
+    <button type="button" onclick="alert("Hello world!")">Registration</button>
     <div class="event_single"><a href="?action=event_registration&id=1">Registration</a></div>
-    
     <!--end button-->
      
         
