@@ -4,7 +4,7 @@
 
         <!--name-->
         <p>
-            <!--<label for="name">Name </label>-->
+            <label for="name">Name </label>
             <input type="text" name="user_name" value="Your name"style="width:200px" />
         </p>
 
