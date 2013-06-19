@@ -179,6 +179,15 @@ class TEDx {
     
     
     /**
+     * Draw the Partners navigator
+     * @return content HTML of the Partners navigator
+     */
+    protected function drawPartnersNav() {
+	    return $this->smarty->fetch('partners_nav.tpl');
+    }
+    
+    
+    /**
      * Draw the Press page
      * @return content HTML of the Press page
      */
@@ -204,7 +213,7 @@ class TEDx {
      */
     protected function drawGestion() {
     	$action = 'gestion_event';
-	    return $this->drawGestioEvent($action);
+	    return $this->drawGestionEvent($action);
     }
     
     
@@ -218,8 +227,8 @@ class TEDx {
     
     
     /**
-     * Draw the Gestion Create Event page
-     * @return content HTML of the Gestion Create Event page
+     * Draw the Gestion Event page
+     * @return content HTML of the Gestion Event page
      */
     protected function drawGestionEvent($action) {
     	$gestionEventNav = $this->smarty->fetch('gestion_event_nav.tpl');
@@ -267,33 +276,40 @@ class TEDx {
     
     protected function drawGestionSpeaker() {
 	    $gestionSpeakerInfos = $this->smarty->fetch('gestion_speaker_infos.tpl');
-	    return $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
+	    $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
+	    
+	    return $this->smarty->fetch('gestion_speaker.tpl');
     }
     
     protected function drawGestionLocation() {
 	    $gestionLocationInfos = $this->smarty->fetch('gestion_location_infos.tpl');
-	    return $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
-    }
-    
-    
-    /**
-     * Draw the Gestion Location page
-     * @return content HTML of the Gestion Location page
-     */
-    protected function drawGestionLocation() {
-    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
-    	$this->smarty->assign('gestion_nav', $gestion_nav);
+	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
+	    
 	    return $this->smarty->fetch('gestion_location.tpl');
     }
     
     
     /**
-     * Draw the Gestion Location page
-     * @return content HTML of the Gestion Location page
+     * Draw the Gestion Team page
+     * @return content HTML of the Gestion Team page
      */
-    protected function drawGestionTeamRole() {
-    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
-    	$this->smarty->assign('gestion_nav', $gestion_nav);
+    protected function drawGestionTeam($action) {
+    	$gestionTeamNav = $this->smarty->fetch('gestion_team_nav.tpl');
+    	$this->smarty->assign('gestionTeamNav', $gestionTeamNav);
+    	
+    	switch($action) {
+    		case 'gestion_team':
+	    	case 'gestion_team_affect':
+	    		$gestionTeamAffect = $this->smarty->fetch('gestion_team_affect.tpl');
+				$this->smarty->assign('gestionTeamContent', $gestionTeamAffect);
+	    	break;
+	    	
+	    	case 'gestion_team_edit':
+	    		$gestionTeamEdit = $this->smarty->fetch('gestion_team_edit.tpl');
+				$this->smarty->assign('gestionTeamContent', $gestionTeamEdit);
+	    	break;
+	    }
+	    
 	    return $this->smarty->fetch('gestion_team.tpl');
     }
     
@@ -438,7 +454,7 @@ class TEDx {
 				$topAction = 'gestion';
 				
 				try {
-		            $subnav = null;
+		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestion();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');        	
@@ -480,6 +496,20 @@ class TEDx {
 				try {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestionLocation();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Gestion Team
+			case 'gestion_team':
+			case 'gestion_team_affect':
+			case 'gestion_team_edit':
+				$topAction = 'gestion';
+				
+				try {
+		            $subnav = $this->drawGestionNav();
+					$content = $this->drawGestionTeam($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');        	
 		        }
