@@ -275,6 +275,9 @@ class TEDx {
 	    	break;
 	    	
 	    	case 'gestion_event_role':
+	    		$gestionEventRoleInfo = $this->smarty->fetch('gestion_event_role_info.tpl');
+				$this->smarty->assign('gestionEventRoleInfo', $gestionEventRoleInfo);
+	    		
 	    		$gestionEventRole = $this->smarty->fetch('gestion_event_role.tpl');
 				$this->smarty->assign('gestionEventContent', $gestionEventRole);
 	    	break;
