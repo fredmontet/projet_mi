@@ -291,6 +291,7 @@ class TEDx {
     	
     	switch($action) {
 	    	case 'gestion_event':
+	    	case 'gestion_event_list':
 	    		$messageEvents = $this->tedx_manager->getEvents();
     	
 		    	if($messageEvents->getStatus()) {
@@ -357,6 +358,13 @@ class TEDx {
     }
     
     protected function drawGestionLocation() {
+    	$direction = $_POST['direction'];            
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $country = $_POST['country'];
+        
+        
+    
 	    $gestionLocationInfos = $this->smarty->fetch('gestion_location_infos.tpl');
 	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
 	    
@@ -559,6 +567,7 @@ class TEDx {
 			
 			// Gestion Event
 			case 'gestion_event':
+			case 'gestion_event_list':
 			case 'gestion_event_single':
 			case 'gestion_event_motivation':
 			case 'gestion_event_mail':

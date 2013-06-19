@@ -33,8 +33,13 @@
 
         <!--submit--> 
         <p>
-        <input type="submit" name="send" value="Send" />
+            <input type="submit" name="send" value="Send" />
         </p>
         
-       </form>
+        </form>
+        
+        <!--google maps incorporated--> 
+        <div>
+            <a href="https://maps.google.ch/maps?hl=fr&tab=wl">"Picture of Google Maps TedxLausanne location"</a>
+        </div>
 </article>
