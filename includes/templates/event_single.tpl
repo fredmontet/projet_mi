@@ -3,58 +3,75 @@
 <!--event header-->
 
         <header>
-            <p class="event_date">{$event_date}</p>
-            <h1 class="event_title">{$event_title}</h1>
+            <h1 class="event_date">14 April 2013</h1>
+            <h1 class="event_title">Title of Event</h1>
             
             <nav class="event_nav">
-                <a href="#info">Info</a>
+                <a href="#infos">Infos</a>
                 <a href="#details">Details</a>
                 <a href="#speaker">Speaker</a>   
             </nav>
         </header>
         
             
-<!--info tab-->
-    <section id="info">
+    <!--info tab-->
+    <section class="infos">
+        
+        <!-- schedule tab-->
         <section class="event_schedule">
-            <h2 class="event_schedule_title">{$event_schedule_title}</h2>
-            <dl class="event_schedule_slots">
-                <dt>{$slot_time}</dt><dd>{$slot_desc}</dd>              
-            </dl>            
+                <h2 class="event_schedule_title">Schedule</h2>
+                <dl class="event_schedule_slots">
+                    <dt>13:00</dt>
+                        <dd>Registration</dd>   
+                </dl>
         </section>
+        <!--end schedule tab-->
         
+        <!--event tab-->
         <section class="event_programm">
-            <h2 class="event_programm_title">{$event_programme_title}</h2>
-            <p class="event_programm_desc">{$event_programm_desc}</p>
+            <h2 class="event_programm_title">Programme</h2>
+            <p class="event_programm_desc">description programme blablalalalblblblblba</p>
         </section>
+        <!--end event tab-->  
     </section>
+    <!--end infos tab-->
         
-<!--details tab-->
-    <div id="details">
+    <!--details tab-->
+    <section class="details">
+        <!--language-->
         <section class="event_lang">
-            <h2 class="event_lang_title">{$event_lang_title}</h2>
-            <p class="event_lang_desc">{$event_lang_desc}</p>
+            <h2 class="event_lang_title">Languages</h2>
+            <p class="event_lang_desc">blbla english blblabla</p>
         </section>
-        
+        <!--end language-->
+    
+        <!--dress code-->
         <section class="event_dresscode">
-            <h2 class="event_dresscode_title">{$event_dresscode_title}</h2>
-            <p class="event_dresscode_desc">{$event_dresscode_desc}</p>
+            <h2 class="event_dresscode_title">Dress Code</h2>
+            <p class="event_dresscode_desc">blbalablblablaabl</p>
         </section>
-    </div>
+        <!--end dress code-->
+    </section>
+    <!--end section tab-->
         
         
  <!--speaker tab-->
-    <div id="speaker">
+    <section class="speaker">
+        <!--speaker slot-->
         <section class="event_speaker">
-            <h2 class="event_speaker_title">{$event_speaker_title}</h2>
+            <h2 class="event_speaker_title">Speaker of slot one</h2>
             <ul class="event_speaker_listbyslot">
-                <li>{$slot_speaker_name}</li>              
+                <li>Jean-Paul Savary</li>              
             </ul>            
         </section>
-    </div>
+        <!--end speaker slot-->            
+    </section>
+    <!--end speaker tab-->
  
- <!--registration button-->           
-        <button type="button" onclick="alert("Hello world!")">Registration</button>
+    <!--registration button-->           
+    <button type="button" onclick="alert("Hello world!")">Registration</button>
+    <!--end button-->
+     
         
-        
-  </article>
+</article>
+<!--end of event_single-->
