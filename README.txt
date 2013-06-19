@@ -13,6 +13,10 @@ Authors   :
   - Frédéric Montet
   - Louis Allemann
 
+Help 
+  - RSZ
+  - LFT
+
 About     :
 This project aims to provide a web-based system to manage TEDx Events.
 

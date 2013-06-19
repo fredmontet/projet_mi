@@ -87,6 +87,16 @@ class TEDx {
 		return $aValidNextEvent;
     }
     
+    protected function getId() {
+	    if (isset($_REQUEST['id'])) {
+		    $id = $_REQUEST['id'];
+		} else {
+		    $id = null;
+		}
+		
+		return $id;
+    }
+    
     
     
     /**
@@ -253,13 +263,41 @@ class TEDx {
     	$gestionEventNav = $this->smarty->fetch('gestion_event_nav.tpl');
     	$this->smarty->assign('gestionEventNav', $gestionEventNav);
     	
+    	
     	switch($action) {
 	    	case 'gestion_event':
+	    		$messageEvents = $this->tedx_manager->getEvents();
+    	
+		    	if($messageEvents->getStatus()) {
+				    $allValidEvents = $messageEvents->getContent();
+				} else {
+				    $this->displayMessage('There isn\'t event!'); 
+			    }
+				
+				$this->smarty->assign('events', $allValidEvents);
+	    	
 	    		$gestionEventList = $this->smarty->fetch('gestion_event_list.tpl');
 				$this->smarty->assign('gestionEventContent', $gestionEventList);
 	    	break;
 	    	
 	    	case 'gestion_event_single':
+	    		$id = $this->getId();
+	    		
+	    		if($id != null) {
+		    		$messageEvent = $this->tedx_manager->getEvent($id);
+		    		
+					if($messageEvent->getStatus()) {
+					    $aValidEvent = $messageEvent->getContent();
+					} else {
+					    $this->displayMessage('There isn\'t event!'); 
+				    }
+				
+					$this->smarty->assign('event', $aValidEvent);
+					
+	    		} else {
+		    		$this->displayMessage('There isn\'t an event with this id.');
+	    		}
+	    		
 	    		$gestionEventSingle = $this->smarty->fetch('gestion_event_single.tpl');
 				$this->smarty->assign('gestionEventContent', $gestionEventSingle);
 	    	break;
@@ -282,16 +320,6 @@ class TEDx {
 				$this->smarty->assign('gestionEventContent', $gestionEventRole);
 	    	break;
     	}
-    	
-    	$messageEvent = $this->tedx_manager->getEvent(1);
-    	
-    	if($messageEvent->getStatus()) {
-		    $aValidEvent = $messageEvent->getContent();
-		} else {
-		    $this->displayMessage('There isn\'t event!'); 
-	    }
-    	
-	    $this->smarty->assign('event', $aValidEvent);
 		
 	    return $this->smarty->fetch('gestion_event.tpl');
     }
