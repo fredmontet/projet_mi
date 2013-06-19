@@ -362,7 +362,8 @@ class TEDx {
         $address = $_POST['address'];
         $city = $_POST['city'];
         $country = $_POST['country'];
-
+        
+        
     
 	    $gestionLocationInfos = $this->smarty->fetch('gestion_location_infos.tpl');
 	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
