@@ -1,4 +1,3 @@
-
 <article class="event_single">
  
 <!--event header-->
