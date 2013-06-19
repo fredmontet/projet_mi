@@ -6,6 +6,103 @@
 @import url(grid.css);
 @import url(../font/font.css);
 
+
+/****************************************/
+/*		Typography and CSS Base			*/
+/****************************************/
+
+body{
+	font-family:'HelveticaNeueLTStd55Roman',helvetica,arial,sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+	background-color: #ffffff;
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #005580;
+  text-decoration: underline;
+}
+
+p{
+  margin: 0 0 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h1 {
+  font-size: 38.5px;
+  line-height: 40px;
+  
+}
+
+h2 {
+  font-size: 31.5px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 24.5px;
+  line-height: 40px;
+}
+
+h4 {
+  font-size: 17.5px;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h6 {
+  font-size: 11.9px;
+  line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #errormessage {
 	z-index: 100;
 	color: red;
