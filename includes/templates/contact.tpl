@@ -1,21 +1,22 @@
-<article>
-<h1>Contact</h1>
-        <form id="contact" method="post" action="xx.php">
+<article class="contact">
+    <section>
+        <h1 class="contact_title">Contact</h1>
+            <form id="contact" method="post" action="xx.php">
 
         <!--name-->
         <p>
-            <label for="name">Name </label>
-            <input type="text" name="user_name" value="Your name"style="width:200px" />
+            <label for="user_name">Name </label>
+            <input type="text" name="user_name" style="width:200px" />
         </p>
 
         <p>
-            <!--<label for="surname">Surname </label>-->
-            <input type="text" name="user_surname" value="Your surname" style="width:200px"/>
+            <label for="user_surname">Surname </label>
+            <input type="text" name="user_surname" style="width:200px"/>
         </p>
 
         <!--email-->
         <p>
-            <!--<label for="email">Email </label>-->
+            <label for="email">Email </label>
             <input type="email" name="user_email" value="Your email" style="width:200px" />
         </p>
 
