@@ -1,2 +1,2 @@
 {$event_single}
-{$home_videos}
+{$video_list}
