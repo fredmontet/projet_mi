@@ -319,6 +319,9 @@ class TEDx {
     	switch($action) {
     		case 'gestion_team':
 	    	case 'gestion_team_affect':
+	    		$gestionTeamAffectInfos = $this->smarty->fetch('gestion_team_affect_infos.tpl');
+				$this->smarty->assign('gestionTeamAffectInfos', $gestionTeamAffectInfos);
+	    	
 	    		$gestionTeamAffect = $this->smarty->fetch('gestion_team_affect.tpl');
 				$this->smarty->assign('gestionTeamContent', $gestionTeamAffect);
 	    	break;
