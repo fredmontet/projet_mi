@@ -69,7 +69,8 @@
     <!--end speaker tab-->
  
     <!--registration button-->           
-    <button class="event_single" type="button" onclick="alert("Hello world!")">Registration</button>
+    <div class="event_single"><a href="?action=event_registration&id=1">Registration</a></div>
+    
     <!--end button-->
      
         
