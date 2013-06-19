@@ -20,7 +20,7 @@
 
         <!--user_infos-->
         <section class="event_user_infos">
-            <h2 class="event_user_infos_title">Your general informations<
+            <h2 class="event_user_infos_title">Your general informations</h2>
 
                 <!--formulaire-->
                 <form id="user_infos" method="post" action="xx.php">
