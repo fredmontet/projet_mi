@@ -1,7 +1,14 @@
 <article>
+<<<<<<< HEAD
         <form id="location" method="post" action="xx.php">
                 <!--submit--> 
         <p>
+=======
+        <form id="location" method="post" action="">
+        <!--submit--> 
+        <p>
+        <input type="hidden" name="location" value="Save" />
+>>>>>>> aae9dcc17df6b8beb9ff6ca61010e52ee2d31dbb
         <input type="submit" name="save" value="Save" />
         </p>
 
