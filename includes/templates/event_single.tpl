@@ -15,7 +15,7 @@
         
             
     <!--info tab-->
-    <section class="infos">
+    <section id="infos">
         
         <!-- schedule tab-->
         <section class="event_schedule">
@@ -37,7 +37,7 @@
     <!--end infos tab-->
         
     <!--details tab-->
-    <section class="details">
+    <section id="details">
         <!--language-->
         <section class="event_lang">
             <h2 class="event_lang_title">Languages</h2>
@@ -56,7 +56,7 @@
         
         
  <!--speaker tab-->
-    <section class="speaker">
+    <section id="speaker">
         <!--speaker slot-->
         <section class="event_speaker">
             <h2 class="event_speaker_title">Speaker of slot one</h2>
@@ -69,7 +69,12 @@
     <!--end speaker tab-->
  
     <!--registration button-->           
+<<<<<<< HEAD
     <button type="button" onclick="alert("Hello world!")">Registration</button>
+=======
+    <div class="event_single"><a href="?action=event_registration&id=1">Registration</a></div>
+    
+>>>>>>> 810bde45890f65dcf1ffb852e828bf2415cf5728
     <!--end button-->
      
         
