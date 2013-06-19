@@ -7,20 +7,20 @@
         <h1 class="event_title">Title of Event</h1>
 
         <nav class="event_nav">
-            <a href="#user_infos">fred1</a>
-            <a href="#user_details">fred2</a>
-            <a href="#user_adress">fred3</a>   
-            <a href="#user_motivation">fred4</a>
+            <a href="#event_user_infos">fred1</a>
+            <a href="#event_user_details">fred2</a>
+            <a href="#event_user_adress">fred3</a>   
+            <a href="#event_user_motivation">fred4</a>
             <p>fred fait le nav</>
         </nav>
     </header>
 
     <!--user-informations tab-->
-    <section class="event_user_infos">
-        <h2 class="event_user_infos_title">Your general informations</h2>
+    <section id="event_user_infos">
+        <h2 class="event_user_infos_title">General informations</h2>
 
         <!--formulaire-->
-        <form id="user_infos" method="post" action="xx.php">
+        <form id="event_user_infos" method="post" action="xx.php">
 
             <!--user_name-->
             <p>
@@ -30,7 +30,7 @@
 
             <!--user_surname-->
             <p>
-                <label for="user_surname">Surame </label>
+                <label for="user_surname">Surname </label>
                 <input type="text" name="user_surname" style="width:200px"/>
             </p>
 
@@ -64,11 +64,11 @@
     <!--end user_infos tab-->
 
     <!--user-details tab-->
-    <section class="event_user_details">
+    <section id="event_user_details">
         <h2 class="event_user_details_title">And a bit more details...</h2>
 
         <!--formulaire-->
-        <form id="user_details" method="post" action="xx.php">
+        <form id="event_user_details" method="post" action="xx.php">
 
             <!--user_dateofbirth-->
             <p>
@@ -85,7 +85,7 @@
             <!--message-->
             <p>
                 <label for="user_message">Message </label>
-                <textarea type="text" name="user_message" rows="4" cols="26">Your message</textarea>
+                <textarea type="text" name="user_message" rows="4" cols="26"></textarea>
             </p>
         </form>
         <!--end formulaire-->
@@ -96,11 +96,11 @@
     <!--end user_details tab-->
 
     <!--user_adress tab-->
-    <section class="event_user_adress">
+    <section id="event_user_adress">
         <h2 class="event_user_adress_title">Please give us your adress</h2>
 
         <!--formulaire-->
-        <form id="user_adress" method="post" action="xx.php">
+        <form id="event_user_adress" method="post" action="xx.php">
 
             <!--user_street-->
             <p>
@@ -131,11 +131,11 @@
     <!--end user_adress tab-->
 
     <!--user_motivation tab-->
-    <section class="event_user_motivation">
+    <section id="event_user_motivation">
         <h2 class="event_user_motivation_title">Show us your motivations!</h2>
 
         <!--formulaire-->
-        <form id="user_motivation" method="post" action="xx.php">
+        <form id="event_user_motivation" method="post" action="xx.php">
 
             <!--user_keywords-->
             <p>
@@ -153,8 +153,8 @@
 
             <!--user_motivation-->
             <p>
-                <label for="user_motivation">Keyword 1 </label>
-                <textarea type="text" name="user_motivation" rows="4" cols="26">Your motivation</textarea>
+                <label for="user_motivation">Motivation </label>
+                <textarea type="text" name="user_motivation" rows="4" cols="26"></textarea>
             </p>
         </form>
         <!--end formulaire-->
