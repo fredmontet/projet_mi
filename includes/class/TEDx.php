@@ -203,9 +203,8 @@ class TEDx {
      * @return content HTML of the Gestion page
      */
     protected function drawGestion() {
-    	$gestion_nav = $this->smarty->fetch('gestion_nav.tpl');
-    	$this->smarty->assign('gestion_nav', $gestion_nav);
-	    return $this->smarty->fetch('gestion_event.tpl');
+    	$action = 'gestion_event';
+	    return $this->drawGestioEvent($action);
     }
     
     
@@ -268,7 +267,12 @@ class TEDx {
     
     protected function drawGestionSpeaker() {
 	    $gestionSpeakerInfos = $this->smarty->fetch('gestion_speaker_infos.tpl');
-	    $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
+	    return $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
+    }
+    
+    protected function drawGestionLocation() {
+	    $gestionLocationInfos = $this->smarty->fetch('gestion_location_infos.tpl');
+	    return $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
     }
     
     
@@ -464,6 +468,18 @@ class TEDx {
 				try {
 		            $subnav = $this->drawGestionNav();
 					$content = $this->drawGestionSpeaker();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');        	
+		        }
+			break;
+			
+			// Gestion Location
+			case 'gestion_location':
+				$topAction = 'gestion';
+				
+				try {
+		            $subnav = $this->drawGestionNav();
+					$content = $this->drawGestionLocation();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');        	
 		        }
