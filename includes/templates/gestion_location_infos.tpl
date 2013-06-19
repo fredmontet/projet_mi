@@ -1,7 +1,8 @@
 <article>
-        <form id="location" method="post" action="xx.php">
-                <!--submit--> 
+        <form id="location" method="post" action="">
+        <!--submit--> 
         <p>
+        <input type="hidden" name="location" value="Save" />
         <input type="submit" name="save" value="Save" />
         </p>
 
