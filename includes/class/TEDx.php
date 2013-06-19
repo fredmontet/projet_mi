@@ -409,7 +409,7 @@ class TEDx {
      */
     protected function drawLogin() {
     	// Assign variables
-	    $this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
+	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
 	    $this->tedx_manager->login('admin','admin');
 	    return $this->smarty->fetch('login.tpl');
     }
