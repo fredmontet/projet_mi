@@ -65,7 +65,7 @@
         
     
     <!--details tab-->
-    <section>
+    <section id="details">
         <!--language-->
         <section>
             <h2>Languages</h2>
@@ -82,7 +82,7 @@
         
     
     <!--speaker tab-->
-    <section>
+    <section id="speaker">
         <!--speaker slot-->
         <section>
             <h2>Speaker of slot one</h2>
