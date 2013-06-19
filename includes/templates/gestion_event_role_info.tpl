@@ -1,10 +1,10 @@
-<section>
+<article class="gestion_event_role_info">
 
 
     
     
     <!--Buttons-->   
-    <article>
+    <section>
             <!--next button-->           
             <div>
                 <button type="button" onclick="#details">Next</button>
@@ -13,6 +13,6 @@
             <div>
                 <button type="button" onclick="#details">Previous</button>
             </div>
-    </article>
+    </section>
     
-</section>
+</article>
