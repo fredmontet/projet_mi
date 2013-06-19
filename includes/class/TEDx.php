@@ -358,6 +358,9 @@ class TEDx {
 	    	break;
 	    	
 	    	case 'gestion_team_edit':
+	    		$gestionTeamEditInfos = $this->smarty->fetch('gestion_team_edit_infos.tpl');
+				$this->smarty->assign('gestionTeamEditInfos', $gestionTeamEditInfos);
+	    	
 	    		$gestionTeamEdit = $this->smarty->fetch('gestion_team_edit.tpl');
 				$this->smarty->assign('gestionTeamContent', $gestionTeamEdit);
 	    	break;
