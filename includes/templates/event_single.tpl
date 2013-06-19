@@ -17,6 +17,13 @@
     <!--info tab-->
     <section id="infos">
         
+        <!-- location tab-->
+        <section class="event_location">
+                <h2 class="event_location_title">Location</h2>
+                <p class="event_location_slots">{$location->getCity()}</p>
+        </section>
+        <!--end location tab-->
+        
         <!-- schedule tab-->
         <section class="event_schedule">
                 <h2 class="event_schedule_title">Schedule</h2>
