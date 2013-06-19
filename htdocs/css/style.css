@@ -4,7 +4,14 @@
 
 @import url(normalize.css);
 @import url(grid.css);
-@import url(../font/font.css);
+
+/*fonts @font-face kits*/
+@import url(../font/HelveticaNeueThin/helveticaneuethin.css);
+@import url(../font/HelveticaNeueLightRoman/helveticaneuelight.css);
+@import url(../font/HelveticaNeueRoman/helveticaneueroman.css);
+@import url(../font/HelveticaNeueItalic/helveticaneueitalic.css);
+@import url(../font/HelveticaNeueMedium/helveticaneuemedium.css);
+@import url(../font/HelveticaNeueBold/helveticaneueroman.css);
 
 /*				End of imports			*/
 
@@ -288,7 +295,7 @@ h6 {
 }
 
 #globalfooter p {
-    
+    font-family: 'HelveticaNeueLTStd56Italic',helvetica,arial,sans-serif;;
     text-align: center;
     color:#c0c0c0;    
 }
