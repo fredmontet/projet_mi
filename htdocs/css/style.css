@@ -107,18 +107,18 @@
 #subnav{
     margin: 0 auto;
     display: block;
-    margin-top: -40px;
+    margin-top: -52px;
     left: 310px;
     text-align: center;
 }
 #subnav a{
     display:block;
     float:left;   
-    width:100px;
-    color:black;
+    color:#fff;
     text-decoration:none;
     text-align:center;
     padding:5px;
+    background-color:#c0c0c0;
 
 
 }
@@ -130,20 +130,21 @@
 
 #subnav li{
     display: inline-block;
-    margin-right: 5px;
+    margin:-2px;
 }
 
 #content article {
     width: 960px;
-    margin: 110px auto 0;
+    margin: 0px auto;
     padding: 5px;        
 }
 #content{
     background-color: #fff;
+    margin:100px;
 }
 
 #content nav{
-    display:inline-block;
+    display:block;
     float:left;   
     width: 100%;
     color:#fff;
@@ -152,15 +153,21 @@
     text-align:center;
     padding:5px; 
 }
-#content nav li {
+#content nav li{
     display:inline-block;
-    
+}
+#content li a {
+    color: #c0c0c0;
 }
 #content li a:hover{
-    background-color:#fff;
-    color:#222;
+    color:#fff;
     text-decoration:none;   
 }
+#content h1 {
+    
+font-size : 30px
+}
+
 #globalfooter{
     bottom: 0;
 }
