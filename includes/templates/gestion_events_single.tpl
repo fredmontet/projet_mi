@@ -4,9 +4,9 @@
         <!--gestion event single header-->
         <header>
             <!--date-->
-            <label for="date"><input type="time" value="14 april 2013" name="gestion_events_date" style="width:200px" /></label>
+            <label for="date"><input type="time" value="14 april 2013" name="gestion_events_date" /></label>
             <!--event title-->
-            <label for="title"><input type="text" value="Title of event" name="gestion_events_title" style="width:200px" /></label>
+            <label for="title"><input type="text" value="Title of event" name="gestion_events_title" /></label>
             <!--single nav -->
             <nav class="gestion_events_nav">
                 <a href="#gestion_events_single_infos">Infos</a>
