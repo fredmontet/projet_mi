@@ -1,7 +1,7 @@
 <article class="user_infos">
     <!--modification form-->
     <section>
-        <form method="post" action="">
+        <form name="user_infos" method="post" action="">
             <!--firstname-->
             <p>
                 <label for="user_name">First name</label>
@@ -55,8 +55,8 @@
             </p>
             <!--save modification button-->
             <p>
-                <input type="hidden" name="save" value="saveModification" />
-                <input type="submit" name="submit_save" value="saveModification" />
+                <input type="hidden" name="action" value="user_infos_send" />
+                <input type="submit" name="user_infos_send" value="Save Modification" />
             </p>
         </form>  
     </section>
@@ -64,7 +64,7 @@
     
     <!--new password form-->
     <section>
-        <form method="post" action="">
+        <form name="user_password" method="post" action="">
             <!--firstname-->
             <p>
                 <label for="current_password">Current Password</label>
@@ -82,8 +82,8 @@
             </p>
             <!--save new password button-->
             <p>
-                <input type="hidden" name="saveNewPassword" value="saveNewPassword" />
-                <input type="submit" name="saveNewPassword" value="saveNewPassword" />
+                <input type="hidden" name="action" value="user_infos_password" />
+                <input type="submit" name="user_infos_password" value="Save New Password" />
             </p>
         </form>  
     </section>
