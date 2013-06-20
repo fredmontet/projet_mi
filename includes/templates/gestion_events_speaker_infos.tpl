@@ -5,11 +5,16 @@
     <p><textarea>Description</textarea></p>
 
     <!--talk link-->
-    <p><label for="talk">Talk's video</label></p>
-    <p><input type="text" name="talk" value="http://" /><a href="http://youtube.com" /></p>
+    <p>
+        <a href="mettre lien sur video">
+            <label for="talk">Talk's video</label>
+            <input type="text" name="talk" value="http://">
+        </a>
+
+    </p>
 
     <!--button-->
-    <form name="send" method="post" action="add_speaker_to_slot">
+    <form name="send" method="post" action="gestion_speaker_infos_send">
         <input type="hidden" name="action" value="Save" />
         <input type="submit" name="submit_save" value="Save" />
     </form>
