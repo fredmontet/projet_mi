@@ -7,15 +7,15 @@
             <h1 class="event_date">{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
 			
             <nav class="event_nav">
-                <a href="#infos">Infos</a>
-                <a href="#details">Details</a>
-                <a href="#speaker">Speaker</a>   
+                <a href="#event_single_infos">Infos</a>
+                <a href="#event_single_details">Details</a>
+                <a href="#event_single_speaker">Speaker</a>   
             </nav>
         </header>
         
             
     <!--info tab-->
-    <section id="infos">
+    <section id="event_single_infos">
         
         {if ($location != null)}
         <!-- location tab-->
@@ -46,7 +46,7 @@
     <!--end infos tab-->
         
     <!--details tab-->
-    <section id="details">
+    <section id="event_single_details">
         <!--language-->
         <section class="event_lang">
             <h2 class="event_lang_title">Languages</h2>
@@ -65,7 +65,7 @@
         
         
  <!--speaker tab-->
-    <section id="speaker">
+    <section id="event_single_speaker">
         <!--speaker slot-->
         <section class="event_speaker">
             <h2 class="event_speaker_title">Speaker of slot one</h2>

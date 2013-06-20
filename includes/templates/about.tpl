@@ -1,7 +1,7 @@
 <article class="about">
     
     <!--about tedxlausanne tab-->
-    <section id="tedxlausanne">
+    <section id="about_tedxlausanne">
         <h1 class="about_tedxlausanne_title">About TEDxLausanne</h1>
         <p>
             The TEDxLausanne community seeks to extend the TED experience at a regional level, highlighting exceptional people and creative works, connecting people across disciplines, creating conversations that drive action. We explore big questions with a broad spirit of inquiry.
@@ -22,7 +22,7 @@
     <!--end about tedxlausanne tab-->
 
     <!--about TED tab-->
-    <section id="ted">
+    <section id="about_ted">
         <h1 class="about_ted_title">About TED</h1>
         <p>
             <a href="http://www.ted.com/" target="_blank">TED</a> is a nonprofit organization devoted to “ideas worth spreading”. Started in 1984 in California as a four-day conference about Technology, Entertainment, Design, TED has broadened its scope and grown to support those world-changing ideas with multiple initiatives. At TED, the world’s leading thinkers and doers are asked to give the talk of their lives in 18 minutes. Talks are then made available for free at <a href="http://www.ted.com/" target="_blank">TED.com</a>. TED speakers have included Bill Gates, Jane Goodall, Elizabeth Gilbert, Sir Richard Branson, Benoit Mandelbrot, Philippe Starck, Ngozi Okonjo-Iweala, Isabel Allende and Gordon Brown. Two major TED events are held each year: The TED Conference takes place every spring in Long Beach, California (along with a parallel conference, TEDActive, in Palm Springs), and TEDGlobal is held each summer in Edinburgh, Scotland.
@@ -43,8 +43,8 @@
     <!--end about ted tab-->
 
     <!--about TEDx-->
-    <section id="tedx">
-        <h1 class="about_tedx_title">About TEDx</h1>
+    <section id="about_tedx">
+        <h1 class="title">About TEDx</h1>
         <p>
             In the spirit of “ideas worth spreading”, <a href="http://www.ted.com/" target="_blank">TED</a> created a program called <a href="http://www.ted.com/tedx" target="_blank">TEDx</a>, consisting of local, independently organized events that bring people together to share a TED-like experience. Live speakers and a few pre-recorded TEDTalk videos are combined to spark deep discussion and connection in a relatively small group. TED provides general guidance for the TEDx program, including rules and regulations that local organizers must follow. Hundreds of TEDx events have already been organized around the world.
         </p>

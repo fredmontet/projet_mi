@@ -8,17 +8,17 @@
             <h1><input type="text" value="Title of event" name="gestion_event_title" style="width:200px" /></h1>
             <!--single nav -->
             <nav class="event_nav">
-                <a href="#infos">Infos</a>
-                <a href="#details">Details</a>
-                <a href="#speaker">Speaker</a>
-                <a href="#speaker">Team</a>  
+                <a href="#gestion_event_single_infos">Infos</a>
+                <a href="#gestion_event_single_details">Details</a>
+                <a href="#gestion_event_single_speaker">Speaker</a>
+                <a href="#gestion_event_single_team">Team</a>  
             </nav>
         </header>
         <!--end gestion event single header-->
             
         
     <!--infos tab-->
-    <section id="infos">
+    <section id="gestion_event_single_infos">
         
         <!--location tab-->
         <section>
@@ -65,7 +65,7 @@
         
     
     <!--details tab-->
-    <section id="details">
+    <section id="gestion_event_single_details">
         <!--language-->
         <section>
             <h2>Languages</h2>
@@ -82,7 +82,7 @@
         
     
     <!--speaker tab-->
-    <section id="speaker">
+    <section id="gestion_event_single_speaker">
         <!--speaker slot-->
         <section>
             <h2>Speaker of slot one</h2>
@@ -108,7 +108,7 @@
     
     
     <!--team tab-->
-    <section id="team">
+    <section id="gestion_event_single_team">
         <section class="gestion_event_team">
         
         </section>          

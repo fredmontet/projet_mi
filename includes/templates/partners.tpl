@@ -1,6 +1,6 @@
 <article class="partners">
     <!--TEDxLausanneChange Partners-->
-    <section id="tedxChange">
+    <section id="partners_tedxChange">
         <h1 class="partners_tedxChange_title">TEDxLausanneChange Partners</h1>
         <p>
             TEDxLausanneChange is an event where ideas are shared in an open and stimulating context. With this in mind, we are looking for sponsors who want more than just advertising in turn for a financial contribution, we look for partners who can contribute to make the TEDx experience memorable.</p>
@@ -107,7 +107,7 @@
 
 
     <!--TEDxLausanne 2013 Partners-->
-    <section id="tedxYear">
+    <section id="partners_tedxYear">
         <h1 class="partners_tedxYear_title">TEDxLausanne 2013 Partners</h1>
         <p>
             Instead of looking for sponsors who can only contribute financially in exchange for visibility during the event, TEDxLausanne finds partners who actively contribute to making the event a memorable experience.
