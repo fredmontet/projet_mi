@@ -162,7 +162,14 @@ class TEDx {
 		    $this->displayMessage('There isn\'t event!'); 
 	    }
 		
-		$this->smarty->assign('events', $allValidEvents);
+		foreach ($allValidEvents as $aValidEvent) {
+			$events[] = $this->drawEventsSingle($aValidEvent->getNo());
+		}
+		
+		$events_nav = $this->smarty->fetch('events_nav.tpl');
+		
+		$this->smarty->assign('events', $events);
+		$this->smarty->assign('events_nav', $events_nav);
 		
 	    return $this->smarty->fetch('events.tpl');
     }
@@ -519,7 +526,7 @@ class TEDx {
 		        }
         		
 			break;
-			/*
+			
 			// Events
         	case 'events':
         		$topAction = 'events';
@@ -533,7 +540,7 @@ class TEDx {
 		        }
         		
 			break;
-			
+			/*
 			// Events registration
         	case 'events_registration':
         		$topAction = 'events_registration';
