@@ -8,24 +8,24 @@
 	        <!--direction-->
 	        <p>
 	            <label for="name">Direction </label>
-	            <input type="text" name="direction" value="Direction" style="width:200px" />
+	            <input type="text" name="direction" value="{$direction}" style="width:200px" />
 	        </p>
 	        <!--address-->
 	        <p>
 	            <label for="address">Address </label>
-	            <input type="text" name="address" value="Adress" style="width:200px"/>
+	            <input type="text" name="address" value="{$address}" style="width:200px"/>
 	        </p>
 	
 	        <!--city-->
 	        <p>
 	            <label for="city">City </label>
-	            <input type="text" name="city" value="City" style="width:200px" />
+	            <input type="text" name="city" value="{$city}" style="width:200px" />
 	        </p>
 	
 	        <!--country-->
 	        <p>
 	            <label for="country">Country </label>
-	            <input type="text" name="country" value="Country" style="width:200px" />
+	            <input type="text" name="country" value="{$country}" style="width:200px" />
 	        </p>  
        </form>
 </article>

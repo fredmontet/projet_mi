@@ -190,6 +190,7 @@ class TEDx {
 			    $aValidLocation = $messageLocation->getContent();
 			} else {
 			    $this->displayMessage('No location found!');
+			    $aValidLocation = null;
 			}    
 					    
 			$this->smarty->assign('location', $aValidLocation); 
@@ -372,7 +373,26 @@ class TEDx {
     }
     
     protected function drawGestionLocation($action) {
-    	switch ($action) {
+		switch ($action) {
+			case 'gestion_location_infos':
+				$gestionLocationInfos = $this->drawGestionLocationInfos($action);
+				
+			break;
+			default:
+				$gestionLocationInfos = null;
+			break;
+		}
+
+	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
+	    
+	    return $this->smarty->fetch('gestion_location.tpl');
+    }
+    
+    
+    protected function drawGestionLocationInfos($action) {
+	    $id = $this->getId();
+	    
+	    switch ($action) {
 	    	case 'gestion_location_edit':
 		    	$direction = $_POST['direction'];            
 		        $address = $_POST['address'];
@@ -380,15 +400,27 @@ class TEDx {
 		        $country = $_POST['country'];
 		    break;
 		    default:
+		    	$direction = null;            
+		        $address = null;
+		        $city = null;
+		        $country = null;
 		    break;
     	}
-        
-        
-    
-	    $gestionLocationInfos = $this->smarty->fetch('gestion_location_infos.tpl');
-	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
-	    
-	    return $this->smarty->fetch('gestion_location.tpl');
+    	
+    	$this->smarty->assign('direction', $direction);
+    	$this->smarty->assign('address', $address);
+    	$this->smarty->assign('city', $city);
+    	$this->smarty->assign('country', $country);
+		
+		$messageLocation = $this->tedx_manager->getLocation($id);
+			
+		if($messageLocation->getStatus()) {
+		    $aValidLocation = $messageLocation->getContent();
+		} else {
+		    $this->displayMessage('No location found!');
+		}    
+				    
+		$this->smarty->assign('location', $aValidLocation);
     }
     
     
@@ -507,9 +539,11 @@ class TEDx {
 			case 'event_single':
 				$topAction = 'events';
 				
+				$id = $this->getId();
+				
 				try {
 		            $subnav = null;
-					$content = $this->drawEventSingle();
+					$content = $this->drawEventSingle($id);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
 		            $content = null;         	

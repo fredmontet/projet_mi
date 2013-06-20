@@ -9,7 +9,7 @@
         </nav>
     </header>
     <ul> 
-        <li> <span>locationName</span></li> 
+        <li><a href="?action=gestion_location_infos&id=1">locationName</a></li> 
    </ul>
 </article>
 {$gestionLocationInfos}

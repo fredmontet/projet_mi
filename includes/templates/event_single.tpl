@@ -3,7 +3,7 @@
 <!--event header-->
 
         <header>
-            <h1 class="event_date">{$event->getStartingDate()}</h1>
+            <h1 class="event_date">{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
             <h1 class="event_title">{$event->getMainTopic()}</h1>
             
             <nav class="event_nav">
@@ -17,12 +17,14 @@
     <!--info tab-->
     <section id="infos">
         
+        {if ($location != null)}
         <!-- location tab-->
         <section class="event_location">
                 <h2 class="event_location_title">Location</h2>
                 <p class="event_location_slots">{$location->getCity()}</p>
         </section>
         <!--end location tab-->
+        {/if}
         
         <!-- schedule tab-->
         <section class="event_schedule">
