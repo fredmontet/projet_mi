@@ -1,1 +1,2 @@
-{$gestionLocationInfos}
+{$gestionLocationsNav}
+{$gestionLocationsList}

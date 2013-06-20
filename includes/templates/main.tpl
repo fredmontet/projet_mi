@@ -22,7 +22,7 @@
 					<a href="?action=logout">Logout</a>
 				</div>
 				<div id="userinfo">
-		    		<a href="?action=userinfo">{$username}</a>
+		    		<a href="?action=user_infos">{$username}</a>
 				</div>
 				
 			{else}

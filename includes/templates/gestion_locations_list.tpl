@@ -13,4 +13,6 @@
         <li>St-Roch</li>
         <li>St-Roch</li>
     </ul>
+    {$gestionLocationsInfos}
+    
 </article>

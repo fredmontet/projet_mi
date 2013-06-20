@@ -415,24 +415,31 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_speaker.tpl');
     }
     
-    protected function drawGestionLocation($action) {
+    protected function drawGestionLocations($action) {
 		switch ($action) {
-			case 'gestion_location_infos':
-				$gestionLocationInfos = $this->drawGestionLocationInfos($action);
-				
+			case 'gestion_locations_new':
+				$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 			break;
 			default:
-				$gestionLocationInfos = null;
+				$gestionLocationsInfos = null;
+				$gestionLocationsInfos = null;
 			break;
 		}
+		$gestionLocationsNav = $this->smarty->fetch('gestion_locations_nav.tpl');
+		$this->smarty->assign('gestionLocationsNav', $gestionLocationsNav);
+		
+		$this->smarty->assign('gestionLocationsInfos', $gestionLocationsInfos);
+		
+		$gestionLocationsList = $this->smarty->fetch('gestion_locations_list.tpl');
+		$this->smarty->assign('gestionLocationsList', $gestionLocationsList);
 
-	    $this->smarty->assign('gestionLocationInfos', $gestionLocationInfos);
+	    $this->smarty->assign('gestionLocationsInfos', $gestionLocationsInfos);
 	    
-	    return $this->smarty->fetch('gestion_location.tpl');
+	    return $this->smarty->fetch('gestion_locations.tpl');
     }
     
     
-    protected function drawGestionLocationInfos($action) {
+    protected function drawGestionLocationsInfos($action) {
 	    $id = $this->getId();
 	    
 	    switch ($action) {
@@ -518,7 +525,7 @@ class TEDx {
     	// Assign variables
 	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
 	    
-	    return $this->smarty->fetch('userinfo.tpl');
+	    return $this->smarty->fetch('user_infos.tpl');
     }
     
     
@@ -719,13 +726,16 @@ class TEDx {
 			break;
 			
 			// Gestion Location
-			case 'gestion_location':
+			case 'gestion_locations':
 			case 'gestion_location_edit':
+			case 'gestion_locations_new':
+			case 'gestion_locations_send':
+			
 				$topAction = 'gestion';
 				
 				try {
 		            $subnav = $this->drawGestionNav();
-					$content = $this->drawGestionLocation($action);
+					$content = $this->drawGestionLocations($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
 		            $content = null;        	
