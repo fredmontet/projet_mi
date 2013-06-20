@@ -323,8 +323,8 @@ class TEDx {
      * @return content HTML of the Gestion page
      */
     protected function drawGestion() {
-    	$action = 'gestion_event';
-	    return $this->drawGestionEvent($action);
+    	$action = 'gestion_events';
+	    return $this->drawGestionEvents($action);
     }
 
     
@@ -332,14 +332,14 @@ class TEDx {
      * Draw the Gestion Event page
      * @return content HTML of the Gestion Event page
      */
-    protected function drawGestionEvent($action) {
-    	$gestionEventNav = $this->smarty->fetch('gestion_event_nav.tpl');
-    	$this->smarty->assign('gestionEventNav', $gestionEventNav);
+    protected function drawGestionEvents($action) {
+    	$gestionEventsNav = $this->smarty->fetch('gestion_events_nav.tpl');
+    	$this->smarty->assign('gestionEventsNav', $gestionEventsNav);
     	
     	
     	switch($action) {
-	    	case 'gestion_event':
-	    	case 'gestion_event_list':
+	    	case 'gestion_events':
+	    	case 'gestion_events_list':
 	    		$messageEvents = $this->tedx_manager->getEvents();
     	
 		    	if($messageEvents->getStatus()) {
@@ -350,8 +350,8 @@ class TEDx {
 				
 				$this->smarty->assign('events', $allValidEvents);
 	    	
-	    		$gestionEventList = $this->smarty->fetch('gestion_event_list.tpl');
-				$this->smarty->assign('gestionEventContent', $gestionEventList);
+	    		$gestionEventsList = $this->smarty->fetch('gestion_events_list.tpl');
+				$this->smarty->assign('gestionEventsContent', $gestionEventsList);
 	    	break;
 	    	
 	    	case 'gestion_event_single':
@@ -395,7 +395,7 @@ class TEDx {
 	    	break;
     	}
 		
-	    return $this->smarty->fetch('gestion_event.tpl');
+	    return $this->smarty->fetch('gestion_events.tpl');
     }
     
     protected function drawGestionSpeaker() {

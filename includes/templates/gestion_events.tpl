@@ -1,2 +1,2 @@
-{$gestionEventNav} 
-{$gestionEventContent}
+{$gestionEventsNav} 
+{$gestionEventsContent}
