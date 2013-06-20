@@ -506,8 +506,6 @@ class TEDx {
         		
 			break;
 			
-			/*
-			
 			// About
         	case 'about':
         		$topAction = 'about';
@@ -521,7 +519,7 @@ class TEDx {
 		        }
         		
 			break;
-			
+			/*
 			// Events
         	case 'events':
         		$topAction = 'events';
@@ -551,19 +549,6 @@ class TEDx {
 			break;
 			
 			*/
-			
-			// About
-			case 'about':
-				$topAction = 'about';
-				
-				try {
-		            $subnav = $this->drawAboutNav();
-					$content = $this->drawAbout();
-		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
-		        }
-			break;
 			
 			// Events
 			case 'events':
