@@ -1,5 +1,6 @@
 <article>
 <h1>Contact</h1>
+    <section>
         <form id="contact" method="post" action="xx.php">
 
         <!--name-->
@@ -37,9 +38,11 @@
         </p>
         
         </form>
+    </section>
         
         <!--google maps incorporated--> 
-        <div>
-            <a href="https://maps.google.ch/maps?hl=fr&tab=wl">"Picture of Google Maps TedxLausanne location"</a>
-        </div>
+    <section>
+        <h1>Picture of Google Maps TedxLausanne location</h1>
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=46.519931,6.565885&amp;num=1&amp;t=h&amp;ie=UTF8&amp;z=14&amp;ll=46.520197,6.566262&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q=46.519931,6.565885&amp;num=1&amp;t=h&amp;ie=UTF8&amp;z=14&amp;ll=46.520197,6.566262&amp;source=embed" style="color:#0000FF;text-align:left">Agrandir le plan</a></small>
+    </section>
 </article>

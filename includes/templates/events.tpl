@@ -1,5 +1,5 @@
 {foreach from=$events item=event}
-	<article class="closed_event_single">
+	<article class="event">
 		<a href="?action=event_single&id={$event->getNo()}">
 			<h1>{$event->getMainTopic()}</h1>
 			<p>{$event->getStartingDate()|date_format:"%d %B %Y"}</p>
