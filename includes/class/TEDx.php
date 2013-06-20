@@ -186,6 +186,7 @@ class TEDx {
 		    // Get Location
 			$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
 			
+			
 			if($messageLocation->getStatus()) {
 			    $aValidLocation = $messageLocation->getContent();
 			} else {
