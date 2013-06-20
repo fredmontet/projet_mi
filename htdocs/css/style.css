@@ -5,8 +5,6 @@
 @import url(normalize.css);
 @import url(grid.css);
 
-/*fonts @font-face kits*/
-@import url(../font/helveticaNeue/helveticaNeue.css);
 /*End of imports*/
 
 
@@ -16,7 +14,7 @@
 /****************************************/
 
 body{
-	font-family:'HelveticaNeueLTStd55Roman',helvetica,arial,sans-serif;
+	font-family: helvetica, arial, sans-serif;
 	font-size: 14px;
 	line-height: 20px;
 	color: #333333;
@@ -267,14 +265,14 @@ margin:0 10px;
 
 /*Content*/
 
-#content article {
-    width: 960px;
-    margin: 0px auto;
-    padding: 5px;        
-}
 #content{
-      margin:100px;
+    margin-top:100px;
 }
+
+#content article{
+    width:960px;
+    margin:0 auto;
+}    
 
 #content nav{
     display:block;
@@ -313,7 +311,7 @@ margin:0 10px;
 
 #globalfooter p {
     margin-top:5px;
-    font-family: 'HelveticaNeueLTStd56Italic',helvetica,arial,sans-serif;;
+    font-style:italic;
     text-align: center;
     color:#c0c0c0;    
 }
@@ -338,19 +336,24 @@ margin:0 10px;
 
 /*header*/
 .event_single header{
+    display:block;
     background-color:#eeeeee;
+    width:100%;
+    padding:20px;
 }
 .event_title{
-    	font-family:'HelveticaNeueLTStd75Bold',helvetica,arial,sans-serif;
+    font-weight:bold;
 }
 .event_date{
-        font-family:'HelveticaNeueLTStd45Light',helvetica,arial,sans-serif;
-
+    font-weight:normal;
+    font-size:2em;
+    margin-left:20px;
 }
 
-
-/*nav*/
-.event_nav{}
+.event_nav{
+    position:relative;
+    left:-50%;
+}
 .event_nav a{}
 
 /*info tab*/
