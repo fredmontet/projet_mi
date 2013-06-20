@@ -18,9 +18,8 @@
     <!--user_infos-->
     <section id="event_user_infos">
         <h2>General informations</h2>
-
         <!--form-->
-        <form id="event_user_infos" method="post" action="">
+        <form method="post" action="">
 
             <!--user_name-->
             <p>
@@ -61,15 +60,15 @@
         <!--go ahead button-->
             <a href="user_details">mettre lien bouton</a>
         <!--end button-->
+        
     </section>
     <!--end user_infos-->
 
     <!--user-details tab-->
     <section id="event_user_details">
         <h2>And a bit more details...</h2>
-
         <!--formulaire-->
-        <form id="event_user_details" method="post" action="xx.php">
+        <form method="post" action="">
 
             <!--user_dateofbirth-->
             <p>
@@ -90,18 +89,19 @@
             </p>
         </form>
         <!--end formulaire-->
+        
         <!--go ahead button-->
             <a href="user_adress">mettre lien bouton</a>
         <!--end button-->
+        
     </section>
     <!--end user_details tab-->
 
     <!--user_adress tab-->
     <section id="event_user_adress">
         <h2>Please give us your adress</h2>
-
         <!--formulaire-->
-        <form id="event_user_adress" method="post" action="xx.php">
+        <form method="post" action="">
 
             <!--user_street-->
             <p>
@@ -125,9 +125,11 @@
                 <input type="text" name="user_country" style="width:200px" />
         </form>
         <!--end formulaire-->
+        
         <!--go ahead button-->
             <a href="user_motivation">mettre lien bouton</a>
         <!--end button-->
+        
     </section>
     <!--end user_adress tab-->
 
@@ -136,8 +138,7 @@
         <h2>Show us your motivations!</h2>
 
         <!--formulaire-->
-        <form id="event_user_motivation" method="post" action="xx.php">
-
+        <form method="post" action="">
             <!--user_keywords-->
             <p>
                 <label for="user_kw">Keyword 1 </label>
@@ -159,9 +160,11 @@
             </p>
         </form>
         <!--end formulaire-->
+        
         <!--participation button-->
         <button type="button" onclick="alert("Hello world!")">Participate</button>
         <!end of button-->
+        
     </section>
     <!--end user_motivation tab-->
 
