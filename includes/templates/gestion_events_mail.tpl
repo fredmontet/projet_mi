@@ -51,5 +51,7 @@
             <button type="button" onclick="gestion_events_motivation">Previous</button>
         </div>
     </article>
+    
+    {$gestionEventsMailEdit}
 
 </article>

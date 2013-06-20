@@ -382,6 +382,16 @@ class TEDx {
 	    	break;
 	    	
 	    	case 'gestion_events_mail':
+	    		$this->smarty->assign('gestionEventsMailEdit', null);
+	    		
+	    		$gestionEventsMail = $this->smarty->fetch('gestion_events_mail.tpl');
+				$this->smarty->assign('gestionEventsContent', $gestionEventsMail);
+	    	break;
+	    	
+	    	case 'gestion_events_mail_edit':
+	    		$gestionEventsMailEdit = $this->smarty->fetch('gestion_events_mail_edit.tpl');
+	    		$this->smarty->assign('gestionEventsMailEdit', $gestionEventsMailEdit);
+	    	
 	    		$gestionEventsMail = $this->smarty->fetch('gestion_events_mail.tpl');
 				$this->smarty->assign('gestionEventsContent', $gestionEventsMail);
 	    	break;
@@ -682,6 +692,7 @@ class TEDx {
 			case 'gestion_events_single':
 			case 'gestion_events_motivation':
 			case 'gestion_events_mail':
+			case 'gestion_events_mail_edit':
 			case 'gestion_events_role':
 				$topAction = 'gestion';
 				
