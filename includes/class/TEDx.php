@@ -300,6 +300,14 @@ class TEDx {
 	    return $this->smarty->fetch('contact.tpl');
     }
     
+    /**
+     * Draw the Contact page
+     * @return content HTML of the Contact page
+     */
+    protected function drawContactReceived() {
+	    return $this->smarty->fetch('contact_received.tpl');
+    }
+    
     
     /**
      * Draw Gestion navigator
@@ -636,6 +644,19 @@ class TEDx {
 				try {
 		            $subnav = null;
 					$content = $this->drawContact();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
+		        }
+			break;
+			
+			// contact Send
+			case 'contact_send':
+				$topAction = 'contact';
+				
+				try {
+		            $subnav = null;
+					$content = $this->drawContactReceived();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
 		            $content = null;        	
