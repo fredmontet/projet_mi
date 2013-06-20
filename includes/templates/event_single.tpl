@@ -3,9 +3,9 @@
 <!--event header-->
 
         <header>
+            <h1 class="title">{$event->getMainTopic()}</h1>
             <h1 class="event_date">{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
-            <h1 class="event_title">{$event->getMainTopic()}</h1>
-            
+			
             <nav class="event_nav">
                 <a href="#infos">Infos</a>
                 <a href="#details">Details</a>
