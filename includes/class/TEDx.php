@@ -354,7 +354,7 @@ class TEDx {
 				$this->smarty->assign('gestionEventsContent', $gestionEventsList);
 	    	break;
 	    	
-	    	case 'gestion_event_single':
+	    	case 'gestion_events_single':
 	    		$id = $this->getId();
 	    		
 	    		if($id != null) {
@@ -372,21 +372,21 @@ class TEDx {
 		    		$this->displayMessage('There isn\'t an event with this id.');
 	    		}
 	    		
-	    		$gestionEventSingle = $this->smarty->fetch('gestion_event_single.tpl');
-				$this->smarty->assign('gestionEventContent', $gestionEventSingle);
+	    		$gestionEventsSingle = $this->smarty->fetch('gestion_events_single.tpl');
+				$this->smarty->assign('gestionEventsContent', $gestionEventsSingle);
 	    	break;
 	    	
-	    	case 'gestion_event_motivation':
+	    	case 'gestion_events_motivation':
 	    		$gestionEventMotivation = $this->smarty->fetch('gestion_event_motivation.tpl');
 				$this->smarty->assign('gestionEventContent', $gestionEventMotivation);
 	    	break;
 	    	
-	    	case 'gestion_event_mail':
+	    	case 'gestion_events_mail':
 	    		$gestionEventMail = $this->smarty->fetch('gestion_event_mail.tpl');
 				$this->smarty->assign('gestionEventContent', $gestionEventMail);
 	    	break;
 	    	
-	    	case 'gestion_event_role':
+	    	case 'gestion_events_role':
 	    		$gestionEventRoleInfo = $this->smarty->fetch('gestion_event_role_info.tpl');
 				$this->smarty->assign('gestionEventRoleInfo', $gestionEventRoleInfo);
 	    		
@@ -677,17 +677,17 @@ class TEDx {
 			break;
 			
 			// Gestion Event
-			case 'gestion_event':
-			case 'gestion_event_list':
-			case 'gestion_event_single':
-			case 'gestion_event_motivation':
-			case 'gestion_event_mail':
-			case 'gestion_event_role':
+			case 'gestion_events':
+			case 'gestion_events_list':
+			case 'gestion_events_single':
+			case 'gestion_events_motivation':
+			case 'gestion_events_mail':
+			case 'gestion_events_role':
 				$topAction = 'gestion';
 				
 				try {
 		            $subnav = $this->drawGestionNav();
-					$content = $this->drawGestionEvent($action);
+					$content = $this->drawGestionEvents($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
 		            $content = null;        	
