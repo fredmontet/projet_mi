@@ -42,7 +42,7 @@
 
         <!--submit--> 
         <p>
-            <input type="submit" name="send" value="Send" />
+            <input class="send_button" type="submit" name="send" value="Send" />
         </p>        
         </form>
     </section>

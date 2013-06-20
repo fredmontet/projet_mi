@@ -268,7 +268,6 @@ margin:0 10px;
 }
 
 #content article{
-    width:960px;
     margin:0 auto;
 }    
 
@@ -489,16 +488,24 @@ margin:0 10px;
 }
 
 .contact form{
-    width:400px;
+
 }
 
 .contact label{
     width:100px;
-    text-align:right;    
+    text-align:right;
+       
 }
 
-.contact textarea, .contact input{
+.contact input{
+    width:422px;
+}
 
+.contact textarea{
+    width:420px;
+    height:600px;
+    resize:none;
+    
 }
 
 
