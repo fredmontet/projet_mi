@@ -19,6 +19,6 @@
             <input type="submit" name="new" value="New" />
         </fieldset>
 
-    {$gestion_contacts_role_infos}
+    {$gestionEventsRoleInfos}
     </form>
 </article>
