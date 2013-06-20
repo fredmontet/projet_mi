@@ -1,131 +1,109 @@
-<article class="gestion_event_single">
+<article class="gestion_events_single">
+    <form id="" method="post" action="">
 
         <!--gestion event single header-->
         <header>
             <!--date-->
-            <h1><input type="text" value="14 april 2013" name="gestion_event_date" style="width:200px" /></h1>
+            <label for="date"><input type="time" value="14 april 2013" name="gestion_events_date" style="width:200px" /></label>
             <!--event title-->
-            <h1><input type="text" value="Title of event" name="gestion_event_title" style="width:200px" /></h1>
+            <label for="title"><input type="text" value="Title of event" name="gestion_events_title" style="width:200px" /></label>
             <!--single nav -->
-            <nav class="event_nav">
-                <a href="#gestion_event_single_infos">Infos</a>
-                <a href="#gestion_event_single_details">Details</a>
-                <a href="#gestion_event_single_speaker">Speaker</a>
-                <a href="#gestion_event_single_team">Team</a>  
+            <nav class="gestion_events_nav">
+                <a href="#gestion_events_single_infos">Infos</a>
+                <a href="#gestion_events_single_details">Details</a>
+                <a href="#gestion_events_single_speaker">Speaker</a>
+                <a href="#gestion_events_single_team">Team</a>  
+                <a href="#gestion_events_single_export">Export</a> 
             </nav>
         </header>
         <!--end gestion event single header-->
-            
-        
-    <!--infos tab-->
-    <section id="gestion_event_single_infos">
-        
-        <!--location tab-->
+
         <section>
-                <h2>Location</h2>
-                <select name="location" size="1">
-                    <option>Renens</option>
-                    <option>Lausanne</option>
-                    <option>Morges</option>
-                    <option>...</option>
-                </select> 
+
+            <!--gestion_events_single_infos-->
+            <fieldset>
+                <label for="programme">Programme</label>
+                <input type="text" name="programme" value="blblalablabl" />
+            </fieldset>
+
+            <fieldset>
+                <label for="schedule">Schedule</label>
+                <table>
+                    <tr>
+                        <td>13:00</td>
+                        <td>Start</td>
+                    </tr>
+                    <tr>
+                        <td>13:30</td>
+                        <td>15:30</td>
+                        <td>Registration</td>
+                    </tr>
+                </table
+                <p>
+                    <input type="submit" name="add" value="Add a slot" />
+                </p>
+            </fieldset>
+            <!--end of gestion_events_single_infos-->
+
+            <!--gestion_events_single_details-->
+            <fieldset>
+                <label for="location">Location</label>
+                <select name="location">
+                    <option>Chose a location</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="dress">Dress code</label>
+                <textarea type="text" name="dresscode" rows="4" cols="26">Please edit dress code if not already edited</textarea>
+            </fieldset>
+            <fieldset>
+                <label for="language">Language</label>
+                <textarea type="text" name="language" rows="4" cols="26">Please edit language if not already edited</textarea>
+                </input>
+            </fieldset>
+
+            <!--end of gestion_events_single_details-->
+
+            <!--gestion_events_single_speaker-->
+            <fieldset>
+                <label for="speaker_slot">Speaker of slot one</label>
+                <p><input type="text" name="speaker" value="Jean-Paul Gautier" /></p>
+                <p>
+                    <select>
+                        <option>Chose a contact</option>
+                    </select>
+                </p>
+                <p>
+                    <select>
+                        <option>Position</option>
+                    </select>
+                </p>
+                <p><input type="submit" name="slot" value="add slot"/></p>
+            </fieldset>
+            <!--end of speaker-->
+
+            <!--gestion_events_single_team-->
+            <fieldset>
+                <label for="organizer">Organizer</label>
+                <p><input type="text" name="speaker" value="Jean-Paul Gautier" /></p>
+                <p>
+                    <select>
+                        <option>Role</option>
+                    </select>
+                </p>
+                <p><input type="text" name="kw" value="Keyword 1" /></p>
+                <p><input type="text" name="kw" value="Keyword 2" /></p>
+                <p><input type="text" name="kw" value="Keyword 3" /></p>
+                <p><input type="submit" name="add" value="add organizer"/></p>
+            </fieldset>
+            <!--end of speaker-->
+
+            <!--buttons-->
+            <p><input type="submit" name="save" value="Save" /></p>
+            <p><input type="submit" name="next" value="Next" /></p>
+            <p><input type="submit" name="previous" value="Previous" /></p>
         </section>
-        
-        <!--schedule tab-->
-        <section>
-                <h2>Schedule</h2>
-                <dl>
-                    <dt><input type="text" value="13:00" name="gestion_event_scheldule" style="width:200px" /></dt>
-                        <dd><input type="text" value="Registration" name="gestion_event_slot" style="width:200px" /></dd>   
-                </dl>
-                <dl>
-                    <dt><input type="text" value="13:30 - 15:30" name="gestion_event_scheldule" style="width:200px" /></dt>
-                        <dd><input type="text" value="Slot One" name="gestion_event_slot" style="width:200px" /></dd>   
-                </dl>
-                <dl>
-                    <dt><input type="text" value="16:30 - 18:30" name="gestion_event_scheldule" style="width:200px" /></dt>
-                        <dd><input type="text" value="Slot Two" name="gestion_event_slot" style="width:200px" /></dd>   
-                </dl>
-                <dl>
-                    <dt><input type="text" value="19:30" name="gestion_event_scheldule" style="width:200px" /></dt>
-                        <dd><input type="text" value="Closing" name="gestion_event_slot" style="width:200px" /></dd>   
-                </dl>
-                
-                <!--add slot button-->           
-                <button type="button" onclick="">Add a slot</button>
-        </section>
-        
-        <!--programm tab-->
-        <section>
-            <h2>Programme</h2>
-            <p><textarea rows="12" cols="70">description program blablalalalblblblblba</textarea></p>
-        </section>
-    </section>
-    <!--end infos tab-->
-        
-    
-    <!--details tab-->
-    <section id="gestion_event_single_details">
-        <!--language-->
-        <section>
-            <h2>Languages</h2>
-            <p><textarea rows="6" cols="60">blbla english blblabla</textarea></p>
-        </section>
-    
-        <!--dress code-->
-        <section>
-            <h2>Dress Code</h2>
-            <p><textarea rows="8" cols="70">blbalablblablaabl</textarea></p>
-        </section>
-    </section>
-    <!--end details tab-->
-        
-    
-    <!--speaker tab-->
-    <section id="gestion_event_single_speaker">
-        <!--speaker slot-->
-        <section>
-            <h2>Speaker of slot one</h2>
-            <ul>
-                <li><input type="text" value="Jean Rouillé" name="gestion_event_speaker" style="width:200px"/></li>
-            </ul>  
-            <!--add speaker button-->           
-            <div>
-                <button type="button" onclick="">Add a speaker</button>
-            </div>
-            
-            <h2>Speaker of slot two</h2>
-            <ul>
-                <li><input type="text" value="Henri Dunan" name="gestion_event_speaker" style="width:200px"/></li>  
-            </ul>
-            <!--add speaker button-->           
-            <div>
-                <button type="button" onclick="">Add a speaker</button>
-            </div>
-        </section>
-    </section>
-    <!--end speaker tab-->
-    
-    
-    <!--team tab-->
-    <section id="gestion_event_single_team">
-        <section class="gestion_event_team">
-        
-        </section>          
-    </section>
-    <!--end team tab-->
-    
-    
-    <!--Buttons-->   
-    <section>
-        <!--next button-->           
-        <div>
-            <button type="button" onclick="#details">Next</button>
-        </div>
-        <!--previous button-->    
-        <div>
-            <button type="button" onclick="#details">Previous</button>
-        </div>
-    </section>
-    
+    </form>
+
 </article>
+

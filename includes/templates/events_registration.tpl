@@ -1,12 +1,11 @@
-<article class="event_single">
+<article class="events_registration">
 
-    <!--event header-->
-
+    <!--registration header-->
     <header>
-        <h1 class="event_date">14 April 2013</h1>
-        <h1 class="event_title">Title of Event</h1>
+        <h1>14 April 2013</h1>
+        <h1>Title of Event</h1>
 
-        <nav class="event_nav">
+        <nav>
             <a href="#event_user_infos">fred1</a>
             <a href="#event_user_details">fred2</a>
             <a href="#event_user_adress">fred3</a>   
@@ -14,13 +13,14 @@
             <p>fred fait le nav</>
         </nav>
     </header>
+    <!--end registration header-->
 
-    <!--user-informations tab-->
+    <!--user_infos-->
     <section id="event_user_infos">
-        <h2 class="event_user_infos_title">General informations</h2>
+        <h2>General informations</h2>
 
-        <!--formulaire-->
-        <form id="event_user_infos" method="post" action="xx.php">
+        <!--form-->
+        <form id="event_user_infos" method="post" action="">
 
             <!--user_name-->
             <p>
@@ -30,7 +30,7 @@
 
             <!--user_surname-->
             <p>
-                <label for="user_surname">Surname </label>
+                <label for="user_surname">Surname</label>
                 <input type="text" name="user_surname" style="width:200px"/>
             </p>
 
@@ -57,15 +57,16 @@
             </p>
         </form>
         <!--end formulaire-->
+        
         <!--go ahead button-->
-            <a href="user_details" class="event_user_infos">mettre lien bouton</a>
+            <a href="user_details">mettre lien bouton</a>
         <!--end button-->
     </section>
-    <!--end user_infos tab-->
+    <!--end user_infos-->
 
     <!--user-details tab-->
     <section id="event_user_details">
-        <h2 class="event_user_details_title">And a bit more details...</h2>
+        <h2>And a bit more details...</h2>
 
         <!--formulaire-->
         <form id="event_user_details" method="post" action="xx.php">
@@ -90,14 +91,14 @@
         </form>
         <!--end formulaire-->
         <!--go ahead button-->
-            <a href="user_adress" class="event_user_details">mettre lien bouton</a>
+            <a href="user_adress">mettre lien bouton</a>
         <!--end button-->
     </section>
     <!--end user_details tab-->
 
     <!--user_adress tab-->
     <section id="event_user_adress">
-        <h2 class="event_user_adress_title">Please give us your adress</h2>
+        <h2>Please give us your adress</h2>
 
         <!--formulaire-->
         <form id="event_user_adress" method="post" action="xx.php">
@@ -125,14 +126,14 @@
         </form>
         <!--end formulaire-->
         <!--go ahead button-->
-            <a href="user_motivation" class="event_user_adress">mettre lien bouton</a>
+            <a href="user_motivation">mettre lien bouton</a>
         <!--end button-->
     </section>
     <!--end user_adress tab-->
 
     <!--user_motivation tab-->
     <section id="event_user_motivation">
-        <h2 class="event_user_motivation_title">Show us your motivations!</h2>
+        <h2>Show us your motivations!</h2>
 
         <!--formulaire-->
         <form id="event_user_motivation" method="post" action="xx.php">
@@ -159,7 +160,7 @@
         </form>
         <!--end formulaire-->
         <!--participation button-->
-        <button class="event_registration_button" type="button" onclick="alert("Hello world!")">Participate</button>
+        <button type="button" onclick="alert("Hello world!")">Participate</button>
         <!end of button-->
     </section>
     <!--end user_motivation tab-->

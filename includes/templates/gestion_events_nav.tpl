@@ -1,10 +1,10 @@
-<nav>
+<nav class="gestion_events_nav">
     <h1>Event</h1>
     <ul>
-        <li><a href="?action=gestion_event_list">All events</a></li>
-        <li><a href="?action=gestion_event_single">Create an event</a></li>
-        <li><a href="?action=gestion_event_motivation">Participants</a></li>
-        <li><a href="?action=gestion_event_mail">Mailing list</a>   </li>
-        <li><a href="?action=gestion_event_role">Event role</a></li>
+        <li><a href="?action=gestion_events_list">All events</a></li>
+        <li><a href="?action=gestion_events_single">Create event</a></li>
+        <li><a href="?action=gestion_events_motivation">Participants</a></li>
+        <li><a href="?action=gestion_events_mail">Mailing</a>   </li>
+        <li><a href="?action=gestion_events_role">Event role</a></li>
    </ul>
 </nav>

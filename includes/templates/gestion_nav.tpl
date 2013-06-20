@@ -1,7 +1,6 @@
-<ul id="subnav">
-    <li class="sn-event"><a href="?action=gestion_event">Event</a></li>
-    <li class="sn-speaker"><a href="?action=gestion_speaker">Speaker</a></li>
-    <li class="sn-location"><a href="?action=gestion_location">Location</a></li>
-    <li class="sn-teamRole"><a href="?action=gestion_team">Team role</a></li>
+<ul class="gestion_nav">
+    <li><a href="?action=gestion_events">Event</a></li>
+    <li><a href="?action=gestion_locations">Locations</a></li>
+    <li><a href="?action=gestion_contacts">Contacts</a></li>
 </ul>
 
