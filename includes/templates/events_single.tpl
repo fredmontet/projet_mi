@@ -75,8 +75,7 @@
  
     
     <!--registration button-->           
-    <button type="button" onclick="alert("Hello world!")">Registration</button>
-    <div><a href="?action=event_registration&id=1">Registration</a></div>
+    <a href="?action=events_registration&id=1">Registration</a>
     <!--end registration button-->
      
 </article>

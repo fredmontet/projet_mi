@@ -214,8 +214,9 @@ class TEDx {
      * @return content HTML of the Event Registration page
      */
     protected function drawEventRegistration() {
+    	$id = $this->getId();
     
-    	$messageEvent = $this->tedx_manager->getEvent(1);
+    	$messageEvent = $this->tedx_manager->getEvent($id);
     	
     	if($messageEvent->getStatus()) {
 		    $aValidEvent = $messageEvent->getContent();
@@ -225,7 +226,7 @@ class TEDx {
 		
 		$this->smarty->assign('event', $aValidEvent);
 		
-	    return $this->smarty->fetch('event_registration.tpl');
+	    return $this->smarty->fetch('events_registration.tpl');
     }
     
     
@@ -540,22 +541,20 @@ class TEDx {
 		        }
         		
 			break;
-			/*
+			
 			// Events registration
         	case 'events_registration':
         		$topAction = 'events_registration';
         		
         		try {
         			$subnav = null;
-		            $content = null;
+		            $content = $this->drawEventRegistration();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The home page doesn\'t exist!');
 		            $content = null;        	
 		        }
         		
 			break;
-			
-			*/
 			
 			// Events
 			case 'events':
@@ -585,18 +584,7 @@ class TEDx {
 		        }
 			break;	
 			
-			// Event registration
-			case 'event_registration':
-				$topAction = 'event';
-				
-				try {
-		            $subnav = null;
-					$content = $this->drawEventRegistration();
-		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
-		        }
-			break;
+			
 			
 			// Videos
 			case 'videos':
