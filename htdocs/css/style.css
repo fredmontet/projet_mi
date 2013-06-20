@@ -492,8 +492,13 @@ margin:0 10px;
     width:400px;
 }
 
-.contact textarea, input{
-    float:right;
+.contact label{
+    width:100px;
+    text-align:right;    
+}
+
+.contact textarea, .contact input{
+
 }
 
 
