@@ -14,30 +14,30 @@
         <!--name-->
         <p>
             <label for="name">Name </label>
-            <input type="text" name="user_name" style="width:200px" />
+            <input type="text" name="user_name"/>
         </p>
 
         <p>
             <label for="surname">Surname </label>
-            <input type="text" name="user_surname" style="width:200px"/>
+            <input type="text" name="user_surname"/>
         </p>
 
         <!--email-->
         <p>
             <label for="email">Email </label>
-            <input type="email" name="user_email" style="width:200px" />
+            <input type="email" name="user_email"/>
         </p>
 
         <!--subject-->
         <p>
             <label for="object">Object </label>
-            <input type="text" name="user_subject" style="width:200px" />
+            <input type="text" name="user_subject"/>
         </p>
 
         <!--message-->
         <p>
             <label for="message">Message </label>
-            <textarea type="text" name="user_message" rows="4" cols="26"></textarea>
+            <textarea type="text" name="user_message"></textarea>
         </p>
 
         <!--submit--> 
