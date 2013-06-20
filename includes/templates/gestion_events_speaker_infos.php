@@ -9,7 +9,7 @@
     <p><input type="text" name="talk" value="http://" /><a href="http://youtube.com" /></p>
 
     <!--button-->
-    <form name="send" method="post" action="?action=add_speaker_to_slot">
+    <form name="send" method="post" action="add_speaker_to_slot">
         <input type="hidden" name="action" value="Save" />
         <input type="submit" name="submit_save" value="Save" />
     </form>

@@ -71,12 +71,10 @@
 
             <!--gestion_events_single_speaker-->
             <fieldset id="gestion_events_single_speaker">
-                <fieldset>
                     <label for="speaker">Speaker of slot one</label>
                     <input type="text" name="speaker" value="Jean-Paul Gautier">
-                </fieldset>
                 
-                <form name="speaker" method="post" action="?action=gestion_speaker_infos">
+                <form name="speaker" method="post" action="gestion_speaker_infos">
                     <input type="hidden" name="action" value="Jean-Paul Gautier">
                     <input type="submit" name="contact" value="Jean-Paul Gautier">
                 </form>
@@ -93,7 +91,7 @@
                     </select>
                 </p>
                 <p>
-                <form name="add" method="post" action="?action=add_speaker_to_slot">
+                <form name="add" method="post" action="add_speaker_to_slot">
                     <input type="hidden" name="action" value="Add slot">
                     <input type="submit" name="submit_slot" value="Add slot">
                 </form>
@@ -118,7 +116,7 @@
             <!--end of speaker-->
 
             <!--button save-->
-            <form name="send" method="post" action="?action=gestion_events_send">
+            <form name="send" method="post" action="gestion_events_send">
                 <input type="hidden" name="action" value="Save" />
                 <input type="submit" name="submit_send" value="Save" />
             </form>
