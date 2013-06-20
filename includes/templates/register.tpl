@@ -1,5 +1,5 @@
     <!--user-informations tab-->
-    <article>
+    <article class="register">
         <h1>Register</h1>
 
         <!--formulaire-->
