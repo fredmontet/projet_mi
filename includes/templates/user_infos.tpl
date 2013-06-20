@@ -1,73 +1,91 @@
 <article class="user_infos">
-
-    <section class="user_infos_button">
-
-        <form id="user_info" method="post" action="">
+    <!--modification form-->
+    <section>
+        <form method="post" action="">
+            <!--firstname-->
             <p>
-                <input type="hidden" name="save" value="Save modification" />
-                <input type="submit" name="submit_save" value="Save modification" />
+                <label for="user_name">First name</label>
+                <input type="text" name="user_name" value="Firstname"/>
             </p>
-        </form>
-    </section>
-
-    <section class="user_infos_form">
-        <form id="user_infos" method="post" action="">
-            <!--name-->
+            <!--surname-->
             <p>
-                <label for="user_name">Firstname </label>
-                <input type="text" name="user_name" value="Firstname" style="width:200px" />
+                <label for="user_surname">Surname</label>
+                <input type="text" name="user_surname" value="Surname"/>
             </p>
-
-            <p>
-                <label for="user_surname">Surname </label>
-                <input type="text" name="user_surname" value="Surname" style="width:200px" />
-            </p>
-
             <!--email-->
             <p>
-                <label for="user_email">Email </label>
-                <input type="email" name="user_email" value="Email" style="width:200px" />
+                <label for="user_email">Email</label>
+                <input type="email" name="user_email" value="Email"/>
             </p>
-
-            <!--Date-->
+            <!--date-->
             <p>
-                <label for="user_dateofbirth">Date of birth </label>
-                <input type="date" name="user_dateofbirth" value="Date of birth" style="width:200px" />
+                <label for="user_dateofbirth">Date of birth</label>
+                <input type="date" name="user_dateofbirth" value="Date of birth"/>
             </p>
-
             <!--phoneNumber-->
             <p>
-                <label for="user_phoneNumber">Phone number </label>
-                <input type="number" name="user_phoneNumber" value="Phone number" style="width:200px" />
+                <label for="user_phoneNumber">Phone number</label>
+                <input type="number" name="user_phoneNumber" value="Phone number"/>
             </p>
-
-            <!--adress-->
+            <!--address-->
             <p>
-                <label for="user_street">Street </label>
-                <input type="text" name="user_street" value="Street" style="width:200px" />
+                <label for="user_street">Street</label>
+                <input type="text" name="user_street" value="Street"/>
 
-                <label for="user_street_number">No </label>
-                <input type="number" name="user_street_number" value="no" style="width:200px" />
+                <label for="user_street_number">No</label>
+                <input type="number" name="user_street_number" value="no"/>
             </p>
-
+            <!--City&npa-->
             <p>
-                <label for="user_NPA">NPA </label>
-                <input type="number" name="user_NPA" value="NPA" style="width:200px" />
+                <label for="user_NPA">NPA</label>
+                <input type="number" name="user_NPA" value="npa"/>
 
                 <label for="user_city">City</label>
-                <input type="number" name="user_city" value="City" style="width:200px" />
+                <input type="number" name="user_city" value="city"/>
             </p>
-
+            <!--country-->
             <p>
                 <label for="user_country">Country</label>
-                <input type="text" name="user_country" value="Country" style="width:200px" />
+                <input type="text" name="user_country" value="country"/>
             </p>
-
             <!--description-->
             <p>
-                <label for="user_description">Description </label>
-                <textarea type="text" name="user_description" value="Description" rows="4" cols="26"></textarea>
+                <label for="user_description">Description</label>
+                <textarea type="text" name="user_description" value="description" rows="4" cols="26"></textarea>
             </p>
-        </form>       
+            <!--save modification button-->
+            <p>
+                <input type="hidden" name="save" value="saveModification" />
+                <input type="submit" name="submit_save" value="saveModification" />
+            </p>
+        </form>  
     </section>
+    <!--end modification form-->
+    
+    <!--new password form-->
+    <section>
+        <form method="post" action="">
+            <!--firstname-->
+            <p>
+                <label for="current_password">Current Password</label>
+                <input type="text" name="current_password" value="current_password"/>
+            </p>
+            <!--surname-->
+            <p>
+                <label for="new_password">New Password</label>
+                <input type="text" name="new_password" value="new_password"/>
+            </p>
+            <!--email-->
+            <p>
+                <label for="repeat_new_password">Repeat New Password</label>
+                <input type="text" name="repeat_new_password" value="repeat_new_password"/>
+            </p>
+            <!--save new password button-->
+            <p>
+                <input type="hidden" name="saveNewPassword" value="saveNewPassword" />
+                <input type="submit" name="saveNewPassword" value="saveNewPassword" />
+            </p>
+        </form>  
+    </section>
+    <!--end new password form-->
 </article>
