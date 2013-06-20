@@ -27,6 +27,7 @@ body{
 	line-height: 20px;
 	color: #333333;
 	background-color: #ffffff;
+	text-rendering: optimizelegibility;
 }
 
 a {
@@ -53,7 +54,6 @@ h6 {
   font-family: inherit;
   font-weight: bold;
   color: inherit;
-  text-rendering: optimizelegibility;
 }
 
 h1 {
