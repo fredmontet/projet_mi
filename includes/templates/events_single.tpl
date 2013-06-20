@@ -1,75 +1,72 @@
-<article class="event_single">
+<!--event_single page-->
+<article class="events_single">
  
-<!--event header-->
+    <!--event header-->
+    <header>
+        <h1>{$event->getMainTopic()}</h1>
+        <h1>{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
 
-        <header>
-            <h1 class="title">{$event->getMainTopic()}</h1>
-            <h1 class="event_date">{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
-			
-            <nav class="event_nav">
-                <a href="#event_single_infos">Infos</a>
-                <a href="#event_single_details">Details</a>
-                <a href="#event_single_speaker">Speaker</a>   
-            </nav>
-        </header>
+        <nav>
+            <a href="#events_single_infos">Infos</a>
+            <a href="#events_single_details">Details</a>
+            <a href="#events_single_speakers">Speaker</a>   
+        </nav>
+    </header>
         
             
-    <!--info tab-->
-    <section id="event_single_infos">
-        
-        {if ($location != null)}
-        <!-- location tab-->
-        <section class="event_location">
-                <h2 class="event_location_title">Location</h2>
-                <p class="event_location_slots">{$location->getCity()}</p>
+    <!--infos tab-->
+    <section id="events_single_infos">
+         <!--event tab-->
+        <section>
+            <h2>Programme</h2>
+            <p>{$event->getDescription()}</p>
         </section>
-        <!--end location tab-->
-        {/if}
-        
+        <!--end event tab-->
         <!-- schedule tab-->
-        <section class="event_schedule">
-                <h2 class="event_schedule_title">Schedule</h2>
-                <dl class="event_schedule_slots">
+        <section>
+                <h2>Schedule</h2>
+                <dl>
                     <dt>13:00</dt>
                         <dd>Registration</dd>   
                 </dl>
         </section>
-        <!--end schedule tab-->
-        
-        <!--event tab-->
-        <section class="event_programm">
-            <h2 class="event_programm_title">Programme</h2>
-            <p class="event_programm_desc">{$event->getDescription()}</p>
-        </section>
-        <!--end event tab-->  
+        <!--end schedule tab-->  
     </section>
     <!--end infos tab-->
         
-    <!--details tab-->
-    <section id="event_single_details">
-        <!--language-->
-        <section class="event_lang">
-            <h2 class="event_lang_title">Languages</h2>
-            <p class="event_lang_desc">blbla english blblabla</p>
-        </section>
-        <!--end language-->
     
+    <!--details tab-->
+    <section id="events_single_details">
+        {if ($location != null)}
+        <!-- location tab-->
+        <section>
+                <h2>Location</h2>
+                <p>{$location->getCity()}</p>
+        </section>
+        <!--end location tab-->
+        {/if}
         <!--dress code-->
-        <section class="event_dresscode">
-            <h2 class="event_dresscode_title">Dress Code</h2>
-            <p class="event_dresscode_desc">blbalablblablaabl</p>
+        <section>
+            <h2>Dress Code</h2>
+            <p>blbalablblablaabl</p>
         </section>
         <!--end dress code-->
+        <!--language-->
+        <section>
+            <h2>Languages</h2>
+            <p>blbla english blblabla</p>
+        </section>
+        <!--end language-->
     </section>
     <!--end section tab-->
         
         
- <!--speaker tab-->
-    <section id="event_single_speaker">
+    <!--speaker tab-->
+    <section id="events_single_speakers">
         <!--speaker slot-->
-        <section class="event_speaker">
-            <h2 class="event_speaker_title">Speaker of slot one</h2>
-            <ul class="event_speaker_listbyslot">
+        <section>
+            <h2>Speaker of slot one</h2>
+            <ul>
                 <li>Jean-Paul Savary</li>
             </ul>            
         </section>
@@ -77,11 +74,11 @@
     </section>
     <!--end speaker tab-->
  
+    
     <!--registration button-->           
     <button type="button" onclick="alert("Hello world!")">Registration</button>
-    <div class="event_single"><a href="?action=event_registration&id=1">Registration</a></div>
-    <!--end button-->
+    <div><a href="?action=event_registration&id=1">Registration</a></div>
+    <!--end registration button-->
      
-        
 </article>
 <!--end of event_single-->
