@@ -12,46 +12,32 @@
         <!--refused tab-->
         <section id="refused">
             <ul>
-                <li>Jean-Paul Gaucher REFUSED</li>
-                <li>Jean-Paul Gaucher REFUSED</li>
-                <li>Jean-Paul Gaucher REFUSED</li>
-                <li>Jean-Paul Gaucher REFUSED</li>
+                <li><a href="?action=events_mail_edit">Jean-Paul Gaucher REFUSED</a></li>
+                <li><a href="?action=events_mail_edit">Jean Sanchez REFUSED</a></li>
+                <li><a href="?action=events_mail_edit">Pierre Curie REFUSED</a></li>
             </ul>
         </section>
 
         <!--waiting tab-->
         <section id="waiting">
             <ul>
-                <li>Marie Lise WAITING</li>
-                <li>Marie Lise WAITING</li>
-                <li>Marie Lise WAITING</li>
-                <li>Marie Lise WAITING</li>
+                <li><a href="?action=events_mail_edit">Marie Lise WAITING</a></li>
             </ul>
         </section>
 
         <!--accepted tab-->
         <section id="accepted">
             <ul>
-                <li>John Doe ACCEPTED</li>
-                <li>John Doe ACCEPTED</li>
-                <li>John Doe ACCEPTED</li>
-                <li>John Doe ACCEPTED</li>
+                <li><a href="?action=events_mail_edit">john Doe ACCEPTED</a></li>
             </ul>
         </section>
     </section>
     <!--end list participants tab-->
-   
-<!--Buttons-->   
-    <article>
-        <!--next button-->           
-            <button type="button" onclick="gestion_events_role">Next</button>
-        </div>
-        <!--previous button-->    
-        <div>
-            <button type="button" onclick="gestion_events_motivation">Previous</button>
-        </div>
-    </article>
-    
+
+    <!--Buttons-->   
+    <p><input type="button" name="next" value="Next"></p>
+    <p><input type="button" name="previous" value="Previous"></p>
+
     {$gestionEventsMailEdit}
 
 </article>

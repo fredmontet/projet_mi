@@ -2,7 +2,7 @@
     <p><input type="text" name="kw" value="keyword 1" /></p>
     <p><input type="text" name="kw" value="keyword 2" /></p>
     <p><input type="text" name="kw" value="keyword 3" /></p>
-    <p><textarea>Description</textarea></p>
+    <p><textarea rows="4" cols="26">Description</textarea></p>
 
     <!--talk link-->
     <p>

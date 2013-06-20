@@ -26,7 +26,7 @@
             <fieldset id="gestion_events_single_infos">
                 <fieldset>
                     <label for="programme">Programme</label>
-                    <input type="text" name="programme" value="blblalablabl" />
+                    <textarea type="text" name="programme" rows="4" cols="26">Please edit programme if not already edited</textarea>
                 </fieldset>
 
                 <fieldset>
@@ -41,11 +41,18 @@
                             <td>15:30</td>
                             <td>Registration</td>
                         </tr>
-                    </table
-                    <p>
-                        <input type="submit" name="add" value="Add a slot" />
-                    </p>
+                        <tr>
+                            <td>17:00</td>
+                            <td>End</td>
+                        </tr>
+                    </table>
                 </fieldset>
+
+                <form name="send" method="post" action="=add_slot">
+                    <input type="hidden" name="action" value="Add a slot">
+                    <input type="submit" name="submit_slot" value="Add a slot">
+                </form>
+
             </fieldset>
             <!--end of gestion_events_single_infos-->
 
@@ -54,7 +61,7 @@
                 <fieldset>
                     <label for="location">Location</label>
                     <select name="location">
-                        <option>Chose a location</option>
+                        <option>Affect a location</option>
                     </select>
                 </fieldset>
                 <fieldset>
@@ -71,14 +78,12 @@
 
             <!--gestion_events_single_speaker-->
             <fieldset id="gestion_events_single_speaker">
+                <p>
                     <label for="speaker">Speaker of slot one</label>
-                    <input type="text" name="speaker" value="Jean-Paul Gautier">
-                
-                <form name="speaker" method="post" action="gestion_speaker_infos">
-                    <input type="hidden" name="action" value="Jean-Paul Gautier">
-                    <input type="submit" name="contact" value="Jean-Paul Gautier">
-                </form>
-                
+                    <a href="?action=gestion_speaker_infos">
+                        <input type="text" name="speaker" value="Jean-Paul Gautier">
+                    </a>
+                </p>
 
                 <p>
                     <select>
@@ -92,8 +97,8 @@
                 </p>
                 <p>
                 <form name="add" method="post" action="add_speaker_to_slot">
-                    <input type="hidden" name="action" value="Add slot">
-                    <input type="submit" name="submit_slot" value="Add slot">
+                    <input type="hidden" name="action" value="Add speaker">
+                    <input type="submit" name="submit_slot" value="Add speaker">
                 </form>
                 </p>
             </fieldset>
@@ -102,28 +107,39 @@
             <!--gestion_events_single_team-->
             <fieldset id="gestion_events_single_team">
                 <label for="organizer">Organizer</label>
-                <p><input type="text" name="speaker" value="Jean-Paul Gautier" /></p>
+                <p><input type="text" name="speaker" value="Jean-Paul Gautier"></p>
+
+                <p><input type="text" name="kw" value="Keyword 1"></p>
+                <p><input type="text" name="kw" value="Keyword 2"></p>
+                <p><input type="text" name="kw" value="Keyword 3"></p>
+                <p>
+                    <select>
+                        <option>Chose a contact</option>
+                    </select>
+                </p> 
+
                 <p>
                     <select>
                         <option>Role</option>
                     </select>
                 </p>
-                <p><input type="text" name="kw" value="Keyword 1" /></p>
-                <p><input type="text" name="kw" value="Keyword 2" /></p>
-                <p><input type="text" name="kw" value="Keyword 3" /></p>
-                <p><input type="submit" name="add" value="add organizer"/></p>
             </fieldset>
-            <!--end of speaker-->
+            <!--button-->
+            <form name="add" method="post" action="add_organizer_to_event">
+                <input type="hidden" name="action" value="Add organizer">
+                <input type="submit" name="submit_add" value="Add organizer">
+            </form>
+                <!--end of speaker-->
 
             <!--button save-->
             <form name="send" method="post" action="gestion_events_send">
-                <input type="hidden" name="action" value="Save" />
-                <input type="submit" name="submit_send" value="Save" />
+                <input type="hidden" name="action" value="Save">
+                <input type="submit" name="submit_send" value="Save">
             </form>
 
-            <!--buttons next previous-->
-            <p><input type="button" name="next" value="Next" </p>
-            <p><input type="button" name="previous" value="Previous" /></p>
+                <!--buttons next previous-->
+                <p><input type="button" name="next" value="Next" </p>
+                <p><input type="button" name="previous" value="Previous"></p>
 
         </fieldset>
     </form>
