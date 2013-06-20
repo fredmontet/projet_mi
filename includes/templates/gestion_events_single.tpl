@@ -78,7 +78,7 @@
                         <option>Position</option>
                     </select>
                 </p>
-                <p><input type="submit" name="slot" value="add slot"/></p>
+                <p><input type="submit" name="slot" value="save speaker"/></p>
             </fieldset>
             <!--end of speaker-->
 
