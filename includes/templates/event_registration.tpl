@@ -24,7 +24,7 @@
 
             <!--user_name-->
             <p>
-                <label for="user_name">Name </label>
+                <label for="user_name">First name</label>
                 <input type="text" name="user_name" style="width:200px" />
             </p>
 
