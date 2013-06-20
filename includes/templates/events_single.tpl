@@ -1,4 +1,3 @@
-<!--event_single page-->
 <article class="events_single">
  
     <!--event header-->
@@ -81,4 +80,3 @@
     <!--end registration button-->
      
 </article>
-<!--end of event_single-->

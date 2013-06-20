@@ -168,4 +168,3 @@
     <!--end user_motivation tab-->
 
 </article>
-<!--end of event_registration-->

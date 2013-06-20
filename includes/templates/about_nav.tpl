@@ -1,4 +1,3 @@
-<!--menu encre about-->
 <ul class="about_nav">
     <li><a href="#about_tedxlausanne">About TEDxLausanne</a></li>
     <li><a href="#about_ted">About TED</a></li>

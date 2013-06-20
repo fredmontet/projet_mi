@@ -1,6 +1,6 @@
 {foreach from=$events item=event}
 <<<<<<< HEAD
-	<article class="event">
+	<article class="events">
 =======
 	<article class="events">
 >>>>>>> 530e7e216a89b5a25ae0aa1e96e47170b1e01433
