@@ -237,7 +237,27 @@ class TEDx {
     protected function drawVideos() {
 		
 		// Draw Videos page
-		return $this->smarty->fetch('videos.tpl');
+		return $this->smarty->fetch('videos_all.tpl');
+    }
+    
+    /**
+     * Draw the Videos Event page
+     * @return content HTML of the Videos Event page
+     */
+    protected function drawVideosEvent() {
+		
+		// Draw Videos page
+		return $this->smarty->fetch('videos_event.tpl');
+    }
+    
+    /**
+     * Draw the Videos navigator
+     * @return content HTML of the Videos navigator
+     */
+    protected function drawVideosNav() {
+		
+		// Draw Videos page
+		return $this->smarty->fetch('videos_nav.tpl');
     }
     
     
@@ -554,45 +574,28 @@ class TEDx {
 		            $content = null;        	
 		        }
         		
-			break;
-			
-			// Events
-			case 'events':
-				$topAction = 'events';
-				
-				try {
-		            $subnav = null;
-					$content = $this->drawEvents();
-		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
-		        }
 			break;	
-			
-			// Events
-			case 'event_single':
-				$topAction = 'events';
-				
-				$id = $this->getId();
-				
-				try {
-		            $subnav = null;
-					$content = $this->drawEventSingle($id);
-		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
-		        }
-			break;	
-			
-			
 			
 			// Videos
 			case 'videos':
 				$topAction = 'videos';
 				
 				try {
-		            $subnav = null;
+		            $subnav = $this->drawVideosNav();
 					$content = $this->drawVideos();
+		        } catch (Exception $e) {
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;         	
+		        }
+			break;
+			
+			// Videos Event
+			case 'videos_event':
+				$topAction = 'videos';
+				
+				try {
+		            $subnav = $this->drawVideosNav();
+					$content = $this->drawVideosEvent();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
 		            $content = null;         	
