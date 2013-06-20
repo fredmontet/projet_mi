@@ -473,18 +473,30 @@ margin:0 10px;
 /*			 contact   			*/
 /****************************************/
 
-
+.contact{
+    background-color:green;
+}
 
 .contact h1{
     font-size:2em;
 }
 
 .contact section{
-    background-color:red;
+
     display:block;
     position:relative;
     float:left;
 }
+
+.contact form{
+    width:400px;
+}
+
+.contact textarea, input{
+    float:right;
+}
+
+
 
 /*end of contact*/
   
