@@ -1,7 +1,7 @@
-<article>
+<article class="contact">
 <h1>Contact</h1>
     <section>
-        <form id="contact" method="post" action="xx.php">
+        <form method="post" action="xx.php">
 
         <!--name-->
         <p>
