@@ -100,8 +100,8 @@
 
             <!--buttons-->
             <p><input type="submit" name="save" value="Save" /></p>
-            <p><input type="submit" name="next" value="Next" /></p>
-            <p><input type="submit" name="previous" value="Previous" /></p>
+            <p><input type="button" name="next" value="Next" /></p>
+            <p><input type="button" name="previous" value="Previous" /></p>
         </section>
     </form>
 

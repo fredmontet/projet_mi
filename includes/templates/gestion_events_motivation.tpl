@@ -1,4 +1,4 @@
-<section class="gestion_event_motivation">
+<section class="gestion_events_motivation">
     <article>
         <h1>Jean-Paul Gaucher</h1>
         <p>
@@ -50,12 +50,11 @@
     <!--Buttons-->   
     <article>
         <!--next button-->           
-        <div>
-            <button type="button" onclick="#details">Next</button>
+            <button type="button" onclick="gestion_events_single">Next</button>
         </div>
         <!--previous button-->    
         <div>
-            <button type="button" onclick="#details">Previous</button>
+            <button type="button" onclick="gestion_events">Previous</button>
         </div>
     </article>
     
