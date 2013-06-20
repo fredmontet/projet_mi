@@ -1,2 +1,2 @@
-{$event_single}
-{$video_list}
+{$events_single}
+{$videos_list}

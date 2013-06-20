@@ -111,19 +111,15 @@ class TEDx {
 		$aValidNextEvent = $this->getNextEvent();
 		$id = $aValidNextEvent->getNo();
 		
-		$event_single = $this->drawEventSingle($id);
-		
-		
-		// Draw the next event
-		//$this->smarty->assign('event', $aValidNextEvent);
-		//$event_single = $this->smarty->fetch('event_single.tpl');
+		// Draw the next Event
+		$events_single = $this->drawEventsSingle($id);
 		
 		// Draw video playlist
-		$video_list = $this->smarty->fetch('video_list.tpl');
+		$video_list = $this->smarty->fetch('videos_list.tpl');
     	
-    	// Assign variables
-    	$this->smarty->assign('event_single', $event_single);
-    	$this->smarty->assign('video_list', $video_list);
+    	// Assign variables to Smarty
+    	$this->smarty->assign('events_single', $events_single);
+    	$this->smarty->assign('videos_list', $video_list);
 		
 		// Draw Home page
 		return $this->smarty->fetch('home.tpl');
@@ -175,7 +171,7 @@ class TEDx {
      * Draw the Event single page
      * @return content HTML of the Event single page
      */
-    protected function drawEventSingle($id) {
+    protected function drawEventsSingle($id) {
     	
     	// Get Event
     	$messageEvent = $this->tedx_manager->getEvent($id);
@@ -197,7 +193,7 @@ class TEDx {
 			$this->smarty->assign('location', $aValidLocation); 
 			$this->smarty->assign('event', $aValidEvent);
 			
-			return $this->smarty->fetch('event_single.tpl');
+			return $this->smarty->fetch('events_single.tpl');
 			
 		} else {
 		    $this->displayMessage('There isn\'t event!'); 
@@ -499,9 +495,9 @@ class TEDx {
         	// Home
         	case 'home':
         		$topAction = 'home';
-        		$subnav = null;
         		
         		try {
+        			$subnav = null;
 		            $content = $this->drawHome();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The home page doesn\'t exist!');
@@ -509,6 +505,52 @@ class TEDx {
 		        }
         		
 			break;
+			
+			/*
+			
+			// About
+        	case 'about':
+        		$topAction = 'about';
+        		
+        		try {
+        			$subnav = $this->drawAboutNav();
+		            $content = $this->drawAbout();
+		        } catch (Exception $e) {
+		            $this->displayMessage('The home page doesn\'t exist!');
+		            $content = null;        	
+		        }
+        		
+			break;
+			
+			// Events
+        	case 'events':
+        		$topAction = 'events';
+        		
+        		try {
+        			$subnav = null;
+		            $content = $this->drawEvents();
+		        } catch (Exception $e) {
+		            $this->displayMessage('The home page doesn\'t exist!');
+		            $content = null;        	
+		        }
+        		
+			break;
+			
+			// Events registration
+        	case 'events_registration':
+        		$topAction = 'events_registration';
+        		
+        		try {
+        			$subnav = null;
+		            $content = null;
+		        } catch (Exception $e) {
+		            $this->displayMessage('The home page doesn\'t exist!');
+		            $content = null;        	
+		        }
+        		
+			break;
+			
+			*/
 			
 			// About
 			case 'about':
@@ -758,6 +800,8 @@ class TEDx {
 		            $this->displayMessage('This page doesn\'t exist!');     
 		            $content = null;    	
 		        }
+		        
+		        
         		
 		}	
 		
