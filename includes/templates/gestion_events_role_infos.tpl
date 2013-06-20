@@ -1,5 +1,5 @@
    
-<fieldset class="gestion_contacts_role_infos"> 
+<fieldset class="gestion_events_role_infos"> 
     <fieldset>
         <p>
             <label for="event">Chose event</label>   

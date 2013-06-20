@@ -1,4 +1,4 @@
-<article class="gestion_contacts_role">
+<article class="gestion_events_role">
     <form id="" method="post" action="">
         <fieldset>  
             <select>
