@@ -1,18 +1,30 @@
-<article class="gestion_event_role_info">
+   
+<fieldset class="gestion_contacts_role_infos"> 
+    <fieldset>
+        <p>
+            <label for="event">Chose event</label>   
+            <select>
+                <option>Chose event</option>
+            </select>
+        </p>
+        <p>
+            <label for="role">Event role name</label>   
+            <select>
+                <option>Event role name</option>
+            </select>
+        </p>
+        <p>
+            <label for="level">Chose level</label>   
+            <select>
+                <option>Chose level</option>
+            </select>
+        </p>
+    </fieldset>
 
 
-    
-    
-    <!--Buttons-->   
-    <section>
-            <!--next button-->           
-            <div>
-                <button type="button" onclick="#details">Next</button>
-            </div>
-            <!--previous button-->    
-            <div>
-                <button type="button" onclick="#details">Previous</button>
-            </div>
-    </section>
-    
-</article>
+    <!--button-->
+    <p
+        <input type="submit" name="save" value="Save" />
+    </p>
+
+</fieldset>
