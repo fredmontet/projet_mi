@@ -1,6 +1,6 @@
-<article>
-<h1>Contact</h1>
-        <form id="contact" method="post" action="xx.php">
+<article class="gestion_locations">
+    <h1>Contact</h1>
+    <form method="post" action="xx.php">
 
         <!--name-->
         <p>
@@ -35,11 +35,11 @@
         <p>
             <input type="submit" name="send" value="Send" />
         </p>
-        
-        </form>
-        
-        <!--google maps incorporated--> 
-        <div>
-            <a href="https://maps.google.ch/maps?hl=fr&tab=wl">"Picture of Google Maps TedxLausanne location"</a>
-        </div>
+
+    </form>
+
+    <!--google maps incorporated--> 
+    <section>
+        <a href="https://maps.google.ch/maps?hl=fr&tab=wl">"Picture of Google Maps TedxLausanne location"</a>
+    </section>
 </article>
