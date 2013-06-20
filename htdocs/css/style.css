@@ -231,18 +231,16 @@ margin:0 10px;
 #subnav{
     position:relative;
     display:inline-block;    
-    border-bottom:2px solid #000000;
     left:-50%;
 }
 
 #subnav li{
      display:block;
      float:left;
-     border-bottom:3px solid rgba(255,255,255,0);
+     border-bottom:3px solid #E2E2E2;
 }
 
 #subnav a{
-    font-family:'HelveticaNeueLTStd45Light',helvetica,arial,sans-serif;
     display:block;   
     color:#222222;
     text-decoration:none;
