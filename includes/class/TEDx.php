@@ -377,8 +377,8 @@ class TEDx {
 	    	break;
 	    	
 	    	case 'gestion_events_motivation':
-	    		$gestionEventMotivation = $this->smarty->fetch('gestion_event_motivation.tpl');
-				$this->smarty->assign('gestionEventContent', $gestionEventMotivation);
+	    		$gestionEventsMotivation = $this->smarty->fetch('gestion_events_motivation.tpl');
+				$this->smarty->assign('gestionEventsContent', $gestionEventsMotivation);
 	    	break;
 	    	
 	    	case 'gestion_events_mail':
