@@ -469,8 +469,26 @@ margin:0 10px;
 */
 
 /****************************************/
-/*			 contact   			*/
+/*              about                   */
 /****************************************/
+/*Status = to fill*/
+
+.about section{}
+.about h1{}
+.about p{}
+.about img{}
+/*end of about*/
+
+/****************************************/
+/*     about_nav is part of subnav      */
+/****************************************/
+/*Status = done*/
+/*end of about_nav*/
+
+/****************************************/
+/*             contact           	*/
+/****************************************/
+/*Status = to fill*/
 
 .contact{
     background-color:green;
@@ -507,11 +525,19 @@ margin:0 10px;
     resize:none;
     
 }
-
-
-
 /*end of contact*/
-  
+/****************************************/
+/*            event         	*/
+/****************************************/
+/*Status = to fill*/
+
+
+
+/*end of event*/
+
+
+
+
 }/*End of Main layout*/ 
   
   
