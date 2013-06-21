@@ -4,13 +4,12 @@
         <!--gestion event single header-->
         <fieldset>
             <!--date-->
-            <legend>
-                <input type="time" value="14 april 2013" name="gestion_events_date" />
-            </legend>
-            <!--event title-->
-            <legend>
-                <input type="text" value="Title of event" name="gestion_events_title" />
-            </legend>
+             <fieldset>
+                <legend>date</legend>
+                <input type="date" name="date" value="14april2013"/>
+                <legend>title</legend>                    
+                <input type="title" name="title" value="title of event" />
+            </fieldset>
         </fieldset>
 
         <!--button save-->
@@ -26,7 +25,7 @@
             <a href="?action=gestion_event_export">Export</a> 
         </nav>
         <!--end gestion event single header-->
-
+       
         <!--gestion_events_single_infos-->
         <fieldset id="gestion_events_single_infos">
             <fieldset>
@@ -110,8 +109,8 @@
         <input type="hidden" name="action" value="add_slot">
         <input type="submit" name="submit_slot" value="Add slot">
         <!--navigation buttons-->
-        <a href="#gestion_events_single_team">previous</a>
-        <a href="#gestion_events_single_details">next</a>
+        <a href="#gestion_events_single_details">previous</a>
+        <a href="#gestion_events_single_team">next</a>
 
         <!--end of speaker-->
 
@@ -138,7 +137,7 @@
 
         <!--navigation buttons-->
         <a href="#gestion_events_single_speaker">previous</a>
-        <!--end of add organizier-->
+        <!--end of add organizer-->
 
     </form>
 </article>
