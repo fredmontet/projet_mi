@@ -1,3 +1,11 @@
+{*
+Smarty variables available:
+	$event (Object)
+	$location (Object) [0..1]
+	$slots (Object) [0..1]
+	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+*}
+
 <article class="gestion_events_single">
     <form id="" method="post" action="">
 

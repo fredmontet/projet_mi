@@ -477,15 +477,86 @@ class TEDx {
 	    		$id = $this->getId();
 	    		
 	    		if($id != null) {
-		    		$messageEvent = $this->tedx_manager->getEvent($id);
-		    		
-					if($messageEvent->getStatus()) {
+		    		// Get an Event
+			    	$messageEvent = $this->tedx_manager->getEvent($id);
+			    	
+			    	// If the Event is found, continue
+			    	if($messageEvent->getStatus()) {
 					    $aValidEvent = $messageEvent->getContent();
+					    
+					    // Get Location
+						$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
+						
+						// If the Location is found, continue
+						if($messageLocation->getStatus()) {
+						    $aValidLocation = $messageLocation->getContent();
+						    
+						} else {
+							// Else give the error message about no found Location
+						    $aValidLocation = null;
+						}
+						
+						// Get Slot
+						$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
+						
+			            // If Slots are found, continue
+						if($messageSlots->getStatus()) {
+							$allValidSlots = $messageSlots->getContent();
+							
+				            // For each Valid Slots
+							foreach($allValidSlots as $aValidSlot) {
+								
+								// Get Places in a Slot
+								$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
+								
+								// If Places are found, continue
+								if($messagePlaces->getStatus()) {
+									$allValidPlaces = $messagePlaces->getContent();		
+									
+									// For each Valid Places	
+									foreach($allValidPlaces as $aValidPlace) {
+										
+										// Get Speaker at Place
+										$messageSpeaker = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
+										
+										// If Speaker is found, continue
+										if($messageSpeaker->getStatus()) {
+											$aValidSpeaker = $messageSpeaker->getContent();
+											
+											// Prepare an array for Smarty [Slots][Places][Speaker]
+											$speakers	[$aValidSlot->getNo()]
+														[$aValidPlace->getNo()]
+														[$aValidSpeaker->getNo()] = $aValidSpeaker;
+											
+										} else {
+											// Else give the error message about no found Speaker
+											$aValidSpeaker = null;
+											$speakers [$aValidSlot->getNo()] = null;
+										}
+									}
+								} else {
+									// Else give the error message about no found Place
+									$allValidPlaces = null;
+									$speakers [$aValidSlot->getNo()] = null;
+								}
+							}
+						} else {
+							// Else give the error message about no found Slots
+							$allValidSlots = null;
+							$speakers = null;
+						}
+						
+						// Assigns variables to Smarty
+						$this->smarty->assign('speakers', $speakers);
+						$this->smarty->assign('slots', $allValidSlots);
+						$this->smarty->assign('location', $aValidLocation); 
+						$this->smarty->assign('event', $aValidEvent);
+						
 					} else {
-					    $this->displayMessage('There isn\'t event!'); 
-				    }
-				
-					$this->smarty->assign('event', $aValidEvent);
+						// Else give the error message about no found Event
+					    $this->displayMessage($messageEvent->getMessage()); 
+				    }	
+
 					
 	    		} else {
 		    		$this->displayMessage('There isn\'t an event with this id.');
