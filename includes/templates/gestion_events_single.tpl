@@ -89,9 +89,10 @@
         <fieldset id="gestion_events_single_speaker">
             <p>
                 <label for="speaker">Speaker of slot one</label>
-                <a href="?action=gestion_speaker_infos">
+                <a href="?action=gestion_speaker_infos&event_id=1&speaker_id=2">
                     <input type="text" name="speaker" value="Jean-Paul Gautier">
                 </a>
+                {$gestionEventsSpeakerInfos}
             </p>
 
             <p>

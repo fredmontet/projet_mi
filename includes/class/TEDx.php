@@ -365,6 +365,18 @@ class TEDx {
 	    	break;
 	    	
 	    	case 'gestion_events_single':
+	    	case 'gestion_speaker_infos':
+	    		
+	    		switch($action) {
+		    		case 'gestion_speaker_infos':
+		    			$gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
+					    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
+		    		break;
+		    		default:
+		    			$this->smarty->assign('gestionEventsSpeakerInfos', null);
+		    		break;
+	    		}
+	    	
 	    		$id = $this->getId();
 	    		
 	    		if($id != null) {
@@ -431,11 +443,11 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_events.tpl');
     }
     
-    protected function drawGestionSpeaker() {
-	    $gestionSpeakerInfos = $this->smarty->fetch('gestion_speaker_infos.tpl');
-	    $this->smarty->assign('gestionSpeakerInfos', $gestionSpeakerInfos);
+    protected function drawGestionSpeakerInfos() {
+	    $gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
+	    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
 	    
-	    return $this->smarty->fetch('gestion_speaker.tpl');
+	    return $this->smarty->fetch('gestion_events_single.tpl');
     }
     
     protected function drawGestionLocations($action) {
@@ -757,6 +769,7 @@ class TEDx {
 			case 'gestion_events_role':
 			case 'gestion_events_role_infos';
 			case 'gestion_events_role_new';
+			case 'gestion_speaker_infos':
 				$topAction = 'gestion';
 				
 				try {
@@ -768,22 +781,8 @@ class TEDx {
 		        }
 			break;
 			
-			// Gestion Speaker
-			//case 'gestion_speaker':
-				$topAction = 'gestion';
-				
-				try {
-		            $subnav = $this->drawGestionNav();
-					$content = $this->drawGestionSpeaker();
-		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
-		        }
-			break;
-			
 			// Gestion Location
 			case 'gestion_locations':
-			//case 'gestion_location_edit':
 			case 'gestion_locations_new':
 			case 'gestion_locations_send':
 			case 'gestion_locations_infos':
