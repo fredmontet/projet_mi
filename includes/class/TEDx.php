@@ -480,34 +480,51 @@ class TEDx {
     }
     
     
-    /**
-     * Draw the Gestion Team page
-     * @return content HTML of the Gestion Team page
+     /**
+     * Draw the Gestion Contacts page
+     * @return content HTML of the Gestion Contacts page
      */
-    protected function drawGestionTeam($action) {
-    	$gestionTeamNav = $this->smarty->fetch('gestion_team_nav.tpl');
-    	$this->smarty->assign('gestionTeamNav', $gestionTeamNav);
+    protected function drawGestionContacts($action) {
+    	$gestionContactsNav = $this->smarty->fetch('gestion_contacts_nav.tpl');
+    	$this->smarty->assign('gestionContactsNav', $gestionContactsNav);
     	
     	switch($action) {
-    		case 'gestion_team':
-	    	case 'gestion_team_affect':
-	    		$gestionTeamAffectInfos = $this->smarty->fetch('gestion_team_affect_infos.tpl');
-				$this->smarty->assign('gestionTeamAffectInfos', $gestionTeamAffectInfos);
-	    	
-	    		$gestionTeamAffect = $this->smarty->fetch('gestion_team_affect.tpl');
-				$this->smarty->assign('gestionTeamContent', $gestionTeamAffect);
+	    	case 'gestion_contacts':
+	    		$gestionContactsList = $this->smarty->fetch('gestion_contacts_list.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsList);
 	    	break;
-	    	
-	    	case 'gestion_team_edit':
-	    		$gestionTeamEditInfos = $this->smarty->fetch('gestion_team_edit_infos.tpl');
-				$this->smarty->assign('gestionTeamEditInfos', $gestionTeamEditInfos);
-	    	
-	    		$gestionTeamEdit = $this->smarty->fetch('gestion_team_edit.tpl');
-				$this->smarty->assign('gestionTeamContent', $gestionTeamEdit);
-	    	break;
-	    }
-	    
-	    return $this->smarty->fetch('gestion_team.tpl');
+			case 'gestion_contacts_infos':
+				$gestionContactsInfos = $this->smarty->fetch('gestion_contacts_infos.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsInfos);
+			break;
+			case 'gestion_contacts_new':
+				$gestionContactsNew = $this->smarty->fetch('gestion_contacts_new.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsNew);
+			break;
+			case 'gestion_contacts_role':
+				$this->smarty->assign('gestionContactsRoleInfos', null);
+			
+				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+			break;
+			case 'gestion_contacts_role_infos': 
+				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
+				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
+				
+				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+			break;
+			case 'gestion_contacts_role_new':
+				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
+				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
+				
+				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
+				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+			break; 
+    	}
+    	
+    	return $this->smarty->fetch('gestion_contacts.tpl');
+    	
     }
     
     
@@ -749,18 +766,21 @@ class TEDx {
 		        }
 			break;
 			
-			// Gestion Team
-			case 'gestion_team':
-			case 'gestion_team_affect':
-			case 'gestion_team_edit':
+			// Gestion Location
+			case 'gestion_contacts':
+			case 'gestion_contacts_infos':
+			case 'gestion_contacts_new':
+			case 'gestion_contacts_role':
+			case 'gestion_contacts_role_infos': 
+			case 'gestion_contacts_role_new':
 				$topAction = 'gestion';
 				
 				try {
-		            $subnav = $this->drawGestionNav();
-					$content = $this->drawGestionTeam($action);
+		            $subnav = $this->drawGestionNav($action);
+					$content = $this->drawGestionContacts($action);
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!');  
-		            $content = null;       	
+		            $this->displayMessage('This page doesn\'t exist!'); 
+		            $content = null;        	
 		        }
 			break;
 			
