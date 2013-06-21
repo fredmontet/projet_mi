@@ -6,9 +6,9 @@
 	    <title>Project 143</title>
 	</head>
     <body>
-    <div class="container">
+    <div id="container" class="container">
     <header id="globalheader">
-	    <nav id="topheader" class="span8">
+	    <nav id="topheader" >
 		    <ul id="globalnav">
                         <li id="gn-about"><a {if  $topAction=='about'}class="selected"{/if} href="?action=about">About</a></li>
                         <li id="gn-events"><a {if  $topAction=='events'}class="selected"{/if} href="?action=events">Events</a></li>
