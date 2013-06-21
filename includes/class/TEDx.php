@@ -194,8 +194,19 @@ class TEDx {
 			} else {
 			    $this->displayMessage('No location found!');
 			    $aValidLocation = null;
-			}    
-					    
+			}
+			
+			// Get Slot
+			$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
+			
+			if($messageSlots->getStatus()) {
+				$aValidSlots = $messageSlots->getContent();
+			} else {
+				$this->displayMessage('No Slot found!');
+				$aValidSlots = null;
+			}
+			
+			$this->smarty->assign('slots', $aValidSlots);
 			$this->smarty->assign('location', $aValidLocation); 
 			$this->smarty->assign('event', $aValidEvent);
 			
