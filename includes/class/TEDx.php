@@ -453,10 +453,10 @@ class TEDx {
     protected function drawGestionLocations($action) {
 		switch ($action) {
 			case 'gestion_locations_new':
+			case 'gestion_locations_infos':
 				$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 			break;
 			default:
-				$gestionLocationsInfos = null;
 				$gestionLocationsInfos = null;
 			break;
 		}
