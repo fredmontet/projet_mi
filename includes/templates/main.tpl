@@ -8,17 +8,32 @@
     <body>
     <div id="container" class="container">
     <header id="globalheader">
-	    <nav id="topheader" >
-		    <ul id="globalnav">
-                        <li id="gn-about"><a {if  $topAction=='about'}class="selected"{/if} href="?action=about">About</a></li>
-                        <li id="gn-events"><a {if  $topAction=='events'}class="selected"{/if} href="?action=events">Events</a></li>
-                        <li id="gn-videos"><a {if  $topAction=='videos'}class="selected"{/if} href="?action=videos">Videos</a></li>
-                        <li id="gn-partners"><a {if  $topAction=='partners'}class="selected"{/if} href="?action=partners">Partners</a></li>
-                        <li id="gn-press"><a {if  $topAction=='press'}class="selected"{/if} href="?action=press">Press</a></li>
-                        <li id="gn-contact"><a {if  $topAction=='contact'}class="selected"{/if} href="?action=contact">Contact</a></li>
-                        <li id="gn-gestion"><a {if  $topAction=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a></li>
+	    <nav id="topheader">
+		    <ul id="globalnav" class="offset2 span10">
+                        <li id="gn-about">
+                            <a {if  $topAction=='about'}class="selected"{/if} href="?action=about">About</a>
+                        </li>
+                        <li id="gn-events">
+                            <a {if  $topAction=='events'}class="selected"{/if} href="?action=events">Events</a>
+                        </li>
+                        <li id="gn-videos">
+                            <a {if  $topAction=='videos'}class="selected"{/if} href="?action=videos">Videos</a>
+                        </li>
+                        <li id="gn-partners">
+                            <a {if  $topAction=='partners'}class="selected"{/if} href="?action=partners">Partners</a>
+                        </li>
+                        <li id="gn-press">
+                            <a {if  $topAction=='press'}class="selected"{/if} href="?action=press">Press</a>
+                        </li>
+                        <li id="gn-contact">
+                            <a {if  $topAction=='contact'}class="selected"{/if} href="?action=contact">Contact</a>
+                        </li>
+                        <li id="gn-gestion">
+                            <a {if  $topAction=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a>
+                        </li>
 		    </ul>
 		    {if $userIsLogged}
+                        
 		    	<div id="logout">
                             <a href="?action=logout">Logout</a>
 			</div>
