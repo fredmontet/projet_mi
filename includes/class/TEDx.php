@@ -749,7 +749,8 @@ class TEDx {
 		            $content = $this->drawAbout();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The about page doesn\'t exist!');
-		            $content = null;        	
+		            $content = null;  
+		            $subnav = null;      	
 		        }
         		
 			break;
@@ -763,7 +764,8 @@ class TEDx {
 		            $content = $this->drawEvents();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The events page doesn\'t exist!');
-		            $content = null;        	
+		            $content = null;
+		            $subnav = null;          	
 		        }
         		
 			break;
@@ -777,7 +779,8 @@ class TEDx {
 		            $content = $this->drawEventsRegistration();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The events registration doesn\'t exist!');
-		            $content = null;        	
+		            $content = null;   
+		            $subnav = null;       	
 		        }
         		
 			break;	
@@ -791,7 +794,8 @@ class TEDx {
 		            $content = $this->drawEventsParticipate();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;        	
+		            $content = null; 
+		            $subnav = null;         	
 		        }
         		
 			break;	
@@ -805,7 +809,8 @@ class TEDx {
 					$content = $this->drawVideos();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null;  
+		            $subnav = null;         	
 		        }
 			break;
 			
@@ -818,7 +823,8 @@ class TEDx {
 					$content = $this->drawVideosEvent();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null;  
+		            $subnav = null;         	
 		        }
 			break;
 			
@@ -831,7 +837,8 @@ class TEDx {
 					$content = $this->drawPartners();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null; 
+		            $subnav = null;          	
 		        }
 			break;
 				
@@ -845,7 +852,8 @@ class TEDx {
 					$content = $this->drawPress();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null;   
+		            $subnav = null;        	
 		        }
 			break;
 			
@@ -858,7 +866,8 @@ class TEDx {
 					$content = $this->drawContact();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
+		            $content = null; 
+		            $subnav = null;         	
 		        }
 			break;
 			
@@ -871,7 +880,8 @@ class TEDx {
 					$content = $this->drawContactReceived();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
+		            $content = null;   
+		            $subnav = null;       	
 		        }
 			break;
 			
@@ -884,7 +894,8 @@ class TEDx {
 					$content = $this->drawGestion();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null;  
+		            $subnav = null;         	
 		        }
 			break;
 			
@@ -917,7 +928,8 @@ class TEDx {
 					$content = $this->drawGestionEvents($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
+		            $content = null;   
+		            $subnav = null;       	
 		        }
 			break;
 			
@@ -934,7 +946,8 @@ class TEDx {
 					$content = $this->drawGestionLocations($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
+		            $content = null;  
+		            $subnav = null;        	
 		        }
 			break;
 			
@@ -954,7 +967,8 @@ class TEDx {
 					$content = $this->drawGestionContacts($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null;        	
+		            $content = null;   
+		            $subnav = null;       	
 		        }
 			break;
 			
@@ -969,7 +983,8 @@ class TEDx {
 					$content = $this->drawLogin($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');    
-		            $content = null;     	
+		            $content = null;    
+		            $subnav = null;   	
 		        }
 			break;
 					
@@ -983,7 +998,8 @@ class TEDx {
 		            $this->tedx_manager->logout();
 		        } catch (Exception $e) {
 		            $this->displayMessage('You can\t logout.');  
-		            $content = null;       	
+		            $content = null;    
+		            $subnav = null;     	
 		        }
 				
 				// Go to home page
@@ -1001,7 +1017,8 @@ class TEDx {
 					$content = $this->drawUserInfos($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
-		            $content = null;         	
+		            $content = null;  
+		            $subnav = null;         	
 		        }
 			break;
 			
@@ -1015,7 +1032,8 @@ class TEDx {
 					$content = $this->drawRegister($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');   
-		            $content = null;      	
+		            $content = null;    
+		            $subnav = null;    	
 		        }
 			break;
 			
@@ -1029,7 +1047,8 @@ class TEDx {
 		            $this->displayMessage('This action doesn\'t exist.');
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');     
-		            $content = null;    	
+		            $content = null;    
+		            $subnav = null;  	
 		        }
 		        
 		        
