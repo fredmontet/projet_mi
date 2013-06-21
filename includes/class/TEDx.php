@@ -374,7 +374,8 @@ class TEDx {
      * Draw Gestion navigator
      * @return content HTML of the Gestion navigator
      */
-    protected function drawGestionNav() {
+    protected function drawGestionNav($subAction) {
+    	$this->smarty->assign('subAction', $subAction);
 	    return $this->smarty->fetch('gestion_nav.tpl');
     }
     
@@ -969,9 +970,10 @@ class TEDx {
 			// Gestion
 			case 'gestion':
 				$topAction = 'gestion';
+				$subAction = 'gestion';
 				
 				try {
-		            $subnav = $this->drawGestionNav();
+		            $subnav = $this->drawGestionNav($subAction);
 					$content = $this->drawGestion();
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
@@ -982,7 +984,6 @@ class TEDx {
 			
 			// Gestion Events
 			case 'gestion_events':
-			//case 'gestion_events_list':
 			case 'gestion_events_single':
 			case 'add_slot':
 			case 'add_speaker_to_slot':
@@ -1002,10 +1003,12 @@ class TEDx {
 			case 'gestion_events_send':
 			case 'gestion_speaker_infos':
 			case 'gestion_speaker_infos_send':
+			
 				$topAction = 'gestion';
+				$subAction = 'gestion_events';
 				
 				try {
-		            $subnav = $this->drawGestionNav();
+		            $subnav = $this->drawGestionNav($subAction);
 					$content = $this->drawGestionEvents($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
@@ -1021,9 +1024,10 @@ class TEDx {
 			case 'gestion_locations_infos':
 			
 				$topAction = 'gestion';
+				$subAction = 'gestion_locations';
 				
 				try {
-		            $subnav = $this->drawGestionNav();
+		            $subnav = $this->drawGestionNav($subAction);
 					$content = $this->drawGestionLocations($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
@@ -1041,10 +1045,12 @@ class TEDx {
 			case 'gestion_contacts_role_new':
 			case 'gestion_contacts_role_send':
 			case 'new_contact_send':
+			
 				$topAction = 'gestion';
+				$subAction = 'gestion_contacts';
 				
 				try {
-		            $subnav = $this->drawGestionNav($action);
+		            $subnav = $this->drawGestionNav($subAction);
 					$content = $this->drawGestionContacts($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!'); 
@@ -1061,7 +1067,7 @@ class TEDx {
 				
 				try {
 					$subnav = null;
-					$content = $this->drawLogin($action);
+					$content = $this->drawLogin($subAction);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');    
 		            $content = null;    
@@ -1167,17 +1173,17 @@ class TEDx {
             $content = null;
         }
         
-        // Assigns the current action (for menu display)       
+        // Assigns the current action (for menu display) to Smarty      
         $this->smarty->assign('topAction', $topAction);
         
-        // Assigns user information to display
+        // Assigns user information to Smarty
         $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
         $this->smarty->assign('username', $this->tedx_manager->getUsername());
         
-        // Assigns the subnav
+        // Assigns the subnav to Smarty
         $this->smarty->assign('subnav', $subnav);
         
-        // Assigns the content
+        // Assigns the content to Smarty
         $this->smarty->assign('content', $content);
 
         // Display IHM
