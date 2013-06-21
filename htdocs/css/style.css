@@ -435,7 +435,24 @@ margin:0 10px;
 /****************************************/
 /*Status = to fill*/
 
+.event_registration{}
 
+.event_registration header{}
+.event_registration header h1{}
+.event_registration header nav{}
+.event_registration header nav a{}
+.event_registration header nav p{}
+
+.event_registration section{}
+.event_registration section form{}
+.event_registration section form fieldset{}
+.event_registration section form fieldset legend{}
+.event_registration section form fieldset p{}
+.event_registration section form fieldset p label{}
+.event_registration section form fieldset p input{}
+.event_registration section form a{}
+.event_registration section form fieldset p textarea{}
+.event_registration seciton form button{}
 
 /*end of event_registration*/
 
