@@ -546,7 +546,7 @@ textarea{
 /*end of gestion_contacts_infos*/
 
 /****************************************/
-/*gestion_contacts_list*/
+/*gestion_contacts_nav*/
 /****************************************/
 /*Status = to fill*/
 
@@ -564,44 +564,22 @@ textarea{
 .gestion_contacts_list ul li a span{}
 
 
-/*end of gestion_contacts_list*/
-
-
-/****************************************/
-/*gestion_contacts_nav*/
-/****************************************/
-/*Status = to fill*/
-
-.gestion_contacts_nav {}
-
-.gestion_contacts_nav h1 {}
-.gestion_contacts_nav ul {}
-.gestion_contacts_nav ul li a{}
-
 /*end of gestion_contacts_nav*/
 
 
 /****************************************/
-/*gestion_contacts_new*/
+/**/
 /****************************************/
 /*Status = to fill*/
 
-.gestion_contact_new {}
+/*end of */
 
-.gestion_contact_new form {}
-.gestion_contact_new form p {}
-.gestion_contact_new form p input {}
-.gestion_contact_new form fieldset {}
-.gestion_contact_new form fieldset legend{}
-.gestion_contact_new form fieldset p {}
-.gestion_contact_new form fieldset p label {}
-.gestion_contact_new form fieldset p input {}
-.gestion_contact_new form fieldset p textarea{}
-.gestion_contact_new form fieldset p select {}
-.gestion_contact_new form fieldset p select option {}
+/****************************************/
+/**/
+/****************************************/
+/*Status = to fill*/
 
-/*end of gestion_contacts_new*/
-
+/*end of */
 
 /****************************************/
 /*gestion_contacts_role*/
@@ -918,10 +896,10 @@ textarea{
 /****************************************/
 /*Status = to fill*/
 
-.gestions_contacts_infos{}
-.gestions_contacts_infos form{}
-.gestions_contacts_infos form p{}
-.gestions_contacts_infos form p input{}
+.gestions_locations_infos{}
+.gestions_locations_infos form{}
+.gestions_locations_infos form p{}
+.gestions_locations_infos form p input{}
 
 /*end of gestion_locations_infos*/
 
@@ -931,11 +909,11 @@ textarea{
 /****************************************/
 /*Status = to fill*/
 
-.gestion_contacts_list{}
-.gestion_contacts_list a{}
-.gestion_contacts_list ul{}
-.gestion_contacts_list ul li{}
-.gestion_contacts_list ul li a{}
+.gestion_locations_list{}
+.gestion_locations_list a{}
+.gestion_locations_list ul{}
+.gestion_locations_list ul li{}
+.gestion_locations_list ul li a{}
 
 /*end of gestion_locations_list*/
 
