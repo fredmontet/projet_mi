@@ -200,13 +200,44 @@ class TEDx {
 			$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
 			
 			if($messageSlots->getStatus()) {
-				$aValidSlots = $messageSlots->getContent();
+				$allValidSlots = $messageSlots->getContent();
+				
+				
+				
+				foreach($allValidSlots as $key => $aValidSlot) {
+
+					$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
+					
+					if($messagePlaces->getStatus()) {
+						$allValidPlaces = $messagePlaces->getContent();
+						
+					
+						foreach($allValidPlaces as $key2 => $aValidPlace) {
+							
+							$messageGetSpeakerByPlace = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
+							
+							
+							$aValidSpeaker = $messageGetSpeakerByPlace->getContent();
+							
+							$speakers[$aValidSlot->getNo()]['places'][$aValidPlace->getNo()] = $aValidSpeaker;
+							//var_dump($speakers);
+						}
+	
+						} else {
+						
+					}
+					
+				}
 			} else {
 				$this->displayMessage('No Slot found!');
-				$aValidSlots = null;
+				$allValidSlots = null;
+				echo "test";
 			}
 			
-			$this->smarty->assign('slots', $aValidSlots);
+			
+			
+			$this->smarty->assign('speakers', $speakers);
+			$this->smarty->assign('slots', $allValidSlots);
 			$this->smarty->assign('location', $aValidLocation); 
 			$this->smarty->assign('event', $aValidEvent);
 			
@@ -717,7 +748,7 @@ class TEDx {
         			$subnav = $this->drawAboutNav();
 		            $content = $this->drawAbout();
 		        } catch (Exception $e) {
-		            $this->displayMessage('The home page doesn\'t exist!');
+		            $this->displayMessage('The about page doesn\'t exist!');
 		            $content = null;        	
 		        }
         		
@@ -731,7 +762,7 @@ class TEDx {
         			$subnav = null;
 		            $content = $this->drawEvents();
 		        } catch (Exception $e) {
-		            $this->displayMessage('The home page doesn\'t exist!');
+		            $this->displayMessage('The events page doesn\'t exist!');
 		            $content = null;        	
 		        }
         		
@@ -745,7 +776,7 @@ class TEDx {
         			$subnav = null;
 		            $content = $this->drawEventsRegistration();
 		        } catch (Exception $e) {
-		            $this->displayMessage('The home page doesn\'t exist!');
+		            $this->displayMessage('The events registration doesn\'t exist!');
 		            $content = null;        	
 		        }
         		
@@ -759,7 +790,7 @@ class TEDx {
         			$subnav = null;
 		            $content = $this->drawEventsParticipate();
 		        } catch (Exception $e) {
-		            $this->displayMessage('The home page doesn\'t exist!');
+		            $this->displayMessage('This page doesn\'t exist!');
 		            $content = null;        	
 		        }
         		
@@ -994,7 +1025,7 @@ class TEDx {
         		
         		try {
         			$subnav = null;
-		            //$content = $this->drawHome();
+		            $content = $this->drawHome();
 		            $this->displayMessage('This action doesn\'t exist.');
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');     
@@ -1039,7 +1070,7 @@ class TEDx {
         // Assigns the current action (for menu display)       
         $this->smarty->assign('topAction', $topAction);
         
-        // Assigns user information to display  
+        // Assigns user information to display
         $this->smarty->assign('userIsLogged', $this->tedx_manager->isLogged());
         $this->smarty->assign('username', $this->tedx_manager->getUsername());
         
@@ -1050,7 +1081,7 @@ class TEDx {
         $this->smarty->assign('content', $content);
 
         // Display IHM
-        $this->smarty->display('main.tpl');        
+        $this->smarty->display('main.tpl');
     }    
 }
 
