@@ -53,7 +53,7 @@ class TEDx {
 	protected function displayMessage($message) {
 		switch($message) {
 			default:
-				echo "<div id=\"errormessage\"><p>" . $message . "</p></div>";
+				echo "<p id=\"errormessage\">" . $message . "</p>";
 			break;
 		}
 	}
