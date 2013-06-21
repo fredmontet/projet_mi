@@ -34,10 +34,6 @@
     </section>
     <!--end list participants tab-->
 
-    <!--Buttons-->   
-    <p><input type="button" name="next" value="Next"></p>
-    <p><input type="button" name="previous" value="Previous"></p>
-
     {$gestionEventsMailEdit}
 
 </article>

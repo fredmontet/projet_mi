@@ -4,13 +4,13 @@
         <!--gestion event single header-->
         <fieldset>
             <!--date-->
-            <label for="date">
+            <legend>
                 <input type="time" value="14 april 2013" name="gestion_events_date" />
-            </label>
+            </legend>
             <!--event title-->
-            <label for="title">
+            <legend>
                 <input type="text" value="Title of event" name="gestion_events_title" />
-            </label>
+            </legend>
         </fieldset>
 
         <!--button save-->
@@ -30,12 +30,12 @@
         <!--gestion_events_single_infos-->
         <fieldset id="gestion_events_single_infos">
             <fieldset>
-                <label for="programme">Programme</label>
-                <textarea type="text" name="programme" rows="4" cols="26">Please edit programme if not already edited</textarea>
+                <legend>Programme</legend>
+                <textarea type="text" name="programme">Please edit programme if not already edited</textarea>
             </fieldset>
 
             <fieldset>
-                <label for="schedule">Schedule</label>
+                <legend>Schedule</legend>
                 <table>
                     <tr>
                         <td>13:00</td>
@@ -44,7 +44,10 @@
                     <tr>
                         <td>13:30</td>
                         <td>15:30</td>
-                        <td>Registration</td>
+                        <td><select>
+                                <option>chose slot</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>17:00</td>
@@ -54,10 +57,6 @@
             </fieldset>
         </fieldset>
 
-        <!--add button-->
-        <input type="hidden" name="action" value="add_slot">
-        <input type="submit" name="submit_slot" value="Add a slot">
-
         <!--navigation buttons-->
         <a href="#gestion_events_single_details">next</a>
         <!--end of gestion_events_single_infos-->
@@ -65,19 +64,18 @@
         <!--gestion_events_single_details-->
         <fieldset id="gestion_events_single_details">
             <fieldset>
-                <label for="location">Location</label>
-                <select name="location">
+                <legend>Location</legend>
+                <select>
                     <option>Affect a location</option>
                 </select>
             </fieldset>
             <fieldset>
-                <label for="dress">Dress code</label>
-                <textarea type="text" name="dresscode" rows="4" cols="26">Please edit dress code if not already edited</textarea>
+                <legend>Dress code</legend>
+                <textarea type="text">Please edit dress code if not already edited</textarea>
             </fieldset>
             <fieldset>
-                <label for="language">Language</label>
-                <textarea type="text" name="language" rows="4" cols="26">Please edit language if not already edited</textarea>
-                </input>
+                <legend>Language</legend>
+                <textarea type="text">Please edit language if not already edited</textarea>
             </fieldset>
         </fieldset>
         <!--navigation buttons-->
@@ -87,13 +85,12 @@
 
         <!--gestion_events_single_speaker-->
         <fieldset id="gestion_events_single_speaker">
-            <p>
-                <label for="speaker">Speaker of slot one</label>
-                <a href="?action=gestion_speaker_infos&event_id=1&speaker_id=2">
-                    <input type="text" name="speaker" value="Jean-Paul Gautier">
-                </a>
-                {$gestionEventsSpeakerInfos}
-            </p>
+        
+            <legend>Speaker of slot one</legend>
+            <a href="?action=gestion_speaker_infos">
+                <input type="text" name="speaker" value="Jean-Paul Gautier" />
+            </a>
+            {$gestionEventsSpeakerInfos}
 
             <p>
                 <select>
@@ -105,16 +102,17 @@
                     <option>Position</option>
                 </select>
             </p>
-            <p>
-            <form name="add" method="post" action="add_speaker_to_slot">
-                <input type="hidden" name="action" value="Add speaker">
-                <input type="submit" name="submit_slot" value="Add speaker">
-            </form>
-            </p>
         </fieldset>
+        <!--add speaker button-->
+        <input type="hidden" name="action" value="add_speaker_to_slot">
+        <input type="submit" name="submit_speaker" value="Add speaker">
+        <!--add slot button-->
+        <input type="hidden" name="action" value="add_slot">
+        <input type="submit" name="submit_slot" value="Add slot">
         <!--navigation buttons-->
         <a href="#gestion_events_single_team">previous</a>
         <a href="#gestion_events_single_details">next</a>
+
         <!--end of speaker-->
 
         <!--gestion_events_single_team-->
@@ -137,7 +135,7 @@
         <!--button-->
         <input type="hidden" name="action" value="add_organizer_to_event">
         <input type="submit" name="submit_add" value="Add organizer">
-        
+
         <!--navigation buttons-->
         <a href="#gestion_events_single_speaker">previous</a>
         <!--end of add organizier-->

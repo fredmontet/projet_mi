@@ -46,9 +46,4 @@
             </ul>
         </div>
     </article>
-
-    <!--buttons next previous-->
-    <p><input type="button" name="next" value="Next"></p>
-    <p><input type="button" name="previous" value="Previous"></p>
-
 </section>
