@@ -348,6 +348,46 @@ class TEDx {
     	
     	
     	switch($action) {
+    		case 'add_slot':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'add_speaker_to_slot':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'gestion_events_send':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'add_organizer_to_event':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'gestion_event_export':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'motivation_refuse':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+			case 'motivation_wait':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+			case 'motivation_accept':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'mail_send':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
+    		case 'gestion_events_role_send':
+    			$this->displayMessage('This action is not yet implemented.');
+				return null;
+    		break;
 	    	case 'gestion_events':
 	    	case 'gestion_events_list':
 	    		$messageEvents = $this->tedx_manager->getEvents();
@@ -366,11 +406,17 @@ class TEDx {
 	    	
 	    	case 'gestion_events_single':
 	    	case 'gestion_speaker_infos':
+	    	case 'gestion_speaker_infos_send':
 	    		
 	    		switch($action) {
 		    		case 'gestion_speaker_infos':
 		    			$gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
 					    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
+		    		break;
+		    		case 'gestion_speaker_infos_send':
+		    			$this->displayMessage('This action is not yet implemented.');
+						return null;
+						$this->smarty->assign('gestionEventsSpeakerInfos', null);
 		    		break;
 		    		default:
 		    			$this->smarty->assign('gestionEventsSpeakerInfos', null);
@@ -549,7 +595,15 @@ class TEDx {
 				
 				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
 				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+			break;
+			case 'new_contact_send':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
 			break; 
+			case 'gestion_contacts_role_send':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+			break;
     	}
     	
     	return $this->smarty->fetch('gestion_contacts.tpl');
@@ -561,7 +615,15 @@ class TEDx {
      * Draw the Login page
      * @return content HTML of the Login page
      */
-    protected function drawLogin() {
+    protected function drawLogin($action) {
+    	switch($action) {
+	    	case 'login_send':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+			break;
+			default:
+    	}
+    
     	// Assign variables
 	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
 	    $this->tedx_manager->login('admin','admin');
@@ -573,7 +635,20 @@ class TEDx {
      * Draw the User Infos page
      * @return content HTML of the User Infos page
      */
-    protected function drawUserInfos() {
+    protected function drawUserInfos($action) {
+    	switch($action) {
+	    	case 'user_infos_send':
+	    		$this->displayMessage('This action is not yet implemented.');
+				return null;
+	    	break;
+			case 'user_infos_password':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+			break;
+			default:
+			
+    	}
+    
     	// Assign variables
 	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
 	    
@@ -585,7 +660,16 @@ class TEDx {
      * Draw the Register page
      * @return content HTML of the Register page
      */
-    protected function drawRegister() {
+    protected function drawRegister($action) {
+    	switch($action) {
+	    	case 'register_send':
+	    		$this->displayMessage('This action is not yet implemented.');
+				return null;
+	    	break;
+	    	default:
+	    	
+    	}
+    
 	    return $this->smarty->fetch('register.tpl');
     }
 
@@ -763,13 +847,24 @@ class TEDx {
 			case 'gestion_events':
 			//case 'gestion_events_list':
 			case 'gestion_events_single':
+			case 'add_slot':
+			case 'add_speaker_to_slot':
+			case 'add_organizer_to_event':
 			case 'gestion_events_motivation':
+			case 'motivation_refuse':
+			case 'motivation_wait':
+			case 'motivation_accept':
 			case 'gestion_events_mail':
 			case 'gestion_events_mail_edit':
+			case 'mail_send':
 			case 'gestion_events_role':
 			case 'gestion_events_role_infos';
 			case 'gestion_events_role_new';
+			case 'gestion_events_role_send':
+			case 'gestion_event_export':
+			case 'gestion_events_send':
 			case 'gestion_speaker_infos':
+			case 'gestion_speaker_infos_send':
 				$topAction = 'gestion';
 				
 				try {
@@ -805,6 +900,8 @@ class TEDx {
 			case 'gestion_contacts_role':
 			case 'gestion_contacts_role_infos': 
 			case 'gestion_contacts_role_new':
+			case 'gestion_contacts_role_send':
+			case 'new_contact_send':
 				$topAction = 'gestion';
 				
 				try {
@@ -818,12 +915,13 @@ class TEDx {
 			
 			// Login
 			case 'login':
+			case 'login_send':
 				$topAction = 'login';
 				//$this->tedx_manager->login('Penelope','anitakevinlove');
 				
 				try {
 					$subnav = null;
-					$content = $this->drawLogin();
+					$content = $this->drawLogin($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');    
 		            $content = null;     	
@@ -849,11 +947,13 @@ class TEDx {
 			
 			// User infos
 			case 'user_infos':
+			case 'user_infos_send':
+			case 'user_infos_password':
 				$topAction = 'user_infos';
 								
 				try {
 		            $subnav = null;
-					$content = $this->drawUserInfos();
+					$content = $this->drawUserInfos($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');
 		            $content = null;         	
@@ -862,11 +962,12 @@ class TEDx {
 			
 			// Register
 			case 'register':
+			case 'register_send':
 				$topAction = 'register';
 								
 				try {
 		            $subnav = null;
-					$content = $this->drawRegister();
+					$content = $this->drawRegister($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');   
 		            $content = null;      	
@@ -876,10 +977,11 @@ class TEDx {
 			// Default
 			default:
         		$topAction = 'home';
-        		$subnav = null;
         		
         		try {
-		            $content = $this->drawHome();
+        			$subnav = null;
+		            //$content = $this->drawHome();
+		            $this->displayMessage('This action doesn\'t exist.');
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');     
 		            $content = null;    	
