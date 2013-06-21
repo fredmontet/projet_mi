@@ -815,42 +815,69 @@ textarea{
 
 /*end of */
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
 
 /****************************************/
-/**/
+/*gestion_locations_infos*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestions_contacts_infos{}
+.gestions_contacts_infos form{}
+.gestions_contacts_infos form p{}
+.gestions_contacts_infos form p input{}
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
+/*end of gestion_locations_infos*/
 
 
 /****************************************/
-/**/
+/*gestion_locations_list*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contacts_list{}
+.gestion_contacts_list a{}
+.gestion_contacts_list ul{}
+.gestion_contacts_list ul li{}
+.gestion_contacts_list ul li a{}
+
+/*end of gestion_locations_list*/
 
 
 /****************************************/
-/**/
+/*gestion_locations_nav*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_locations_nav{}
+.gestion_locations_nav h1{}
+
+/*end of gestion_locations_nav*/
+
+
+/****************************************/
+/*gestion_nav*/
+/****************************************/
+/*Status = to fill*/
+/*Info: this template is styled by id="subnav"*/
+
+/*end of gestion_nav*/
+
+
+/****************************************/
+/*login*/
+/****************************************/
+/*Status = to fill*/
+
+.login{}
+.login section{}
+.login section h1{}
+.login section form{}
+.login section form p{}
+.login section form p label{}
+.login section form p input{}
+.login section form a{}
+
+/*end of login*/
 
 
 /****************************************/
