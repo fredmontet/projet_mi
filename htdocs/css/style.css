@@ -658,27 +658,49 @@ textarea{
 
 /*end of */
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
 
 /****************************************/
-/**/
+/*press*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.press{}
+.press section{}
+.press section h1{}
+.press section p{}
+
+/*end of press*/
 
 
 /****************************************/
-/**/
+/*register*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.register{}
+.register h1{}
+
+.register form{}
+.register form p{}
+.register form p label{}
+.register form p input{}
+
+/*end of register*/
+
+
+/****************************************/
+/*user_infos*/
+/****************************************/
+/*Status = to fill*/
+
+.user_infos{}
+.user_infos section{}
+.user_infos section form{}
+.user_infos section form p{}
+.user_infos section form p label{}
+.user_infos section form p input{}
+
+/*end of user_infos*/
 
 
 /****************************************/
