@@ -672,12 +672,6 @@ textarea{
 
 /*end of */
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
 
 /****************************************/
 /**/
@@ -686,25 +680,54 @@ textarea{
 
 /*end of */
 
+
 /****************************************/
-/**/
+/*videos_all*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.videos_all{}
+.videos_all iframe{}
+
+/*end of videos_all*/
+
+
 /****************************************/
-/**/
+/*videos_event*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.videos_event{}
+.videos_event iframe{}
+
+/*end of videos_event*/
+
 
 /****************************************/
-/**/
+/*videos_list*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.videos_list{}
+.videos_list nav{}
+.videos_list nav button{}
+.videos_list nav .previous{}
+.videos_list nav .next{}
+
+.videos_list ul{}
+.videos_list ul li{}
+.videos_list ul li iframe{}
+
+/*end of videos_list*/
+
+
+/****************************************/
+/*videos_nav*/
+/****************************************/
+/*Status = to fill*/
+/*Info: this template is styled by id="subnav"*/
+
+/*end of videos_nav*/
 
 
 
