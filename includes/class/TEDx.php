@@ -213,7 +213,7 @@ class TEDx {
      * Draw the Event Registration page
      * @return content HTML of the Event Registration page
      */
-    protected function drawEventRegistration() {
+    protected function drawEventsRegistration() {
     	$id = $this->getId();
     
     	$messageEvent = $this->tedx_manager->getEvent($id);
@@ -227,6 +227,16 @@ class TEDx {
 		$this->smarty->assign('event', $aValidEvent);
 		
 	    return $this->smarty->fetch('events_registration.tpl');
+    }
+    
+    
+    /**
+     * Draw the Events participate page
+     * @return content HTML of the Events participate page
+     */
+    protected function drawEventsParticipate() {
+		$this->displayMessage('This action is not yet implemented.');
+    	return null;
     }
     
     
@@ -619,11 +629,25 @@ class TEDx {
 			
 			// Events registration
         	case 'events_registration':
-        		$topAction = 'events_registration';
+        		$topAction = 'events';
         		
         		try {
         			$subnav = null;
-		            $content = $this->drawEventRegistration();
+		            $content = $this->drawEventsRegistration();
+		        } catch (Exception $e) {
+		            $this->displayMessage('The home page doesn\'t exist!');
+		            $content = null;        	
+		        }
+        		
+			break;	
+			
+			// Events participate
+        	case 'events_participate':
+        		$topAction = 'events';
+        		
+        		try {
+        			$subnav = null;
+		            $content = $this->drawEventsParticipate();
 		        } catch (Exception $e) {
 		            $this->displayMessage('The home page doesn\'t exist!');
 		            $content = null;        	
