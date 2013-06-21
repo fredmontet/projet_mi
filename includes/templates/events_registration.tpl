@@ -21,7 +21,7 @@
             
         <!--user_infos-->
             <fieldset id="event_user_infos">
-            <legend>General informations</legend>
+                <legend>General informations</legend>
                 <!--user_name-->
                 <p>
                     <label for="user_name">First name</label>
