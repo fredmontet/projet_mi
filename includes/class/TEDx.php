@@ -409,6 +409,13 @@ class TEDx {
 				$gestionEventsRole = $this->smarty->fetch('gestion_events_role.tpl');
 				$this->smarty->assign('gestionEventsContent', $gestionEventsRole);
 	    	break;
+	    	case 'gestion_events_role_new';
+	    		$gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
+				$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+				
+				$gestionEventsRole = $this->smarty->fetch('gestion_events_role.tpl');
+				$this->smarty->assign('gestionEventsContent', $gestionEventsRole);
+	    	break;
     	}
 		
 	    return $this->smarty->fetch('gestion_events.tpl');
@@ -718,13 +725,14 @@ class TEDx {
 			
 			// Gestion Event
 			case 'gestion_events':
-			case 'gestion_events_list':
+			//case 'gestion_events_list':
 			case 'gestion_events_single':
 			case 'gestion_events_motivation':
 			case 'gestion_events_mail':
 			case 'gestion_events_mail_edit':
 			case 'gestion_events_role':
 			case 'gestion_events_role_infos';
+			case 'gestion_events_role_new';
 				$topAction = 'gestion';
 				
 				try {
@@ -737,7 +745,7 @@ class TEDx {
 			break;
 			
 			// Gestion Speaker
-			case 'gestion_speaker':
+			//case 'gestion_speaker':
 				$topAction = 'gestion';
 				
 				try {
@@ -751,9 +759,10 @@ class TEDx {
 			
 			// Gestion Location
 			case 'gestion_locations':
-			case 'gestion_location_edit':
+			//case 'gestion_location_edit':
 			case 'gestion_locations_new':
 			case 'gestion_locations_send':
+			case 'gestion_locations_infos':
 			
 				$topAction = 'gestion';
 				

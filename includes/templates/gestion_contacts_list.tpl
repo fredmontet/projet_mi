@@ -11,6 +11,6 @@
         </nav>
     </header>
     <ul> 
-        <li> <span>Prénom</span> <span>Nom</span> <span>Fonction</span></li> 
+        <a href="?action=gestion_contacts_infos"><li><span>Prénom</span> <span>Nom</span> <span>Fonction</span></li> </a>
    </ul>
 </article>

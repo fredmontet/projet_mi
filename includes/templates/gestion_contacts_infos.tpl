@@ -1,10 +1,11 @@
 <article class="gestion_contacts_infos">
 
         
-       <form id="contact" method="post" action="xx.php">
+       <form id="contact" method="post" action="">
         <!--save--> 
         <p>
-            <input type="submit" name="save" value="Save" />
+            <input type="hidden" name="action" value="gestion_contacts_send" />
+            <input type="submit" name="gestion_contacts_send" value="Save" />
         </p>
         <!--first name-->
         <p>
