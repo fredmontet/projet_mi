@@ -22,14 +22,6 @@
         </form>
         </p>
 
-<<<<<<< HEAD
     {$gestionEventsRoleInfos}
-=======
-<<<<<<< HEAD
-        {$gestion_contacts_role_infos}
-=======
-    {$gestionEventsRoleInfos}
->>>>>>> f91e3a45a3e366eabbae4a7e934cf5803623a9e3
->>>>>>> all actions added to gestion_events tpl
     </form>
 </article>
