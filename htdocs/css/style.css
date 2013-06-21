@@ -417,16 +417,25 @@ margin:0 10px;
 
 
 /****************************************/
-/*event_nav*/
+/*events_nav*/
 /****************************************/
 /*Status = to fill*/
 
+.event_nav{}
+.events_nav ul{}
+.events_nav li{}
+.events_nav a{}
+.events_nav h1{}
+.events_nav p{}
+    
 /*end of event_nav*/
 
 /****************************************/
 /*event_registration*/
 /****************************************/
 /*Status = to fill*/
+
+
 
 /*end of event_registration*/
 
