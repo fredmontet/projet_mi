@@ -1,3 +1,4 @@
+<!--form to create new locations-->
 <article class="gestion_locations_infos">
     <!--add form location-->
     <form name="gestion_locations_infos" method="post" action="">
