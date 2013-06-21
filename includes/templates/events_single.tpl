@@ -1,3 +1,11 @@
+{*
+Smarty variables available:
+	$event (Object)
+	$location (Object) [0..1]
+	$slots (Object) [0..1]
+	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+*}
+
 <article class="events_single">
  
     <!--event header-->
@@ -11,7 +19,7 @@
             <a href="#events_single_speakers">Speaker</a>   
         </nav>
     </header>
-        
+       
             
     <!--infos tab-->
     <section id="events_single_infos">
@@ -76,7 +84,15 @@
             <h2>Speaker of slot one</h2>
             <ul>
                 <li>Jean-Paul Savary</li>
-            </ul>            
+            </ul> 
+            
+            {foreach from=$speakers item=places}
+            	{foreach from=$places item=speaker}
+            		{foreach from=$speaker item=person}
+            			{if $person!=null}{$person->getName()}{/if}
+            		{/foreach}
+            	{/foreach}
+            {/foreach}           
         </section>
         <!--end speaker slot-->            
     </section>

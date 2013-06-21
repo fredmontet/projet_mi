@@ -179,72 +179,87 @@ class TEDx {
      */
     protected function drawEventsSingle($id) {
     	
-    	// Get Event
+    	// Get an Event
     	$messageEvent = $this->tedx_manager->getEvent($id);
     	
+    	// If the Event is found, continue
     	if($messageEvent->getStatus()) {
 		    $aValidEvent = $messageEvent->getContent();
 		    
 		    // Get Location
 			$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
 			
-			
+			// If the Location is found, continue
 			if($messageLocation->getStatus()) {
 			    $aValidLocation = $messageLocation->getContent();
+			    
 			} else {
-			    $this->displayMessage('No location found!');
+				// Else give the error message about no found Location
 			    $aValidLocation = null;
 			}
 			
 			// Get Slot
 			$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
 			
+            // If Slots are found, continue
 			if($messageSlots->getStatus()) {
 				$allValidSlots = $messageSlots->getContent();
 				
-				
-				
-				foreach($allValidSlots as $key => $aValidSlot) {
-
+	            // For each Valid Slots
+				foreach($allValidSlots as $aValidSlot) {
+					
+					// Get Places in a Slot
 					$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
 					
+					// If Places are found, continue
 					if($messagePlaces->getStatus()) {
-						$allValidPlaces = $messagePlaces->getContent();
+						$allValidPlaces = $messagePlaces->getContent();		
 						
-					
-						foreach($allValidPlaces as $key2 => $aValidPlace) {
+						// For each Valid Places	
+						foreach($allValidPlaces as $aValidPlace) {
 							
-							$messageGetSpeakerByPlace = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
+							// Get Speaker at Place
+							$messageSpeaker = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
 							
-							
-							$aValidSpeaker = $messageGetSpeakerByPlace->getContent();
-							
-							$speakers[$aValidSlot->getNo()]['places'][$aValidPlace->getNo()] = $aValidSpeaker;
-							//var_dump($speakers);
+							// If Speaker is found, continue
+							if($messageSpeaker->getStatus()) {
+								$aValidSpeaker = $messageSpeaker->getContent();
+								
+								// Prepare an array for Smarty [Slots][Places][Speaker]
+								$speakers	[$aValidSlot->getNo()]
+											[$aValidPlace->getNo()]
+											[$aValidSpeaker->getNo()] = $aValidSpeaker;
+								
+							} else {
+								// Else give the error message about no found Speaker
+								$aValidSpeaker = null;
+								$speakers [$aValidSlot->getNo()] = null;
+							}
 						}
-	
-						} else {
-						
+					} else {
+						// Else give the error message about no found Place
+						$allValidPlaces = null;
+						$speakers [$aValidSlot->getNo()] = null;
 					}
-					
 				}
 			} else {
-				$this->displayMessage('No Slot found!');
+				// Else give the error message about no found Slots
 				$allValidSlots = null;
-				echo "test";
+				$speakers = null;
 			}
 			
-			
-			
+			// Assigns variables to Smarty
 			$this->smarty->assign('speakers', $speakers);
 			$this->smarty->assign('slots', $allValidSlots);
 			$this->smarty->assign('location', $aValidLocation); 
 			$this->smarty->assign('event', $aValidEvent);
 			
+			// Return a single event
 			return $this->smarty->fetch('events_single.tpl');
 			
 		} else {
-		    $this->displayMessage('There isn\'t event!'); 
+			// Else give the error message about no found Event
+		    $this->displayMessage($messageEvent->getMessage()); 
 		    return null;
 	    }	
     }
@@ -269,8 +284,7 @@ class TEDx {
 		
 	    return $this->smarty->fetch('events_registration.tpl');
     }
-    
-    
+	
     /**
      * Draw the Events participate page
      * @return content HTML of the Events participate page
@@ -326,8 +340,6 @@ class TEDx {
      * @return content HTML of the Partners page
      */
     protected function drawPartners() {
-		
-		// Draw Partners page
 		return $this->smarty->fetch('partners.tpl');
     }
     
@@ -337,8 +349,6 @@ class TEDx {
      * @return content HTML of the Press page
      */
     protected function drawPress() {
-		
-		// Draw Press page
 		return $this->smarty->fetch('press.tpl');
     }
     
