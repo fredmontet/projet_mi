@@ -744,14 +744,14 @@ class TEDx {
         	case 'about':
         		$topAction = 'about';
         		
-        		try {
+        		//try {
         			$subnav = $this->drawAboutNav();
 		            $content = $this->drawAbout();
-		        } catch (Exception $e) {
-		            $this->displayMessage('The about page doesn\'t exist!');
-		            $content = null;  
-		            $subnav = null;      	
-		        }
+		        //} catch (Exception $e) {
+		        //    $this->displayMessage('The about page doesn\'t exist!');
+		        //    $content = null;  
+		        //    $subnav = null;      	
+		        //}
         		
 			break;
 			
