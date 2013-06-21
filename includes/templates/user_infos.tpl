@@ -1,5 +1,5 @@
 <article class="user_infos">
-    <!--modification form-->
+    <!--modification informations form-->
     <section>
         <form name="user_infos" method="post" action="">
             <!--firstname-->
@@ -29,29 +29,23 @@
             </p>
             <!--address-->
             <p>
-                <label for="user_street">Street</label>
-                <input type="text" name="user_street" value="Street"/>
-
-                <label for="user_street_number">No</label>
-                <input type="number" name="user_street_number" value="no"/>
+                <label for="user_address">Address</label>
+                <input type="text" name="user_address" value="Address"/>
             </p>
             <!--City&npa-->
             <p>
-                <label for="user_NPA">NPA</label>
-                <input type="number" name="user_NPA" value="npa"/>
-
                 <label for="user_city">City</label>
-                <input type="number" name="user_city" value="city"/>
+                <input type="number" name="user_city" value="City"/>
             </p>
             <!--country-->
             <p>
                 <label for="user_country">Country</label>
-                <input type="text" name="user_country" value="country"/>
+                <input type="text" name="user_country" value="Country"/>
             </p>
             <!--description-->
             <p>
                 <label for="user_description">Description</label>
-                <textarea type="text" name="user_description" value="description" rows="4" cols="26"></textarea>
+                <textarea type="text" name="user_description" value="Description" rows="4" cols="26"></textarea>
             </p>
             <!--save modification button-->
             <p>
@@ -60,7 +54,7 @@
             </p>
         </form>  
     </section>
-    <!--end modification form-->
+    <!--end modification informations form-->
     
     <!--new password form-->
     <section>
