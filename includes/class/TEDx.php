@@ -80,7 +80,6 @@ class TEDx {
 	    }
 	    
 	    $aValidNextEvent = $allValidSearchEvents[0];
-	    
 		return $aValidNextEvent;
     }
     
@@ -847,7 +846,7 @@ class TEDx {
 		        }
 			break;
 			
-			// Gestion Event
+			// Gestion Events
 			case 'gestion_events':
 			//case 'gestion_events_list':
 			case 'gestion_events_single':
