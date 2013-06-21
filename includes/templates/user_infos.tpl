@@ -1,3 +1,4 @@
+<!--all user informations-->
 <article class="user_infos">
     <!--modification informations form-->
     <section>

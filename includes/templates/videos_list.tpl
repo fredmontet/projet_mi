@@ -1,3 +1,4 @@
+<!--list of videos in the home page-->
 <article class="videos_list">
     <nav>
         <button class="previous" type="button">Previous</button>
