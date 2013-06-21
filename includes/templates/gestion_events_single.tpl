@@ -1,15 +1,13 @@
 <article class="gestion_events_single">
-    <form id=""method="post" action="">
+    <form id="" method="post" action="">
 
         <!--gestion event single header-->
+        <!--date-->
         <fieldset>
-            <!--date-->
-             <fieldset>
-                <legend>date</legend>
-                <input type="date" name="date" value="14april2013"/>
-                <legend>title</legend>                    
-                <input type="title" name="title" value="title of event" />
-            </fieldset>
+            <legend>date</legend>
+            <input type="date" name="date" value="14april2013"/>
+            <legend>title</legend>                    
+            <input type="title" name="title" value="title of event" />
         </fieldset>
 
         <!--button save-->
@@ -25,7 +23,7 @@
             <a href="?action=gestion_event_export">Export</a> 
         </nav>
         <!--end gestion event single header-->
-       
+
         <!--gestion_events_single_infos-->
         <fieldset id="gestion_events_single_infos">
             <fieldset>
@@ -84,7 +82,7 @@
 
         <!--gestion_events_single_speaker-->
         <fieldset id="gestion_events_single_speaker">
-        
+
             <legend>Speaker of slot one</legend>
             <a href="?action=gestion_speaker_infos">
                 <input type="text" name="speaker" value="Jean-Paul Gautier" />

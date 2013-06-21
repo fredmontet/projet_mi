@@ -744,25 +744,89 @@ textarea{
 
 
 /****************************************/
-/**/
+/*gestion_events_role_infos*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_role_infos{}
+
+.gestion_events_role_infos fieldset{}
+.gestion_events_role_infos fieldset legend{}
+.gestion_events_role_infos fieldset select{}
+.gestion_events_role_infos fieldset select option{}
+.gestion_events_role_infos fieldset input{}
+
+/*end of gestion_events_role_infos*/
+
 
 /****************************************/
-/**/
+/*gestion_events_single*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_single{}
+
+.gestion_events_single form{}
+.gestion_events_single form fieldset{}
+.gestion_events_single form fieldset legend{}
+.gestion_events_single form fieldset input{}
+.gestion_events_single form input{}
+.gestion_events_single form .gestion_events_nav{}
+.gestion_events_single form .gestion_events_nav a{}
+.gestion_events_single form #gestion_events_single_infos{}
+.gestion_events_single form #gestion_events_single_infos fieldset{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend{}
+.gestion_events_single form #gestion_events_single_infos fieldset textarea{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend table{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend table tr{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend table td{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend table td select{}
+.gestion_events_single form #gestion_events_single_infos fieldset legend table td select option{}
+.gestion_events_single form #gestion_events_single_infos fieldset a{}
+.gestion_events_single form #gestion_events_single_details{}
+.gestion_events_single form #gestion_events_single_details fieldset{}
+.gestion_events_single form #gestion_events_single_details fieldset legend{}
+.gestion_events_single form #gestion_events_single_details fieldset select{}
+.gestion_events_single form #gestion_events_single_details fieldset select option{}
+.gestion_events_single form #gestion_events_single_details fieldset legend{}
+.gestion_events_single form #gestion_events_single_details fieldset textarea{}
+.gestion_events_single form #gestion_events_single_details fieldset a{}
+.gestion_events_single form #gestion_events_single_speaker{}
+.gestion_events_single form #gestion_events_single_speaker legend{}
+.gestion_events_single form #gestion_events_single_speaker a{}
+.gestion_events_single form #gestion_events_single_speaker a input{}
+.gestion_events_single form #gestion_events_single_speaker p{}
+.gestion_events_single form #gestion_events_single_speaker p select{}
+.gestion_events_single form #gestion_events_single_speaker p select option{}
+.gestion_events_single form #gestion_events_single_speaker input{}
+.gestion_events_single form #gestion_events_single_team{}
+.gestion_events_single form #gestion_events_single_team legend{}
+.gestion_events_single form #gestion_events_single_team p{}
+.gestion_events_single form #gestion_events_single_team p select{}
+.gestion_events_single form #gestion_events_single_team p select option{}
+.gestion_events_single form #gestion_events_single_team p input{}
+.gestion_events_single form #gestion_events_single_team input{}
+.gestion_events_single form #gestion_events_single_team a{}
+
+/*end of gestion_events_single*/
+
 
 /****************************************/
-/**/
+/*gestion_events_speaker_infos*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_speaker_infos{}
+
+.gestion_events_speaker_infos fieldset{}
+.gestion_events_speaker_infos fieldset input{}
+.gestion_events_speaker_infos fieldset textarea{}
+.gestion_events_speaker_infos fieldset legend{}
+.gestion_events_speaker_infos fieldset input{}
+.gestion_events_speaker_infos input{}
+
+/*end of gestion_events_speaker_infos*/
+
 
 /****************************************/
 /**/
