@@ -1,3 +1,4 @@
+<!--partners page-->
 <article class="partners">
     <!--TEDxLausanneChange Partners-->
     <section id="partners_tedxChange">
