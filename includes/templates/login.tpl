@@ -1,5 +1,5 @@
 <article class="login">
-    <!--login-->
+    <!--login tab-->
     <section>
         <h1>Connexion</h1>
         <!--login form-->
@@ -18,13 +18,7 @@
                 <input type="submit" name="login_send" value="Login"/>
             </p>
         </form>
-   
-        <!--register button-->
-        <form name="login_register" method="post" action="?action=register">
-            <p>
-                <input type="hidden" name="action" value="register"/>
-                <input type="submit" name="register" value="Register"/>
-            </p>
-        </form>
+        <!--CSS register button-->
+        <a href="?action=register">Register</a>
     </section>
 </article>
