@@ -327,7 +327,8 @@ margin:0 10px;
 #errormessage p{
        position:fixed;
        left:50%;
-       top:50%;      
+       top:50%;    
+       text-align:center;
 }
 
 /*End of diverse*/
