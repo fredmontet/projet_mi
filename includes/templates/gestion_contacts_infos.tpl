@@ -2,6 +2,7 @@
 
         
        <form id="contact" method="post" action="">
+           <fieldset> 
         <!--save--> 
         <p>
             <input type="hidden" name="action" value="gestion_contacts_send" />
@@ -10,82 +11,79 @@
         <!--first name-->
         <p>
             <label for="name">First name </label>
-            <input type="text" name="user_name" style="width:200px" />
+            <input type="text" name="user_name"/>
         </p>
         <!--surname-->
         <p>
             <label for="surname">Surname </label>
-            <input type="text" name="user_surname" style="width:200px"/>
+            <input type="text" name="user_surname"/>
         </p>
 
         <!--date of birth-->
         <p>
-            <label for="email">Date of birth (dd/mm/yyyy) </label>
-            <input type="date" name="user_dateOfBirth" style="width:200px" />
+            <label for="dateOfBirth">Date of birth (dd/mm/yyyy) </label>
+            <input type="date" name="user_dateOfBirth"/>
         </p>
 
         <!--phone number-->
         <p>
-            <label for="object">Phone number </label>
-            <input type="text" name="user_phoneNumber" style="width:200px" />
+            <label for="phoneNumber">Phone number </label>
+            <input type="text" name="user_phoneNumber"/>
         </p>
         <!--address-->
         <p>
-            <label for="object">Address </label>
-            <input type="text" name="user_address" style="width:200px" />
+            <label for="address">Address </label>
+            <input type="text" name="user_address"/>
         </p>
         <!--city-->
         <p>
-            <label for="object">City</label>
-            <input type="text" name="user_city" style="width:200px" />
+            <label for="city">City</label>
+            <input type="text" name="user_city"/>
         </p>
         <!--country-->
         <p>
-            <label for="object">Country</label>
-            <input type="text" name="user_country" style="width:200px" />
+            <label for="country">Country</label>
+            <input type="text" name="user_country"/>
         </p>
 
         <!--description-->
         <p>
-            <label for="message">Description </label>
+            <label for="description">Description </label>
             <textarea type="text" name="user_description" rows="4" cols="26"></textarea>
         </p>
-        
-        <h1>Event's participation</h1>   
+        </fieldset>
+        <TABLE BORDER="1"> <CAPTION> Event's participation</CAPTION> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+        </TABLE>
+           
+        <TABLE BORDER="1"> 
+            <CAPTION> Event's talk</CAPTION> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+        </TABLE>
+ 
+        <TABLE BORDER="1"> 
+            <CAPTION> Event's organization </CAPTION> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+            <TD> Title of event </TD> 
+        </TABLE>
+        <fieldset>
+                <legend>Role in TEDx</legend>   
         <p>
             <select name="teamRoleAffect" size="1">
-                <option>Chose the role
-                <option>Directeur
-                <option>Sous-directeur
-                <option>...
+                <option>Chose the role</option>
+                <option>Directeur</option>
+                <option>Sous-directeur</option>
+                <option>...</option>
             </select>  
         </p>
-                <h1>Event's talk</h1>   
-        <p>
-            <select name="teamRoleAffect" size="1">
-                <option>Chose the role
-                <option>Directeur
-                <option>Sous-directeur
-                <option>...
-            </select>  
-        </p>
-                <h1>Event's organization</h1>   
-        <p>
-            <select name="teamRoleAffect" size="1">
-                <option>Chose the role
-                <option>Directeur
-                <option>Sous-directeur
-                <option>...
-            </select>  
-        </p>
-                <h1>Role in TEDx</h1>   
-        <p>
-            <select name="teamRoleAffect" size="1">
-                <option>Chose the role
-                <option>Directeur
-                <option>Sous-directeur
-                <option>...
-            </select>  
-        </p>
+        </fieldset>
         </form>
 </article>

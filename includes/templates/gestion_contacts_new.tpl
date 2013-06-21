@@ -3,7 +3,7 @@
         <form method="post" action="">
             <!--save--> 
         <p>
-            <input type="hidden" name="action" value="tedx_role_send" />
+            <input type="hidden" name="action" value="new_contact_send" />
             <input type="submit" name="submit_send" value="Save" />
         </p>
         <fieldset>
