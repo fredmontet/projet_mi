@@ -502,6 +502,10 @@ class TEDx {
 			case 'gestion_locations_infos':
 				$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 			break;
+			case 'gestion_locations_send':
+				$this->displayMessage('This action is not yet implemented.');
+				return null;
+			break;
 			default:
 				$gestionLocationsInfos = null;
 			break;
