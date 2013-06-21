@@ -1,17 +1,13 @@
 <article class="gestion_locations_list">
-    <form name="gestion_locations_list" method="post" action="">
-        <p>
-                <input type="hidden" name="location" value="save" />
-                <input type="submit" name="save" value="Save" />
-        </p>
-    </form>
+    <!--CSS button to create new location-->
+    <a href="?action=gestion_locations_new">New</a>
+    <!--Locations List-->    
     <ul>
-        <li>St-Roch</li>
-        <li>St-Roch</li>
-        <li>St-Roch</li>
-        <li>St-Roch</li>
-        <li>St-Roch</li>
-        <li>St-Roch</li>
+        <li><a href="?action=gestion_locations_infos">St-Roch</a></li>
+        <li><a href="?action=gestion_locations_infos">St-Roch</a></li>
+        <li><a href="?action=gestion_locations_infos">St-Roch</a></li>
+        <li><a href="?action=gestion_locations_infos">St-Roch</a></li>
+        <li><a href="?action=gestion_locations_infos">St-Roch</a></li>
     </ul>
     {$gestionLocationsInfos}
     
