@@ -10,7 +10,7 @@
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
-                <li><a rhef="?action=motivation_accpet">ACCEPT</a></li>
+                <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
         </div>
     </article>
@@ -26,7 +26,7 @@
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
-                <li><a rhef="?action=motivation_accpet">ACCEPT</a></li>
+                <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
         </div>
     </article>
@@ -42,7 +42,7 @@
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
-                <li><a rhef="?action=motivation_accpet">ACCEPT</a></li>
+                <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
         </div>
     </article>
