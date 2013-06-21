@@ -1,4 +1,4 @@
-<article class="gestion_contacts_nav">
+<article class="gestion_contacts_list">
     <header>
         <nav>
             <ul>
@@ -11,6 +11,12 @@
         </nav>
     </header>
     <ul> 
-        <a href="?action=gestion_contacts_infos"><li><span>Prénom</span> <span>Nom</span> <span>Fonction</span></li> </a>
+        <li>
+            <a href="?action=gestion_contacts_infos">
+                <span>Prénom</span>
+                <span>Nom</span>
+                <span>Fonction</span>
+            </a>
+        </li>    
    </ul>
 </article>

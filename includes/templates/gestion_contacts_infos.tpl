@@ -48,6 +48,7 @@
 
         <!--description-->
         <p>
+
             <label for="description">Description </label>
             <textarea type="text" name="user_description" rows="4" cols="26"></textarea>
         </p>

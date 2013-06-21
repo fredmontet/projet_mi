@@ -441,10 +441,10 @@ textarea{
 /*events*/
 /****************************************/
 /*Status = to fill*/
-/*Info: this template is composed of two templates
+/*Info: this template is composed of two templates:
         event_single.tpl
         event_nav.tpl
-
+*/
 /*End of events*/ 
 
 
@@ -493,37 +493,79 @@ textarea{
 /****************************************/
 /*Status = to fill*/
 
+.events_single{}
+
 .events_single header{}
 .events_single header h1{}
 .events_single header nav{}
 .events_single header nav a{}
 
 .events_single section{}
-
-
+.events_single section h2{}
+.events_single section p{}
+.events_single section dl{}
+.events_single section dl dt{}
+.events_single section dl dt dd{}
+.events_single section ul{}
+.events_single section li{}
+.events_single a{}
 
 /*end of events_single*/
 
+
 /****************************************/
-/**/
+/*gestion_contacts*/
+/****************************************/
+/*Status = to fill*/
+/*Info: this template is composed of multiple templates
+        depending of the user action:
+        gestion_contacts_infos.tpl
+        gestion_contacts_list.tpl
+        gestion_contacts_nav.tpl
+        gestion_contacts_new.tpl
+        gestion_contacts_role.tpl
+        gestion_contacts_role_infos.tpl
+/*end of gestion_contacts*/
+
+
+/****************************************/
+/*gestion_contacts_infos*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestions_contacts_infos{}
+
+.gestions_contacts_infos form{}
+.gestions_contacts_infos form p{}
+.gestions_contacts_infos form p input{}
+.gestions_contacts_infos form p label{}
+.gestions_contacts_infos form h1{}
+.gestions_contacts_infos form p select{}
+.gestions_contacts_infos form p select option{}
+
+/*end of gestion_contacts_infos*/
 
 /****************************************/
-/**/
+/*gestion_contacts_nav*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contacts_list{}
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
+.gestion_contacts_list header{}
+.gestion_contacts_list header nav{}
+.gestion_contacts_list header nav ul{}
+.gestion_contacts_list header nav ul li{}
+.gestion_contacts_list header nav ul li a{}
 
-/*end of */
+.gestion_contacts_list ul{}
+.gestion_contacts_list ul li{}
+.gestion_contacts_list ul li a{}
+.gestion_contacts_list ul li a span{}
+
+
+/*end of gestion_contacts_nav*/
+
 
 /****************************************/
 /**/
