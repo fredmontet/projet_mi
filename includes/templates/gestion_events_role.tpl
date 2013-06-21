@@ -1,27 +1,24 @@
 <article class="gestion_events_role">
-    <form id="" method="post" action="">
-        <fieldset>
-            <table>
-                <tr>
-                    <th>title of event</th>
-                </tr>
-                <tr>
-                    <td><a href="?action=gestion_events_role_info">caissier</a></td>
-                </tr>
-                <tr>
-                    <td><a href="?action=gestion_events_role_info">éclairagiste</a></td>
-                </tr>
-            </table>
-        </fieldset>
+    <!--button new-->
+    <a href="?action=gestion_events_role_new">New</a>
+    <section>
+        <dl>
+            <dt>title of event</dt>
+            <dd><a href="?action=gestion_events_role_infos">caissier</a></dd>
+            <dd><a href="?action=gestion_events_role_infos">éclairagiste</a></dd>
+        </dl>
+        <dl>
+            <dt>title of event</dt>
+            <dd><a href="?action=gestion_events_role_infos">caissier</a></dd>
+            <dd><a href="?action=gestion_events_role_infos">éclairagiste</a></dd>
+        </dl>
+    </section>
 
-        <!--buttons-->
-        <p>
-        <form name="new" method="post" action="gestion_events_role_new">
-              <input type="hidden" name="action" value="New">
-              <input type="submit" name="new" value="New">
-        </form>
-        </p>
+    <!--button-->
+    <form id="" method="post" action="">
+        <input type="hidden" name="action" value="gestion_events_role_send" />
+        <input type=submit" name="submit_send" value="Save" />
+    </form>
 
     {$gestionEventsRoleInfos}
-    </form>
 </article>

@@ -1,31 +1,20 @@
-<article class="gestion_events_role_infos"> 
-    <form id="" methode="post" action="">
-        <fieldset>
-            <p>
-                <label for="event">Chose event</label>   
-                <select>
-                    <option>Chose event</option>
-                </select>
-            </p>
-            <p>
-                <label for="role">Event role name</label>   
-                <input type="text" name="role" value="Event role name">
-            </p> 
-            <p>
-                <label for="level">Chose level</label>   
-                <select>
-                    <option>Chose level</option>
-                </select>
-            </p>
-        </fieldset>
+<form class="gestion_events_role_infos" methode="post" action="">
+    <fieldset>
+        <legend>Chose event</legend>   
+        <select>
+            <option>Chose event</option>
+        </select>
+    </fieldset>
 
+    <fieldset>
+        <legend>Event role name</legend>   
+        <input type="text" name="role" value="Event role name" />
+    </fieldset> 
 
-        <!--button-->
-        <form name="send" method="post" action="gestion_events_role_send">
-            <input type="hidden" name="action" value="Save">
-            <input type="submit" name="submit_send" value="Save">
-        </form>
-
-
-    </form>
-</article>
+    <fieldset>
+        <legend>Chose level</legend>   
+        <select>
+            <option>Chose level</option>
+        </select>
+    </fieldset>
+</form>
