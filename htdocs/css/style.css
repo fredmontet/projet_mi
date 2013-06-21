@@ -546,7 +546,7 @@ textarea{
 /*end of gestion_contacts_infos*/
 
 /****************************************/
-/*gestion_contacts_nav*/
+/*gestion_contacts_list*/
 /****************************************/
 /*Status = to fill*/
 
@@ -564,22 +564,44 @@ textarea{
 .gestion_contacts_list ul li a span{}
 
 
+/*end of gestion_contacts_list*/
+
+
+/****************************************/
+/*gestion_contacts_nav*/
+/****************************************/
+/*Status = to fill*/
+
+.gestion_contacts_nav {}
+
+.gestion_contacts_nav h1 {}
+.gestion_contacts_nav ul {}
+.gestion_contacts_nav ul li a{}
+
 /*end of gestion_contacts_nav*/
 
 
 /****************************************/
-/**/
+/*gestion_contacts_new*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contact_new {}
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
+.gestion_contact_new form {}
+.gestion_contact_new form p {}
+.gestion_contact_new form p input {}
+.gestion_contact_new form fieldset {}
+.gestion_contact_new form fieldset legend{}
+.gestion_contact_new form fieldset p {}
+.gestion_contact_new form fieldset p label {}
+.gestion_contact_new form fieldset p input {}
+.gestion_contact_new form fieldset p textarea{}
+.gestion_contact_new form fieldset p select {}
+.gestion_contact_new form fieldset p select option {}
 
-/*end of */
+/*end of gestion_contacts_new*/
+
 
 /****************************************/
 /**/

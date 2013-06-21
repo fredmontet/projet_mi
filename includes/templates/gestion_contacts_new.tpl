@@ -49,7 +49,7 @@
             <!--message-->
             <p>
                 <label for="message">Description </label>
-                <textarea type="text" name="user_description" rows="4" cols="26"></textarea>
+                <textarea type="text" name="user_description"></textarea>
             </p>
         </fieldset>
         
