@@ -1,4 +1,4 @@
-<ul class="video_nav" id="subnav">
+<ul class="videos_nav" id="subnav">
     <li><a href="?action=videos">All</a></li>
     <li><a href="?action=videos_event">Event</a></li>
 </ul>

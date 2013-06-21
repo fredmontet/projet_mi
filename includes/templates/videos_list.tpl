@@ -1,4 +1,4 @@
-<article class="video_list">
+<article class="videos_list">
     <nav>
         <button class="previous" type="button">Previous</button>
         <button class="next"type="button">Next</button>
