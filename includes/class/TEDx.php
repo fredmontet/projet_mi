@@ -1076,15 +1076,15 @@ class TEDx {
 		}
         
         // Retrieves the corresponding action chosen user HTML       
-        try {
+        //try {
             list ($topAction, $subAction, $subnav, $content) = $this->getContent($action);
-        } catch (Exception $e) {
-            $this->displayMessage('There is no content.'); 
-            $topAction = null;
-            $subAction = null;
-            $subnav = null;
-            $content = null;
-        }
+        //} catch (Exception $e) {
+        //    $this->displayMessage('There is no content.'); 
+        //    $topAction = null;
+        //    $subAction = null;
+        //    $subnav = null;
+        //    $content = null;
+        //}
         
         // Assigns the current action (for menu display)       
         $this->smarty->assign('topAction', $topAction);
