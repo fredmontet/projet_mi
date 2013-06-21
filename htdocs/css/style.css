@@ -316,9 +316,7 @@ margin:0 10px;
 
 /*Diverse*/
 
-#errormessage {}
-
-#errormessage p{
+#errormessage{
        color:#ffffff;
        font-size:3em;
        position:fixed;
@@ -328,7 +326,6 @@ margin:0 10px;
        background-color: rgb(255,0,0);
        padding:20px; 
        line-height:40px; 
-
 }
 
 /*End of diverse*/
