@@ -6,13 +6,13 @@
             Donec gravida quam sodales, lacinia elit ac, auctor nisi. Aliquam porttitor justo lorem, at rutrum turpis pretium et. Praesent in ornare tortor, eget euismod elit. 
             Suspendisse vitae tempus lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </p>
-        <div>
+        <section>
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
                 <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
-        </div>
+        </section>
     </article>
 
     <article>
@@ -22,13 +22,13 @@
             Donec gravida quam sodales, lacinia elit ac, auctor nisi. Aliquam porttitor justo lorem, at rutrum turpis pretium et. Praesent in ornare tortor, eget euismod elit. 
             Suspendisse vitae tempus lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </p>
-        <div>
+        <section>
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
                 <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
-        </div>
+        </section>
     </article>
 
     <article>
@@ -38,12 +38,12 @@
             Donec gravida quam sodales, lacinia elit ac, auctor nisi. Aliquam porttitor justo lorem, at rutrum turpis pretium et. Praesent in ornare tortor, eget euismod elit. 
             Suspendisse vitae tempus lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
         </p>
-        <div>
+        <section>
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
                 <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
-        </div>
+        </section>
     </article>
 </section>

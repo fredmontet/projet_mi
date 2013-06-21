@@ -604,69 +604,166 @@ textarea{
 
 
 /****************************************/
-/**/
+/*gestion_contacts_role*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contacts_role {}
+
+.gestion_contacts_role {}
+
+.gestion_contacts_role header{}
+.gestion_contacts_role header a{}
+.gestion_contacts_role ul{}
+.gestion_contacts_role ul dl{}
+.gestion_contacts_role ul dl dt{}
+.gestion_contacts_role ul dl dd{}
+
+/*end of gestion_contacts_role*/
+
 
 /****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
+/*gestion_contacts_role_infos*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contacts_role_infos{}
+
+.gestion_contacts_role_infos form{}
+.gestion_contacts_role_infos form p{}
+.gestion_contacts_role_infos form p input{}
+.gestion_contacts_role_infos form h1{}
+.gestion_contacts_role_infos form p label{}
+.gestion_contacts_role_infos form p input{}
+.gestion_contacts_role_infos form select{}
+.gestion_contacts_role_infos form select option{}
+
+/*end of gestion_contacts_role_infos*/
+
 
 /****************************************/
-/**/
+/*gestion_events*/
+/****************************************/
+/*Status = to fill*/
+/*Info: this template is composed of different templates:
+        gestion_events_nav.tpl
+        gestion_events_single.tpl
+        and all gestion_events_xxx.tpl
+*/
+/*End of gestion_events*/ 
+
+
+/****************************************/
+/*gestion_events_list*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_list{}
+
+.gestion_events_list a{}
+.gestion_events_list a article{}
+.gestion_events_list a article h1{}
+.gestion_events_list a article p{}
+.gestion_events_list a article p img{}
+
+/*end of gestion_events_list*/
 
 /****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-
-/****************************************/
-/**/
+/*gestion_events_mail*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_mail{}
+
+.gestion_events_mail section{}
+.gestion_events_mail section .gestion_events_mail_nav{}
+.gestion_events_mail section .gestion_events_mail_nav a{}
+.gestion_events_mail section ul{}
+.gestion_events_mail section ul li{}
+.gestion_events_mail section ul li a{}
+.gestion_events_mail #refused{}
+.gestion_events_mail #refused ul{}
+.gestion_events_mail #refused ul li{}
+.gestion_events_mail #refused ul li a{}
+.gestion_events_mail #waiting{}
+.gestion_events_mail #waiting ul{}
+.gestion_events_mail #waiting ul li{}
+.gestion_events_mail #waiting ul li a{}
+.gestion_events_mail #accepted{}
+.gestion_events_mail #accepted ul{}
+.gestion_events_mail #accepted ul li{}
+.gestion_events_mail #accepted ul li a{}
+
+/*end of gestion_events_mail*/
 
 
 /****************************************/
-/**/
+/*gestion_events_mail_edit*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_events_mail_edit{}
+
+.gestion_events_mail_edit fieldset{}
+.gestion_events_mail_edit fieldset legend{}
+.gestion_events_mail_edit fieldset select{}
+.gestion_events_mail_edit fieldset select option{}
+.gestion_events_mail_edit input{}
+.gestion_events_mail_edit fieldset textarea{}
+/*end of gestion_events_mail_edit*/
+
+
+/****************************************/
+/*gestion_events_motivation*/
+/****************************************/
+/*Status = to fill*/
+
+.gestion_events_motivation{}
+
+.gestion_events_motivation article{}
+.gestion_events_motivation article h1{}
+.gestion_events_motivation article p{}
+.gestion_events_motivation article section{}
+.gestion_events_motivation article section ul{}
+.gestion_events_motivation article section ul li{}
+.gestion_events_motivation article section ul li a{}
+
+/*end of gestion_events_motivation*/
+
+
+/****************************************/
+/*gestion_events_nav*/
+/****************************************/
+/*Status = to fill*/
+
+.gestion_events_nav{}
+
+.gestion_events_nav h1{}
+.gestion_events_nav ul{}
+.gestion_events_nav ul li{}
+.gestion_events_nav ul a{}
+
+/*end of gestion_events_nav*/
+
+
+/****************************************/
+/*gestion_events_role*/
+/****************************************/
+/*Status = to fill*/
+
+.gestion_events_role{}
+
+.gestion_events_role a{}
+.gestion_events_role section{}
+.gestion_events_role section dl{}
+.gestion_events_role section dl dt{}
+.gestion_events_role section dl dd{}
+.gestion_events_role section dl dd a{}
+.gestion_events_role form{}
+.gestion_events_role form input{}
+
+/*end of gestion_events_role*/
+
 
 /****************************************/
 /**/
