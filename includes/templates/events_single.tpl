@@ -25,8 +25,16 @@
         <section>
                 <h2>Schedule</h2>
                 <dl>
-                    <dt>13:00</dt>
-                        <dd>Registration</dd>   
+                    <dt>{$event->getStartingTime()|date_format:"%R"}</dt>
+                        <dd>Starting</dd>
+                        
+                        {foreach from=$slots item=slot}
+                            <dt>{$slot->getStartingTime()|date_format:"%R"}-{$slot->getEndingTime()|date_format:"%R"}</dt>
+                            <dd>Slot {$slot->getNo()} </dd>
+                        {/foreach}
+                        
+                    <dt>{$event->getEndingTime()|date_format:"%R"}</dt>
+                        <dd>Closing</dd>  
                 </dl>
         </section>
         <!--end schedule tab-->  
@@ -48,7 +56,7 @@
         <!--dress code-->
         <section>
             <h2>Dress Code</h2>
-            <p>blbalablblablaabl</p>
+            <p>This is the dress code</p>
         </section>
         <!--end dress code-->
         <!--language-->
