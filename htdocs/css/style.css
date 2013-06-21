@@ -453,7 +453,7 @@ textarea{
 /****************************************/
 /*Status = to fill*/
 
-.event_nav{}
+.events_nav{}
 .events_nav ul{}
 .events_nav li{}
 .events_nav a{}
@@ -461,6 +461,7 @@ textarea{
 .events_nav p{}
     
 /*end of event_nav*/
+
 
 /****************************************/
 /*event_registration*/
@@ -487,6 +488,7 @@ textarea{
 .event_registration seciton form button{}
 
 /*end of event_registration*/
+
 
 /****************************************/
 /*events_single*/
@@ -525,6 +527,7 @@ textarea{
         gestion_contacts_new.tpl
         gestion_contacts_role.tpl
         gestion_contacts_role_infos.tpl
+*/
 /*end of gestion_contacts*/
 
 
@@ -545,8 +548,9 @@ textarea{
 
 /*end of gestion_contacts_infos*/
 
+
 /****************************************/
-/*gestion_contacts_nav*/
+/*gestion_contacts_list*/
 /****************************************/
 /*Status = to fill*/
 
@@ -563,23 +567,45 @@ textarea{
 .gestion_contacts_list ul li a{}
 .gestion_contacts_list ul li a span{}
 
+/*end of gestion_contacts_list*/
+
+
+/****************************************/
+/*gestion_contacts_nav*/
+/****************************************/
+/*Status = to fill*/
+
+.gestion_contacts_nav{}
+
+.gestion_contacts_nav h1{}
+.gestion_contacts_nav h1 ul{}
+.gestion_contacts_nav h1 ul li{}
+.gestion_contacts_nav h1 ul li a{}
 
 /*end of gestion_contacts_nav*/
 
 
 /****************************************/
-/**/
+/*gestion_contacts_new*/
 /****************************************/
 /*Status = to fill*/
 
-/*end of */
+.gestion_contacts_new{}
+.gestion_contacts_new form p{}
+.gestion_contacts_new form p input{}
 
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
+.gestion_contacts_new form fieldset{}
+.gestion_contacts_new form fieldset legend{}
+.gestion_contacts_new form fieldset p{}
+.gestion_contacts_new form fieldset p label{}
+.gestion_contacts_new form fieldset p input{}
+.gestion_contacts_new form fieldset p textarea{}
 
-/*end of */
+.gestion_contacts_new form fieldset p select{}
+.gestion_contacts_new form fieldset p select option{}
+
+/*end of gestion_contacts_new*/
+
 
 /****************************************/
 /*gestion_contacts_role*/
@@ -645,6 +671,7 @@ textarea{
 .gestion_events_list a article p img{}
 
 /*end of gestion_events_list*/
+
 
 /****************************************/
 /*gestion_events_mail*/
@@ -827,132 +854,16 @@ textarea{
 
 /*end of gestion_events_speaker_infos*/
 
-
 /****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
+/*gestion_locations*/
 /****************************************/
 /*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
-
-/****************************************/
-/**/
-/****************************************/
-/*Status = to fill*/
-
-/*end of */
+/*Info: this template is composed of multiple templates
+        depending of the user action:
+        gestion_locations_infos.tpl
+        gestion_locations_nav.tpl
+        gestion_locations_list.tpl
+/*end of gestion_locations
 
 
 /****************************************/
@@ -999,6 +910,18 @@ textarea{
 /*Status = to fill*/
 /*Info: this template is styled by id="subnav"*/
 
+/*end of gestion_nav*/
+
+
+/****************************************/
+/*home*/
+/****************************************/
+/*Status = to fill*/
+/*Info: this template is composed of multiple templates
+        depending of the user action:
+        events_single.tpl
+        viedeo_list.tpl
+*/
 /*end of gestion_nav*/
 
 
@@ -1092,6 +1015,16 @@ textarea{
 
 
 /****************************************/
+/*video_player*/
+/****************************************/
+/*Status = to fill*/
+/*
+Il faut absolument créer le template
+de ce player video ma parole
+/*end of video_player*/
+
+
+/****************************************/
 /*videos_all*/
 /****************************************/
 /*Status = to fill*/
@@ -1138,12 +1071,6 @@ textarea{
 /*Info: this template is styled by id="subnav"*/
 
 /*end of videos_nav*/
-
-
-
-
-
-
 
 }/*End of Main layout*/ 
   
