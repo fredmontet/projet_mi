@@ -1,14 +1,14 @@
 <nav class="events_nav">
     <ul>
         </li>
-        {foreach from=$events item=event}
-            <a href="?action=event_single&id={$event->getNo()}">
-		<h1>{$event->getMainTopic()}</h1>
-		<p>{$event->getStartingDate()|date_format:"%d %B %Y"}</p>
-		<p>{$event->getDescription()}</p>
+        {*foreach from=$events item=event*}
+            <a href="?action=events_single&id={$event->getNo()}">
+		<h1>{*$events->getMainTopic()*}Title of event</h1>
+		<p>{*$events->getStartingDate()|date_format:"%d %B %Y"*}14 april 2013</p>
+		<p>{*$events->getDescription()*}description</p>
                 <!-- peut-être serait-il cool de rajouter un boutton sympathique? -->
             </a>
-         {/foreach}
+         {*/foreach*}
         </li>
     </ul>
 </nav>

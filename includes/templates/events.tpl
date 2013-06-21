@@ -10,7 +10,7 @@ la partie inférieur de la page, cela nous affiche l'event choisi.
 <!--Affichage de l'event-->
 
 {foreach from=$events item=event}
-            {$event_single}
+            {$event}
 {/foreach}
 
 <!--bar de sélection de l'event à afficher-->
