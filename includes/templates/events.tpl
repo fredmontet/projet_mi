@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="events">
 <!--
 Il faut faire cette page pour que, lorsqu'on clique sur event, dans la barre de menu,
@@ -33,3 +34,10 @@ la partie inférieur de la page, cela nous affiche l'event choisi.
 		</a>  <!-- Arrow -->
 	</article>
 </section>
+=======
+{foreach from=$events item=event}
+	{$event}
+{/foreach}
+
+{$events_nav}
+>>>>>>> e2f269cff0144cf6acbb97813b15358dfc4d7c8a

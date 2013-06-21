@@ -1,17 +1,18 @@
 <article class="partners">
     <!--TEDxLausanneChange Partners-->
     <section id="partners_tedxChange">
-        <h1 class="partners_tedxChange_title">TEDxLausanneChange Partners</h1>
+        <h1>TEDxLausanneChange Partners</h1>
         <p>
-            TEDxLausanneChange is an event where ideas are shared in an open and stimulating context. With this in mind, we are looking for sponsors who want more than just advertising in turn for a financial contribution, we look for partners who can contribute to make the TEDx experience memorable.</p>
-
-        <p>Since TEDx events are all about innovation and great ideas, we offer special sponsorship conditions to startups, in particular, the possibility to expose their ideas. For more information about the different types of sponsorship <a href="htdocs/documents/Fundraising_Proposal-2.doc">click here</a>.</p>
-
+           TEDxLausanneChange is an event where ideas are shared in an open and stimulating context. With this in mind, we are looking for sponsors who want more than just advertising in turn for a financial contribution, we look for partners who can contribute to make the TEDx experience memorable.
+        </p>
+        <p>
+           Since TEDx events are all about innovation and great ideas, we offer special sponsorship conditions to startups, in particular, the possibility to expose their ideas. For more information about the different types of sponsorship <a href="htdocs/documents/Fundraising_Proposal-2.doc">click here</a>.
+        </p>
         <p>If you are interesting in partnering with us, please <a href="?action=contact">contact us</a>. We look forward to discussing further.
         </p>
-
-        <section class="mainPartner">
-            <h2 class="partners_title">Main partner</h2>
+        <!--main partner-->
+        <section>
+            <h2>Main partner</h2>
             <article>
                 <img alt="Kudelski" src="htdocs/img/content/logo_kudelski.png" title="Kudelski Security"/>
                 <p>
@@ -19,9 +20,9 @@
                 </p>
             </article>            
         </section>
-
-        <section class="videoPartner">
-            <h2 class="partners_title">Video production partner</h2>
+        <!--video production partner-->
+        <section>
+            <h2>Video production partner</h2>
             <article>
                 <img alt="ANV Production" src="htdocs/img/content/logo_anv.png" title="ANV PRODUCTION"/>
                 <p>
@@ -29,9 +30,9 @@
                 </p>
             </article>            
         </section>        
-
-        <section class="specialPartner">
-            <h2 class="partners_title">Special partners</h2>
+        <!--special partners-->
+        <section>
+            <h2>Special partners</h2>
             <article>
                 <img alt="MoT alumni" src="htdocs/img/content/logo_mot.png" title="The MoT MBA Almuni Association"/>
                 <p>
@@ -46,9 +47,9 @@
                 </p>
             </article> 
         </section>      
-
-        <section class="visualPartner">
-            <h2 class="partners_title">Visual decoration partner</h2>
+        <!--visual decoration partner-->
+        <section>
+            <h2>Visual decoration partner</h2>
             <article>
                 <img alt="Remarq" src="htdocs/img/content/logo_remarq.png" title="Remarq | l'esprit visuel"/>
                 <p>
@@ -56,9 +57,9 @@
                 </p>
             </article>  
         </section>
-
-        <section class="eventPartner">
-            <h2 class="partners_title">Event registration and ticketing partner</h2>
+        <!--event ... partner-->
+        <section>
+            <h2>Event registration and ticketing partner</h2>
             <article>
                 <img alt="Amiando" src="htdocs/img/content/logo_amiando.png" title="Amiando | event registration & ticketing"/>
                 <p>
@@ -66,9 +67,9 @@
                 </p>
             </article>  
         </section>
-
-        <section class="furtherSponsors">
-            <h2 class="partners_title">Further sponsors</h2>
+        <!--further sponsors-->
+        <section>
+            <h2>Further sponsors</h2>
             <article>
                 <img alt="cavin" src="htdocs/img/content/logo_cavin.png" title="artgraphic | cavin sa"/>
                 <p>
@@ -105,16 +106,15 @@
         </section>
     </section>
 
-
     <!--TEDxLausanne 2013 Partners-->
     <section id="partners_tedxYear">
-        <h1 class="partners_tedxYear_title">TEDxLausanne 2013 Partners</h1>
+        <h1>TEDxLausanne 2013 Partners</h1>
         <p>
             Instead of looking for sponsors who can only contribute financially in exchange for visibility during the event, TEDxLausanne finds partners who actively contribute to making the event a memorable experience.
         </p>
-
-        <section class="specialPartner">
-            <h2 class="partners_title">Special partner</h2>
+        <!--special partner-->
+        <section>
+            <h2>Special partner</h2>
             <article>
                 <img alt="IDM" src="htdocs/img/content/logo_idm.jpg" title="IDM business school"/>
                 <p>
@@ -122,9 +122,9 @@
                 </p>
             </article>            
         </section>
-
-        <section class="mainSponsors">
-            <hh2 class="partners_title">Main sponsors and donors</h2>
+        <!--main sponsors and donors-->
+        <section>
+            <h2>Main sponsors and donors</h2>
                 <article>
                     <img alt="LosingerMarazzi" src="htdocs/img/content/logo_losinger.jpg" title="LosingerMarazzi | Shaping a better world"/>
                     <p>                    
@@ -146,9 +146,9 @@
                     </p>
                 </article>            
         </section>
-
-        <section class="mediaSponsor">
-            <h2 class="partners_title">Media sponsor</h2>
+        <!--media sponsor-->
+        <section>
+            <h2>Media sponsor</h2>
             <article>
                 <img alt="wrs" src="htdocs/img/content/logo_wrs.jpg" title="World Radio Switzerland" />
                 <p>
@@ -156,9 +156,9 @@
                 </p>
             </article>            
         </section>
-
-        <section class="furtherSponsors">
-            <h2 class="partners_title">Further sponsors</h2>
+        <!--further sponsors-->
+        <section>
+            <h2>Further sponsors</h2>
             <article>
                 <img alt="youMeWine" src="htdocs/img/content/logo_ymw.jpg" title="YouMeWine.ch" />
                 <p>
@@ -208,9 +208,9 @@
                 </p>            
             </article>             
         </section>
-
-        <section class="productionPartners">
-            <h2 class="partners_title">Production partners</h2>
+        <!--production partners-->
+        <section>
+            <h2>Production partners</h2>
             <article>
                 <img alt="HIM" src="htdocs/img/content/logo_him.jpg" title="Hotel Institute Montreux"/>
                 <p>
@@ -233,6 +233,4 @@
             </article>  
         </section>
         <!--end of tedxYear partners-->
-
 </article>
-<!--end of partners page-->

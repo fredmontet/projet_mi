@@ -2,8 +2,8 @@
 
     <!--registration header-->
     <header>
-        <h1>14 April 2013</h1>
-        <h1>Title of Event</h1>
+        <h1>{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
+        <h1>{$event->getMainTopic()}</h1>
         <nav>
             <a href="#event_user_infos">fred1</a>
             <a href="#event_user_details">fred2</a>
@@ -168,4 +168,3 @@
     <!--end user_motivation tab-->
 
 </article>
-<!--end of event_registration-->

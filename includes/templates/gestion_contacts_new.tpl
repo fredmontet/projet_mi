@@ -1,12 +1,12 @@
 <article class="gestion_contacts_new">
-            <!--save--> 
+    
+        <form id="contact" method="post" action="xx.php">
+        <!--save--> 
         <p>
             <input type="submit" name="save" value="Save" />
         </p>
         
         <h1>Create new contact</h1>
-
-        <form id="contact" method="post" action="xx.php">
         <!--first name-->
         <p>
             <label for="name">First name </label>

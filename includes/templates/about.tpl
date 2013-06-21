@@ -1,4 +1,3 @@
-<!--about page-->
 <article class="about">
     
     <!--about tedxlausanne tab-->
@@ -54,4 +53,3 @@
     <!--end about tedx tab-->
     
 </article>
-<!--end of about page-->

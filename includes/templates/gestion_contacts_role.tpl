@@ -9,4 +9,4 @@
         </dl> 
    </ul>
 </article>
-{$gestion_contacts_role_infos}
+{$gestionContactsRoleInfos}
