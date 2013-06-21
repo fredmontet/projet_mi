@@ -40,7 +40,8 @@
         <!-- location tab-->
         <section>
                 <h2>Location</h2>
-                <p>{$location->getCity()}</p>
+                <p>{$location->getAddress()}</p>
+                <p>{$location->getCity()}</p> 
         </section>
         <!--end location tab-->
         {/if}
