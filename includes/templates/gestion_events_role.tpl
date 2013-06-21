@@ -15,6 +15,10 @@
     </section>
 
     <!--button-->
+    <form method="post" action="">
+        <input type="hidden" name="action" value="gestion_events_role_send">
+        <input type="submit" name="submit_send" value="Save">
+    </form>
 </article>
 
 
