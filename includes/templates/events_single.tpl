@@ -6,12 +6,12 @@ Smarty variables available:
 	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
 *}
 
-<article class="events_single">
+<article class="events_single span12">
  
     <!--event header-->
-    <header>
+    <header class="offset3 span6 offset3">
         <h1>{$event->getMainTopic()}</h1>
-        <h1>{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
+        <time>{$event->getStartingDate()|date_format:"%d %B %Y"}</time>
 
         <nav>
             <ul>
@@ -105,10 +105,8 @@ Smarty variables available:
         <!--end speaker slot-->            
     </section>
     <!--end speaker tab-->
- 
     
     <!--registration button-->           
     <a href="?action=events_registration&id=1">Registration</a>
-    <!--end registration button-->
-     
+    <!--end registration button--> 
 </article>

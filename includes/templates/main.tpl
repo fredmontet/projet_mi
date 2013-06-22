@@ -6,7 +6,7 @@
 	    <title>Project 143</title>
 	</head>
     <body>
-    <div id="container" class="container">
+    <div id="container">
     <header id="globalheader">
         <nav id="topheader">
 		    <ul id="globalnav">
@@ -55,7 +55,7 @@
 	    </nav>
     </header>
     
-    <section id="content" class="{$topAction}">
+    <section id="content" class="{$topAction} container">
     
 		    <!-- Display the content of all page -->
 			{$content}

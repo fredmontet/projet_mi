@@ -222,7 +222,6 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .contact{
-    background-color:green;
 }
 
 .contact section{
@@ -333,29 +332,41 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.events_single{}
+.events_single{
+}
 
-.events_single header{}
-.events_single header h1{}
+.events_single header{
+    display: block;
+}
+.events_single header h1{
+    display: block;
+    font-size: 2.5em;
+    margin-bottom: 0;
+}
+.events_single header time{
+    display: block;
+    font-size:1.5em;
+    padding-left: 20px;
+}
+
 .events_single header nav{
-    position:absolute;
-    display:inline-block;
-    left:50%;
+    display:block;
+        
 }
+
 .events_single header nav ul{
-    position:relative;
-    display:inline-block;    
-    left:-50%;
+    display:inline;
+    text-align:center;
 }
+
 .events_single header nav ul li{
      display:block;
      float:left;
      border-bottom:3px solid #E2E2E2;
 }
 
-.events_singleheader nav ul li:hover{
+.events_single header nav ul li:hover{
     border-bottom:3px solid red;  
-      
 }
 
 .events_single header nav ul li a{
@@ -367,10 +378,10 @@ and (min-width : 1224px) {
     padding-bottom:0;
 }
 
-.events_single section{
+.events_single section section{
     background-color: #eeeeee;
-    margin: 20px;
-    padding: 5px;
+    position:relative;
+
 }
 .events_single section h2{}
 .events_single section p{}
@@ -379,7 +390,9 @@ and (min-width : 1224px) {
 .events_single section dl dt dd{}
 .events_single section ul{}
 .events_single section li{}
-.events_single a{}
+.events_single a{
+    display:block;
+}
 
 /*end of events_single*/
 
@@ -928,7 +941,10 @@ and (min-width : 1224px) {
 #subnav a:hover{
 }
 
-#content{}
+#content{
+    margin-top:90px;
+    margin-bottom:30px;
+}
 
 #globalfooter{
     left:0;
