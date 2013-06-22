@@ -646,8 +646,10 @@ class TEDx {
 		if($messageRegistrations->getStatus()) {
     		$allValidRegistrations = $messageRegistrations->getContent();
     		
+    		$registrations['Registration'] = $allValidRegistrations;
+    		
     		// for each Registrations
-    		foreach($allValidRegistrations as $aValidRegistration) {
+    		foreach($allValidRegistrations as $key=>$aValidRegistration) {
     		
 	    		// Get registered Person of an Event
 	    		$messagePerson = $this->tedx_manager->getPerson($aValidRegistration->getParticipantPersonNo());
@@ -657,7 +659,7 @@ class TEDx {
 		    		$aValidPerson = $messagePerson->getContent();
 		    		
 		    		// Prepare an array for Smarty [Registration]
-					$participantsPerson [$aValidRegistration->getRegistrationDate()] = $aValidPerson;
+					$registrations['Person'] = $aValidPerson;
 					
 					// Get Participant
 					$messageParticipant = $this->tedx_manager->getParticipant($aValidPerson->getNo());
@@ -678,8 +680,9 @@ class TEDx {
 							$allValidMotivations = $messageMotivations->getContent();
 							
 							// Prepare an array for Smarty [Registrations]
-							$participantsMotivations [$aValidRegistration] = $allValidMotivations;
+							$registrations['Motivation'] = $allValidMotivations;
 
+							
 							
 						} else {
 							$allValidMotivations = null;
@@ -704,6 +707,8 @@ class TEDx {
     		$this->displayMessage($messageRegistrations->getMessage());
     		$allValidRegistrations = null;
 		}
+		
+		print_r($registrations);
 	
 		// Assigns variables to Smarty
 		$this->smarty->assign('participantsMotivations', $participantsMotivations);
