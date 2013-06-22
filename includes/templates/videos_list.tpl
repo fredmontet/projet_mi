@@ -1,5 +1,5 @@
 <!--list of videos in the home page-->
-<article class="videos_list">
+<article class="videos_list span12">
     <nav>
         <button class="previous" type="button">Previous</button>
         <button class="next"type="button">Next</button>
