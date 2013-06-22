@@ -201,10 +201,32 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.about section{}
+.about section{
+        margin:50px;
+}
 .about h1{}
-.about p{}
-.about img{}
+.about p{
+    -moz-column-count:3; /* Firefox */
+    -webkit-column-count:3; /* Safari and Chrome */
+    column-count:3;
+    
+    -moz-column-gap:20px; /* Firefox */
+    -webkit-column-gap:20px; /* Safari and Chrome */
+    column-gap:20px;
+    
+    text-align:justify;
+
+}
+.about img{
+    margin:50px; 
+    padding:1px;
+    border-radius:3px;
+    border:1px solid #222222;
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+       
+}
 
 /*end of about*/
 
