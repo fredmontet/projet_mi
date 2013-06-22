@@ -15,9 +15,15 @@ Smarty variables available:
 
         <nav>
             <ul>
-                <a href="#events_single_infos">Infos</a>
-                <a href="#events_single_details">Details</a>
-                <a href="#events_single_speakers">Speaker</a> 
+                <li>
+                    <a href="#events_single_infos">Infos</a>
+                </li>
+                <li>                
+                    <a href="#events_single_details">Details</a>
+                </li>
+                <li>
+                    <a href="#events_single_speakers">Speaker</a> 
+                </li>
             </ul>
         </nav>
     </header>
@@ -26,13 +32,13 @@ Smarty variables available:
     <!--infos tab-->
     <section id="events_single_infos">
          <!--event tab-->
-        <section>
+        <section class="span6">
             <h2>Programme</h2>
             <p>{$event->getDescription()}</p>
         </section>
         <!--end event tab-->
         <!-- schedule tab-->
-        <section>
+        <section class="span6">
                 <h2>Schedule</h2>
                 <dl>
                     <dt>{$event->getStartingTime()|date_format:"%R"}</dt>
@@ -56,7 +62,7 @@ Smarty variables available:
     <section id="events_single_details">
         {if ($location != null)}
         <!-- location tab-->
-        <section>
+        <section class="span6">
                 <h2>Location</h2>
                 <p>{$location->getAddress()}</p>
                 <p>{$location->getCity()}</p> 
@@ -64,13 +70,13 @@ Smarty variables available:
         <!--end location tab-->
         {/if}
         <!--dress code-->
-        <section>
+        <section class="span6">
             <h2>Dress Code</h2>
             <p>This is the dress code</p>
         </section>
         <!--end dress code-->
         <!--language-->
-        <section>
+        <section class="span6">
             <h2>Languages</h2>
             <p>blbla english blblabla</p>
         </section>
@@ -82,7 +88,7 @@ Smarty variables available:
     <!--speaker tab-->
     <section id="events_single_speakers">
         <!--speaker slot-->
-        <section>
+        <section class="span6">
             <h2>Speaker of slot one</h2>
             <ul>
                 <li>Jean-Paul Savary</li>

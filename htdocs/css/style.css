@@ -337,22 +337,28 @@ and (min-width : 1224px) {
 
 .events_single header{}
 .events_single header h1{}
-.events_single header nav{}
-.events_single header nav ul{}
-
-#subnav{
+.events_single header nav{
+    position:absolute;
+    display:inline-block;
+    left:50%;
+}
+.events_single header nav ul{
     position:relative;
     display:inline-block;    
     left:-50%;
 }
-
-#subnav li{
+.events_single header nav ul li{
      display:block;
      float:left;
      border-bottom:3px solid #E2E2E2;
 }
 
-#subnav a{
+.events_singleheader nav ul li:hover{
+    border-bottom:3px solid red;  
+      
+}
+
+.events_single header nav ul li a{
     display:block;   
     color:#222222;
     text-decoration:none;
@@ -360,14 +366,6 @@ and (min-width : 1224px) {
     padding:5px;
     padding-bottom:0;
 }
-
-#subnav li:hover{
-    border-bottom:3px solid red;  
-      
-}
-
-
-.events_single header nav a{}
 
 .events_single section{
     background-color: #eeeeee;
@@ -932,8 +930,21 @@ and (min-width : 1224px) {
 
 #content{}
 
-#globalfooter{}
-#globalfooter p{}
+#globalfooter{
+    left:0;
+    bottom:0;
+    position:fixed;
+    background-color: #222;
+    width: 100%;
+    height: 30px;
+}
+
+#globalfooter p {
+    margin-top:5px;
+    font-style:italic;
+    text-align: center;
+    color:#c0c0c0;    
+}
 
 /*end of main*/
 
@@ -1047,14 +1058,19 @@ de ce player video ma parole
 /****************************************/
 /*Status = to fill*/
 
-.videos_list{}
+.videos_list{
+    width: 100%;
+}
 .videos_list nav{}
 .videos_list nav button{}
 .videos_list nav .previous{}
 .videos_list nav .next{}
 
 .videos_list ul{}
-.videos_list ul li{}
+.videos_list ul li{
+    display: block;
+    float: left;
+}
 .videos_list ul li iframe{}
 
 /*end of videos_list*/
