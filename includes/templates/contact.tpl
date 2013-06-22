@@ -5,19 +5,15 @@
         <!--form of contact-->
     <form name="contact" method="post" action="">
         <fieldset>
-            <legend>Name </legend>
-            <input type="text" name="user_name"/>
+            <legend>Name </legend><input type="text" name="user_name"/>
 
-            <legend>Surname </legend>
-            <input type="text" name="user_surname"/>
+            <legend>Surname </legend><input type="text" name="user_surname"/>
 
-            <legend>Email </legend>
-            <input type="email" name="user_email"/>
+            <legend>Email </legend><input type="email" name="user_email"/>
 
-            <legend>Object </legend>
-            <input type="text" name="user_subject"/>
+            <legend>Object </legend><input type="text" name="user_subject"/>
 
-            <legend>Message </legend>
+            <legend id="message">Message </legend>
             <textarea></textarea>
         </fieldset>
         <!--button send-->

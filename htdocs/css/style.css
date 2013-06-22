@@ -86,44 +86,78 @@ margin:0 10px;
 /*forms*/
 
 form{
-    width:400px;
 }
 
-label{
-    width:100px;
-    text-align:right;   
+label{ 
 }
 
 fieldset{
+    margin-left:20px;
 }
 
 legend{
-    width:100px;
+    width:35%;
     border: none;
-    float: left;
     display: block;
+    float: left;
+    margin:0;
     margin-bottom: 10px;
-    padding-bottom: 0;
-}
-
-
-textarea{
-    height:600px;
-    resize:none;
+    padding:0;
+    line-height: 20px;
 }
 
 input, textarea{
+    margin:0;
+
     background-color:#eeeeee;
     border:none;
-    width:400px;
+    width: 420px;
     border:none;
-    display:block;
-    float:left;
     position:relative;    
+}
+
+input{
+    margin:0;
+    padding-top:5px;
+    padding-bottom:5px;
+    display:block;
+    width: 65%;
+    float:left;
+    margin-bottom: 10px;
+}
+
+textarea{
+    
+    width:530px;
+    height:500px;
+    margin-top:20px;
+    margin-bottom:20px;
+    resize:none;
 }
 
 input:focus, textarea:focus{
 }
+
+input[type="submit"]{
+    display:block;
+    background-color:rgba(255,0,0,1);
+    width:160px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1.3em; 
+    border:2px solid #ff0000;
+    float:right;
+}
+   
+input[type="submit"]:hover{
+    color:#ff0000;
+    border:2px solid #ff0000;
+    background-color:white;
+   }
+
 
 /*End of forms*/
 
@@ -298,17 +332,16 @@ and (min-width : 1224px) {
     text-align:right;   
 }
 
-.contact input{
+#message{
+    margin-top:30px;
 }
 
 .contact textarea{
-    width:420px;
-    height:600px;
     resize:none;
 }
 
 .contact iframe{
-    
+    margin-left:20px;
 }
 /*end of contact*/
 
@@ -318,7 +351,22 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.contact_received p{}
+.contact_received p{
+    width:600px;
+    text-align:center;
+    height:auto;
+    position:relative;
+    top:100px;
+    background-color:#ff0000;
+    color:#ffffff;
+    margin-right:auto;
+    margin-left:auto;
+    font-size:2em;
+    padding:20px;
+    border-radius:2px;
+    border:2px solid #ff0000;
+    line-height:30px;
+}
 
 /*end of contact_received*/
 
@@ -938,7 +986,7 @@ and (min-width : 1224px) {
     position: fixed;
     top:0;
     left:0;
-    background-color: transparent;
+    background-color: #ffffff;
     width: 100%;
     height: 90px;
     padding-bottom:12px;
@@ -953,9 +1001,10 @@ and (min-width : 1224px) {
    margin:0 auto;
 }
 
-#globalnav, lognav{
+#globalnav, #lognav{
     margin:0;
     padding:0;
+    max-width:1200px;
 }
 
 #globalnav{
