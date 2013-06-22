@@ -20,7 +20,7 @@ Smarty variables available:
 	    	<dl>
 	            <dt>{$event.event->getMainTopic()}</dt>
 	            {foreach from=$event.roles item=role}
-    				<dd><a href="?action=gestion_events_role_infos">{$role->getName()}</a></dd>
+    				<dd><a href="?action=gestion_events_role_infos&name={$role->getName()}&event={$role->getEventNo()}&organizer={$role->getOrganizerPersonNo()}">{$role->getName()}</a></dd>
 				{/foreach}
 	        </dl>
     	{/foreach}

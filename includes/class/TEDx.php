@@ -411,11 +411,13 @@ class TEDx {
 				$content = null;
     		break;
     		
+    		
     		// Add a Speaker to a Slot
     		case 'add_speaker_to_slot':
     			$this->displayMessage('This action is not yet implemented.');
 				$content = null;
     		break;
+    		
     		
     		// Save an Event
     		case 'gestion_events_send':
@@ -423,11 +425,13 @@ class TEDx {
 				$content = null;
     		break;
     		
+    		
     		// Add an Organizer to an Event
     		case 'add_organizer_to_event':
     			$this->displayMessage('This action is not yet implemented.');
 				$content = null;
     		break;
+    		
     		
     		// Export the list of all Person concerned by the Event
     		case 'gestion_event_export':
@@ -435,11 +439,13 @@ class TEDx {
 				$content = null;
     		break;
     		
+    		
     		// Refused a Motivation
     		case 'motivation_refuse':
     			$this->displayMessage('This action is not yet implemented.');
 				$content = null;
     		break;
+    		
     		
     		// Set the status Wait for a Motivation
 			case 'motivation_wait':
@@ -447,11 +453,13 @@ class TEDx {
 				$content = null;
     		break;
     		
+    		
     		// Accept a Motivation
 			case 'motivation_accept':
 				$this->displayMessage('This action is not yet implemented.');
 				$content = null;
     		break;
+    		
     		
     		// Send a Mail
     		case 'mail_send':
@@ -459,11 +467,13 @@ class TEDx {
 				$content = null;
     		break;
     		
+    		
     		// Save a Role for an Event
     		case 'gestion_events_role_send':
     			$this->displayMessage('This action is not yet implemented.');
 				$content = null;
     		break;
+    		
     		
     		// Gestion Events List
 	    	case 'gestion_events':
@@ -481,6 +491,7 @@ class TEDx {
 	    		$content = $this->smarty->fetch('gestion_events_list.tpl');
 				$this->smarty->assign('gestionEventsContent', $gestionEventsList);
 	    	break;
+	    	
 	    	
 	    	// Gestion Events
 	    	case 'gestion_events_single':
@@ -515,12 +526,11 @@ class TEDx {
 	    		}
 	    	break;
 	    	
+	    	
 			// Gestion Events Motivations
 	    	case 'gestion_events_motivation':
-	    		
 	    		// Get the content of Gestion Events Motivation
 	    		$content = $this->drawGestionEventsMotivation($action);
-
 	    	break;
 	    	
 	    	
@@ -738,6 +748,10 @@ class TEDx {
     }
     
     
+    /**
+     * Draw the Gestion Events Mail page
+     * @return content HTML of the Gestion Events Mail page
+     */
     protected function drawGestionEventsMail($action) {
     
     	// Get Next Event
@@ -797,8 +811,11 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_events_mail.tpl');
     }
     
-    
-     protected function drawGestionEventsRole($action) {
+    /**
+     * Draw the Gestion Events Role page
+     * @return content HTML of the Gestion Events Role page
+     */
+	 protected function drawGestionEventsRole($action) {
      	
      	// Get all Events
      	$messageEvents = $this->tedx_manager->getEvents();
@@ -834,11 +851,55 @@ class TEDx {
 	
      	// If there is a Role selected, continue
 	    if ($action == 'gestion_events_role_infos') {
-	    
-	    	// Get the content of Events Role Infos
-		    $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
-			$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+	    	
+	    	// Recover the Role required
+	    	if (isset($_REQUEST['name'])) {
+			    $name = $_REQUEST['name'];
+			} else {
+			    $name = null;
+			}
 			
+			if (isset($_REQUEST['event'])) {
+			    $eventNo = $_REQUEST['event'];
+			} else {
+			    $eventNo = null;
+			}
+			
+			if (isset($_REQUEST['organizer'])) {
+			    $organizerPersonNo = $_REQUEST['organizer'];
+			} else {
+			    $organizerPersonNo = null;
+			}
+	    	
+	    	if($name !=null && $eventNo != null && $organizerPersonNo != null) {
+		    	// Get the Role
+		    	$args = array(
+		    			'name'		=>	$name,
+		    			'event'		=>	$eventNo,
+		    			'organizer'	=>	$organizerPersonNo
+		    	);
+		    	$messageRole = $this->tedx_manager->getRole($args);
+		    	
+		    	// If the Role is found, continue
+		    	if($messageRole->getStatus()) {
+			    	$aValidRole = $messageRole->getContent();
+			    	
+			    	// Assigns variable to Smarty
+			    	$this->smarty->assign('role', $aValidRole);
+			    	
+		    	} else {
+			    	// Else give the error message about no Role found
+			    	$this->displayMessage($messageRole->getMessage());
+		    	}
+		    
+		    	// Get the content of Events Role Infos
+			    $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
+				$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+				
+		    } else {
+			    $this->displayMessage("There is no Role with this ID");
+		    }
+
 		} else {
 		     // Else put the variables at null
 			$this->smarty->assign('gestionEventsRoleInfos', null);
@@ -846,6 +907,7 @@ class TEDx {
 		
 		// Assigns variables to Smarty
 		$this->smarty->assign('events', $events);
+		$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
 		
 		// Get the content of Gestion Events Role
 		return $this->smarty->fetch('gestion_events_role.tpl');
@@ -853,6 +915,10 @@ class TEDx {
      }
     
     
+	/**
+	 * Draw the Gestion Events Speaker Infos
+	 * @return content HTML of the Gestion Events Speaker Infos
+	 */
     protected function drawGestionSpeakerInfos() {
 	    $gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
 	    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
@@ -860,34 +926,75 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_events_single.tpl');
     }
     
+    
+    /**
+     * Draw the Gestion Locations page
+     * @return content HTML of the Gestion Locations page
+     */
     protected function drawGestionLocations($action) {
-		switch ($action) {
-			case 'gestion_locations_new':
+    
+    	$gestionLocationsNav = $this->smarty->fetch('gestion_locations_nav.tpl');
+		$this->smarty->assign('gestionLocationsNav', $gestionLocationsNav);
+    
+    	switch ($action) {
+    		
+    		// Gestion Locations New
+	    	case 'gestion_locations_new':
+	    		$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
+	    	break;
+	    	
+	    	
+	    	// Gestion Locations Infos
 			case 'gestion_locations_infos':
 				$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
-			break;
+	    	break;
+	    	
+	    	
+	    	// Gestion Locations Send
 			case 'gestion_locations_send':
 				$this->displayMessage('This action is not yet implemented.');
 				return null;
-			break;
+	    	break;
+	    	
+	    	
+	    	// Gestion Locations
+	    	case 'gestion_locations':
 			default:
 				$gestionLocationsInfos = null;
-			break;
-		}
-		$gestionLocationsNav = $this->smarty->fetch('gestion_locations_nav.tpl');
-		$this->smarty->assign('gestionLocationsNav', $gestionLocationsNav);
+	    	break;
+    	}
+    	
+    	// Get Locations
+		$messageLocations = $this->tedx_manager->getLocations();
 		
+		// If Locations are found, continue
+		if($messageLocations->getStatus()) {
+			$allValidLocations = $messageLocations->getContent();
+		} else {
+			$this->displayMessage($messageLocations->getMessage());
+		}
+		
+		// Assigns variables to Smarty
+		$this->smarty->assign('locations', $allValidLocations);
 		$this->smarty->assign('gestionLocationsInfos', $gestionLocationsInfos);
 		
+		// Get the content of the Locations list 
 		$gestionLocationsList = $this->smarty->fetch('gestion_locations_list.tpl');
+		
+		// Assigns variables to Smarty
 		$this->smarty->assign('gestionLocationsList', $gestionLocationsList);
-
-	    $this->smarty->assign('gestionLocationsInfos', $gestionLocationsInfos);
+		
+		print_r($allValidLocations);
 	    
+	    // Return the conent of Gestion Locations
 	    return $this->smarty->fetch('gestion_locations.tpl');
     }
     
     
+    /**
+     * Draw the Gestion Locations Infos
+     * @return content HTML of the Gestion Locations Infos
+     */
     protected function drawGestionLocationsInfos($action) {
 	    $id = $this->getId();
 	    
