@@ -10,6 +10,9 @@ Smarty variables available:
  
     <!--event header-->
     <header>
+        
+        <div class="grey_bar"></div>
+        
         <h1>{$event->getMainTopic()}</h1>
         <time>{$event->getStartingDate()|date_format:"%d %B %Y"}</time>
 
@@ -25,7 +28,7 @@ Smarty variables available:
                     <a href="#events_single_speakers">Speaker</a> 
                 </li>
             </ul>
-        </nav>
+        </nav>        
     </header>
        
             

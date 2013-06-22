@@ -49,7 +49,25 @@
 	    </nav>
 	    <nav id="bottomheader">
 		    <a id="logo" href="?action=home"></a>
-		    
+			
+                            <ul class="social">
+                            <li>
+                                <a href="https://twitter.com/#!/TEDxLausanne" class="twitter" title="TEDxLausanne on Twitter" target="_blank"><span>Twitter</span>  </a>
+                            </li>
+                            <li>
+                                <a href="http://www.facebook.com/TEDxLausanne" class="facebook" title="TEDxLausanne on Facebook" target="_blank"><span>Facebook</span></a>
+                            </li>
+                            <li>
+                                <a href="http://www.linkedin.com/groups/TEDxLausanne-3521864" class="linkedin" title="TEDxLausanne on Linkedin" target="_blank"><span>Linkedin</span></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flickr.com/photos/tedxlausanne/" class="flickr" title="TEDxLausanne on Flickr" target="_blank"><span>Flickr</span></a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/results?search_query=TEDxLausanne&oq=tedx&gs_l=youtube.1.0.35i39j0l9.11208.12163.0.13877.4.4.0.0.0.0.128.476.0j4.4.0...0.0...1ac.1.2Ndlgvm2YT4" class="youtube" title="TEDxLausanne on Youtube" target="_blank"><span>Youtube</span></a>
+                            </li>
+                        </ul>		              
+                    
 		    <!-- Display the subnav if there is -->
 		    {$subnav}
 	    </nav>
