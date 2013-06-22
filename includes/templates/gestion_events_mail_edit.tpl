@@ -1,3 +1,12 @@
+{*
+Smarty variables available:
+	$registrations (Array [Registrations] => Array
+		(	
+			[Registration] => Registration Object
+			[Person] => Person Object
+		)
+	) [0..1]
+*}
 <form class="gestion_events_mail_edit" method="post" action="">
     <!--adress mail-->
     <fieldset>
@@ -16,4 +25,3 @@
         <textarea>Hi ! You have been refused. Best Regards TEDx Lausanne</textarea>
     </fieldset>
 </form>
-
