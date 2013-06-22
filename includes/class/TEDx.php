@@ -523,38 +523,29 @@ class TEDx {
 
 	    	break;
 	    	
+	    	
 	    	// Gestion Events mail
 	    	case 'gestion_events_mail':
-	    	case 'gestion_events_mail_edit':
-	    		
+	    	case 'gestion_events_mail_edit':	    		
 	    		// Get the content of Gestion Events Mail
 	    		$content = $this->drawGestionEventsMail($action);
 	    	break;
 	    	
+	    	
 	    	// Gestion Events Mail Edit
 	    	case 'gestion_events_mail_edit':
-	    		
-				
 				// Get the content of Gestion Events Mail
 	    		$content = $this->smarty->fetch('gestion_events_mail.tpl');
 	    	break;
 	    	
+	    	
 	    	// Gestion Events Role
 	    	case 'gestion_events_role':
-				$this->smarty->assign('gestionEventsRoleInfos', null);
-	    		
+	    	case 'gestion_events_role_infos':
 	    		// Get the content of Gestion Events Role
-	    		$content = $this->smarty->fetch('gestion_events_role.tpl');
+	    		$content = $this->drawGestionEventsRole($action);
 	    	break;
 	    	
-	    	// Gestion Events Role Infos
-	    	case 'gestion_events_role_infos':
-	    		$gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
-				$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
-				
-				// Get the content of Gestion Events Role
-				$content = $this->smarty->fetch('gestion_events_role.tpl');
-	    	break;
 	    	
 	    	// Gestion Events Role New
 	    	case 'gestion_events_role_new';
@@ -749,16 +740,7 @@ class TEDx {
     
     protected function drawGestionEventsMail($action) {
     
-    	// If there is a Person selected, continue
-    	if($action == 'gestion_events_mail_edit') {
-			$gestionEventsMailEdit = $this->smarty->fetch('gestion_events_mail_edit.tpl');
-			$this->smarty->assign('gestionEventsMailEdit', $gestionEventsMailEdit);
-		} else {
-			// Else put the variables at null
-			$this->smarty->assign('gestionEventsMailEdit', null);
-		}
-    	
-    	 // Get Next Event
+    	// Get Next Event
 		$aValidNextEvent = $this->getNextEvent();
 		
 		// Get Registrations for an Event
@@ -798,10 +780,77 @@ class TEDx {
 		}
 		// Assigns variables to Smarty
 		$this->smarty->assign('registrations', $registrations);
+		
+		// If there is a Person selected, continue
+    	if($action == 'gestion_events_mail_edit') {
+    	
+    		// Get the content of Gestion Events Mail Edit
+			$gestionEventsMailEdit = $this->smarty->fetch('gestion_events_mail_edit.tpl');
+			$this->smarty->assign('gestionEventsMailEdit', $gestionEventsMailEdit);
+			
+		} else {
+			// Else put the variables at null
+			$this->smarty->assign('gestionEventsMailEdit', null);
+		}
     	
     	// Return the content of Gestion Events Mail
 	    return $this->smarty->fetch('gestion_events_mail.tpl');
     }
+    
+    
+     protected function drawGestionEventsRole($action) {
+     	
+     	// Get all Events
+     	$messageEvents = $this->tedx_manager->getEvents();
+    	
+    	// If there is an Event, continue
+    	if($messageEvents->getStatus()) {
+		    $allValidEvents = $messageEvents->getContent();
+		    
+		    // For each Event
+		    foreach ($allValidEvents as $key=>$aValidEvent) {
+		    
+		    	$events[]['event'] = $aValidEvent;
+		    
+		    	// Get Roles in an Event
+			    $messageRoles = $this->tedx_manager->getRolesByEvent($aValidEvent);
+			    
+			    // If Roles are found, continue
+			    if($messageRoles->getStatus()) {
+				    $aValidRoles = $messageRoles->getContent();
+				    
+				    $events[$key]['roles'] = $aValidRoles;
+				    
+			    } else {
+				    $events[$key]['roles'] = null;
+			    }
+		    }
+		    		    
+		} else {
+			// Else give the error message about no Event found
+		    $this->displayMessage($messageEvents->getMessage()); 
+		    $events[]['event'] = null;
+	    }
+	
+     	// If there is a Role selected, continue
+	    if ($action == 'gestion_events_role_infos') {
+	    
+	    	// Get the content of Events Role Infos
+		    $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
+			$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+			
+		} else {
+		     // Else put the variables at null
+			$this->smarty->assign('gestionEventsRoleInfos', null);
+		}
+		
+		// Assigns variables to Smarty
+		$this->smarty->assign('events', $events);
+		
+		// Get the content of Gestion Events Role
+		return $this->smarty->fetch('gestion_events_role.tpl');
+
+     }
     
     
     protected function drawGestionSpeakerInfos() {
@@ -937,16 +986,22 @@ class TEDx {
     protected function drawLogin($action) {
     	switch($action) {
 	    	case 'login_send':
-				$this->displayMessage('This action is not yet implemented.');
-				return null;
-			break;
+	    		$mail = $_POST['user_email'];            
+		        $password = $_POST['user_password'];
+	    		
+	    		$this->tedx_manager->login('admin', $password);
+	    		if($this->tedx_manager->isLogged()) {
+		    		header("Location: ?action=gestion");
+		    		return null;
+	    		} else {
+	    			$this->displayMessage("Your email or password are false.");
+	    		}
 			default:
+				// Assign variables
+			    //$this->tedx_manager->login('admin','admin');
+			    return $this->smarty->fetch('login.tpl');
+			break;
     	}
-    
-    	// Assign variables
-	    //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
-	    $this->tedx_manager->login('admin','admin');
-	    return $this->smarty->fetch('login.tpl');
     }
     
     
@@ -1255,11 +1310,10 @@ class TEDx {
 			case 'login':
 			case 'login_send':
 				$topAction = 'login';
-				//$this->tedx_manager->login('Penelope','anitakevinlove');
 				
 				try {
 					$subnav = null;
-					$content = $this->drawLogin($subAction);
+					$content = $this->drawLogin($action);
 		        } catch (Exception $e) {
 		            $this->displayMessage('This page doesn\'t exist!');    
 		            $content = null;    

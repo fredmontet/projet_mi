@@ -1,17 +1,30 @@
+{*
+Smarty variables available:
+	$events (Array [Events] => Array
+		(	
+			[Event] => Event Object
+			[Roles] => Array
+				(
+					[Role] => Role Object
+				)
+		)
+	) [0..1]
+*}
+
 <article class="gestion_events_role">
     <!--button new-->
     <a href="?action=gestion_events_role_new">New</a>
     <section>
-        <dl>
-            <dt>title of event</dt>
-            <dd><a href="?action=gestion_events_role_infos">caissier</a></dd>
-            <dd><a href="?action=gestion_events_role_infos">éclairagiste</a></dd>
-        </dl>
-        <dl>
-            <dt>title of event</dt>
-            <dd><a href="?action=gestion_events_role_infos">caissier</a></dd>
-            <dd><a href="?action=gestion_events_role_infos">éclairagiste</a></dd>
-        </dl>
+    
+    	{foreach from=$events item=event}
+	    	<dl>
+	            <dt>{$event.event->getMainTopic()}</dt>
+	            {foreach from=$event.roles item=role}
+    				<dd><a href="?action=gestion_events_role_infos">{$role->getName()}</a></dd>
+				{/foreach}
+	        </dl>
+    	{/foreach}
+    
     </section>
 
     <!--button-->
