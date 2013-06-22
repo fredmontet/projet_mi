@@ -1,16 +1,32 @@
 {*
 Smarty variables available:
-	$registrations (Array [Registrations]) [0..1]
-	$participantsPerson (Array [Person]) [0..1]
-	$participantsMotivations (Array [Registrations][Motivations]) [0..1]
+	$registrations (Array [Registrations] => Array
+		(	
+			[Registration] => Registration Object
+			[Person] => Person Object
+			[Motivations] => Array
+				(
+					[Motivation] => Motivation Object
+				)
+		)
+	) [0..1]
 *}
 <section class="gestion_events_motivation">
 
 	
 	{foreach from=$registrations item=registration}
-		{foreach from=$registration item=registrationObj}
-			{$registrationObj->getStatus()}
-		{/foreach}
+		<p>
+			{$registration.person->getName()}
+			{$registration.registration->getStatus()}
+			{foreach from=$registration.motivations item=motivation}
+				{$motivation->getText()}
+			{foreachelse}
+			
+			{/foreach}
+			
+		</p>
+	{foreachelse}
+	<p>There is no entry</p>
 	{/foreach}
 
 

@@ -646,10 +646,12 @@ class TEDx {
 		if($messageRegistrations->getStatus()) {
     		$allValidRegistrations = $messageRegistrations->getContent();
     		
-    		$registrations[]['Registration'] = $allValidRegistrations;
+
     		
     		// for each Registrations
     		foreach($allValidRegistrations as $key=>$aValidRegistration) {
+    		
+    			$registrations[]['registration'] = $aValidRegistration;
     		
 	    		// Get registered Person of an Event
 	    		$messagePerson = $this->tedx_manager->getPerson($aValidRegistration->getParticipantPersonNo());
@@ -659,7 +661,7 @@ class TEDx {
 		    		$aValidPerson = $messagePerson->getContent();
 		    		
 		    		// Prepare an array for Smarty [Registration]
-					$registrations[$key]['Person'] = $aValidPerson;
+					$registrations[$key]['person'] = $aValidPerson;
 					
 					// Get Participant
 					$messageParticipant = $this->tedx_manager->getParticipant($aValidPerson->getNo());
@@ -680,24 +682,22 @@ class TEDx {
 							$allValidMotivations = $messageMotivations->getContent();
 							
 							// Prepare an array for Smarty [Registrations]
-							$registrations[$key]['Motivation'] = $allValidMotivations;
-
-							
+							$registrations[$key]['motivations'] = $allValidMotivations;
 							
 						} else {
-							$allValidMotivations = null;
+							$registrations[$key]['motivations'] = null;
 						}
 						
 					} else {
 						// Else give the error message about no Participant found
 						$this->displayMessage($messageParticipant->getMessage());
-						$aValidParticipant = null;
+						$registrations[$key]['person'] = null;
 					}
 
 	    		} else {
 	    			// Else give the error message about no Person found
 		    		$this->displayMessage($messagePerson->getMessage());
-		    		$aValidPerson = null;
+		    		$registrations[]['registration'] = null;
 	    		}
     		}
     		
@@ -707,13 +707,8 @@ class TEDx {
     		$this->displayMessage($messageRegistrations->getMessage());
     		$allValidRegistrations = null;
 		}
-		
-		print_r($registrations);
-	
 		// Assigns variables to Smarty
-		$this->smarty->assign('participantsMotivations', $participantsMotivations);
-		$this->smarty->assign('participantsPerson', $participantsPerson);
-		$this->smarty->assign('registrations', $allValidRegistrations);
+		$this->smarty->assign('registrations', $registrations);
 		
 		// Return the content of Gestion Events Motivation
 		return $this->smarty->fetch('gestion_events_motivation.tpl');
