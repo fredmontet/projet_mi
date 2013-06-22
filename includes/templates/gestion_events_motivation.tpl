@@ -5,20 +5,14 @@ Smarty variables available:
 	$participantsMotivations (Array [Registrations][Motivations]) [0..1]
 *}
 <section class="gestion_events_motivation">
-	{foreach from=$participantsPerson item=participant}
-		<p>{$participant->getName()}</p>
-	{/foreach}
+
 	
 	{foreach from=$registrations item=registration}
-		<p>{$registration->getStatus()}</p>
-	{/foreach}
-	
-	{$participantsMotivations|print_r}
-	{foreach from=$participantsMotivations item=motivations}
-		{foreach from=$motivations item=motivation}
-			<p>{$motivation->getText()}</p>
+		{foreach from=$registration item=registrationObj}
+			{$registrationObj->getStatus()}
 		{/foreach}
 	{/foreach}
+
 
     <article>
         <h1>Jean-Paul Gaucher</h1>
