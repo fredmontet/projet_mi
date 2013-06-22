@@ -44,18 +44,17 @@ Smarty variables available:
                 <legend>Schedule</legend>
                 <table>
                     <tr>
+                        <td></td>
                         <td>13:00</td>
                         <td>Start</td>
                     </tr>
                     <tr>
                         <td>13:30</td>
                         <td>15:30</td>
-                        <td><select>
-                                <option>chose slot</option>
-                            </select>
-                        </td>
+                        <td>Slot 1</td>
                     </tr>
                     <tr>
+                    	<td></td>
                         <td>17:00</td>
                         <td>End</td>
                     </tr>
