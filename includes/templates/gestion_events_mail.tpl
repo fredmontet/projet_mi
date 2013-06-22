@@ -1,3 +1,12 @@
+{*
+Smarty variables available:
+	$registrations (Array [Registrations] => Array
+		(	
+			[Registration] => Registration Object
+			[Person] => Person Object
+		)
+	) [0..1]
+*}
 <article class="gestion_events_mail">   
 
     <!--list participants tab-->
@@ -8,6 +17,15 @@
             <a href="#waiting">Waiting</a>
             <a href="#accepted">Accepted</a>
         </nav>
+        
+	{foreach from=$registrations item=registration}
+		<p>
+			{$registration.person->getName()}
+			{$registration.registration->getStatus()}
+		</p>
+	{foreachelse}
+	<p>There is no entry</p>
+	{/foreach}
 
         <!--refused tab-->
         <section id="refused">
