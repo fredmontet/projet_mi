@@ -1009,98 +1009,134 @@ class TEDx {
     }
     
     
-    /**
-     * Draw the Gestion Locations Infos
-     * @return content HTML of the Gestion Locations Infos
-     */
-    protected function drawGestionLocationsInfos($action) {
-	    $id = $this->getId();
-	    
-	    switch ($action) {
-	    	case 'gestion_location_edit':
-		    	$direction = $_POST['direction'];            
-		        $address = $_POST['address'];
-		        $city = $_POST['city'];
-		        $country = $_POST['country'];
-		    break;
-		    default:
-		    	$direction = null;            
-		        $address = null;
-		        $city = null;
-		        $country = null;
-		    break;
-    	}
-    	
-    	$this->smarty->assign('direction', $direction);
-    	$this->smarty->assign('address', $address);
-    	$this->smarty->assign('city', $city);
-    	$this->smarty->assign('country', $country);
-		
-		$messageLocation = $this->tedx_manager->getLocation($id);
-			
-		if($messageLocation->getStatus()) {
-		    $aValidLocation = $messageLocation->getContent();
-		} else {
-		    $this->displayMessage('No location found!');
-		}    
-				    
-		$this->smarty->assign('location', $aValidLocation);
-    }
-    
-    
      /**
      * Draw the Gestion Contacts page
      * @return content HTML of the Gestion Contacts page
      */
     protected function drawGestionContacts($action) {
+    
+    	// Get the content of the Contacts navigator
     	$gestionContactsNav = $this->smarty->fetch('gestion_contacts_nav.tpl');
+    	
+    	// Assigns the Contacts navigator to Smarty
     	$this->smarty->assign('gestionContactsNav', $gestionContactsNav);
     	
+    	// Choose the good action
     	switch($action) {
+    	
+    		// Gestion Contacts
 	    	case 'gestion_contacts':
-	    		$gestionContactsList = $this->smarty->fetch('gestion_contacts_list.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsList);
+	    	
+	    		// Get the content of Gestion Contacts
+	    		$content = $this->drawGestionContactsList();
 	    	break;
+	    	
+	    	// Gestion Contacts Infos
 			case 'gestion_contacts_infos':
-				$gestionContactsInfos = $this->smarty->fetch('gestion_contacts_infos.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsInfos);
+				$content = $this->smarty->fetch('gestion_contacts_infos.tpl');
 			break;
+			
+			// Gestion Contacts New
 			case 'gestion_contacts_new':
-				$gestionContactsNew = $this->smarty->fetch('gestion_contacts_new.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsNew);
+				$content = $this->smarty->fetch('gestion_contacts_new.tpl');
 			break;
+			
+			// Gestion Contacts Role
 			case 'gestion_contacts_role':
 				$this->smarty->assign('gestionContactsRoleInfos', null);
 			
-				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
 			break;
+			
+			// Gestion Contacts Role Infos
 			case 'gestion_contacts_role_infos': 
 				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
 				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
 				
-				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
 			break;
+			
+			// Gestion Contacts Role New
 			case 'gestion_contacts_role_new':
 				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
 				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
 				
-				$gestionContactsRole = $this->smarty->fetch('gestion_contacts_role.tpl');
-				$this->smarty->assign('gestionContactsContent', $gestionContactsRole);
+				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
 			break;
+			
+			// Create a new Contact
 			case 'new_contact_send':
 				$this->displayMessage('This action is not yet implemented.');
 				return null;
 			break; 
+			
+			// Create a new Role of Contact
 			case 'gestion_contacts_role_send':
 				$this->displayMessage('This action is not yet implemented.');
 				return null;
 			break;
     	}
     	
+    	// Assigns the content of Gestion Contacts to Smarty
+    	$this->smarty->assign('gestionContactsContent', $content);
+    	
     	return $this->smarty->fetch('gestion_contacts.tpl');
     	
+    }
+    
+    
+    /**
+     * Draw the Gestion Contacts List
+     * @return content HTML of the Gestion Contacts List
+     */
+    protected function drawGestionContactsList() {
+	    
+	    // Get all Persons
+	    $messagePersons = $this->tedx_manager->getPersons();
+	    
+	    // If Persons are found, continue
+	    if($messagePersons->getStatus()) {
+		    $allValidPersons = $messagePersons->getContent();
+		    
+		    // For each Person
+		    foreach($allValidPersons as $key=>$aValidPerson) {
+		    
+		    	$contacts[]['person'] = $aValidPerson;
+			    
+			    // Get the Organizer with the same ID
+			    $messageOrganizer = $this->tedx_manager->getOrganizer($aValidPerson->getNo());
+			    
+			    // Get the function of the Person
+			    $aValidPersonIsOrganizer = $messageOrganizer->getStatus();
+			    
+			    $contacts[$key]['organizer'] = $aValidPersonIsOrganizer;
+			    
+			    // Get the Speaker with the same ID
+			    $messageSpeaker = $this->tedx_manager->getSpeaker($aValidPerson->getNo());
+			    
+			    // Get the function of the Person
+			    $aValidPersonIsSpeaker = $messageSpeaker->getStatus();
+			    
+			    $contacts[$key]['speaker'] = $aValidPersonIsSpeaker;
+			    
+			    // Get the Participant with the same ID
+			    $messageParticipant = $this->tedx_manager->getParticipant($aValidPerson->getNo());
+			    
+			    // Get the function of the Person
+			    $aValidPersonIsParticipant = $messageParticipant->getStatus();
+			    
+			    $contacts[$key]['participant'] = $aValidPersonIsParticipant;
+		    }
+		    
+	    } else {
+		    // Else give the error message about no found Person
+		    $this->displayMessage($messagePersons->getMessage());
+	    }
+	    
+	    // Assigns variables to Smarty
+	    $this->smarty->assign('contacts', $contacts);
+	    
+	    return $this->smarty->fetch('gestion_contacts_list.tpl');
     }
     
     
