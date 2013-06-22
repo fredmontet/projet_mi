@@ -85,26 +85,46 @@ margin:0 10px;
 
 /*forms*/
 
-form{}
+form{
+    width:400px;
+}
 
 label{
     width:100px;
     text-align:right;   
 }
 
-fieldset{}
-
-legend{}
-
-input{
-    width:422px;
+fieldset{
 }
 
+legend{
+    width:100px;
+    border: none;
+    float: left;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+
 textarea{
-    width:420px;
     height:600px;
     resize:none;
 }
+
+input, textarea{
+    background-color:#eeeeee;
+    border:none;
+    width:400px;
+    border:none;
+    display:block;
+    float:left;
+    position:relative;    
+}
+
+input:focus, textarea:focus{
+}
+
 /*End of forms*/
 
 /*Diverses*/
@@ -117,6 +137,14 @@ textarea{
        background-color: rgb(255,0,0);
        padding:20px; 
        line-height:40px; 
+}
+
+.selected{
+    color:red;
+}
+
+.selected li{
+    color:red;
 }
 /*End of diverses*/
 /*End of Typography and CSS Base*/
@@ -271,7 +299,6 @@ and (min-width : 1224px) {
 }
 
 .contact input{
-    width:422px;
 }
 
 .contact textarea{
@@ -901,7 +928,11 @@ and (min-width : 1224px) {
 /*main*/
 /****************************************/
 /*Status = to fill*/
-#container{}
+#container{
+    max-width:1200px;
+    margin-right:auto;
+    margin-left:auto;
+}
 
 #globalheader{
     position: fixed;
