@@ -4,6 +4,7 @@ Smarty variables available:
 	$location (Object) [0..1]
 	$slots (Object) [0..1]
 	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+	$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
 *}
 
 <article class="gestion_events_single">

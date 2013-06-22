@@ -1,3 +1,8 @@
+{*
+Smarty variables available:
+	$event(object)
+*}
+
 <section class="gestion_events_list">
     {foreach from=$events item=event}
         <a href="?action=gestion_events_single&id={$event->getNo()}">

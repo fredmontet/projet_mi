@@ -400,10 +400,14 @@ class TEDx {
     	
     	
     	switch($action) {
+    		
+    		// Add a Slot to an Event
     		case 'add_slot':
     			$this->displayMessage('This action is not yet implemented.');
 				return null;
     		break;
+    		
+    		// Add a Speaker to a Slot
     		case 'add_speaker_to_slot':
     			$this->displayMessage('This action is not yet implemented.');
 				return null;
