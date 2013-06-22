@@ -489,7 +489,6 @@ class TEDx {
 				$this->smarty->assign('events', $allValidEvents);
 	    	
 	    		$content = $this->smarty->fetch('gestion_events_list.tpl');
-				$this->smarty->assign('gestionEventsContent', $gestionEventsList);
 	    	break;
 	    	
 	    	
@@ -940,12 +939,33 @@ class TEDx {
     		
     		// Gestion Locations New
 	    	case 'gestion_locations_new':
+	    		
+	    		// Assigns variables to Smarty
+				$this->smarty->assign('location', null);
+				
 	    		$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 	    	break;
 	    	
 	    	
 	    	// Gestion Locations Infos
 			case 'gestion_locations_infos':
+			
+				$id = $this->getId();
+				
+				// Get the Location concerned
+				$messageLocation = $this->tedx_manager->getLocation($id);
+				
+				// If the Location is found, continue
+				if($messageLocation->getStatus()) {
+					$aValidLocation = $messageLocation->getContent();
+				} else {
+					// Else give the error about no found Location
+					$this->displayMessage($messageLocation->getMessage());
+				}
+				
+				// Assigns variables to Smarty
+				$this->smarty->assign('location', $aValidLocation);
+			
 				$gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 	    	break;
 	    	
@@ -983,8 +1003,6 @@ class TEDx {
 		
 		// Assigns variables to Smarty
 		$this->smarty->assign('gestionLocationsList', $gestionLocationsList);
-		
-		print_r($allValidLocations);
 	    
 	    // Return the conent of Gestion Locations
 	    return $this->smarty->fetch('gestion_locations.tpl');

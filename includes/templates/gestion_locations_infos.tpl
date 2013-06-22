@@ -1,3 +1,8 @@
+{*
+Smarty variables available:
+	$location (Object)
+*}
+
 <!--form to create new locations-->
 <article class="gestion_locations_infos">
     <!--add form location-->
@@ -11,29 +16,29 @@
         <!--name-->
         <p>
             <label for="name">Name</label>
-            <input type="text" name="name" value="{$name}"/>
+            <input type="text" name="name" value="{if $location != null}{$location->getName()}{/if}"/>
         </p>
         <!--direction-->
         <p>
             <label for="direction">Direction</label>
-            <input type="text" name="direction" value="{$direction}"/>
+            <input type="text" name="direction" value="{if $location != null}{$location->getDirection()}{/if}"/>
         </p>
         <!--address-->
         <p>
             <label for="address">Address</label>
-            <input type="text" name="address" value="{$address}"/>
+            <input type="text" name="address" value="{if $location != null}{$location->getAddress()}{/if}"/>
         </p>
 
         <!--city-->
         <p>
             <label for="city">City</label>
-            <input type="text" name="city" value="{$city}"/>
+            <input type="text" name="city" value="{if $location != null}{$location->getCity()}{/if}"/>
         </p>
 
         <!--country-->
         <p>
             <label for="country">Country</label>
-            <input type="text" name="country" value="{$country}"/>
+            <input type="text" name="country" value="{if $location != null}{$location->getCountry()}{/if}"/>
         </p>  
    </form>
    <!--end add form location-->         
