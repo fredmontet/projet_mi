@@ -5,14 +5,7 @@
 	    <link rel="stylesheet" media="all" href="htdocs/css/style.css" />
 	    <title>Project 143</title>
 	</head>
-    <body>
-        
-        
-        <div id="trololo">
-                    <img src="http://cdn.stripersonline.com/3/32/32e764ab_boobs-920-61.jpg">
-        </div>
-        
-        
+    <body>       
     <div id="container">
     <header id="globalheader">
         <nav id="topheader">
