@@ -6,10 +6,10 @@ Smarty variables available:
 	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
 *}
 
-<article class="events_single span12">
+<article class="events_single offset2 span8">
  
     <!--event header-->
-    <header class="offset3 span6 offset3">
+    <header>
         <h1>{$event->getMainTopic()}</h1>
         <time>{$event->getStartingDate()|date_format:"%d %B %Y"}</time>
 
@@ -30,15 +30,15 @@ Smarty variables available:
        
             
     <!--infos tab-->
-    <section id="events_single_infos">
+        <section id="events_single_infos">
          <!--event tab-->
-        <section class="span6">
+        <section class="span8">
             <h2>Programme</h2>
             <p>{$event->getDescription()}</p>
         </section>
         <!--end event tab-->
         <!-- schedule tab-->
-        <section class="span6">
+        <section class="span4">
                 <h2>Schedule</h2>
                 <dl>
                     <dt>{$event->getStartingTime()|date_format:"%R"}</dt>
@@ -88,25 +88,26 @@ Smarty variables available:
     <!--speaker tab-->
     <section id="events_single_speakers">
         <!--speaker slot-->
-        <section class="span6">
+        <section class="span12">
             <h2>Speaker of slot one</h2>
             <ul>
                 <li>Jean-Paul Savary</li>
+                <li>           
+                    {foreach from=$speakers item=places}
+                        {foreach from=$places item=speaker}
+                                {foreach from=$speaker item=person}
+                                        {if $person!=null}{$person->getName()}{/if}
+                                {/foreach}
+                        {/foreach}
+                    {/foreach}  
+                 </li>
             </ul> 
-            
-            {foreach from=$speakers item=places}
-            	{foreach from=$places item=speaker}
-            		{foreach from=$speaker item=person}
-            			{if $person!=null}{$person->getName()}{/if}
-            		{/foreach}
-            	{/foreach}
-            {/foreach}           
         </section>
         <!--end speaker slot-->            
     </section>
     <!--end speaker tab-->
     
     <!--registration button-->           
-    <a href="?action=events_registration&id=1">Registration</a>
+    <a class="theButton offset2 span8" href="?action=events_registration&id=1">Register</a>
     <!--end registration button--> 
 </article>

@@ -333,6 +333,7 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .events_single{
+    border:1px solid black;
 }
 
 .events_single header{
@@ -350,13 +351,12 @@ and (min-width : 1224px) {
 }
 
 .events_single header nav{
-    display:block;
-        
+    display: block;
+    margin: 10px auto;
+width:181px;
 }
 
 .events_single header nav ul{
-    display:inline;
-    text-align:center;
 }
 
 .events_single header nav ul li{
@@ -378,8 +378,15 @@ and (min-width : 1224px) {
     padding-bottom:0;
 }
 
+#events_single_infos, #events_single_details, #events_single_speaker{}
+
+.events_single section{
+    margin-top:30px;
+}
+
+
 .events_single section section{
-    background-color: #eeeeee;
+    
     position:relative;
 
 }
@@ -390,9 +397,26 @@ and (min-width : 1224px) {
 .events_single section dl dt dd{}
 .events_single section ul{}
 .events_single section li{}
-.events_single a{
+
+.events_single .theButton{
     display:block;
-}
+    background-color:rgba(255,0,0,1);
+    width:160px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1.3em; 
+    border:2px solid #ff0000;
+    float:right;
+    
+   }
+   
+.events_single .theButton:hover{
+    color:black;
+    border:2px solid #000000;
+   }
 
 /*end of events_single*/
 
