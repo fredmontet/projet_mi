@@ -78,7 +78,7 @@ h6 {
   line-height: 20px;
 }
 
-p, img{
+p, img, dl, ul, ol{
 margin:0 10px;
 }
 
@@ -333,7 +333,6 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .events_single{
-    border:1px solid black;
 }
 
 .events_single header{
@@ -390,10 +389,19 @@ width:181px;
     position:relative;
 
 }
-.events_single section h2{}
+.events_single section h2{
+    font-size:1.8em;
+}
 .events_single section p{}
-.events_single section dl{}
-.events_single section dl dt{}
+.events_single section dl{
+
+}
+.events_single section dl dt{
+        font-weight:normal;
+    display:block;
+    float:left;
+    width:100px;
+}
 .events_single section dl dt dd{}
 .events_single section ul{}
 .events_single section li{}
@@ -414,8 +422,9 @@ width:181px;
    }
    
 .events_single .theButton:hover{
-    color:black;
-    border:2px solid #000000;
+    color:#ff0000;
+    border:2px solid #ff0000;
+    background-color:white;
    }
 
 /*end of events_single*/
