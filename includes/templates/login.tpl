@@ -6,10 +6,10 @@
         <form name="login" method="post" action="">
             <fieldset>
              
-                <legend for="user_email">Email</legend>
+                <label for="user_email">Email</label>
                 <input type="email" name="user_email"></input>
                 
-                <legend for="user_password">Password</legend>
+                <label for="user_password">Password</label>
                 <input type="text" name="user_password"></input>
         
             <!--login button-->

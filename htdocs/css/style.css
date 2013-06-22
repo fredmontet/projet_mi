@@ -95,7 +95,7 @@ fieldset{
     margin-left:20px;
 }
 
-legend{
+legend, label{
     width:35%;
     border: none;
     display: block;
@@ -104,6 +104,8 @@ legend{
     margin-bottom: 10px;
     padding:0;
     line-height: 20px;
+    font-size: 1.5em;
+    font-weight: normal;
 }
 
 input, textarea{

@@ -1,4 +1,4 @@
-<article class="about">
+<article class="about offset1 span10">
     
     <!--about tedxlausanne tab-->
     <section id="about_tedxlausanne">
@@ -10,12 +10,13 @@
             The first TEDxLausanne event was held in September 2010 at IMD business school, Lausanne. Around 100 participants attended. The feedback was overwhelmingly positive and encouraged us to organise another event. In January 2012, again in partnership with IMD, TEDxLausanne organized a full-scale event based on the theme “The future doesn’t just happen”. Once again, the event witnessed a huge success and was completely sold out (360 people attended it).
         </p>
 
-        <!--img-->    
-        <img alt="Photo" src="htdocs/img/content/TEDxLausanne.jpg" />
-
         <p>
             TEDxLausanne 2013 will feature over 12 inspiring speakers and performers and welcome 350 participants. The TEDxLausanne team consists entirely of volunteers who are dedicated to the TED concept of “ideas worth spreading”. To ensure the continuity of TEDxLausanne and develop a local community around this concept, an association named “Lausanne Bounces” was founded. (TED does not allow legal entities to include TED or TEDx in their name.)
         </p>
+        
+        <!--img-->    
+        <img alt="Photo" src="htdocs/img/content/TEDxLausanne.jpg" />
+
     </section>
     <!--end about tedxlausanne tab-->
 

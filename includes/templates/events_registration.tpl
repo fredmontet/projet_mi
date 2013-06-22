@@ -1,4 +1,4 @@
-<article class="events_registration">
+<article class="events_registration" class="offset3 span6">
 
     <!--registration header-->
     <header>
@@ -123,7 +123,6 @@
             <legend>Show us your motivations!</legend>
 
                     <!--user_keywords-->
-                    <p>
                         <label for="user_kw">Keyword 1 </label>
                         <input type="text" name="user_kw" />
                     </p>
