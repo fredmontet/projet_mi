@@ -1,3 +1,17 @@
+{*
+Smarty variables available:
+	$registrations (Array [Registrations] => Array
+		(	
+			[Registration] => Registration Object
+			[Person] => Person Object
+			[Motivations] => Array
+				(
+					[Motivation] => Motivation Object
+				)
+		)
+	) [0..1]
+*}
+
 <article class="gestion_contacts_infos">
 
         

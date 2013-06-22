@@ -22,15 +22,6 @@ Smarty variables available:
             </ul>
         </nav>
     </header>
-    <ul> 
-        <li>
-            <a href="?action=gestion_contacts_infos">
-                <span>Prénom</span>
-                <span>Nom</span>
-                <span>Fonction</span>
-            </a>
-        </li>    
-   </ul>
    <table>
    		<tr>
 	   		<th>Firstname</th>
@@ -39,14 +30,14 @@ Smarty variables available:
 	   		<th>Speaker</th>
 	   		<th>Participant</th>
    		</tr>
-	   {foreach from=$contacts item=contact}
-	   		<tr>
-	   			<td>{$contact.person->getFirstname()}</td>
-	   			<td>{$contact.person->getName()}</td>
-	   			<td>{if $contact.organizer}Organizer{/if}</td>
-	   			<td>{if $contact.speaker}Speaker{/if}</td>
-	   			<td>{if $contact.participant}Participant{/if}</td>
-	   		</tr>
-	   {/foreach}
+		{foreach from=$contacts item=contact}
+			<tr>
+				<td><a href="?action=gestion_contacts_infos&id={$contact.person->getNo()}">{$contact.person->getFirstname()}</a></td>
+				<td><a href="?action=gestion_contacts_infos&id={$contact.person->getNo()}">{$contact.person->getName()}</a></td>
+				<td><a href="?action=gestion_contacts_infos&id={$contact.person->getNo()}">{if $contact.organizer}Organizer{/if}</a></td>
+				<td><a href="?action=gestion_contacts_infos&id={$contact.person->getNo()}">{if $contact.speaker}Speaker{/if}</a></td>
+				<td><a href="?action=gestion_contacts_infos&id={$contact.person->getNo()}">{if $contact.participant}Participant{/if}</a></td>
+			</tr>
+		{/foreach}
 	</table>
 </article>

@@ -1033,7 +1033,9 @@ class TEDx {
 	    	
 	    	// Gestion Contacts Infos
 			case 'gestion_contacts_infos':
-				$content = $this->smarty->fetch('gestion_contacts_infos.tpl');
+								
+				// Get the content of Gestion Contacts Infos
+	    		$content = $this->drawGestionContactsInfos();
 			break;
 			
 			// Gestion Contacts New
@@ -1137,6 +1139,40 @@ class TEDx {
 	    $this->smarty->assign('contacts', $contacts);
 	    
 	    return $this->smarty->fetch('gestion_contacts_list.tpl');
+    }
+    
+    
+     /**
+     * Draw the Gestion Contacts List
+     * @return content HTML of the Gestion Contacts List
+     */
+    protected function drawGestionContactsInfos() {
+    	
+    	$id = $this->getId();
+    	
+    	// Get Person
+    	$messagePerson = $this->tedx_manager->getPerson($id);
+    	
+    	// If the Person is found, continue
+    	if($messagePerson->getMessage()) {
+	    	$aValidPerson = $messagePerson->getContent();
+	    	
+	    	// Get Registrations by the Person
+	    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($id);
+	    	
+	    	// If Registrations are found, continue
+	    	if($messageRegistrations->getStatus()) {
+		    	$allValidRegistrations = $messageRegistrations->getContent();
+	    	} else {
+	    		
+	    	}
+	    	
+    	} else {
+	    	// Else give the erro message about no found Person
+			$this->displayMessage($messagePerson->getMessage());
+    	}
+    
+	    return $this->smarty->fetch('gestion_contacts_infos.tpl');
     }
     
     
