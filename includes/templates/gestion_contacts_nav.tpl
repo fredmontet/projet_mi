@@ -1,4 +1,4 @@
-<nav class="gestion_contacts_nav">
+<nav class="gestion_contacts_nav gestion_subnav">
     <h1>Contacts</h1>
     <ul>
         <li><a href="?action=gestion_contacts">View contacts</a></li>

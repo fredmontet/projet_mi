@@ -161,9 +161,64 @@ input[type="submit"]:hover{
     border:2px solid #ff0000;
     background-color:white;
    }
-
-
 /*End of forms*/
+
+.gestion_subnav{
+    width:100%;
+    display:inline-block;
+    position:relative;
+    margin-top:70px;
+    background-color:#bbbbbb;
+}
+
+.gestion_subnav h1{
+    display:block;
+    float:left;
+    margin-left:18px;
+}
+
+.gestion_subnav ul{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-right:10px;
+    display:block;
+    float:right;
+}
+
+.gestion_subnav ul li{
+    display:block;
+    float:left;
+    padding:4px;
+    width:100px;
+
+    text-align:center;
+}
+
+.gestion_subnav ul li a{
+    display:block;
+    width:100px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1em; 
+    border:2px solid #ffffff;
+    float:right;
+    padding-top:5px;
+    padding-bottom:5px; 
+}
+
+
+.gestion_subnav ul li a:hover{
+    color:#222222;
+    border-color:#222222;
+    background-color:#999999;
+}
+
+
+
+
 
 /*Diverses*/
 #errormessage{

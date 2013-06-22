@@ -71,34 +71,34 @@
         <!--further sponsors-->
         <section class="span12">
             <h2>Further sponsors</h2>
-            <article class="span3">
+            <article class="span4">
                 <img alt="cavin" src="htdocs/img/content/logo_cavin.png" title="artgraphic | cavin sa"/>
                 <p>
                     <a href="http://www.imprimeriecavin.ch/" target="_blank">Artgraphic Cavin SA </a> is a small business established in 1928, Cavin Artgraphic Grandson offers art books, brochures, leaflets, city work, digital photos, CD sleeves, and more. Cavin Artgraphic offers all of our printing requirements for TEDxLausanne 2013.    
             </article>    
 
-            <article class="span3">
+            <article class="span4">
                 <img alt="hulihealth" src="htdocs/img/content/logo_hulihealth.png" title="HuliHealth" />
                 <p>
                     Our goal in <a href="http://www.hulihealth.com/" target="_blank">HuliHealth</a> is to bring positive disruption to the global healthcare industry by providing transparency and efficiency. With HuliHealth you can search for a top doctor, read his or her profile, communicate, and book an appointment with ease. All the information you need is at your fingertips: your doctor’s credentials, the price of the care you need, reviews from previous patients, and more. At HuliHealth we’re doing everything we can to close the information gap, move towards total transparency in the health care industry, and get you to your best state of health.         
                 </p>            
             </article> 
 
-            <article class="span3">
+            <article class="span4">
                 <img alt="Masaba Coffee" src="htdocs/img/content/logo_masaba.png" title="Masaba Coffe for TEDxLausanneChange" />
                 <p>
                     <a href="http://masabacoffee.com/" target="_blank">Masaba Coffee</a> helps small farmers in Uganda produce a coffee of excellence, in respect of fair trade and organic agriculture. They are supported by a Swiss NGO in the spirit of entrepreneurship, through investments in training, quality certification and infrastructure. Masaba Coffee will offer us their coffee of excellence during the apero.        
                 </p>            
             </article> 
 
-            <article class="span3">
+            <article class="span6">
                 <img alt="Maureen Terrill" src="htdocs/img/content/logo_maureen.png" title="Maureen Terrill | Graphic Designer" />
                 <p>
                     <a href="http://www.mterrilldesign.com/" target="_blank">Maureen Terrill</a> is a graphic designer living in Lausanne, Switzerland. Maureen designed our invitation, printed programme, badges, posters, banners and the graphics on our website and Facebook page for TEDxLausanneChange 2013.    
                 </p>            
             </article> 
 
-            <article class="span12">                
+            <article class="span6">                
                 <img alt="WnG" src="htdocs/img/content/logo_wng.jpg" title="WnG Solutions" />
                 <p>
                     A 360° web agency that provides innovative strategies and creative solutions for a truly explosive digital marketing approach. <a href="http://www.wng.ch/en/" target="_blank">WnG Solutions</a> has implemented our website design and provides ever-so-valuable technical support.            
@@ -124,23 +124,23 @@
             </article>            
         </section>
         <!--main sponsors and donors-->
-        <section>
+        <section class="span12">
             <h2>Main sponsors and donors</h2>
-                <article class="span6">
+                <article class="span4">
                     <img alt="LosingerMarazzi" src="htdocs/img/content/logo_losinger.jpg" title="LosingerMarazzi | Shaping a better world"/>
                     <p>                    
                         <a href="http://www.losinger-marazzi.ch/" target="_blank">Losinger Marazzi</a> recognized company in its market, is the leadership in sustainable construction. Customers appreciate for its expertise, reliability and competitiveness. Ambitious, it anticipates the future by developing innovative solutions.
                     </p>
                 </article>
 
-                <article class="span6">
+                <article class="span4">
                     <img alt="LoterieRomande" src="htdocs/img/content/logo_loterie.jpg" title="Loterie Romande"/>
                     <p>
                         The purpose of <a href="https://www.loro.ch/fr" target="_blank">Loterie Romande</a> is to organize and operate, with the permissions required by law, lotteries and bets and to distribute the net profit to institutions of public character – social, cultural, research or sports – benefiting to the French-speaking cantons. 
                     </p>
                 </article>
 
-                <article class="span6">                
+                <article class="span4">                
                     <img alt="WnG" src="htdocs/img/content/logo_wng.jpg" title="WnG Solutions" />
                     <p>
                         A 360° web agency that provides innovative strategies and creative solutions for a truly explosive digital marketing approach. <a href="http://www.wng.ch/en/" target="_blank">WnG Solutions</a> has implemented our website design and provides ever-so-valuable technical support.            
@@ -148,9 +148,9 @@
                 </article>            
         </section>
         <!--media sponsor-->
-        <section>
+        <section class="span12">
             <h2>Media sponsor</h2>
-            <article class="span4">
+            <article>
                 <img alt="wrs" src="htdocs/img/content/logo_wrs.jpg" title="World Radio Switzerland" />
                 <p>
                     <a href ="http://www.worldradio.ch/" target="_blank">World Radio Switzerland</a> is a national media broadcast in English for Anglophones, Anglophiles and Anglo-professionals in Switzerland who enjoy listening to English-language content and music. It’s the only English-language radio station in Switzerland, available on 101.7 FM in Geneva and on DAB, cable and satellite across the country.                
@@ -210,7 +210,7 @@
             </article>             
         </section>
         <!--production partners-->
-        <section>
+        <section class="span12">
             <h2>Production partners</h2>
             <article class="span6">
                 <img alt="HIM" src="htdocs/img/content/logo_him.jpg" title="Hotel Institute Montreux"/>
