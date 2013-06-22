@@ -8,8 +8,8 @@
     <body>
     <div id="container" class="container">
     <header id="globalheader">
-	    <nav id="topheader">
-		    <ul id="globalnav" class="offset2 span10">
+        <nav id="topheader">
+		    <ul id="globalnav">
                         <li id="gn-about">
                             <a {if  $topAction=='about'}class="selected"{/if} href="?action=about">About</a>
                         </li>
@@ -31,23 +31,21 @@
                         <li id="gn-gestion">
                             <a {if  $topAction=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a>
                         </li>
-		    </ul>
-		    {if $userIsLogged}
-                        
-		    	<div id="logout">
-                            <a href="?action=logout">Logout</a>
-			</div>
-                        
-                        <div id="userinfo">
+                     </ul>
+                     <ul id="lognav">
+		    {if $userIsLogged}                   
+                        <li id="userinfo">
                             <a href="?action=user_infos">{$username}</a>
-                        </div>
-				
-                    {else}
-                        <div id="login">
+                        </li>
+                        <li id="logout">
+                            <a href="?action=logout">Logout</a>
+			</li>
+		    {else}
+                        <li id="login">
                             <a href="?action=login">Login</a>
-                        </div>
+                        </li>
                     {/if}
-		    
+                    </ul>	    
 	    </nav>
 	    <nav id="bottomheader">
 		    <a id="logo" href="?action=home"></a>

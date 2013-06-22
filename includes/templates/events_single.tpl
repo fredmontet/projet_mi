@@ -14,9 +14,11 @@ Smarty variables available:
         <h1>{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
 
         <nav>
-            <a href="#events_single_infos">Infos</a>
-            <a href="#events_single_details">Details</a>
-            <a href="#events_single_speakers">Speaker</a>   
+            <ul>
+                <a href="#events_single_infos">Infos</a>
+                <a href="#events_single_details">Details</a>
+                <a href="#events_single_speakers">Speaker</a> 
+            </ul>
         </nav>
     </header>
        
