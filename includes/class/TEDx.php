@@ -395,10 +395,14 @@ class TEDx {
      * @return content HTML of the Gestion Event page
      */
     protected function drawGestionEvents($action) {
+    	
+    	// Get the navigator of Gestion Events
     	$gestionEventsNav = $this->smarty->fetch('gestion_events_nav.tpl');
+    	
+    	// Assigns the navigator of Gestion Events to Smarty
     	$this->smarty->assign('gestionEventsNav', $gestionEventsNav);
     	
-    	
+    	// Choose the good action
     	switch($action) {
     		
     		// Add a Slot to an Event
@@ -412,6 +416,8 @@ class TEDx {
     			$this->displayMessage('This action is not yet implemented.');
 				return null;
     		break;
+    		
+    		// Save an Event
     		case 'gestion_events_send':
     			$this->displayMessage('This action is not yet implemented.');
 				return null;
@@ -571,9 +577,12 @@ class TEDx {
 				$this->smarty->assign('gestionEventsContent', $gestionEventsSingle);
 	    	break;
 	    	
+			// Gestion Events Motivations
 	    	case 'gestion_events_motivation':
-	    		$gestionEventsMotivation = $this->smarty->fetch('gestion_events_motivation.tpl');
-				$this->smarty->assign('gestionEventsContent', $gestionEventsMotivation);
+	    		
+	    		// Get the content of Gestion Events Motivation
+	    		$content = $this->drawGestionEventsMotivation($action);
+
 	    	break;
 	    	
 	    	case 'gestion_events_mail':
@@ -612,9 +621,100 @@ class TEDx {
 				$this->smarty->assign('gestionEventsContent', $gestionEventsRole);
 	    	break;
     	}
+    	
+    	// Assigns the content of Gestion Events Motivation to Smarty
+		$this->smarty->assign('gestionEventsContent', $content);
 		
+		// Return the content of Gestion Events
 	    return $this->smarty->fetch('gestion_events.tpl');
     }
+  
+    
+    /**
+     * Draw the Gestion Events Motivations page
+     * @return content HTML of the Gestion Events Motivations page
+     */
+    protected function drawGestionEventsMotivation($action) {
+    
+	    // Get Next Event
+		$aValidNextEvent = $this->getNextEvent();
+		
+		// Get Registrations for an Event
+		$messageRegistrations = $this->tedx_manager->getRegistrationsByEvent($aValidNextEvent);
+		
+		// If Registrations are found, continue
+		if($messageRegistrations->getStatus()) {
+    		$allValidRegistrations = $messageRegistrations->getContent();
+    		
+    		// for each Registrations
+    		foreach($allValidRegistrations as $aValidRegistration) {
+    		
+	    		// Get registered Person of an Event
+	    		$messagePerson = $this->tedx_manager->getPerson($aValidRegistration->getParticipantPersonNo());
+	    		
+	    		// If Person is found, continue
+	    		if($messagePerson->getStatus()) {
+		    		$aValidPerson = $messagePerson->getContent();
+		    		
+		    		// Prepare an array for Smarty [Registration]
+					$participantsPerson [$aValidRegistration->getRegistrationDate()] = $aValidPerson;
+					
+					// Get Participant
+					$messageParticipant = $this->tedx_manager->getParticipant($aValidPerson->getNo());
+					
+					// If Participant is found, continue
+					if($messageParticipant->getStatus()) {
+						$aValidParticipant = $messageParticipant->getContent();
+						
+						// Get Motivations by a Participant concerning an Event
+						$args = array(
+								'participant' => $aValidParticipant,
+								'event' => $aValidNextEvent
+								);
+						$messageMotivations = $this->tedx_manager->getMotivationsByParticipantForEvent($args);
+						
+						// If Motivations are found, continue
+						if($messageMotivations->getStatus()) {
+							$allValidMotivations = $messageMotivations->getContent();
+							
+							// Prepare an array for Smarty [Registrations]
+							$participantsMotivations [$aValidRegistration] = $allValidMotivations;
+
+							
+						} else {
+							$allValidMotivations = null;
+						}
+						
+					} else {
+						// Else give the error message about no Participant found
+						$this->displayMessage($messageParticipant->getMessage());
+						$aValidParticipant = null;
+					}
+
+	    		} else {
+	    			// Else give the error message about no Person found
+		    		$this->displayMessage($messagePerson->getMessage());
+		    		$aValidPerson = null;
+	    		}
+    		}
+    		
+    		
+		} else {
+			// Else give the error message about no found registration
+    		$this->displayMessage($messageRegistrations->getMessage());
+    		$allValidRegistrations = null;
+		}
+	
+		// Assigns variables to Smarty
+		$this->smarty->assign('participantsMotivations', $participantsMotivations);
+		$this->smarty->assign('participantsPerson', $participantsPerson);
+		$this->smarty->assign('registrations', $allValidRegistrations);
+		
+		// Return the content of Gestion Events Motivation
+		return $this->smarty->fetch('gestion_events_motivation.tpl');
+    }
+    
+    
     
     protected function drawGestionSpeakerInfos() {
 	    $gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
