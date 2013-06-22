@@ -1157,20 +1157,91 @@ class TEDx {
     	if($messagePerson->getMessage()) {
 	    	$aValidPerson = $messagePerson->getContent();
 	    	
-	    	// Get Registrations by the Person
-	    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($id);
+	    	// Get Participant
+	    	$messageParticipant = $this->tedx_manager->getParticipant($id);
 	    	
-	    	// If Registrations are found, continue
-	    	if($messageRegistrations->getStatus()) {
-		    	$allValidRegistrations = $messageRegistrations->getContent();
+	    	// If the Participant is found, continue
+	    	if($messageParticipant->getStatus()) {
+		    	$aValidParticipant = $messageParticipant->getContent();
+		    	
+		    	// Get Registrations by the Person
+		    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($aValidParticipant);
+		    	
+		    	// If Registrations are found, continue
+		    	if($messageRegistrations->getStatus()) {
+			    	$allValidRegistrations = $messageRegistrations->getContent();
+			    	
+			    	// For each Registration
+			    	foreach($allValidRegistrations as $key=>$aValidRegistration) {
+				    	
+				    	$registrations[]['registrations'] = $aValidRegistration;
+				    	
+				    	// Get Event
+				    	$messageEvent = $this->tedx_manager->getEvent($aValidRegistration->getEventNo);
+				    	
+				    	// If the Event is found
+				    	if($messageEvent->getStatus()) {
+					    	$aValidEvent = $messageEvent->getContent();
+					    	
+					    	$registrations[$key]['event'] = $aValidEvent;
+					    	
+				    	} else {
+					    	// Else give the error message about no found Event
+					    	$this->displayMessage($messageEvent->getMessage());
+				    	}
+			    	}
+			    	
+		    	} else {
+		    		// Else give the error about no found Registration
+		    		$this->displayMessage($messageRegistrations->getMessage());
+		    		$registrations = null;
+		    	}
 	    	} else {
-	    		
+		    	$registrations = null;
+	    	}
+	    	
+	    	// Get Speaker
+	    	$messageSpeaker = $this->tedx_manager->getSpeaker($id);
+	    	
+	    	// If the Speaker is found, continue
+	    	if($messageSpeaker->getStatus()) {
+		    	$aValidSpeaker = $messageSpeaker->getContent();
+		    	
+		    	
+	    	} else {
+		    	
+	    	}
+	    	
+	    	// Get Organizer
+	    	$messageOrganizer = $this->tedx_manager->getOrganizer($id);
+	    	
+	    	// If the Organizer is found, continue
+	    	if($messageOrganizer->getStatus()) {
+		    	$aValidOrganizer = $messageOrganizer->getContent();
+		    	
+		    	// Get Roles
+		    	$messageRoles = $this->tedx_manager->getRolesByOrganizer($aValidOrganizer);
+		    	
+		    	// If Roles are found, continue
+		    	if($messageRoles->getStatus()) {
+			    	$allValidRoles = $messageRoles->getContent();
+		    	} else {
+			    	$allValidRoles = null;
+		    	}
+		    	
+	    	} else {
+		    	$allValidRoles = null;
 	    	}
 	    	
     	} else {
 	    	// Else give the erro message about no found Person
 			$this->displayMessage($messagePerson->getMessage());
     	}
+    	
+    	// Assigns variables to Smarty
+    	$this->smarty->assign('roles', $allValidRoles);
+    	$this->smarty->assign('registrations', $registrations);
+    	$this->smarty->assign('person', $aValidPerson);
     
 	    return $this->smarty->fetch('gestion_contacts_infos.tpl');
     }
