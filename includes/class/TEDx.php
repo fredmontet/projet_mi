@@ -61,11 +61,11 @@ class TEDx {
 	
 	/**
      * Create an array of Error Formular message
-     * @param array of error message
+     * @return array of error message
      */
 	protected function errorFormMessage() {
 		return array(
-				'firstname'		=>		'The Firstname is incorrect',
+				'firstname'		=>	'The Firstname is incorrect',
 		);
 	}
 	
@@ -76,21 +76,28 @@ class TEDx {
      */    
     protected function getNextEvent() {
     	
+    	// Prepare the argument of the search
     	$searchArgs = array(
 		    "where"      => "StartingDate >= NOW()",
 		    "orderBy"    => "StartingDate",
 		    "orderByType" => "ASC",
 		);
-		 
+		
+		// Get all next Events
 		$messageSearchEvents = $this->tedx_manager->searchEvents($searchArgs);
 		
+		// If Events are found, continue
 		if($messageSearchEvents->getStatus()) {
 		    $allValidSearchEvents = $messageSearchEvents->getContent();
 		} else {
-		    $this->displayMessage('There isn\'t a next event!'); 
+			// Else give the error message about no found Events
+		    $this->displayMessage($messageSearchEvents->getMessage()); 
 	    }
 	    
+	    // Get only the next Event
 	    $aValidNextEvent = $allValidSearchEvents[0];
+	    
+	    // Return the next Event
 		return $aValidNextEvent;
     }
     
@@ -106,12 +113,14 @@ class TEDx {
 		    $id = null;
 		}
 		
+		// Return the id from the _POST
 		return $id;
     }
     
     
     /**
      * Check if the value have the correct type
+     * @param $array with the type and the value
      * @return Boolean (1 if the value have the correct type)
      */   
     protected function validator($array) {
@@ -151,7 +160,8 @@ class TEDx {
 	 *			The second contains the state values ​​received by _POST
      */ 
     protected function contactValidator($contact) {
-
+		
+		// Validate all received values 
         $errorState['name'] 		= $this->validator(array('String', $contact['name']));
         $errorState['firstname'] 	= $this->validator(array('String', $contact['firstname']));
         $errorState['dateOfBirth'] 	= $this->validator(array('Date', $contact['dateOfBirth']));
@@ -162,8 +172,8 @@ class TEDx {
 		$errorState['email'] 		= $this->validator(array('Email', $contact['email']));
 		//$errorState['description'] 		= $this->validator(array('String', $contact['description']));
         
+        // Return two arrays
         return array($contact, $errorState);
-
     }
     
     
@@ -219,24 +229,31 @@ class TEDx {
      * @return content HTML of the Events page
      */
     protected function drawEvents() {
-    
+    	
+    	// Get all Events
     	$messageEvents = $this->tedx_manager->getEvents();
     	
+    	// If Events are found, continue
     	if($messageEvents->getStatus()) {
 		    $allValidEvents = $messageEvents->getContent();
 		} else {
-		    $this->displayMessage('There isn\'t event!'); 
+			// Else give the error message about no found Events
+		    $this->displayMessage($messageEvents->getMessage()); 
 	    }
 		
+		// For each Event
 		foreach ($allValidEvents as $aValidEvent) {
 			$events[] = $this->drawEventsSingle($aValidEvent->getNo());
 		}
 		
+		// Get the content of the Events navigator
 		$events_nav = $this->smarty->fetch('events_nav.tpl');
 		
+		// Assigns variables to Smarty
 		$this->smarty->assign('events', $events);
 		$this->smarty->assign('events_nav', $events_nav);
 		
+		// Return the content of Events page
 	    return $this->smarty->fetch('events.tpl');
     }
     
@@ -333,8 +350,8 @@ class TEDx {
     
     
     /**
-     * Draw the Event Registration page
-     * @return content HTML of the Event Registration page
+     * Draw the Events Registration page
+     * @return content HTML of the Events Registration page
      */
     protected function drawEventsRegistration() {
     	$id = $this->getId();
@@ -429,8 +446,8 @@ class TEDx {
     }
     
     /**
-     * Draw the Contact page
-     * @return content HTML of the Contact page
+     * Draw the Contact Received page
+     * @return content HTML of the Contact Received page
      */
     protected function drawContactReceived() {
 	    return $this->smarty->fetch('contact_received.tpl');
@@ -458,8 +475,8 @@ class TEDx {
 
     
     /**
-     * Draw the Gestion Event page
-     * @return content HTML of the Gestion Event page
+     * Draw the Gestion Events page
+     * @return content HTML of the Gestion Events page
      */
     protected function drawGestionEvents($action) {
     	
@@ -545,16 +562,22 @@ class TEDx {
     		// Gestion Events List
 	    	case 'gestion_events':
 	    	case 'gestion_events_list':
+	    	
+	    		// Get all Events
 	    		$messageEvents = $this->tedx_manager->getEvents();
-    	
+				
+				// If Events are found, continue
 		    	if($messageEvents->getStatus()) {
 				    $allValidEvents = $messageEvents->getContent();
 				} else {
-				    $this->displayMessage('There isn\'t event!'); 
+					// Else give the error message about no found Events
+				    $this->displayMessage($messageEvents->getMessage()); 
 			    }
 				
+				// Assigns variables to Smarty
 				$this->smarty->assign('events', $allValidEvents);
-	    	
+				
+				// Get the content of Gestion Events List
 	    		$content = $this->smarty->fetch('gestion_events_list.tpl');
 	    	break;
 	    	
@@ -565,15 +588,20 @@ class TEDx {
 	    	case 'gestion_speaker_infos_send':
 	    		
 	    		switch($action) {
+	    		
+	    			// Gestion Speaker Infos
 		    		case 'gestion_speaker_infos':
 		    			$gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
 					    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
 		    		break;
+		    		
+		    		// Edit the infos of Speaker
 		    		case 'gestion_speaker_infos_send':
 		    			$this->displayMessage('This action is not yet implemented.');
 						$content = null;
 						$this->smarty->assign('gestionEventsSpeakerInfos', null);
 		    		break;
+		    		
 		    		default:
 		    			$this->smarty->assign('gestionEventsSpeakerInfos', null);
 		    		break;
@@ -1211,8 +1239,8 @@ class TEDx {
     
     
      /**
-     * Draw the Gestion Contacts List
-     * @return content HTML of the Gestion Contacts List
+     * Draw the Gestion Contacts Infos
+     * @return content HTML of the Gestion Contacts Infos
      */
     protected function drawGestionContactsInfos() {
     
