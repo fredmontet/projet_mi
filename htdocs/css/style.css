@@ -165,39 +165,65 @@ input[type="submit"]:hover{
 
 .gestion_subnav{
     width:100%;
+    z-index: 99;
+    top: 50px;
     display:inline-block;
-    position:relative;
-    margin-top:70px;
-    background-color:#bbbbbb;
+    margin-top: 40px;
     height:50px;
+    margin-bottom:60px;
+}
+
+.gestion_subnav .grey_bar{
+        background-color: #222222;
+        height: 100px;
+        margin-top:-10px;
+        width:110%;
+        left:-10px;
+        
+        z-index:-100;
+        transform:rotate(-1.3deg);
+        -ms-transform:rotate(-1.3deg); /* IE 9 */
+        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
 }
 
 .gestion_subnav h1{
     display:block;
+    position: relative;
     float:left;
-    font-size:1.5em;
-    margin-left:18px;
-    margin-bottom:5px;
-    margin-top:5px;
+    top: -4px;
+    color: #ffffff;
+    font-size:5.5em;
+    text-transform:uppercase;
+    transform:rotate(-1.3deg);
+    -ms-transform:rotate(-1.3deg); /* IE 9 */
+    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */
 }
 
 .gestion_subnav ul{
-    margin-bottom:5px;
-    margin-top:8px;
+    position: relative;
     display:block;
     float:right;
+    transform:rotate(-1.3deg);
+    -ms-transform:rotate(-1.3deg); /* IE 9 */
+    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */
+    top: 60px;
 }
 
 .gestion_subnav ul li{
     display:block;
     float:left;
-    padding:4px;
-    width:100px;
+    margin-left: 20px;
     text-align:center;
 }
 
 .gestion_subnav ul li a{
+    
     display:block;
+    color:#ffffff;
+    font-size:2em;
+    font-weight:bold;
+    
+    /*display:block;
     width:100px;
     text-align:center;
     vertical-align:middle;
@@ -210,13 +236,12 @@ input[type="submit"]:hover{
     margin-left:5px;
     padding-top:5px;
     padding-bottom:5px;
-    border:1px solid; 
+    */
 }
 
 
 .gestion_subnav ul li a:hover{
-    color:#222222;
-    background-color:#ffffff;
+    color:#ff0000;
 }
 
 
