@@ -1,21 +1,21 @@
-<article class="events_registration" class="offset3 span6">
+<article class="events_registration offset2 span8">
 
     <!--registration header-->
-    <header>
-        <h1>{$event->getStartingDate()|date_format:"%d %B %Y"}</h1>
+    <header class="span12">            
         <h1>{$event->getMainTopic()}</h1>
-        <nav>
-            <a href="#event_user_infos">fred1</a>
-            <a href="#event_user_details">fred2</a>
-            <a href="#event_user_adress">fred3</a>   
-            <a href="#event_user_motivation">fred4</a>
-            <p>fred fait le nav</>
+        <time>{$event->getStartingDate()|date_format:"%d %B %Y"}</time>
+
+        <nav class="offset2 span8">
+            <a href="#event_user_infos"><span>infos</span></a>
+            <a href="#event_user_details"><span>details</span></a>
+            <a href="#event_user_adress"><span>address</span></a>   
+            <a href="#event_user_motivation"><span>motivation</span></a>
         </nav>
     </header>
     <!--end registration header-->
 
 
-    <section>
+    <section class="span12">
     <!--form-->
         <form method="post" action="">
             

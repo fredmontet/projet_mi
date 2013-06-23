@@ -11,7 +11,7 @@ Smarty variables available:
 *}
 
 <article class="gestion_contacts_list">
-    <header>
+    <header class="gestion_subnav">
         <nav>
             <ul>
                 <li><a href="#all">all</a></li>

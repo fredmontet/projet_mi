@@ -27,7 +27,7 @@ a {
 }
 
 a:hover{
-  color: #aaaaaa;
+  color: #c0c0c0;
   text-decoration:none;
 }
 
@@ -93,6 +93,7 @@ label{
 
 fieldset{
     margin-left:20px;
+    margin:20px;
 }
 
 legend, label{
@@ -106,6 +107,14 @@ legend, label{
     line-height: 20px;
     font-size: 1.5em;
     font-weight: normal;
+}
+
+legend{
+    display:block;
+    width:100%;
+    margin-bottom:20px;
+    font-size:2em;
+    
 }
 
 input, textarea{
@@ -124,7 +133,7 @@ input{
     padding-bottom:5px;
     display:block;
     width: 65%;
-    float:left;
+    float: right;
     margin-bottom: 10px;
 }
 
@@ -135,6 +144,7 @@ textarea{
     margin-top:20px;
     margin-bottom:20px;
     resize:none;
+    float: right;
 }
 
 input:focus, textarea:focus{
@@ -241,7 +251,11 @@ input[type="submit"]:hover{
 
 
 .gestion_subnav ul li a:hover{
-    color:#ff0000;
+    color:#c0c0c0;
+}
+
+#container>article{
+    margin-top: 50px
 }
 
 
@@ -513,24 +527,50 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.event_registration{}
+.events_registration{
+    
+}
 
-.event_registration header{}
-.event_registration header h1{}
-.event_registration header nav{}
-.event_registration header nav a{}
-.event_registration header nav p{}
+.events_registration header{}
+.events_registration header h1{
+    display: block;
+    font-size: 2.5em;
+    margin-bottom: 0;
+}
 
-.event_registration section{}
-.event_registration section form{}
-.event_registration section form fieldset{}
-.event_registration section form fieldset legend{}
-.event_registration section form fieldset p{}
-.event_registration section form fieldset p label{}
-.event_registration section form fieldset p input{}
-.event_registration section form a{}
-.event_registration section form fieldset p textarea{}
-.event_registration seciton form button{}
+.events_registration header time{
+    display: block;
+    font-size:1.5em;
+    padding-left: 20px;
+}
+
+.events_registration header nav{
+}
+.events_registration header nav a{
+        display:block;
+        float:left;
+        background-image: url("../img/layout/circle.svg");
+        width:100px;
+        height:100px;
+}
+.events_registration header nav a span{
+        display:none;
+}
+
+.events_registration header nav p{}
+
+
+
+.events_registration section{}
+.events_registration section form{}
+.events_registration section form fieldset{}
+.events_registration section form fieldset legend{}
+.events_registration section form fieldset p{}
+.events_registration section form fieldset p label{}
+.events_registration section form fieldset p input{}
+.events_registration section form a{}
+.events_registration section form fieldset p textarea{}
+.events_registration seciton form button{}
 
 /*end of event_registration*/
 
@@ -547,7 +587,6 @@ and (min-width : 1224px) {
 
 .events_single header{
     display: block;
-
     padding:20px;
 }
 
@@ -696,13 +735,20 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_contacts_list{}
+.gestion_contacts_list .gestion_subnav{
+    position:relative;
+    top:-120px;
+}
 
 .gestion_contacts_list header{}
 .gestion_contacts_list header nav{}
 .gestion_contacts_list header nav ul{}
 .gestion_contacts_list header nav ul li{}
-.gestion_contacts_list header nav ul li a{}
+.gestion_contacts_list header nav ul li a{
+    font-weight:normal;
+    color:red;
+    font-size:1.7em;
+}
 
 .gestion_contacts_list ul{}
 .gestion_contacts_list ul li{}
@@ -718,11 +764,13 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .gestion_contacts_nav{}
-
 .gestion_contacts_nav h1{}
-.gestion_contacts_nav h1 ul{}
-.gestion_contacts_nav h1 ul li{}
-.gestion_contacts_nav h1 ul li a{}
+.gestion_contacts_nav ul{
+    poisition:relative;
+    top:0;
+}
+.gestion_contacts_nav ul li{}
+.gestion_contacts_nav ul li a{}
 
 /*end of gestion_contacts_nav*/
 

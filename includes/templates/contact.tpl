@@ -5,15 +5,15 @@
         <!--form of contact-->
     <form name="contact" method="post" action="">
         <fieldset>
-            <legend>Name </legend><input type="text" name="user_name"/>
+            <label>Name </label><input type="text" name="user_name"/>
 
-            <legend>Surname </legend><input type="text" name="user_surname"/>
+            <label>Surname </label><input type="text" name="user_surname"/>
 
-            <legend>Email </legend><input type="email" name="user_email"/>
+            <label>Email </label><input type="email" name="user_email"/>
 
-            <legend>Object </legend><input type="text" name="user_subject"/>
+            <label>Object </label><input type="text" name="user_subject"/>
 
-            <legend id="message">Message </legend>
+            <label id="message">Message </label>
             <textarea></textarea>
         </fieldset>
         <!--button send-->
