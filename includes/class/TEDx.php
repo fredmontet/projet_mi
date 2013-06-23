@@ -60,6 +60,17 @@ class TEDx {
 	
 	
 	/**
+     * Create an array of Error Formular message
+     * @param array of error message
+     */
+	protected function errorFormMessage() {
+		return array(
+				'firstname'		=>		'The Firstname is incorrect',
+		);
+	}
+	
+	
+	/**
      * Get the next event
      * @return object the next event
      */    
@@ -98,6 +109,62 @@ class TEDx {
 		return $id;
     }
     
+    
+    /**
+     * Check if the value have the correct type
+     * @return Boolean (1 if the value have the correct type)
+     */   
+    protected function validator($array) {
+    
+    	$type = $array[0];
+    	$value = $array[1];
+    
+	    switch($type) {
+	    
+	    	// The type is a String
+		    case 'String':
+		    	$length = strlen($value);
+		        $isString = is_string($value);
+		        return $isString && $length > 0;
+		    break;
+		    
+		    // The type is an Email
+		    case 'Email':
+		    	return preg_match('/^[\S]+@[\S]+\.\D{2,4}$/', $value);
+		    break;
+		    
+		    // The type is a Date
+		    case 'Date':
+		    	$date = date_parse($value);
+		    	return checkdate($date["month"], $date["day"], $date["year"]);
+		    break;
+		    
+	    }
+    }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+	 *			The first contains the values ​​transmitted by _POST
+	 *			The second contains the state values ​​received by _POST
+     */ 
+    protected function contactValidator($contact) {
+
+        $errorState['name'] 		= $this->validator(array('String', $contact['name']));
+        $errorState['firstname'] 	= $this->validator(array('String', $contact['firstname']));
+        $errorState['dateOfBirth'] 	= $this->validator(array('Date', $contact['dateOfBirth']));
+        $errorState['address'] 		= $this->validator(array('String', $contact['address']));
+		$errorState['city'] 		= $this->validator(array('String', $contact['city']));
+		$errorState['country']		= $this->validator(array('String', $contact['country']));
+		$errorState['phoneNumber'] 	= $this->validator(array('String', $contact['phoneNumber']));
+		$errorState['email'] 		= $this->validator(array('Email', $contact['email']));
+		//$errorState['description'] 		= $this->validator(array('String', $contact['description']));
+        
+        return array($contact, $errorState);
+
+    }
     
     
     /**
@@ -1033,10 +1100,11 @@ class TEDx {
 	    	
 	    	// Gestion Contacts Infos
 			case 'gestion_contacts_infos':
-								
+				
 				// Get the content of Gestion Contacts Infos
 	    		$content = $this->drawGestionContactsInfos();
 			break;
+			
 			
 			// Gestion Contacts New
 			case 'gestion_contacts_new':
@@ -1147,8 +1215,41 @@ class TEDx {
      * @return content HTML of the Gestion Contacts List
      */
     protected function drawGestionContactsInfos() {
+    
+    	// If the user want to edit the contact, continue
     	
     	$id = $this->getId();
+    	
+    	if(isset($_POST['update'])) {
+	    	
+	    	list($contact, $errorState) = $this->contactValidator($_POST);
+	    	
+	    	// If all values are correct, continue
+	    	if(count(array_keys($errorState, true)) == count($errorState)) {
+	    	
+	    		// Prepare the array to edit the Contact
+		    	$args = array(
+				    'name' => $contact['name'], // String
+				    'firstName' => $contact['firstname'], // String
+				    'dateOfBirth' => $contact['dateOfBirth'], // Date
+				    'address' => $contact['address'], // String
+				    'city' => $contact['city'], // String
+				    'country' => $contact['country'], // String
+				    'phoneNumber' => $contact['phoneNumber'], // string
+				    'email' => $contact['email'], // String
+				    'IDMember' => $id, // Integer
+				    'password' => md5('admin') // String encrypt to MD5
+				);
+				
+				
+				
+	    	} else {
+		    	
+	    	}
+	    	
+    	} else {
+	    	$errorState = null;
+    	}
     	
     	// Get Person
     	$messagePerson = $this->tedx_manager->getPerson($id);
@@ -1158,12 +1259,12 @@ class TEDx {
 	    	$aValidPerson = $messagePerson->getContent();
 	    	
 	    	// Get Participant
-	    	$messageParticipant = $this->tedx_manager->getParticipant($id);
+	    	$messageParticipant = $this->tedx_manager->getParticipant(3);
 	    	
 	    	// If the Participant is found, continue
 	    	if($messageParticipant->getStatus()) {
 		    	$aValidParticipant = $messageParticipant->getContent();
-		    	
+		    	/*
 		    	// Get Registrations by the Person
 		    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($aValidParticipant);
 		    	
@@ -1185,19 +1286,21 @@ class TEDx {
 					    	
 					    	$registrations[$key]['event'] = $aValidEvent;
 					    	
+					    	
 				    	} else {
 					    	// Else give the error message about no found Event
 					    	$this->displayMessage($messageEvent->getMessage());
+					    	
 				    	}
 			    	}
 			    	
 		    	} else {
 		    		// Else give the error about no found Registration
 		    		$this->displayMessage($messageRegistrations->getMessage());
-		    		$registrations = null;
-		    	}
+		    		$registrations[]['registrations'] = null;
+		    	}*/$registrations = null;
 	    	} else {
-		    	$registrations = null;
+	    		$registrations = null;
 	    	}
 	    	
 	    	// Get Speaker
@@ -1233,14 +1336,29 @@ class TEDx {
 		    	$allValidRoles = null;
 	    	}
 	    	
+	    	// Get TeamRole
+	    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
+	    	
+	    	// If TeamRole are found, continue
+	    	if($messageTeamRoles->getStatus()) {
+		    	$allValidTeamRoles = $messageTeamRoles->getContent();
+	    	} else {
+		    	$allValidTeamRoles = null;
+	    	}
+	    	
     	} else {
 	    	// Else give the erro message about no found Person
 			$this->displayMessage($messagePerson->getMessage());
     	}
     	
+    	$errorFormMessage = $this->errorFormMessage();
+    	
     	// Assigns variables to Smarty
+    	$this->smarty->assign('teamRoles', $allValidTeamRoles);
     	$this->smarty->assign('roles', $allValidRoles);
     	$this->smarty->assign('registrations', $registrations);
+    	$this->smarty->assign('errorState', $errorState);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
     	$this->smarty->assign('person', $aValidPerson);
     
 	    return $this->smarty->fetch('gestion_contacts_infos.tpl');
@@ -1557,6 +1675,7 @@ class TEDx {
 			case 'gestion_contacts_new':
 			case 'gestion_contacts_role':
 			case 'gestion_contacts_role_infos': 
+			case 'gestion_contacts_send':
 			case 'gestion_contacts_role_new':
 			case 'gestion_contacts_role_send':
 			case 'new_contact_send':
