@@ -123,6 +123,7 @@
             <legend>Show us your motivations!</legend>
 
                     <!--user_keywords-->
+                    <p>
                         <label for="user_kw">Keyword 1 </label>
                         <input type="text" name="user_kw" />
                     </p>
@@ -143,7 +144,7 @@
             </fieldset>
     
             <!--participation button-->
-            <button type="button" onclick="alert("Hello world!")">Participate</button>
+            <button class="theButton" type="button" onclick="alert("Hello world!")">Participate</button>
             <!--end of button-->
                 
         </form>
