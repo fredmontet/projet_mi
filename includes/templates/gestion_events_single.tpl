@@ -7,7 +7,7 @@ Smarty variables available:
 	$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
 *}
 
-<article class="gestion_events_single">
+<article class="gestion_events_single offset1 span10">
     <form id="" method="post" action="">
 
         <!--gestion event single header-->

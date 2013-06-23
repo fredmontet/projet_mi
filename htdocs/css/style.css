@@ -780,12 +780,65 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .gestion_events_list{}
+.gestion_events_list a{
+    margin-top:35px;
+    display:inline-block;
+    width:100%;
+}
 
-.gestion_events_list a{}
-.gestion_events_list a article{}
-.gestion_events_list a article h1{}
-.gestion_events_list a article p{}
-.gestion_events_list a article p img{}
+.gestion_events_list a:hover .grey_bar{
+    background-color:#cccccc;
+}
+
+.gestion_events_list a:hover p img{
+    background-color:#cccccc;
+}
+
+.gestion_events_list a:hover h1, .gestion_events_list a:hover time{
+    color:white;
+}
+
+.gestion_events_list a .grey_bar{
+        background-color:#eeeeee;
+        height:100px;
+        width:100%;
+        left:0;
+        position:absolute;
+        z-index:-100;
+        transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg); /* IE 9 */
+        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
+}
+
+.gestion_events_list a article header{
+    display:block;
+    float:left;    
+    width:80%;
+
+}
+
+.gestion_events_list a article header h1{
+    font-size: 2.5em;
+    margin-bottom: 0;
+}
+
+.gestion_events_list a article header time{
+    display: block;
+    font-size:1.5em;
+    padding-left: 20px;
+}
+
+.gestion_events_list a article p{
+    display:block;
+    float:right;
+    position:relative;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.gestion_events_list a article p img{
+    height:50px;   
+}
 
 /*end of gestion_events_list*/
 
