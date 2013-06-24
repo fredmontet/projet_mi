@@ -126,7 +126,7 @@ input, textarea{
     border:none;
     width: 420px;
     border:none;
-    position:relative;    
+    position: relative;    
 }
 
 input{
@@ -977,31 +977,37 @@ and (min-width : 1224px) {
 /*Status = to fill*/
 
 .gestion_events_mail_edit{}
+
 .gestion_events_mail_edit input{
     display:block;
-    float: right;
-    margin-bottom:50px;   
+    float: right;   
 }
 
 .gestion_events_mail_edit fieldset{
     margin-top:10px;
     disply:inline-block;
 }
-.gestion_events_mail_edit fieldset label{
+.gestion_events_mail_edit fieldset p label{
     float:left;
     width:30%;
 }
-.gestion_events_mail_edit fieldset select{
+.gestion_events_mail_edit fieldset p legend{
+    float:left;
+    font-size:1.5em;
+    margin-bottom:0px;
+}
+.gestion_events_mail_edit fieldset p input{
+    width:70%;    
+}
+.gestion_events_mail_edit fieldset p select{
     float:right;
-    width:65%;
+    width:70%;
 }
-.gestion_events_mail_edit fieldset select option{
-    line-height:30px;
-    width:65%;
+.gestion_events_mail_edit fieldset p select option{
+    width:70%;
 }
-.gestion_events_mail_edit fieldset textarea{
-    width:100%;
-}
+.gestion_events_mail_edit fieldset textarea{}
+
 
 /*end of gestion_events_mail_edit*/
 
@@ -1056,7 +1062,7 @@ and (min-width : 1224px) {
     width:160px;
     float:right;
 }
-.gestion_events_role dl{
+.gestion_events_role ul{
     display:inline-block;
     width:100%;
     margin: 0;
@@ -1064,7 +1070,7 @@ and (min-width : 1224px) {
     padding: 0;
     line-height: 20px;
 }
-.gestion_events_role dl dd{
+.gestion_events_role ul li{
     display:block;
     background-color:#eeeeee;
     margin:10px 0;
@@ -1082,13 +1088,17 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_events_role{
+.gestion_events_role_infos {
     float:right;
 }
-
-.gestion_events_role_infos form fieldset{
+.gestion_events_role_infos form {
+}
+.gestion_events_role_infos form p{
     width:100%;
     float:right;
+}
+.gestion_events_role_infos form p label{
+    line-height:30px;
 }
 
 

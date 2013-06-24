@@ -16,18 +16,20 @@ $registrations (Array [Registrations] => Array
         <input type="submit" name="submit_send" value="Send" />
 
         <!--adress mail-->
-        
-        <fieldset>
-                <label>To</label>
-                <select>
-                    <option>select email address</option>
-                </select>
-                
-                <label>Subject</label>
-                <input type="text" name="subject" value="subject">
 
-                <label>Message</label>
-                <textarea>Hi ! You have been accepted. <br/>Best Regards TEDx Lausanne</textarea>
+        <fieldset>
+            <p>
+            <label>To</label>
+            <select>
+                <option>select email address</option>
+            </select>
+            </p>
+            <p>
+            <legend>Subject</legend>
+            <input type="text" name="subject" value="subject">
+            </p>
+            <p>
+            <textarea>Hi ! You have been accepted. Best Regards TEDx Lausanne</textarea></p>
         </fieldset>
     </form>
 </div>
