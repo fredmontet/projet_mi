@@ -1427,12 +1427,37 @@ and (min-width : 1224px) {
 .partners{}
 .partners section{}
 .partners section h1{}
-.partners section p{}
+.partners section p{
+    margin-bottom:5px;
+}
+
+.partners section .spec{
+    margin-bottom:30px;
+}
+.partners section #spec{
+    margin-bottom:30px;
+}
+.partners section p a{
+    color: red;
+    text-decoration: none;
+}
+
+.partners section p a:hover{
+  color: #c0c0c0;
+  text-decoration:none;
+}
 .partners section section{}
 .partners section section h2{}
+.partners section section .debut{
+    margin-top:30px;
+}
 .partners section section article{}
-.partners section section article img{}
-.partners section section article p{}
+.partners section section article img{
+    margin-bottom:10px;
+}
+.partners section section article p{
+    margin-bottom:30px;
+}
 .partners section section article p a{}
 
 /*end of partners*/

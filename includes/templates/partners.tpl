@@ -9,11 +9,11 @@
         <p>
            Since TEDx events are all about innovation and great ideas, we offer special sponsorship conditions to startups, in particular, the possibility to expose their ideas. For more information about the different types of sponsorship <a href="htdocs/documents/Fundraising_Proposal-2.doc">click here</a>.
         </p>
-        <p>If you are interesting in partnering with us, please <a href="?action=contact">contact us</a>. We look forward to discussing further.
+        <p class="spec">If you are interesting in partnering with us, please <a href="?action=contact">contact us</a>. We look forward to discussing further.
         </p>
         <!--main partner-->
         <section class="span6">
-            <h2>Main partner</h2>
+            <h2 class="debut">Main partner</h2>
             <article>
                 <img alt="Kudelski" src="htdocs/img/content/logo_kudelski.png" title="Kudelski Security"/>
                 <p>
@@ -23,7 +23,7 @@
         </section>
         <!--video production partner-->
         <section class="span6">
-            <h2>Video production partner</h2>
+            <h2 class="debut">Video production partner</h2>
             <article>
                 <img alt="ANV Production" src="htdocs/img/content/logo_anv.png" title="ANV PRODUCTION"/>
                 <p>
@@ -34,14 +34,14 @@
         <!--special partners-->
         <section class="span12">
             <h2>Special partners</h2>
-            <article>
+            <article class="span6">
                 <img alt="MoT alumni" src="htdocs/img/content/logo_mot.png" title="The MoT MBA Almuni Association"/>
                 <p>
                     <a href ="http://www.mot-alumni.com/" target="_blank">The MoT MBA Alumni Association</a> promotes the Executive MBA program in Management of Technology from Swiss Federal Institute of Technology (EPFL) and HEC Lausanne School of Business (a recognized program from both universities) fostering the MoT identity and enhancing networking between graduates, students and external entrepreneurs.The Alumni Association Committee endeavors to bring life to the MoTAA by organizing entrepreneurial events and partnering with select organizations, such as TEDxLausanneChange, to organize innovative and inspiring events.
                 </p>
             </article>  
 
-            <article>
+            <article class="span6">
                 <img alt="IMD" src="htdocs/img/content/logo_imd.jpg" title="IMD Business School"/>
                 <p>
                     <a href ="http://www.imd.org/" target="_blank">IMD Business School</a>, Lausanne, Switzerland is a world pioneer in executive education. More than a business school, they collaborate with individuals, teams and organizations to resolve real business issues, build capabilities and prepare for the future.
