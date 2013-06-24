@@ -617,30 +617,30 @@ and (min-width : 1224px) {
     padding-left: 20px;
 }
 
-.events_single #subnav{
-    position:relative;
-    display:inline-block; 
-    left:0%;   
+.events_single nav{
+    display:inline-block;
+    margin-bottom:5px;
     margin-top:20px;
+    position:relative;
+    left:0%;
 }
-
-.events_single #subnav li{
+.events_single nav ul{}
+.events_single nav ul li{
     display:block;
-     float:left;
-     border-bottom:3px solid #E2E2E2;
+    float:left;
 }
-.events_single #subnav li a{
+.events_single nav ul li a{
     display:block;   
-    color:#222222;
+    color:rgba(255,0,0,1);
     text-decoration:none;
     text-align:center;
-    font-size:1.2em;
+    font-size:1.8em;
     padding:5px;
     padding-bottom:0;
 }
 
-.events_single #subnav li:hover{
-     border-bottom:3px solid red; 
+.events_single nav ul li:hover{
+     color:#c0c0c0;
 }
 
 #events_single_infos, #events_single_details, #events_single_speaker{}
@@ -1053,6 +1053,7 @@ and (min-width : 1224px) {
     width:160px;
     float:right;
 }
+
 .gestion_events_role ul{
     display:inline-block;
     width:100%;
@@ -1104,12 +1105,50 @@ and (min-width : 1224px) {
 .gestion_events_single{}
 
 .gestion_events_single form{}
+.gestion_events_single nav{
+    display:inline-block;
+    margin-bottom:20px;
+    margin-top:5px;
+    position:relative;
+    left:0%;
+}
+.gestion_events_single nav ul {}
+.gestion_events_single nav ul li{
+    display:block;
+    float:left;
+}
+.gestion_events_single nav ul li a{ 
+    display:block;   
+    color:rgba(255,0,0,1);
+    text-decoration:none;
+    text-align:center;
+    font-size:1.8em;
+    padding:5px;
+    padding-bottom:0;
+}
+.gestion_events_single nav ul li a:hover{
+    color:#c0c0c0;
+}
+
 .gestion_events_single form fieldset{}
-.gestion_events_single form fieldset legend{}
-.gestion_events_single form fieldset input{}
+.gestion_events_single form fieldset legend{
+    display:inline-block;
+    float:left;
+    width:30%;
+    font-size:1.5em;
+}
+.gestion_events_single form fieldset #error{
+    float:left;
+    width:100%;
+}
+.gestion_events_single form fieldset input{
+    display:block;
+    float:right;
+    width:68%;
+}
+
 .gestion_events_single form input{}
-.gestion_events_single form .gestion_events_nav{}
-.gestion_events_single form .gestion_events_nav a{}
+
 .gestion_events_single form #gestion_events_single_infos{}
 .gestion_events_single form #gestion_events_single_infos fieldset{}
 .gestion_events_single form #gestion_events_single_infos fieldset legend{}

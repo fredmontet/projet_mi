@@ -18,8 +18,8 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
     </header>
 
     <!-- <nav id="subnav">-->
-    <div class="offset4 span4">
-        <ul id="subnav">
+    <nav class="offset3 span6">
+        <ul>
             <li>
                 <a href="#events_single_infos">Infos</a>
             </li>
@@ -30,7 +30,7 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
                 <a href="#events_single_speakers">Speakers</a> 
             </li>
         </ul>
-    </div>
+    </nav>
     <!--</nav>-->        
 
 

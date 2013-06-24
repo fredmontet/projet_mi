@@ -1,39 +1,41 @@
 {*
 Smarty variables available:
-	$event (Object)
-	$location (Object) [0..1]
-	$slots (Object) [0..1]
-	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
-	$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
+$event (Object)
+$location (Object) [0..1]
+$slots (Object) [0..1]
+$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
 *}
 
-<article class="gestion_events_single offset1 span10">
+<article class="gestion_events_single">
     <form id="" method="post" action="">
-
-        <!--gestion event single header-->
-        <!--date-->
-        <fieldset>
-            <legend>date</legend>
-            <input type="date" name="startingDate" value="14april2013"/>
-            <input type="date" name="endingDate" value="17april2013"/>
-            <legend>title</legend>                    
-            <input type="title" name="mainTopic" value="title of event" />
-        </fieldset>
-
-        <!--button save-->
-        <input type="hidden" name="id" value="{if $event != null}{$event->getNo()}{/if}" />
-        <input type="hidden" name="action" value="gestion_events_single" />
-        <input type="submit" name="update" value="Save" />
-
-        <!--single nav -->
-        <nav class="gestion_events_nav">
-            <a href="#gestion_events_single_infos">Infos</a>
-            <a href="#gestion_events_single_details">Details</a>
-            <a href="#gestion_events_single_speaker">Speaker</a>
-            <a href="#gestion_events_single_team">Team</a>  
-            <a href="?action=gestion_event_export">Export</a> 
+        <!--gestion_events_single subnav -->
+        <nav class="offset3 span6">
+            <ul>
+                <li><a href="#gestion_events_single_infos">Infos</a></li>
+                <li><a href="#gestion_events_single_details">Details</a></li>
+                <li><a href="#gestion_events_single_speaker">Speaker</a></li>
+                <li><a href="#gestion_events_single_team">Team</a></li>  
+                <li><a href="?action=gestion_event_export">Export</a></li>
+            </ul>
         </nav>
-        <!--end gestion event single header-->
+
+        <!--date-->
+        <div class="offset1 span10">
+            <fieldset>
+                <legend>Starting date</legend>
+                <input type="date" name="startingDate" value="14april2013"/>
+                <div id="error"><legend>Ending date</legend>
+                    <input type="date" name="endingDate" value="17april2013"/></div>
+                <legend>Title</legend>                    
+                <input type="title" name="mainTopic" value="title of event" />
+            </fieldset>            
+
+            <!--button save-->
+            <input type="hidden" name="id" value="{if $event != null}{$event->getNo()}{/if}" />
+            <input type="hidden" name="action" value="gestion_events_single" />
+            <input type="submit" name="update" value="Save" />
+        </div>
 
         <!--gestion_events_single_infos-->
         <fieldset id="gestion_events_single_infos">
@@ -56,7 +58,7 @@ Smarty variables available:
                         <td>Slot 1</td>
                     </tr>
                     <tr>
-                    	<td></td>
+                        <td></td>
                         <td>17:00</td>
                         <td>End</td>
                     </tr>
