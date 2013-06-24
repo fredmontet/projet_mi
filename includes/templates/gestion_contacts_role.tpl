@@ -12,7 +12,7 @@ Smarty variables available:
     <ul> 
         <dl>
         	{foreach from=$teamRoles item=teamRole}
-        		<dt><a href="?action=gestion_contacts_role_new">{$teamRole->getName()}</a></dt>
+        		<dt><a href="?action=gestion_contacts_role_infos&id={$teamRole->getName()}">{$teamRole->getName()}</a></dt>
         	{/foreach}
         </dl> 
    </ul>

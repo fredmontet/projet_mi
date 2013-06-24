@@ -196,6 +196,23 @@ class TEDx {
     
     
     /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+	 *			The first contains the values ​​transmitted by _POST
+	 *			The second contains the state values ​​received by _POST
+     */ 
+    protected function gestionContactsRoleInfosValidator($role) {
+		
+		// Validate all received values 
+        $errorState['teamrole'] 		= $this->validator(array('String', $role['teamrole']));
+        
+        // Return two arrays
+        return array($role, $errorState);
+    }
+    
+    
+    /**
      * Draw the Home page
      * @return content HTML of the Home page
      */
@@ -651,13 +668,6 @@ class TEDx {
 	    	case 'gestion_events_mail_edit':	    		
 	    		// Get the content of Gestion Events Mail
 	    		$content = $this->drawGestionEventsMail($action);
-	    	break;
-	    	
-	    	
-	    	// Gestion Events Mail Edit
-	    	case 'gestion_events_mail_edit':
-				// Get the content of Gestion Events Mail
-	    		$content = $this->smarty->fetch('gestion_events_mail.tpl');
 	    	break;
 	    	
 	    	
@@ -1681,10 +1691,54 @@ class TEDx {
      * @return content HTML of the Gestion Contacts Role Infos
      */
     protected function drawGestionContactsRoleInfos() {
+    
+    	$id = $this->getId();
+    	
+    	if(isset($_POST['update'])) {
+	    	
+	    	list($role, $errorState) = $this->gestionContactsRoleInfosValidator($_POST);
+	    	
+	    	// If all values are correct, continue
+	    	if(count(array_keys($errorState, true)) == count($errorState)) {
+	    	
+	    	} else {
+		    	
+	    	}
+	    } else {
+		    
+	    }
+    
+    
+    	// Get TeamRoles
+    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
+    	
+    	// If TeamRole are found, continue
+    	if($messageTeamRoles->getStatus()) {
+	    	$allValidTeamRoles = $messageTeamRoles->getContent();
+    	} else {
+	    	$allValidTeamRoles = null;
+    	}
+    	
+    	// Get TeamRole
+		$messageTeamRole = $this->tedx_manager->getTeamRole($id);
+		
+		// If the TeamRole is found, continue
+		if($messageTeamRole->getStatus()) {
+	    	$aValidTeamRole = $messageTeamRole->getContent();
+	    } else {
+		    // Else give the error message about no found TeamRole
+	    }
+	
+    	$errorFormMessage = $this->errorFormMessage();
+    	
+    	// Assigns variables to Smarty
+    	//$this->smarty->assign('errorState', $errorState);
+    	$this->smarty->assign('isTeamRole', $aValidTeamRole);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
+    	$this->smarty->assign('teamRoles', $allValidTeamRoles);
+    
 	    $gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
 		$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
-		
-		
 			
 		return $this->smarty->fetch('gestion_contacts_role.tpl');
     }
