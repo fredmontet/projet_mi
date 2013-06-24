@@ -165,7 +165,7 @@ input[type="submit"]{
     float: right;
     padding-top:5px;
     padding-bottom:5px;
-    margin-top:-10px;: $-10px;: $-10px;: $-10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10p;: -10;: -;:;:;
+    margin-top: $-10px;: $-10px;: $-10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10p;: -10;: -;:;:;
 }
    
 input[type="submit"]:hover{
@@ -1179,15 +1179,11 @@ and (min-width : 1224px) {
 .gestion_locations_infos {
     float:right;
 }
-.gestion_locations_infos form {
-}
-.gestion_locations_infos form p{
-    width:100%;
-    float:right;
-}
-.gestion_locations_infos form p label{
-    line-height:30px;
-}
+.gestion_locations_infos p {}
+.gestion_locations_infos p input [type="submit]{}
+.gestion_locations_infos fieldset p label{}
+.gestion_locations_infos fieldset p input{}
+
 
 /*end of gestion_locations_infos*/
 
@@ -1195,7 +1191,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*gestion_locations_list*/
 /****************************************/
-/*Status = to fill*/
+/*Status = done*/
 
 .gestion_locations_list .theButton {
     display:inline-block;
@@ -1214,8 +1210,7 @@ and (min-width : 1224px) {
     display:block;
     background-color:#eeeeee;
     margin:10px 0;
-    padding:5px;
-    
+    padding:5px;    
 }
 .gestion_locations_list ul li a{}
 
