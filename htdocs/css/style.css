@@ -1000,16 +1000,28 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_events_role{}
+.gestion_events_role .theButton {
+    display:inline-block;
+    width:160px;
+    float:right;
+}
+.gestion_events_role ul{
+    display:inline-block;
+    width:100%;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    line-height: 20px;
+}
+.gestion_events_role ul li{
+    display:block;
+    background-color:#eeeeee;
+    margin:10px 0;
+    padding:5px;
+    
+}
+.gestion_events_role ul li a{}
 
-.gestion_events_role a{}
-.gestion_events_role section{}
-.gestion_events_role section dl{}
-.gestion_events_role section dl dt{}
-.gestion_events_role section dl dd{}
-.gestion_events_role section dl dd a{}
-.gestion_events_role form{}
-.gestion_events_role form input{}
 
 /*end of gestion_events_role*/
 
@@ -1019,13 +1031,19 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_events_role_infos{}
+.gestion_events_role_infos {
+    float:right;
+}
+.gestion_events_role_infos form {
+}
+.gestion_events_role_infos form p{
+    width:100%;
+    float:right;
+}
+.gestion_events_role_infos form p label{
+    line-height:30px;
+}
 
-.gestion_events_role_infos fieldset{}
-.gestion_events_role_infos fieldset legend{}
-.gestion_events_role_infos fieldset select{}
-.gestion_events_role_infos fieldset select option{}
-.gestion_events_role_infos fieldset input{}
 
 /*end of gestion_events_role_infos*/
 

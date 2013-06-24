@@ -11,10 +11,10 @@ Smarty variables available:
 	) [0..1]
 *}
 
-<article class="gestion_events_role">
+<article class="gestion_events_role span12">
     <!--button new-->
-    <a href="?action=gestion_events_role_new">New</a>
-    <section>
+    <a href="?action=gestion_events_role_new" class="theButton span12">New</a>
+    <section class="span12">
     
     	{foreach from=$events item=event}
 	    	<dl>
@@ -26,12 +26,6 @@ Smarty variables available:
     	{/foreach}
     
     </section>
-
-    <!--button-->
-    <form method="post" action="">
-        <input type="hidden" name="action" value="gestion_events_role_send">
-        <input type="submit" name="submit_send" value="Save">
-    </form>
 </article>
 
 
