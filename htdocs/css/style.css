@@ -978,34 +978,28 @@ and (min-width : 1224px) {
 
 .gestion_events_mail_edit{}
 
-.gestion_events_mail_edit input{
-    display:block;
-    float: right;   
-}
+.gestion_events_mail_edit input{}
 
 .gestion_events_mail_edit fieldset{
     margin-top:10px;
-    disply:inline-block;
+    display:inline-block;
 }
-.gestion_events_mail_edit fieldset p label{
+.gestion_events_mail_edit fieldset label{
     float:left;
     width:30%;
+    }
+.gestion_events_mail_edit fieldset input{
+   float:right; 
+   line-height:30px;
+   width:70%;
 }
-.gestion_events_mail_edit fieldset p legend{
-    float:left;
-    font-size:1.5em;
-    margin-bottom:0px;
+.gestion_events_mail_edit fieldset select{
+    width:100%;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-bottom:20px;
 }
-.gestion_events_mail_edit fieldset p input{
-    width:70%;    
-}
-.gestion_events_mail_edit fieldset p select{
-    float:right;
-    width:70%;
-}
-.gestion_events_mail_edit fieldset p select option{
-    width:70%;
-}
+.gestion_events_mail_edit fieldset select option{}
 .gestion_events_mail_edit fieldset textarea{}
 
 
@@ -1188,7 +1182,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*gestion_locations_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = done*/
 
 .gestion_locations_infos {
     float:right;

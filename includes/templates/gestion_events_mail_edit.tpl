@@ -18,18 +18,14 @@ $registrations (Array [Registrations] => Array
         <!--adress mail-->
 
         <fieldset>
-            <p>
-            <label>To</label>
-            <select>
+           <select>
                 <option>select email address</option>
             </select>
-            </p>
-            <p>
-            <legend>Subject</legend>
+
+            <label>Subject</label>
             <input type="text" name="subject" value="subject">
-            </p>
-            <p>
-            <textarea>Hi ! You have been accepted. Best Regards TEDx Lausanne</textarea></p>
+
+            <textarea>Hi ! You have been accepted. Best Regards TEDx Lausanne</textarea>
         </fieldset>
     </form>
 </div>
