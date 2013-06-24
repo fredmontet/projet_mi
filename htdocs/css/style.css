@@ -617,33 +617,30 @@ and (min-width : 1224px) {
     padding-left: 20px;
 }
 
-.events_single header nav{
-    
-    display: block;
-    margin: 80px auto;
-    width:181px;
+.events_single #subnav{
+    position:relative;
+    display:inline-block; 
+    left:0%;   
+    margin-top:20px;
 }
 
-.events_single header nav ul{
-}
-
-.events_single header nav ul li{
-     display:block;
+.events_single #subnav li{
+    display:block;
      float:left;
      border-bottom:3px solid #E2E2E2;
 }
-
-.events_single header nav ul li:hover{
-    border-bottom:3px solid red;  
-}
-
-.events_single header nav ul li a{
+.events_single #subnav li a{
     display:block;   
     color:#222222;
     text-decoration:none;
     text-align:center;
+    font-size:1.2em;
     padding:5px;
     padding-bottom:0;
+}
+
+.events_single #subnav li:hover{
+     border-bottom:3px solid red; 
 }
 
 #events_single_infos, #events_single_details, #events_single_speaker{}
@@ -974,7 +971,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*gestion_events_mail_edit*/
 /****************************************/
-/*Status = to fill*/
+/*Status = done*/
 
 .gestion_events_mail_edit{}
 
