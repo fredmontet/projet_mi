@@ -1313,11 +1313,13 @@ class TEDx {
 	    	$aValidPerson = $messagePerson->getContent();
 	    	
 	    	// Get Participant
-	    	$messageParticipant = $this->tedx_manager->getParticipant(3);
+	    	$messageParticipant = $this->tedx_manager->getParticipant($id);
 	    	
 	    	// If the Participant is found, continue
 	    	if($messageParticipant->getStatus()) {
 		    	$aValidParticipant = $messageParticipant->getContent();
+		    	
+		    	print_r($aValidParticipant);
 		    	
 		    	// Get Registrations by the Person
 		    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($aValidParticipant);
@@ -1355,6 +1357,7 @@ class TEDx {
 		    	}$registrations = null;
 	    	} else {
 	    		$registrations = null;
+	    		$this->displayMessage($messageParticipant->getMessage());
 	    	}
 	    	
 	    	// Get Speaker
