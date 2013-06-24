@@ -1044,8 +1044,32 @@ class TEDx {
 	    	
 	    	// Gestion Locations Infos
 			case 'gestion_locations_infos':
-			
-				$id = $this->getId();
+
+		    	$id = $this->getId();
+
+		    	if(isset($_POST['update'])) {
+			    	
+			    	list($locations, $errorState) = $this->gestionLocationsValidator($_POST);
+			    	
+			    	// If all values are correct, continue
+			    	if(count(array_keys($errorState, true)) == count($errorState)) {
+			    	
+			    		// Prepare the array to edit the Contact
+				    	$args = array(
+						    'Name' => $locations['Name'], // String
+						    'Address' => $locations['Address'], // String
+						    'City' => $locations['City'], // Date
+						    'Country' => $locations['Country'], // String
+						    'Direction' => $locations['Direction'], // String Optional
+						);
+						
+			    	} else {
+				    	
+			    	}
+			    	
+		    	} else {
+			    	$errorState = null;
+		    	}
 				
 				// Get the Location concerned
 				$messageLocation = $this->tedx_manager->getLocation($id);
