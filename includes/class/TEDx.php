@@ -65,7 +65,16 @@ class TEDx {
      */
 	protected function errorFormMessage() {
 		return array(
-				'firstname'		=>	'The Firstname is incorrect',
+				'firstname'		=>	'Please enter a first name',
+				'username'		=>	'Please enter a name',
+				'email'			=>	'Please enter a valid email address',
+				'dateOfBirth'	=>	'Please enter a correct Birth date',
+				'email'			=>	'Please enter a correct email',
+				'phoneNumber'	=>	'Please enter a phone number',
+				'country'		=>	'Please enter a Country',
+				'address'		=>	'Please enter an address',
+				'city'			=>	'Please enter a City',
+				
 		);
 	}
 	
@@ -148,6 +157,12 @@ class TEDx {
 		    	return checkdate($date["month"], $date["day"], $date["year"]);
 		    break;
 		    
+		    // The type is String and could be empty
+		    case '0..1':
+		        $isString = is_string($value);
+		        return $isString;
+		    break;
+		    
 	    }
     }
     
@@ -170,7 +185,7 @@ class TEDx {
 		$errorState['country']		= $this->validator(array('String', $contact['country']));
 		$errorState['phoneNumber'] 	= $this->validator(array('String', $contact['phoneNumber']));
 		$errorState['email'] 		= $this->validator(array('Email', $contact['email']));
-		//$errorState['description'] 		= $this->validator(array('String', $contact['description']));
+		$errorState['description'] 	= $this->validator(array('0..1', $contact['description']));
         
         // Return two arrays
         return array($contact, $errorState);
@@ -1283,6 +1298,7 @@ class TEDx {
 	    	
 	    		// Prepare the array to edit the Contact
 		    	$args = array(
+				    'no' => $id, // int
 				    'name' => $contact['name'], // String
 				    'firstName' => $contact['firstname'], // String
 				    'dateOfBirth' => $contact['dateOfBirth'], // Date
@@ -1291,11 +1307,18 @@ class TEDx {
 				    'country' => $contact['country'], // String
 				    'phoneNumber' => $contact['phoneNumber'], // string
 				    'email' => $contact['email'], // String
-				    'IDMember' => $id, // Integer
-				    'password' => md5('admin') // String encrypt to MD5
+				    'description' => $contact['description'], // String
 				);
 				
+				// Edit the contact's infos
+				$aChangedProfil= $this->tedx_manager->changeProfil($args);
 				
+				// If the Contact is changed, continue
+				if($aChangedProfil->getStatus()) {
+					
+				} else {
+					$this->displayMessage($aChangedProfil->getMessage());
+				}
 				
 	    	} else {
 		    	
@@ -1318,8 +1341,6 @@ class TEDx {
 	    	// If the Participant is found, continue
 	    	if($messageParticipant->getStatus()) {
 		    	$aValidParticipant = $messageParticipant->getContent();
-		    	
-		    	print_r($aValidParticipant);
 		    	
 		    	// Get Registrations by the Person
 		    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($aValidParticipant);
@@ -1352,12 +1373,11 @@ class TEDx {
 			    	
 		    	} else {
 		    		// Else give the error about no found Registration
-		    		$this->displayMessage($messageRegistrations->getMessage());
+		    		//$this->displayMessage($messageRegistrations->getMessage());
 		    		$registrations[]['registrations'] = null;
 		    	}$registrations = null;
 	    	} else {
 	    		$registrations = null;
-	    		$this->displayMessage($messageParticipant->getMessage());
 	    	}
 	    	
 	    	// Get Speaker
@@ -1393,15 +1413,18 @@ class TEDx {
 		    	$allValidRoles = null;
 	    	}
 	    	
-	    	// Get TeamRole
+	    	// Get TeamRoles
 	    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
 	    	
-	    	// If TeamRole are found, continue
+	    	// If TeamRoles are found, continue
 	    	if($messageTeamRoles->getStatus()) {
 		    	$allValidTeamRoles = $messageTeamRoles->getContent();
 	    	} else {
 		    	$allValidTeamRoles = null;
 	    	}
+	    	
+	    	// Get Speaker
+	    	//$messageSpeaker = $this->tedx_manager->getTalkBySpeaker();
 	    	
     	} else {
 	    	// Else give the erro message about no found Person
