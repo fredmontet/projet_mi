@@ -969,11 +969,18 @@ and (min-width : 1224px) {
 
 .gestion_events_motivation{}
 
-.gestion_events_motivation article{}
+.gestion_events_motivation article{
+    background-color:#eeeeee;
+    margin:10px 0;
+}
 .gestion_events_motivation article h1{}
 .gestion_events_motivation article p{}
-.gestion_events_motivation article section{}
-.gestion_events_motivation article section ul{}
+.gestion_events_motivation article section{
+    margin:10px 0;
+}
+.gestion_events_motivation article section ul{
+    margin:10px 0;
+}
 .gestion_events_motivation article section ul li{}
 .gestion_events_motivation article section ul li a{}
 

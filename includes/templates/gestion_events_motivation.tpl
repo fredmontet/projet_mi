@@ -11,35 +11,37 @@ Smarty variables available:
 		)
 	) [0..1]
 *}
-<section class="gestion_events_motivation span12">
-    <article class="span12"
+<article class="gestion_events_motivation span12">
+    
+    <section class="span12">
 	{foreach from=$registrations item=registration}
-            <section class="span12">
             <h1>{$registration.person->getName()}</h1>
             <p>			
 			{$registration.registration->getStatus()}
                         
 			{foreach from=$registration.motivations item=motivation}
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ante sapien, in imperdiet lectus imperdiet in. Nam varius dolor vel magna condimentum, eu euismod ante facilisis. Sed quis scelerisque sem. Maecenas imperdiet eros volutpat, laoreet eros vestibulum, sollicitudin metus. Proin mollis hendrerit lobortis. Fusce nibh lacus, ullamcorper vel lacus sit amet, bibendum ornare magna. Nulla sodales ligula at odio hendrerit, sit amet ultricies libero porta. Sed pulvinar mauris non augue gravida, sed varius odio tincidunt. Aliquam erat volutpat. Ut diam neque, lobortis vitae turpis vel, iaculis consequat ante. Maecenas nec orci id nisl vehicula lobortis. Proin ut tincidunt felis. Maecenas felis ipsum, suscipit a accumsan non, blandit non libero. Ut laoreet erat non leo consequat, sed commodo metus vulputate.
-                                </p>    
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ante sapien, in imperdiet lectus imperdiet in. Nam varius dolor vel magna condimentum, eu euismod ante facilisis. Sed quis scelerisque sem. Maecenas imperdiet eros volutpat, laoreet eros vestibulum, sollicitudin metus. Proin mollis hendrerit lobortis. Fusce nibh lacus, ullamcorper vel lacus sit amet, bibendum ornare magna. Nulla sodales ligula at odio hendrerit, sit amet ultricies libero porta. Sed pulvinar mauris non augue gravida, sed varius odio tincidunt. Aliquam erat volutpat. Ut diam neque, lobortis vitae turpis vel, iaculis consequat ante. Maecenas nec orci id nisl vehicula lobortis. Proin ut tincidunt felis. Maecenas felis ipsum, suscipit a accumsan non, blandit non libero. Ut laoreet erat non leo consequat, sed commodo metus vulputate.</p>
 				{$motivation->getText()}
 			{foreachelse}
                                 <p>There is no entry for the motivation</p>
 			{/foreach}   
            </p>
-           </section>
+      
            
-           <section class="offset12">
+      <section class="span12">
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
                 <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
-        </section>
+      </section>
+           
+      </section>
+           
 	{foreachelse}
             <p>There is no entry for the whole participant</p>
 	{/foreach}
+        
     </article>   
 
     <!--<article>
