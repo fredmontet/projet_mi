@@ -174,7 +174,7 @@ class TEDx {
 	 *			The first contains the values ​​transmitted by _POST
 	 *			The second contains the state values ​​received by _POST
      */ 
-    protected function contactValidator($contact) {
+    protected function gestionContactsInfosValidator($contact) {
 		
 		// Validate all received values 
         $errorState['name'] 		= $this->validator(array('String', $contact['name']));
@@ -186,6 +186,7 @@ class TEDx {
 		$errorState['phoneNumber'] 	= $this->validator(array('String', $contact['phoneNumber']));
 		$errorState['email'] 		= $this->validator(array('Email', $contact['email']));
 		$errorState['description'] 	= $this->validator(array('0..1', $contact['description']));
+		$errorState['teamrole'] 	= $this->validator(array('0..1', $contact['teamrole']));
         
         // Return two arrays
         return array($contact, $errorState);
@@ -1291,7 +1292,7 @@ class TEDx {
     	
     	if(isset($_POST['update'])) {
 	    	
-	    	list($contact, $errorState) = $this->contactValidator($_POST);
+	    	list($contact, $errorState) = $this->gestionContactsInfosValidator($_POST);
 	    	
 	    	// If all values are correct, continue
 	    	if(count(array_keys($errorState, true)) == count($errorState)) {
@@ -1315,6 +1316,43 @@ class TEDx {
 				
 				// If the Contact is changed, continue
 				if($aChangedProfil->getStatus()) {
+					
+					// Get Organizer
+			    	$messageOrganizer = $this->tedx_manager->getOrganizer($id);
+			    	
+			    	// If the Organizer is found, continue
+			    	if($messageOrganizer->getStatus()) {
+				    	$aValidOrganizer = $messageOrganizer->getContent();
+				    	
+				    	// Get TeamRole
+				    	$messageTeamRole = $this->tedx_manager->getTeamRole($contact['teamrole']);
+				    	
+				    	// If the TeamRole is found, continue
+				    	if($messageTeamRole->getStatus()) {
+					    	$aValidTeamRole = $messageTeamRole->getContent();
+					    	
+					    	$args = array(
+								'organizer'		=> $aValidOrganizer, // An Object Organizer
+								'teamRole'		=> $aValidTeamRole // An object Team Role
+							);
+							
+							$anAffectation = $this->tedx_manager->affectTeamRole($args);
+							
+							if( $anAffectation->getStatus()) {
+								
+							} else {
+								$this->displayMessage($anAffectation->getMessage());
+							}
+					    	
+				    	} else {
+					    	// Else give the error message about no found TeamRole
+					    	$this->displayMessage($messageTeamRole->getMessage());
+				    	}
+				    	
+				    } else {
+					    // Else give the error message about no found Organizer
+					    $this->displayMessage($messageOrganizer->getMessage());
+				    }
 					
 				} else {
 					$this->displayMessage($aChangedProfil->getMessage());
@@ -1355,7 +1393,7 @@ class TEDx {
 				    	$registrations[]['registrations'] = $aValidRegistration;
 				    	
 				    	// Get Event
-				    	$messageEvent = $this->tedx_manager->getEvent($aValidRegistration->getEventNo);
+				    	$messageEvent = $this->tedx_manager->getEvent($aValidRegistration->getEventNo());
 				    	
 				    	// If the Event is found
 				    	if($messageEvent->getStatus()) {
@@ -1375,10 +1413,10 @@ class TEDx {
 		    		// Else give the error about no found Registration
 		    		//$this->displayMessage($messageRegistrations->getMessage());
 		    		$registrations[]['registrations'] = null;
-		    	}$registrations = null;
+		    	}
 	    	} else {
 	    		$registrations = null;
-	    	}
+	    	}	   
 	    	
 	    	// Get Speaker
 	    	$messageSpeaker = $this->tedx_manager->getSpeaker($id);
@@ -1405,12 +1443,25 @@ class TEDx {
 		    	// If Roles are found, continue
 		    	if($messageRoles->getStatus()) {
 			    	$allValidRoles = $messageRoles->getContent();
+			    	
 		    	} else {
 			    	$allValidRoles = null;
 		    	}
 		    	
+		    	// Get TeamRole
+		    	$messageTeamRole = $this->tedx_manager->getTeamRolesByOrganizer($aValidOrganizer);
+		    	
+		    	// If the TeamRole is found, continue
+		    	if($messageTeamRole) {
+			    	$aValidTeamRole = $messageTeamRole->getContent();
+			    	
+		    	} else {
+			    	$aValidTeamRole = null;
+		    	}
+		    	
 	    	} else {
 		    	$allValidRoles = null;
+		    	$aValidTeamRole = null;
 	    	}
 	    	
 	    	// Get TeamRoles
@@ -1424,17 +1475,62 @@ class TEDx {
 	    	}
 	    	
 	    	// Get Speaker
-	    	//$messageSpeaker = $this->tedx_manager->getTalkBySpeaker();
+	    	$messageSpeaker = $this->tedx_manager->getSpeaker($id);
+	    	
+	    	// If the Speaker is found, continue
+	    	if($messageSpeaker->getStatus()) {
+		    	$aValidSpeaker = $messageSpeaker->getContent();
+		    	
+		    	// Get all Talks where the Speaker has co-organize
+		    	$messageTalks = $this->tedx_manager->getTalksBySpeaker($aValidSpeaker);
+		    	
+		    	// If Talks are found, continue
+		    	if($messageTalks->getStatus()) {
+			    	$allValidTalks = $messageTalks->getContent();
+			    	
+			    	// For each Talk
+			    	foreach($allValidTalks as $key=>$aValidTalk) {
+			    	
+			    		$talks[]['talk'] = $aValidTalk;
+				    	
+				    	// Get Event
+				    	$messageEvent = $this->tedx_manager->getEvent($aValidTalk->getEventNo());
+				    	
+				    	// If the Event is found
+				    	if($messageEvent->getStatus()) {
+					    	$aValidEvent = $messageEvent->getContent();
+					    	
+					    	$talks[$key]['event'] = $aValidEvent;
+					    	
+				    	} else {
+					    	// Else give the error message about no found Event
+					    	$this->displayMessage($messageEvent->getMessage());
+					    	
+				    	}
+			    	}
+			    	
+		    	} else {
+			    	$talks = null;
+		    	}
+		    	
+	    	} else {
+		    	$talks = null;
+	    	}
+	    	
+	    	
 	    	
     	} else {
 	    	// Else give the erro message about no found Person
 			$this->displayMessage($messagePerson->getMessage());
+			$registrations=null;
     	}
     	
     	$errorFormMessage = $this->errorFormMessage();
     	
     	// Assigns variables to Smarty
+    	$this->smarty->assign('talks', $talks);
     	$this->smarty->assign('teamRoles', $allValidTeamRoles);
+    	$this->smarty->assign('isTeamRole', $aValidTeamRole);
     	$this->smarty->assign('roles', $allValidRoles);
     	$this->smarty->assign('registrations', $registrations);
     	$this->smarty->assign('errorState', $errorState);
@@ -1449,6 +1545,46 @@ class TEDx {
      * @return content HTML of the Gestion Contacts New page
      */
     protected function drawGestionContactsNew() {
+    
+    	if(isset($_POST['update'])) {
+	    	
+	    	list($contact, $errorState) = $this->gestionContactsInfosValidator($_POST);
+	    	
+	    	// If all values are correct, continue
+	    	if(count(array_keys($errorState, true)) == count($errorState)) {
+	    	
+	    		// Prepare the array to edit the Contact
+		    	$args = array(
+				    'no' => $id, // int
+				    'name' => $contact['name'], // String
+				    'firstName' => $contact['firstname'], // String
+				    'dateOfBirth' => $contact['dateOfBirth'], // Date
+				    'address' => $contact['address'], // String
+				    'city' => $contact['city'], // String
+				    'country' => $contact['country'], // String
+				    'phoneNumber' => $contact['phoneNumber'], // string
+				    'email' => $contact['email'], // String
+				    'description' => $contact['description'], // String
+				);
+				
+				// Edit the contact's infos
+				$aChangedProfil= $this->tedx_manager->changeProfil($args);
+				
+				// If the Contact is changed, continue
+				if($aChangedProfil->getStatus()) {
+					
+				} else {
+					$this->displayMessage($aChangedProfil->getMessage());
+				}
+				
+	    	} else {
+		    	
+	    	}
+	    	
+    	} else {
+	    	$errorState = null;
+    	}
+
     	
     	// Get TeamRole
     	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
@@ -1461,6 +1597,9 @@ class TEDx {
     	}
     	
     	// Assigns variables to Smarty
+    	$errorFormMessage = $this->errorFormMessage();
+    	$this->smarty->assign('errorState', $errorState);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
     	$this->smarty->assign('teamRoles', $allValidTeamRoles);
     	
 	    return $this->smarty->fetch('gestion_contacts_new.tpl');
