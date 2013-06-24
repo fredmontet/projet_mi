@@ -35,7 +35,7 @@ $registrations (Array [Registrations] => Array
                 {/foreach}
         </div>
     </section>
-    <!--end list participants tab-->
 
     {$gestionEventsMailEdit}
 </article>
+    <!--end list participants tab-->
