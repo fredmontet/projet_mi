@@ -4,7 +4,7 @@ Smarty variables available:
 *}
 
 <!--form to create new locations-->
-<article class="gestion_locations_infos">
+<article class="gestion_locations_infos span6">
     <!--add form location-->
     <form name="gestion_locations_infos" method="post" action="">
         <!--button save-->

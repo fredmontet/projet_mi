@@ -104,7 +104,7 @@ legend, label{
     margin:0;
     margin-bottom: 10px;
     padding:0;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 1.5em;
     font-weight: normal;
 }
@@ -151,7 +151,7 @@ input:focus, textarea:focus{
 }
 
 input[type="submit"]{
-    display:block;
+    display: block;
     background-color:rgba(255,0,0,1);
     width:160px;
     text-align:center;
@@ -161,9 +161,10 @@ input[type="submit"]{
     font-weight:bold;
     font-size:1.3em; 
     border:2px solid #ff0000;
-    float:right;
+    float: right;
     padding-top:5px;
     padding-bottom:5px;
+    margin-top:-10px;: $-10px;: $-10px;: $-10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10p;: -10;: -;:;:;
 }
    
 input[type="submit"]:hover{
@@ -1114,10 +1115,18 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestions_locations_infos{}
-.gestions_locations_infos form{}
-.gestions_locations_infos form p{}
-.gestions_locations_infos form p input{}
+.gestion_locations_infos {
+    float:right;
+}
+.gestion_locations_infos form {
+}
+.gestion_locations_infos form p{
+    width:100%;
+    float:right;
+}
+.gestion_locations_infos form p label{
+    line-height:30px;
+}
 
 /*end of gestion_locations_infos*/
 
@@ -1127,10 +1136,26 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_locations_list{}
-.gestion_locations_list a{}
-.gestion_locations_list ul{}
-.gestion_locations_list ul li{}
+.gestion_locations_list .theButton {
+    display:inline-block;
+    width:160px;
+    float:right;
+}
+.gestion_locations_list ul{
+    display:inline-block;
+    width:100%;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    line-height: 20px;
+}
+.gestion_locations_list ul li{
+    display:block;
+    background-color:#eeeeee;
+    margin:10px 0;
+    padding:5px;
+    
+}
 .gestion_locations_list ul li a{}
 
 /*end of gestion_locations_list*/
@@ -1141,7 +1166,8 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_locations_nav{}
+.gestion_locations_nav{}  
+
 .gestion_locations_nav h1{}
 
 /*end of gestion_locations_nav*/
