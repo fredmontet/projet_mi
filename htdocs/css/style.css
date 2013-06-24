@@ -925,10 +925,33 @@ and (min-width : 1224px) {
 .gestion_events_mail{}
 
 .gestion_events_mail section{}
-.gestion_events_mail section .gestion_events_mail_nav{}
+.gestion_events_mail section .gestion_events_mail_nav{
+    width:100%;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+.gestion_events_mail section .gestion_events_mail_nav:hover{
+   
+}
 .gestion_events_mail section .gestion_events_mail_nav a{}
-.gestion_events_mail section ul{}
-.gestion_events_mail section ul li{}
+.gestion_events_mail section ul{
+    display:inline-block;
+    width:100%;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    line-height: 20px;
+}
+.gestion_events_mail section ul li{
+    display:block;
+    background-color:#eeeeee;
+    margin:10px 0;
+    padding:5px;
+}
+.gestion_events_mail section ul li div{
+    float:right;
+    font-weight:bold;
+}
 .gestion_events_mail section ul li a{}
 .gestion_events_mail #refused{}
 .gestion_events_mail #refused ul{}
@@ -954,11 +977,12 @@ and (min-width : 1224px) {
 .gestion_events_mail_edit{}
 
 .gestion_events_mail_edit fieldset{}
-.gestion_events_mail_edit fieldset legend{}
-.gestion_events_mail_edit fieldset select{}
-.gestion_events_mail_edit fieldset select option{}
+.gestion_events_mail_edit .to legend{}
+.gestion_events_mail_edit .to select{}
+.gestion_events_mail_edit .to select option{}
 .gestion_events_mail_edit input{}
-.gestion_events_mail_edit fieldset textarea{}
+.gestion_events_mail_edit .subject legend{}
+.gestion_events_mail_edit .subject textarea{}
 /*end of gestion_events_mail_edit*/
 
 
