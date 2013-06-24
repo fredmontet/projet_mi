@@ -38,5 +38,4 @@ $registrations (Array [Registrations] => Array
     <!--end list participants tab-->
 
     {$gestionEventsMailEdit}
-
 </article>

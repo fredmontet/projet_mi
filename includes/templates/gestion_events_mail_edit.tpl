@@ -7,23 +7,30 @@ $registrations (Array [Registrations] => Array
 )
 ) [0..1]
 *}
-<div span="6">
+
+<div class="span6">
     <form class="gestion_events_mail_edit" method="post" action="">
-        <!--adress mail-->
-        <fieldset class="to">
-            <legend for="to">To</legend>
-            <select>
-                <option>participant e_mail</option>
-            </select>
-        </fieldset>
 
         <!--send email button-->
         <input type="hidden" name="action" value="mail_send" />
         <input type="submit" name="submit_send" value="Send" />
 
-        <fieldset class="subject">
+        <!--adress mail-->
+        <fieldset>
+            <p>
+            <legend for="to">To</legend>
+            <select>
+                <option>participant e_mail</option>
+            </select>
+            </p>
+            <p>
             <legend>Subject</legend>
+            <input type="text" name="subject" />
+            </p>
+            <p>
+            <legend>Message</legend>
             <textarea>Hi ! You have been refused. Best Regards TEDx Lausanne</textarea>
+            </p>
         </fieldset>
     </form>
 </div>
