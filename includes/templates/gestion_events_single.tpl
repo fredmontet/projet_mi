@@ -14,14 +14,16 @@ Smarty variables available:
         <!--date-->
         <fieldset>
             <legend>date</legend>
-            <input type="date" name="date" value="14april2013"/>
+            <input type="date" name="startingDate" value="14april2013"/>
+            <input type="date" name="endingDate" value="17april2013"/>
             <legend>title</legend>                    
-            <input type="title" name="title" value="title of event" />
+            <input type="title" name="mainTopic" value="title of event" />
         </fieldset>
 
         <!--button save-->
-        <input type="hidden" name="action" value="gestion_events_send" />
-        <input type="submit" name="submit_send" value="Save" />
+        <input type="hidden" name="id" value="{if $event != null}{$event->getNo()}{/if}" />
+        <input type="hidden" name="action" value="gestion_events_single" />
+        <input type="submit" name="update" value="Save" />
 
         <!--single nav -->
         <nav class="gestion_events_nav">
@@ -109,10 +111,10 @@ Smarty variables available:
             </p>
         </fieldset>
         <!--add speaker button-->
-        <input type="hidden" name="action" value="add_speaker_to_slot">
+        <input type="hidden" name="action2" value="add_speaker_to_slot">
         <input type="submit" name="submit_speaker" value="Add speaker">
         <!--add slot button-->
-        <input type="hidden" name="action" value="add_slot">
+        <input type="hidden" name="action3" value="add_slot">
         <input type="submit" name="submit_slot" value="Add slot">
         <!--navigation buttons-->
         <a href="#gestion_events_single_details">previous</a>
@@ -138,7 +140,7 @@ Smarty variables available:
             </p>
         </fieldset>
         <!--button-->
-        <input type="hidden" name="action" value="add_organizer_to_event">
+        <input type="hidden" name="action4" value="add_organizer_to_event">
         <input type="submit" name="submit_add" value="Add organizer">
 
         <!--navigation buttons-->

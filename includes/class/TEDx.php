@@ -213,6 +213,29 @@ class TEDx {
     
     
     /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+	 *			The first contains the values ​​transmitted by _POST
+	 *			The second contains the state values ​​received by _POST
+     */ 
+    protected function gestionEventValidator($event) {
+		
+		// Validate all received values 
+        $errorState['mainTopic'] 		= $this->validator(array('String', $event['mainTopic']));
+        $errorState['startingDate'] 	= $this->validator(array('Date', $event['startingDate']));
+        $errorState['endingDate'] 		= $this->validator(array('Date', $event['endingDate']));
+		$errorState['startingTime'] 	= $this->validator(array('Time', $event['startingTime']));
+		$errorState['endingTime'] 		= $this->validator(array('Time', $event['endingTime']));
+		$errorState['description'] 		= $this->validator(array('String', $event['description']));
+		$errorState['locationName'] 	= $this->validator(array('String', $event['locationName']));
+        
+        // Return two arrays
+        return array($event, $errorState);
+    }
+    
+    
+    /**
      * Draw the Home page
      * @return content HTML of the Home page
      */
@@ -644,15 +667,16 @@ class TEDx {
 	    	
 	    		$id = $this->getId();
 	    		
+	    		/*
 	    		// If there is an id received, continue
-	    		if($id != null) {
+	    		if($id != null) {*/
 	    			// Get the content of Gestion Events Single
 		    		$content = $this->drawGestionEventsSingle($id);
-					
+				/*	
 	    		} else {
 	    			// Else give an error message about no event with this id
 		    		$this->displayMessage('There isn\'t an event with this id.');
-	    		}
+	    		}*/
 	    	break;
 	    	
 	    	
@@ -702,85 +726,108 @@ class TEDx {
      * @return content HTML of the Gestion Events Single page
      */
     protected function drawGestionEventsSingle($id) {
-	    // Get an Event
-    	$messageEvent = $this->tedx_manager->getEvent($id);
     	
-    	// If the Event is found, continue
-    	if($messageEvent->getStatus()) {
-		    $aValidEvent = $messageEvent->getContent();
-		    
-		    // Get Location
-			$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
-			
-			// If the Location is found, continue
-			if($messageLocation->getStatus()) {
-			    $aValidLocation = $messageLocation->getContent();
+    	if(isset($_POST['update'])) {
+	    	
+	    	list($event, $errorState) = $this->gestionEventValidator($_POST);
+	    	
+	    	// If all values are correct, continue
+	    	if(count(array_keys($errorState, true)) == count($errorState)) {
+	    	
+	    	} else {
+	    		
+	    	}
+	    }
+    	
+    	
+    	
+    	// If there is an ID, continue
+    	if($id != null) {
+	    	// Get an Event
+	    	$messageEvent = $this->tedx_manager->getEvent($id);
+	    	
+	    	// If the Event is found, continue
+	    	if($messageEvent->getStatus()) {
+			    $aValidEvent = $messageEvent->getContent();
 			    
-			} else {
-				// Else give the error message about no found Location
-			    $aValidLocation = null;
-			}
-			
-			// Get Slot
-			$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
-			
-            // If Slots are found, continue
-			if($messageSlots->getStatus()) {
-				$allValidSlots = $messageSlots->getContent();
+			    // Get Location
+				$messageLocation = $this->tedx_manager->getLocationFromEvent($aValidEvent);
 				
-	            // For each Valid Slots
-				foreach($allValidSlots as $aValidSlot) {
-					
-					// Get Places in a Slot
-					$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
-					
-					// If Places are found, continue
-					if($messagePlaces->getStatus()) {
-						$allValidPlaces = $messagePlaces->getContent();		
-						
-						// For each Valid Places	
-						foreach($allValidPlaces as $aValidPlace) {
-							
-							// Get Speaker at Place
-							$messageSpeaker = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
-							
-							// If Speaker is found, continue
-							if($messageSpeaker->getStatus()) {
-								$aValidSpeaker = $messageSpeaker->getContent();
-								
-								// Prepare an array for Smarty [Slots][Places][Speaker]
-								$speakers	[$aValidSlot->getNo()]
-											[$aValidPlace->getNo()]
-											[$aValidSpeaker->getNo()] = $aValidSpeaker;
-								
-							} else {
-								// Else give the error message about no found Speaker
-								$aValidSpeaker = null;
-								$speakers [$aValidSlot->getNo()] = null;
-							}
-						}
-					} else {
-						// Else give the error message about no found Place
-						$allValidPlaces = null;
-						$speakers [$aValidSlot->getNo()] = null;
-					}
+				// If the Location is found, continue
+				if($messageLocation->getStatus()) {
+				    $aValidLocation = $messageLocation->getContent();
+				    
+				} else {
+					// Else give the error message about no found Location
+				    $aValidLocation = null;
 				}
+				
+				// Get Slot
+				$messageSlots = $this->tedx_manager->getSlotsFromEvent($aValidEvent);   
+				
+	            // If Slots are found, continue
+				if($messageSlots->getStatus()) {
+					$allValidSlots = $messageSlots->getContent();
+					
+		            // For each Valid Slots
+					foreach($allValidSlots as $aValidSlot) {
+						
+						// Get Places in a Slot
+						$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
+						
+						// If Places are found, continue
+						if($messagePlaces->getStatus()) {
+							$allValidPlaces = $messagePlaces->getContent();		
+							
+							// For each Valid Places	
+							foreach($allValidPlaces as $aValidPlace) {
+								
+								// Get Speaker at Place
+								$messageSpeaker = $this->tedx_manager->getSpeakerByPlace($aValidPlace);
+								
+								// If Speaker is found, continue
+								if($messageSpeaker->getStatus()) {
+									$aValidSpeaker = $messageSpeaker->getContent();
+									
+									// Prepare an array for Smarty [Slots][Places][Speaker]
+									$speakers	[$aValidSlot->getNo()]
+												[$aValidPlace->getNo()]
+												[$aValidSpeaker->getNo()] = $aValidSpeaker;
+									
+								} else {
+									// Else give the error message about no found Speaker
+									$aValidSpeaker = null;
+									$speakers [$aValidSlot->getNo()] = null;
+								}
+							}
+						} else {
+							// Else give the error message about no found Place
+							$allValidPlaces = null;
+							$speakers [$aValidSlot->getNo()] = null;
+						}
+					}
+				} else {
+					// Else give the error message about no found Slots
+					$allValidSlots = null;
+					$speakers = null;
+				}
+				
+				// Assigns variables to Smarty
+				$this->smarty->assign('speakers', $speakers);
+				$this->smarty->assign('slots', $allValidSlots);
+				$this->smarty->assign('location', $aValidLocation); 
+				$this->smarty->assign('event', $aValidEvent);
+				
 			} else {
-				// Else give the error message about no found Slots
-				$allValidSlots = null;
-				$speakers = null;
-			}
-			
-			// Assigns variables to Smarty
-			$this->smarty->assign('speakers', $speakers);
-			$this->smarty->assign('slots', $allValidSlots);
-			$this->smarty->assign('location', $aValidLocation); 
-			$this->smarty->assign('event', $aValidEvent);
-			
-		} else {
-			// Else give the error message about no found Event
-		    $this->displayMessage($messageEvent->getMessage()); 
-	    }	
+				// Else give the error message about no found Event
+			    $this->displayMessage($messageEvent->getMessage()); 
+		    }	
+    	} else {
+	    	$speakers = null;
+	    	$allValidSlots = null;
+	    	$aValidLocation = null;
+	    	$aValidEvent = null;
+    	}
 	    
 	    return $this->smarty->fetch('gestion_events_single.tpl');
 
@@ -1289,8 +1336,6 @@ class TEDx {
      * @return content HTML of the Gestion Contacts Infos
      */
     protected function drawGestionContactsInfos() {
-    
-    	// If the user want to edit the contact, continue
     	
     	$id = $this->getId();
     	
