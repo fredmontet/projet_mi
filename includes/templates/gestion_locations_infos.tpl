@@ -1,19 +1,19 @@
 {*
 Smarty variables available:
-$location (Object)
+ $location (Object)
 *}
 
 <!--form to create new locations-->
-<!--add form location-->
-<form name="gestion_locations_infos" class="span6" method="post" action="">
-    <!--button save-->
-    <p>
-        <input type="hidden" name="action" value="gestion_locations_send" />
-        <input type="submit" name="gestion_locations_send" value="Save" />
-    </p>
+<article class="gestion_locations_infos" class="span6">
+    <!--add form location-->
+    <form name="gestion_locations_infos" method="post" action="">
+        <!--button save-->
+        <p>
+            <input type="hidden" name="action" value="gestion_locations_send" />
+            <input type="submit" name="gestion_locations_send" value="Save" />
+        </p>
 
-    <!--name-->
-    <fieldset>
+        <!--name-->
         <p>
             <label for="name">Name</label>
             <input type="text" name="name" value="{if $location != null}{$location->getName()}{/if}"/>
@@ -40,6 +40,6 @@ $location (Object)
             <label for="country">Country</label>
             <input type="text" name="country" value="{if $location != null}{$location->getCountry()}{/if}"/>
         </p>  
-    </fieldset>
-</form>
-<!--end add form location-->         
+   </form>
+   <!--end add form location-->         
+</article>
