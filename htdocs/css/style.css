@@ -1049,7 +1049,7 @@ and (min-width : 1224px) {
     width:160px;
     float:right;
 }
-.gestion_events_role ul{
+.gestion_events_role dl{
     display:inline-block;
     width:100%;
     margin: 0;
@@ -1057,7 +1057,7 @@ and (min-width : 1224px) {
     padding: 0;
     line-height: 20px;
 }
-.gestion_events_role ul li{
+.gestion_events_role dl dd{
     display:block;
     background-color:#eeeeee;
     margin:10px 0;
@@ -1075,17 +1075,13 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = to fill*/
 
-.gestion_events_role_infos {
+.gestion_events_role{
     float:right;
 }
-.gestion_events_role_infos form {
-}
-.gestion_events_role_infos form p{
+
+.gestion_events_role_infos form fieldset{
     width:100%;
     float:right;
-}
-.gestion_events_role_infos form p label{
-    line-height:30px;
 }
 
 
