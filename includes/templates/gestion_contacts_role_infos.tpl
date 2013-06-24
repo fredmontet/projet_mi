@@ -1,3 +1,10 @@
+{*
+Smarty variables available:
+	$teamRoles (Array of Object) [0..1]
+	$errorFormMessage (Array of error Formular message)
+	$errorState (Array of status about uncorrect values)
+*}
+
 <article class="gestion_contacts_role_infos">
         <form method="post" action="">
                 <!--save--> 
@@ -8,14 +15,14 @@
         <h1>Create team role</h1>             
         <p>
             <label for="teamrole">Name of team role</label>
-            <input type="text" name="teamrole" value="nameofTeamRole"/>
+            <input type="text" name="teamrole" value=""/>
         </p>
+        
         <select name="newTeamRole" size="1">
-            <option>New TeamRole isMemberOf..||OR|| Is RootOf...</option>
-            <option>Direction</option>
-            <option>Admin staff</option>
-            <option>Root name</option>
-        </select>  
+        	{foreach from=$teamRoles item=teamRole}
+        		<option value="{$teamRole->getName()}">{$teamRole->getName()}</option>
+        	{/foreach}
+        </select>
 
        </form>
 </article>

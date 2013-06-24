@@ -186,7 +186,9 @@ class TEDx {
 		$errorState['phoneNumber'] 	= $this->validator(array('String', $contact['phoneNumber']));
 		$errorState['email'] 		= $this->validator(array('Email', $contact['email']));
 		$errorState['description'] 	= $this->validator(array('0..1', $contact['description']));
-		$errorState['teamrole'] 	= $this->validator(array('0..1', $contact['teamrole']));
+		if(in_array("teamrole", $contact)) {
+			$errorState['teamrole'] 	= $this->validator(array('0..1', $contact['teamrole']));
+		}
         
         // Return two arrays
         return array($contact, $errorState);
@@ -1183,32 +1185,24 @@ class TEDx {
 			
 			// Gestion Contacts Role
 			case 'gestion_contacts_role':
-				$this->smarty->assign('gestionContactsRoleInfos', null);
-			
-				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
+								
+				// Get the content of Gestion Contacts Role
+	    		$content = $this->drawGestionContactsRole();
 			break;
 			
 			// Gestion Contacts Role Infos
 			case 'gestion_contacts_role_infos': 
-				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
-				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
 				
-				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
+				// Get the content of Gestion Contacts Role Infos
+	    		$content = $this->drawGestionContactsRoleInfos();
 			break;
 			
 			// Gestion Contacts Role New
 			case 'gestion_contacts_role_new':
-				$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
-				$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
-				
-				$content = $this->smarty->fetch('gestion_contacts_role.tpl');
+								
+				// Get the content of Gestion Contacts Role New
+	    		$content = $this->drawGestionContactsRoleNew();
 			break;
-			
-			// Create a new Contact
-			case 'new_contact_send':
-				$this->displayMessage('This action is not yet implemented.');
-				return null;
-			break; 
 			
 			// Create a new Role of Contact
 			case 'gestion_contacts_role_send':
@@ -1350,8 +1344,53 @@ class TEDx {
 				    	}
 				    	
 				    } else {
-					    // Else give the error message about no found Organizer
-					    $this->displayMessage($messageOrganizer->getMessage());
+					    
+					    // Get Person
+					    $messagePerson = $this->tedx_manager->getPerson($id);
+					    
+					    // If the Person is found, continue
+					    if($messagePerson->getStatus()) {
+						    $aValidPerson = $messagePerson->getContent();
+						    
+						    // Set the Person to Organizer
+						    $messageSetPersonAsOrganizer = $this->tedx_manager->setPersonAsOrganizer($aValidPerson);
+						    
+						    // If the Organizer is created
+						    if($messageSetPersonAsOrganizer->getStatus()) {
+							   
+							   // Get TeamRole
+						    	$messageTeamRole = $this->tedx_manager->getTeamRole($contact['teamrole']);
+						    	
+						    	// If the TeamRole is found, continue
+						    	if($messageTeamRole->getStatus()) {
+							    	$aValidTeamRole = $messageTeamRole->getContent();
+							    	
+							    	$args = array(
+										'organizer'		=> $aValidOrganizer, // An Object Organizer
+										'teamRole'		=> $aValidTeamRole // An object Team Role
+									);
+									
+									$anAffectation = $this->tedx_manager->affectTeamRole($args);
+									
+									if( $anAffectation->getStatus()) {
+										
+									} else {
+										$this->displayMessage($anAffectation->getMessage());
+									}
+							    	
+						    	} else {
+							    	// Else give the error message about no found TeamRole
+							    	$this->displayMessage($messageTeamRole->getMessage());
+						    	}
+
+						    } else {
+							    
+						    }
+						    
+					    } else {
+						    // Else give the error message about no found Person
+						    $this->displayMessage($messagePerson->getMessage());
+					    }
 				    }
 					
 				} else {
@@ -1555,7 +1594,6 @@ class TEDx {
 	    	
 	    		// Prepare the array to edit the Contact
 		    	$args = array(
-				    'no' => $id, // int
 				    'name' => $contact['name'], // String
 				    'firstName' => $contact['firstname'], // String
 				    'dateOfBirth' => $contact['dateOfBirth'], // Date
@@ -1565,16 +1603,18 @@ class TEDx {
 				    'phoneNumber' => $contact['phoneNumber'], // string
 				    'email' => $contact['email'], // String
 				    'description' => $contact['description'], // String
+				    'idmember'    => $contact['email'], // String
+				    'password'    => 'test' // String encrypt to MD5
 				);
 				
 				// Edit the contact's infos
-				$aChangedProfil= $this->tedx_manager->changeProfil($args);
+				$messageRegisteredVisitor = $this->tedx_manager->registerVisitor($args);
 				
 				// If the Contact is changed, continue
-				if($aChangedProfil->getStatus()) {
-					
+				if($messageRegisteredVisitor->getStatus()) {
+					echo "<h1>Contact added</h1>";
 				} else {
-					$this->displayMessage($aChangedProfil->getMessage());
+					$this->displayMessage($messageRegisteredVisitor->getMessage());
 				}
 				
 	    	} else {
@@ -1596,13 +1636,87 @@ class TEDx {
 	    	$allValidTeamRoles = null;
     	}
     	
-    	// Assigns variables to Smarty
     	$errorFormMessage = $this->errorFormMessage();
+    	
+    	// Assigns variables to Smarty
     	$this->smarty->assign('errorState', $errorState);
     	$this->smarty->assign('errorFormMessage', $errorFormMessage);
     	$this->smarty->assign('teamRoles', $allValidTeamRoles);
     	
 	    return $this->smarty->fetch('gestion_contacts_new.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Contacts Role Infos
+     * @return content HTML of the Gestion Contacts Role Infos
+     */
+    protected function drawGestionContactsRole() {
+    
+    	// Get TeamRole
+    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
+    	
+    	// If TeamRole are found, continue
+    	if($messageTeamRoles->getStatus()) {
+	    	$allValidTeamRoles = $messageTeamRoles->getContent();
+    	} else {
+	    	$allValidTeamRoles = null;
+    	}
+    	
+    	$errorFormMessage = $this->errorFormMessage();
+    	
+    	// Assigns variables to Smarty
+    	//$this->smarty->assign('errorState', $errorState);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
+    	$this->smarty->assign('teamRoles', $allValidTeamRoles);
+    
+	    $this->smarty->assign('gestionContactsRoleInfos', null);
+		
+		return $this->smarty->fetch('gestion_contacts_role.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Contacts Role Infos
+     * @return content HTML of the Gestion Contacts Role Infos
+     */
+    protected function drawGestionContactsRoleInfos() {
+	    $gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
+		$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
+		
+		
+			
+		return $this->smarty->fetch('gestion_contacts_role.tpl');
+    }
+    
+    
+    /**
+     * Draw the Gestion Contacts Role New
+     * @return content HTML of the Gestion Contacts Role New
+     */
+    protected function drawGestionContactsRoleNew() {
+	    		
+		// Get TeamRole
+    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
+    	
+    	// If TeamRole are found, continue
+    	if($messageTeamRoles->getStatus()) {
+	    	$allValidTeamRoles = $messageTeamRoles->getContent();
+    	} else {
+	    	$allValidTeamRoles = null;
+    	}
+    	
+    	$errorFormMessage = $this->errorFormMessage();
+    	
+    	// Assigns variables to Smarty
+    	//$this->smarty->assign('errorState', $errorState);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
+    	$this->smarty->assign('teamRoles', $allValidTeamRoles);
+		
+		$gestionContactsRoleInfos = $this->smarty->fetch('gestion_contacts_role_infos.tpl');
+		$this->smarty->assign('gestionContactsRoleInfos', $gestionContactsRoleInfos);
+		
+		return $this->smarty->fetch('gestion_contacts_role.tpl');
     }
     
     
