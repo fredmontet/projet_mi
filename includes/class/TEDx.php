@@ -1318,7 +1318,7 @@ class TEDx {
 	    	// If the Participant is found, continue
 	    	if($messageParticipant->getStatus()) {
 		    	$aValidParticipant = $messageParticipant->getContent();
-		    	/*
+		    	
 		    	// Get Registrations by the Person
 		    	$messageRegistrations = $this->tedx_manager->getRegistrationsByParticipant($aValidParticipant);
 		    	
@@ -1352,7 +1352,7 @@ class TEDx {
 		    		// Else give the error about no found Registration
 		    		$this->displayMessage($messageRegistrations->getMessage());
 		    		$registrations[]['registrations'] = null;
-		    	}*/$registrations = null;
+		    	}$registrations = null;
 	    	} else {
 	    		$registrations = null;
 	    	}
