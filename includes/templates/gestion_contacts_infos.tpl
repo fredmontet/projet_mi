@@ -28,7 +28,7 @@ Smarty variables available:
         <p>
             <label for="firstname">First name </label>
             <input type="text" name="firstname" value="{$person->getFirstname()}"/>
-            {if $errorState.firstname}<p class="errorvalue">{$errorFormMessage.firstname}</p>{/if}
+            {if !$errorState.firstname}<p class="errorvalue">{$errorFormMessage.firstname}</p>{/if}
         </p>
         <!--surname-->
         <p>

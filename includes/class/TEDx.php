@@ -1136,7 +1136,9 @@ class TEDx {
 			
 			// Gestion Contacts New
 			case 'gestion_contacts_new':
-				$content = $this->smarty->fetch('gestion_contacts_new.tpl');
+			
+				// Get the content of Gestion Contacts New
+	    		$content = $this->drawGestionContactsNew();
 			break;
 			
 			// Gestion Contacts Role
@@ -1392,6 +1394,28 @@ class TEDx {
 	    return $this->smarty->fetch('gestion_contacts_infos.tpl');
     }
     
+    /**
+     * Draw the Gestion Contacts New page
+     * @return content HTML of the Gestion Contacts New page
+     */
+    protected function drawGestionContactsNew() {
+    	
+    	// Get TeamRole
+    	$messageTeamRoles = $this->tedx_manager->getTeamRoles();
+    	
+    	// If TeamRole are found, continue
+    	if($messageTeamRoles->getStatus()) {
+	    	$allValidTeamRoles = $messageTeamRoles->getContent();
+    	} else {
+	    	$allValidTeamRoles = null;
+    	}
+    	
+    	// Assigns variables to Smarty
+    	$this->smarty->assign('teamRoles', $allValidTeamRoles);
+    	
+	    return $this->smarty->fetch('gestion_contacts_new.tpl');
+    }
+    
     
     /**
      * Draw the Login page
@@ -1608,9 +1632,9 @@ class TEDx {
 		            $subnav = null;
 					$content = $this->drawContact();
 		        } catch (Exception $e) {
-		            $this->displayMessage('This page doesn\'t exist!'); 
-		            $content = null; 
-		            $subnav = null;         	
+		            $this->displayMessage('This page doesn\'t exist!');
+		            $content = null;
+		            $subnav = null;
 		        }
 			break;
 			

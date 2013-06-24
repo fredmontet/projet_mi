@@ -1,3 +1,8 @@
+{*
+Smarty variables available:
+	$teamRoles (Array of Object) [0..1]
+*}
+
 <article class="gestion_contacts_new">
     
         <form method="post" action="">
@@ -57,10 +62,9 @@
            <legend>Role in TEDx</legend>  
             <p>
                 <select name="teamRoleAffect" size="1">
-                    <option>Chose the role</option>
-                    <option>Directeur</option>
-                    <option>Sous-directeur</option>
-                    <option>...
+                	{foreach from=$teamRoles item=teamRole}
+						<option>{$teamRole->getName()}</option>
+                	{/foreach}
                 </select>  
             </p>
         </fieldset>
