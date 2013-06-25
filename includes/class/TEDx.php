@@ -212,7 +212,7 @@ class TEDx {
         $errorState['email'] = $this->validator(array('Email', $contact['email']));
         $errorState['description'] = $this->validator(array('0..1', $contact['description']));
         if (in_array("teamrole", $contact)) {
-            $errorState['teamrole'] = $this->validator(array('0..1', $contact['teamrole']));
+            $errorState['teamrole[]'] = $this->validator(array('0..1', $contact['teamrole[]']));
         }
 
         // Return two arrays
@@ -1561,29 +1561,34 @@ class TEDx {
                     if ($messageOrganizer->getStatus()) {
                         $aValidOrganizer = $messageOrganizer->getContent();
 
-                        // Get TeamRole
-                        $messageTeamRole = $this->tedx_manager->getTeamRole($contact['teamrole']);
-
-                        // If the TeamRole is found, continue
-                        if ($messageTeamRole->getStatus()) {
-                            $aValidTeamRole = $messageTeamRole->getContent();
-
-                            $args = array(
-                                'organizer' => $aValidOrganizer, // An Object Organizer
-                                'teamRole' => $aValidTeamRole // An object Team Role
-                            );
-
-                            $anAffectation = $this->tedx_manager->affectTeamRole($args);
-
-                            if ($anAffectation->getStatus()) {
-                                
+                        // For each TeamRole
+                        foreach($contact['teamrole'] as $teamRole) {
+                            // Get TeamRole
+                            $messageTeamRole = $this->tedx_manager->getTeamRole($teamRole);
+    
+                            // If the TeamRole is found, continue
+                            if ($messageTeamRole->getStatus()) {
+                                $aValidTeamRole = $messageTeamRole->getContent();
+    
+                                $args = array(
+                                    'organizer' => $aValidOrganizer, // An Object Organizer
+                                    'teamRole' => $aValidTeamRole // An object Team Role
+                                );
+    
+                                $anAffectation = $this->tedx_manager->affectTeamRole($args);
+    
+                                if ($anAffectation->getStatus()) {
+                                    
+                                } else {
+                                    $this->displayMessage($anAffectation->getMessage());
+                                }
                             } else {
-                                $this->displayMessage($anAffectation->getMessage());
+                                // Else give the error message about no found TeamRole
+                                $this->displayMessage($messageTeamRole->getMessage());
                             }
-                        } else {
-                            // Else give the error message about no found TeamRole
-                            $this->displayMessage($messageTeamRole->getMessage());
                         }
+
+                        
                     } else {
 
                         // Get Person

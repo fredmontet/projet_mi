@@ -127,7 +127,7 @@ Smarty variables available:
                 {if $teamRoles != null}
                     {foreach from=$teamRoles item=teamRole}
                         <li>
-                            <input {if $isTeamRole != null}{if in_array($teamRole, $isTeamRole)}checked="yes"{/if}{/if} type="checkbox" name="teamrole" value="{$teamRole->getName()}">{$teamRole->getName()}
+                            <input {if $isTeamRole != null}{if in_array($teamRole, $isTeamRole)}checked="yes"{/if}{/if} type="checkbox" name="teamrole[]" value="{$teamRole->getName()}">{$teamRole->getName()}
                         </li>
                     {/foreach}
                 {/if}
