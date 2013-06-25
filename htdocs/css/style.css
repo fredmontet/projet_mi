@@ -1535,14 +1535,14 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 
 #subnav{
     position:relative;
-    display:inline-block;    
-    left:-50%;
+    display:inline-block;
 }
 
 #subnav li{
      display:block;
      float:left;
-     border-bottom:3px solid #E2E2E2;
+     padding-bottom:3px;
+     background-color:#eeeeee;
 }
 
 #subnav a{
@@ -1550,13 +1550,14 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
     color:#222222;
     text-decoration:none;
     text-align:center;
+    font-size:1.2em;
+    font-weight:bold;
     padding:5px;
     padding-bottom:0;
 }
 
 #subnav li:hover{
-    border-bottom:3px solid red;  
-      
+    background-color: rgba(225, 0, 0, 0.5);
 }
 
 #subnav a:hover{

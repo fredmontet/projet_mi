@@ -1,5 +1,5 @@
 <!--press page-->
-<article class="press">
+<article class="press offset2 span8">
     <section>
         <h1>Press</h1>
         <p>
