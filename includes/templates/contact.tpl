@@ -13,7 +13,7 @@
 
             <label>Object </label><input type="text" name="user_subject"/>
 
-            <label id="message">Message </label>
+            <label id="message">Message</label>
             <textarea></textarea>
         </fieldset>
         <!--button send-->
