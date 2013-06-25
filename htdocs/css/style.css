@@ -1259,7 +1259,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_events_speaker_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = Cette fonction va-t-elle etre ^vraiment implémentée??*/
 
 .gestion_events_speaker_infos{}
 
@@ -1275,7 +1275,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_locations*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of multiple templates
         depending of the user action:
         gestion_locations_infos.tpl
@@ -1287,7 +1287,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_locations_infos*/
 /****************************************/
-/*Status = done*/
+/*Status = ok*/
 
 .gestion_locations_infos {
     float:right;
@@ -1308,7 +1308,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_locations_list*/
 /****************************************/
-/*Status = done*/
+/*Status = ok*/
 
 .gestion_locations_list .theButton {
     display:inline-block;
@@ -1336,7 +1336,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_locations_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, stylé par gestion_subnav*/
 
 .gestion_locations_nav{}  
 
@@ -1348,7 +1348,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*gestion_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
 
 /*end of gestion_nav*/
@@ -1357,7 +1357,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*home*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of multiple templates
         depending of the user action:
         events_single.tpl
@@ -1369,7 +1369,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*login*/
 /****************************************/
-/*Status = to fill*/
+/*Status = petite modif d'alignement des bouttons à faire*/
 
 .login .theButton{
 
@@ -1393,7 +1393,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*main*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 #container{
     max-width:1200px;
     margin-right:auto;
@@ -1603,7 +1603,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*partners*/
 /****************************************/
-/*Status = to fill*/
+/*Status = meme probleme d'ancre qui va sous le globalheader et qui cache le texte
+que pour la page*/
 
 .partners{}
 .partners section{}
@@ -1649,7 +1650,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*partners_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
 
 /*end of partners_nav*/
@@ -1658,7 +1659,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*press*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, très peu d'info mais bon, on est pas la pour faire les scirbes non plus :-) */
 
 .press{}
 .press section{}
@@ -1671,7 +1672,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*register*/
 /****************************************/
-/*Status = to fill*/
+/*Status = espacer le bouton register*/
 
 .register{}
 .register h1{}
@@ -1687,7 +1688,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*user_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = a aligner vite fait!*/
 
 .user_infos{}
 .user_infos section{}
@@ -1702,7 +1703,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*video_player*/
 /****************************************/
-/*Status = to fill*/
+/*Status = mmmh*/
 /*
 Il faut absolument créer le template
 de ce player video ma parole
