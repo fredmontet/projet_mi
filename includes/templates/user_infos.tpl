@@ -36,7 +36,7 @@
             <!--City&npa-->
             <p>
                 <label for="user_city">City</label>
-                <input type="number" name="user_city" value="City"/>
+                <input type="text" name="user_city" value="City"/>
             </p>
             <!--country-->
             <p>

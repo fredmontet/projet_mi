@@ -1742,7 +1742,9 @@ que pour la page*/
 /****************************************/
 /*Status = a aligner vite fait!*/
 
-.user_infos{}
+.user_infos{
+    margin-top:10px;
+}
 .user_infos section{}
 .user_infos section form{}
 .user_infos section form p{}
