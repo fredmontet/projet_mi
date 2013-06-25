@@ -65,16 +65,30 @@ class TEDx {
      */
 	protected function errorFormMessage() {
 		return array(
-				'firstname'		=>	'Please enter a first name',
-				'username'		=>	'Please enter a name',
-				'email'			=>	'Please enter a valid email address',
-				'dateOfBirth'	=>	'Please enter a correct Birth date',
-				'email'			=>	'Please enter a correct email',
-				'phoneNumber'	=>	'Please enter a phone number',
-				'country'		=>	'Please enter a Country',
-				'address'		=>	'Please enter an address',
-				'city'			=>	'Please enter a City',
-				
+				'firstname'			=>	'Please enter a first name',
+				'username'		    =>	'Please enter a name',
+				'email'			    =>	'Please enter a valid email address',
+				'dateOfBirth'	    =>	'Please enter a correct Birth date',
+				'email'			    =>	'Please enter a correct email',
+				'phoneNumber'	    =>	'Please enter a phone number',
+				'country'		    =>	'Please enter a Country',
+				'address'		    =>	'Please enter an address',
+				'city'			    =>	'Please enter a City',
+				'mainTopic'		    =>	'Please enter a Title',
+				'startingDate'	    =>	'Please enter a valid Starting date',
+				'endingDate'	    =>	'Please enter a valid Ending date',
+				'startingTime'	    =>	'Please enter a valid Starting time',
+				'endingTime'	    =>	'Please enter a valid Ending time',
+				'description'	    =>	'Please enter a description',
+				'locationName'		=>	'Please choose a location',
+				'slot1StartingTime'	=>	'Please enter a valid Starting time',
+				'slot1EndingTime'	=>	'Please enter a valid Ending time',
+				'slot2StartingTime'	=>	'Please enter a valid Starting time',
+				'slot2EndingTime'	=>	'Please enter a valid Ending time',
+				'slot3StartingTime'	=>	'Please enter a valid Starting time',
+				'slot3EndingTime'	=>	'Please enter a valid Ending time',
+				'slot4StartingTime'	=>	'Please enter a valid Starting time',
+				'slot4EndingTime'	=>	'Please enter a valid Ending time',
 		);
 	}
 	
@@ -157,6 +171,22 @@ class TEDx {
 		    	return checkdate($date["month"], $date["day"], $date["year"]);
 		    break;
 		    
+		    // The type is a Time
+		    case 'Time':
+		    	$date = date_parse($value);
+		    	
+		    	$hour = $date['hour'];
+		    	$min = $date['minute'];
+		    	
+		    	if ($hour < 0 || $hour > 23 || !is_numeric($hour)) {
+                     return false;
+                }
+                if ($min < 0 || $min > 59 || !is_numeric($min)) {
+                     return false;
+                }
+                return true;
+		    break;
+		    
 		    // The type is String and could be empty
 		    case '0..1':
 		        $isString = is_string($value);
@@ -229,6 +259,16 @@ class TEDx {
 		$errorState['endingTime'] 		= $this->validator(array('Time', $event['endingTime']));
 		$errorState['description'] 		= $this->validator(array('String', $event['description']));
 		$errorState['locationName'] 	= $this->validator(array('String', $event['locationName']));
+		$errorState['slot1StartingTime']= $this->validator(array('Time', $event['slot1StartingTime']));
+		$errorState['slot1EndingTime'] 	= $this->validator(array('Time', $event['slot1EndingTime']));
+		$errorState['slot2StartingTime']= $this->validator(array('Time', $event['slot2StartingTime']));
+		$errorState['slot2EndingTime'] 	= $this->validator(array('Time', $event['slot2EndingTime']));
+		$errorState['slot3StartingTime']= $this->validator(array('Time', $event['slot3StartingTime']));
+		$errorState['slot3EndingTime'] 	= $this->validator(array('Time', $event['slot3EndingTime']));
+		$errorState['slot4StartingTime']= $this->validator(array('Time', $event['slot4StartingTime']));
+		$errorState['slot4EndingTime'] 	= $this->validator(array('Time', $event['slot4EndingTime']));
+        
+        print_r($errorState);
         
         // Return two arrays
         return array($event, $errorState);
@@ -642,35 +682,14 @@ class TEDx {
 	    	
 	    	// Gestion Events
 	    	case 'gestion_events_single':
-	    	case 'gestion_speaker_infos':
-	    	case 'gestion_speaker_infos_send':
-	    		
-	    		switch($action) {
-	    		
-	    			// Gestion Speaker Infos
-		    		case 'gestion_speaker_infos':
-		    			$gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
-					    $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
-		    		break;
-		    		
-		    		// Edit the infos of Speaker
-		    		case 'gestion_speaker_infos_send':
-		    			$this->displayMessage('This action is not yet implemented.');
-						$content = null;
-						$this->smarty->assign('gestionEventsSpeakerInfos', null);
-		    		break;
-		    		
-		    		default:
-		    			$this->smarty->assign('gestionEventsSpeakerInfos', null);
-		    		break;
-	    		}
-	    	
+
 	    		$id = $this->getId();
 	    		
 	    		/*
 	    		// If there is an id received, continue
 	    		if($id != null) {*/
 	    			// Get the content of Gestion Events Single
+	    			
 		    		$content = $this->drawGestionEventsSingle($id);
 				/*	
 	    		} else {
@@ -679,6 +698,13 @@ class TEDx {
 	    		}*/
 	    	break;
 	    	
+	    	// Gestion Events Speaker Infos
+	    	case 'gestion_speaker_infos':
+	    	case 'gestion_speaker_infos_send':
+	    	    
+	    	    // Get the content of Gestion Events Speaker Infos
+	    	    $content = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
+	    	break;
 	    	
 			// Gestion Events Motivations
 	    	case 'gestion_events_motivation':
@@ -733,16 +759,79 @@ class TEDx {
 	    	
 	    	// If all values are correct, continue
 	    	if(count(array_keys($errorState, true)) == count($errorState)) {
-	    	
+	    	    
+	    	    // Array for Event creation
+	    	    $argsCreateEvent = array(
+                    'mainTopic'     => $event['mainTopic'],
+                    'startingDate'  => $event['startingDate'],
+                    'endingDate'    => $event['endingDate'],
+                    'startingTime'  => $event['startingTime'],
+                    'endingTime'    => $event['endingTime'],
+                    'description'   => $event['description'],
+                    'locationName'  => $event['locationName']
+                );
+                
+                
+                // Array for Slots creation
+                
+                // Slot One
+                $slot1 = array (
+                    'happeningDate'		=> $event['startingDate'],
+                    'startingTime'		=> $event['slot1EndingTime'],
+                    'endingTime'		=> $event['slot1EndingTime'],
+                );
+                
+                // Slot Two
+                $slot2 = array (
+                    'happeningDate'		=> $event['startingDate'],
+                    'startingTime'		=> $event['slot2EndingTime'],
+                    'endingTime'		=> $event['slot2EndingTime'],
+                );
+                
+                // Slot Three
+                $slot3 = array (
+                    'happeningDate'		=> $event['startingDate'],
+                    'startingTime'		=> $event['slot3EndingTime'],
+                    'endingTime'		=> $event['slot3EndingTime'],
+                );
+                
+                // Slot Four
+                $slot4 = array (
+                    'happeningDate'		=> $event['startingDate'],
+                    'startingTime'		=> $event['slot4EndingTime'],
+                    'endingTime'		=> $event['slot4EndingTime'],
+                );
+                
+                
+                $argsSlots = array($slot1, $slot2, $slot3, $slot4);
+                
+                // Final array for the function addEvent
+                $megaArgsAddEvent = array (
+                    'event'   => $argsCreateEvent,
+                    'slots'   => $argsSlots
+                );
+                
+                // Create Event
+                $messageAddEvent = $this->tedx_manager->addEvent($megaArgsAddEvent);
+                
+                // If the Event is created, continue
+                if($messageAddEvent->getStatus()) {
+                    $this->displayMessage("The event is created.");
+                } else {
+                    // Else give the error message about no created Event
+                    $this->displayMessage($messageAddEvent->getMessage());
+                }
+	    	    
 	    	} else {
 	    		
 	    	}
+	    } else {
+    	    $errorState = null;
 	    }
-    	
-    	
     	
     	// If there is an ID, continue
     	if($id != null) {
+    	    
 	    	// Get an Event
 	    	$messageEvent = $this->tedx_manager->getEvent($id);
 	    	
@@ -812,22 +901,43 @@ class TEDx {
 					$speakers = null;
 				}
 				
-				// Assigns variables to Smarty
-				$this->smarty->assign('speakers', $speakers);
-				$this->smarty->assign('slots', $allValidSlots);
-				$this->smarty->assign('location', $aValidLocation); 
-				$this->smarty->assign('event', $aValidEvent);
+				
 				
 			} else {
 				// Else give the error message about no found Event
 			    $this->displayMessage($messageEvent->getMessage()); 
 		    }	
-    	} else {
+		    
+    	} else { // There is no ID
+    	
 	    	$speakers = null;
 	    	$allValidSlots = null;
 	    	$aValidLocation = null;
 	    	$aValidEvent = null;
+	    	$event = null;
+	    	
     	}
+    	
+    	// Get Locations
+    	$messageLocations = $this->tedx_manager->getLocations();
+    	
+    	// If Locations are found, continue
+    	if($messageLocations->getStatus()) {
+        	$allValidLocations = $messageLocations->getContent();
+    	} else {
+        	$allValidLocations = null;
+    	}
+    	
+    	$errorFormMessage = $this->errorFormMessage();
+    	
+    	// Assigns variables to Smarty
+    	$this->smarty->assign('locations', $allValidLocations);
+    	$this->smarty->assign('errorFormMessage', $errorFormMessage);
+    	$this->smarty->assign('errorState', $errorState);
+		$this->smarty->assign('speakers', $speakers);
+		$this->smarty->assign('slots', $allValidSlots);
+		$this->smarty->assign('isLocation', $aValidLocation); 
+		$this->smarty->assign('event', $aValidEvent);
 	    
 	    return $this->smarty->fetch('gestion_events_single.tpl');
 
@@ -902,7 +1012,6 @@ class TEDx {
 		    		$registrations[]['registration'] = null;
 	    		}
     		}
-    		
     		
 		} else {
 			// Else give the error message about no found registration
