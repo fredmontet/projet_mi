@@ -807,7 +807,7 @@ class TEDx {
                 // Get the content of Gestion Events Mail
                 $content = $this->drawGestionEventsMail($action);
                 break;
-
+                
 
             // Gestion Events Role
             case 'gestion_events_role':
@@ -1159,6 +1159,22 @@ class TEDx {
 
         // If there is a Person selected, continue
         if ($action == 'gestion_events_mail_edit') {
+        
+            $id = $this->getId();
+        
+            // Get Person
+            $messagePerson = $this->tedx_manager->getPerson($id);
+            
+            // If the Person is found, continue
+            if($messagePerson->getStatus()) {
+                $aValidPerson = $messagePerson->getContent();
+            } else {
+                // Else give the error message about no found Person
+                $this->displayMessage($messagePerson->getMessage());
+            }
+
+            // Assigns variables to Smarty
+            $this->smarty->assign('person', $aValidPerson);
 
             // Get the content of Gestion Events Mail Edit
             $gestionEventsMailEdit = $this->smarty->fetch('gestion_events_mail_edit.tpl');
@@ -1171,6 +1187,7 @@ class TEDx {
         // Return the content of Gestion Events Mail
         return $this->smarty->fetch('gestion_events_mail.tpl');
     }
+    
 
     /**
      * Draw the Gestion Events Role page

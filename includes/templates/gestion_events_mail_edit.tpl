@@ -1,11 +1,13 @@
 {*
 Smarty variables available:
-$registrations (Array [Registrations] => Array
-(	
-[Registration] => Registration Object
-[Person] => Person Object
-)
-) [0..1]
+    $registrations (Array [Registrations] => Array
+                (	
+                    [Registration] => Registration Object
+                    [Person] => Person Object
+                )
+    ) [0..1]
+
+    $person (Object)
 *}
 
 <div class="span6">
@@ -18,14 +20,13 @@ $registrations (Array [Registrations] => Array
         <!--adress mail-->
 
         <fieldset>
-           <select>
-                <option>select email address</option>
-            </select>
+            
+            <input type="email" name"mail" value="{$person->getEmail()}">
 
             <label>Subject</label>
-            <input type="text" name="subject" value="subject">
+            <input type="text" name="subject" value="">
 
-            <textarea>Hi ! You have been accepted. Best Regards TEDx Lausanne</textarea>
+            <textarea name="message"></textarea>
         </fieldset>
     </form>
 </div>

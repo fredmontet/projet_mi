@@ -24,7 +24,7 @@ $registrations (Array [Registrations] => Array
             <div class="scroll">
                 {foreach from=$registrations item=registration}
                     <ul>
-                        <li><a href="?action=gestion_events_mail_edit">
+                        <li><a href="?action=gestion_events_mail_edit&id={$registration.person->getNo()}">
                                 {$registration.person->getName()}
                                 {$registration.person->getFirstName()}
                                 <div>{$registration.registration->getStatus()}</div>
