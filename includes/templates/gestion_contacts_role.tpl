@@ -9,7 +9,7 @@ Smarty variables available:
 <article class="gestion_contacts_role offset1 span10">
     <section class="span4">
         <p>  
-            <a class="buttonRole" href="?action=gestion_contacts_role_new">New</a>
+            <a class="buttonRole" href="?action=gestion_contacts_role_infos">New</a>
         </p>
         <h1>Actual team role</h1>     
         <ul> 

@@ -1911,6 +1911,17 @@ class TEDx {
             // If all values are correct, continue
             if (count(array_keys($errorState, true)) == count($errorState)) {
                 
+                // Add a TeamRole
+                $messageAddTeamRole = $this->tedx_manager->addTeamRole($role['teamrole']);
+                
+                // If the TeamRole is created, continue
+                if($messageAddTeamRole->getStatus()) {
+                    header("Location: ?action=gestion_contacts_role");
+                } else {
+                    // Else give the error message about no created TeamRole
+                    $this->displayMessage($messageAddTeamRole->getMessage());
+                }
+                
             } else {
                 
             }
@@ -1928,15 +1939,21 @@ class TEDx {
         } else {
             $allValidTeamRoles = null;
         }
+        
+        // If there is an ID, continue
+        if ($id != null) {
 
-        // Get TeamRole
-        $messageTeamRole = $this->tedx_manager->getTeamRole($id);
-
-        // If the TeamRole is found, continue
-        if ($messageTeamRole->getStatus()) {
-            $aValidTeamRole = $messageTeamRole->getContent();
+            // Get TeamRole
+            $messageTeamRole = $this->tedx_manager->getTeamRole($id);
+    
+            // If the TeamRole is found, continue
+            if ($messageTeamRole->getStatus()) {
+                $aValidTeamRole = $messageTeamRole->getContent();
+            } else {
+                // Else give the error message about no found TeamRole
+            }
         } else {
-            // Else give the error message about no found TeamRole
+            $aValidTeamRole = null;
         }
 
         $errorFormMessage = $this->errorFormMessage();
