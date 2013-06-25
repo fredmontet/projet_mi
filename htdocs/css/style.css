@@ -166,7 +166,7 @@ input[type="submit"]{
     float: right;
     padding-top:5px;
     padding-bottom:5px;
-    margin-top: $-10px;: $-10px;: $-10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10px;: -10p;: -10;: -;:;:;
+    margin-top:-10px;
 }
    
 input[type="submit"]:hover{
@@ -389,7 +389,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*about*/
 /****************************************/
-/*Status = to fill*/
+/*Status = Il faut faire que les quand on clic sur la nav les ancres montes plus bas*/
 
 .about section{
         margin:50px;
@@ -431,7 +431,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*contact*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .contact{
 }
@@ -477,7 +477,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*contact_received*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .contact_received p{
     width:600px;
@@ -502,7 +502,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*events*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of two templates:
         event_single.tpl
         event_nav.tpl
@@ -528,7 +528,8 @@ and (min-width : 1224px) {
 /****************************************/
 /*event_registration*/
 /****************************************/
-/*Status = to fill*/
+/*Status = il faut mettre des ronds plus petit pour le status d'inscription ou alors
+enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite du javascript'*/
 
 .events_registration{
     
@@ -581,7 +582,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*events_single*/
 /****************************************/
-/*Status = to fill*/
+/*Status = il faut mettre le javascript ou alors faire enlever la bar de nav pour s'eviter de mettre le js*/
 
 .events_single{
     margin-bottom:50px;
@@ -699,7 +700,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*gestion_contacts*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of multiple templates
         depending of the user action:
         gestion_contacts_infos.tpl
@@ -715,7 +716,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*gestion_contacts_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = aligner les form*/
 
 .gestion_contacts_infos .buttonSave{
     display:inline-block;
@@ -1465,7 +1466,7 @@ and (min-width : 1224px) {
     display:block;
     width:305px;
     height:55px;
-    background-image: url(../img/layout/logo.svg);
+    background-image: url("../img/layout/logo.svg");
     margin-left: 5px;
     margin-top: 10px;
 }
@@ -1794,8 +1795,7 @@ width:250px;
 /*end of videos_nav*/
 
 }
-/*End of Main layout*/ 
-    
+/*End of Main layout*/   
 }
 /*End of Desktops and laptops layout*/
 
