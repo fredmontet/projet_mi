@@ -507,6 +507,7 @@ and (min-width : 1224px) {
         event_single.tpl
         event_nav.tpl
 */
+
 /*End of events*/ 
 
 
@@ -802,7 +803,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_list*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, il y a quelques lignes vides bizarre mais ça le fait*/
 
 .gestion_contacts_list header{}
 .gestion_contacts_list header nav{}
@@ -845,12 +846,12 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .gestion_contacts_nav{}
 .gestion_contacts_nav h1{}
 .gestion_contacts_nav ul{
-    poisition:relative;
+    position:relative;
     top:0;
 }
 .gestion_contacts_nav ul li{}
@@ -862,7 +863,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_new*/
 /****************************************/
-/*Status = to fill*/
+/*Status = il faut aligner les forms selon la meme structure que 
+gestion_contacts_infos. Une fois gesiton_contacts_infos fini, cette page devrait
+etre bonne aussi.*/
 
 .gestion_contacts_new{}
 .gestion_contacts_new form p{}
@@ -949,7 +952,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of different templates:
         gestion_events_nav.tpl
         gestion_events_single.tpl
@@ -961,7 +964,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_list*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .gestion_events_list{}
 .gestion_events_list a{
@@ -1030,7 +1033,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_mail*/
 /****************************************/
-/*Status = to fill*/
+/*Status = c'est presque bon, il faut juste mettre un peu moins d'espace entre 
+chaque participants dans la list et un peu styler les status (accepted, pending,...)
+*/
 
 .gestion_events_mail{}
 
@@ -1082,7 +1087,8 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_mail_edit*/
 /****************************************/
-/*Status = done*/
+/*Status = il faut un tout petit peu realigner le boutton mais si
+on laisse comme ça ce n'est pas si grave*/
 
 .gestion_events_mail_edit{}
 
@@ -1142,7 +1148,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, stylé par gestion_subnav*/
 
 .gestion_events_nav{}
 
@@ -1157,15 +1163,16 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_role*/
 /****************************************/
-/*Status = to fill*/
+/*Status = done*/
 
 .gestion_events_role .theButton {
     display:inline-block;
     width:160px;
     float:right;
+    margin-bottom:10px;
 }
 
-.gestion_events_role ul{
+.gestion_events_role dl{
     display:inline-block;
     width:100%;
     margin: 0;
@@ -1173,14 +1180,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     padding: 0;
     line-height: 20px;
 }
-.gestion_events_role ul li{
+
+.gestion_events_role dl dt{
     display:block;
     background-color:#eeeeee;
-    margin:10px 0;
+    margin:0px 0;
     padding:5px;
-    
 }
-.gestion_events_role ul li a{}
+
 
 
 /*end of gestion_events_role*/
@@ -1189,19 +1196,15 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_role_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = to fill, prob bd avec yoann, il y a des erreurs php*/
 
 .gestion_events_role_infos {
     float:right;
 }
-.gestion_events_role_infos form {
-}
-.gestion_events_role_infos form p{
+
+.gestion_events_role_infos form fieldset{
     width:100%;
     float:right;
-}
-.gestion_events_role_infos form p label{
-    line-height:30px;
 }
 
 
@@ -1211,7 +1214,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_single*/
 /****************************************/
-/*Status = to fill*/
+/*Status = pas loin d'etre bon, il faut aligner les boutons et 
+styler les bouttons next et précédents, initialement nous voulions 
+mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 
 .gestion_events_single{}
 
@@ -1221,7 +1226,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .gestion_events_single nav{
     display:inline-block;
     margin-bottom:20px;
-    margin-top:5px;
+    margin-top:20px;
     position:relative;
     left:0%;
 }
@@ -1306,7 +1311,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_speaker_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = Cette fonction va-t-elle etre ^vraiment implémentée??*/
 
 .gestion_events_speaker_infos{}
 
@@ -1322,7 +1327,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_locations*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of multiple templates
         depending of the user action:
         gestion_locations_infos.tpl
@@ -1334,7 +1339,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_locations_infos*/
 /****************************************/
-/*Status = done*/
+/*Status = ok*/
 
 .gestion_locations_infos {
     float:right;
@@ -1355,7 +1360,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_locations_list*/
 /****************************************/
-/*Status = done*/
+/*Status = ok*/
 
 .gestion_locations_list .theButton {
     display:inline-block;
@@ -1383,7 +1388,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_locations_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, stylé par gestion_subnav*/
 
 .gestion_locations_nav{}  
 
@@ -1395,7 +1400,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
 
 /*end of gestion_nav*/
@@ -1404,7 +1409,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*home*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of multiple templates
         depending of the user action:
         events_single.tpl
@@ -1416,15 +1421,23 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*login*/
 /****************************************/
-/*Status = to fill*/
+/*Status = petite modif d'alignement des bouttons à faire*/
 
-.login{}
+.login .theButton{
+
+
+}
 .login section{}
 .login section h1{}
 .login section form{}
 .login section form p{}
 .login section form p label{}
-.login section form p input{}
+.login section form p input{
+    margin: 0px;
+    
+   
+  
+}
 .login section form a{}
 
 /*end of login*/
@@ -1432,7 +1445,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*main*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 #container{
     max-width:1200px;
     margin-right:auto;
@@ -1489,7 +1502,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 #globalnav li a, #lognav li a{
         font-size:1.2em;
         display:block;
-        height:inherit;
         padding:0 10px;
         padding-top:5px;
         color:#c0c0c0;
@@ -1587,14 +1599,15 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 #subnav{
     position:relative;
-    display:inline-block;    
-    left:-50%;
+    display:inline-block;
+    left:-30%;
 }
 
 #subnav li{
      display:block;
      float:left;
-     border-bottom:3px solid #E2E2E2;
+     padding-bottom:3px;
+     background-color:#eeeeee;
 }
 
 #subnav a{
@@ -1602,13 +1615,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     color:#222222;
     text-decoration:none;
     text-align:center;
+    font-size:1.2em;
+    font-weight:bold;
     padding:5px;
     padding-bottom:0;
 }
 
 #subnav li:hover{
-    border-bottom:3px solid red;  
-      
+    background-color: rgba(225, 0, 0, 0.5);
 }
 
 #subnav a:hover{
@@ -1641,11 +1655,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*partners*/
 /****************************************/
-/*Status = to fill*/
+/*Status = meme probleme d'ancre qui va sous le globalheader et qui cache le texte
+que pour la page*/
 
 .partners{}
 .partners section{}
-.partners section h1{}
+.partners section h1{
+    margin-top:50px;
+}
 .partners section p{
     margin-bottom:5px;
 }
@@ -1685,7 +1702,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*partners_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
 
 /*end of partners_nav*/
@@ -1694,7 +1711,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*press*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, très peu d'info mais bon, on est pas la pour faire les scirbes non plus :-) */
 
 .press{}
 .press section{}
@@ -1707,7 +1724,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*register*/
 /****************************************/
-/*Status = to fill*/
+/*Status = espacer le bouton register*/
 
 .register{}
 .register h1{}
@@ -1723,7 +1740,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*user_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = a aligner vite fait!*/
 
 .user_infos{}
 .user_infos section{}
@@ -1738,7 +1755,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*video_player*/
 /****************************************/
-/*Status = to fill*/
+/*Status = mmmh*/
 /*
 Il faut absolument créer le template
 de ce player video ma parole
@@ -1848,7 +1865,7 @@ width:250px;
 
 }
 /*End of Main layout*/   
-}
+
 /*End of Desktops and laptops layout*/
 
 

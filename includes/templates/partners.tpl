@@ -74,18 +74,17 @@
             <article class="span4">
                 <img alt="cavin" src="htdocs/img/content/logo_cavin.png" title="artgraphic | cavin sa"/>
                 <p>
-                    <a href="http://www.imprimeriecavin.ch/" target="_blank">Artgraphic Cavin SA </a> is a small business established in 1928, Cavin Artgraphic Grandson offers art books, brochures, leaflets, city work, digital photos, CD sleeves, and more. Cavin Artgraphic offers all of our printing requirements for TEDxLausanne 2013.    
+                    <a href="http://www.imprimeriecavin.ch/" target="_blank">Artgraphic Cavin SA </a> is a small business established in 1928, Cavin Artgraphic Grandson offers art books, brochures, leaflets, city work, digital photos, CD sleeves, and more. Cavin Artgraphic offers all of our printing requirements for TEDxLausanne 2013.</p>    
             </article>    
 
             <article class="span4">
-                <img alt="hulihealth" src="htdocs/img/content/logo_hulihealth.png" title="HuliHealth" />
-                <p>
-                    Our goal in <a href="http://www.hulihealth.com/" target="_blank">HuliHealth</a> is to bring positive disruption to the global healthcare industry by providing transparency and efficiency. With HuliHealth you can search for a top doctor, read his or her profile, communicate, and book an appointment with ease. All the information you need is at your fingertips: your doctor’s credentials, the price of the care you need, reviews from previous patients, and more. At HuliHealth we’re doing everything we can to close the information gap, move towards total transparency in the health care industry, and get you to your best state of health.         
-                </p>            
+              <img alt="hulihealth" src="htdocs/img/content/logo_hulihealth.png" title="HuliHealth">
+                    <p>Our goal in <a href="http://www.hulihealth.com/" target="_blank">HuliHealth</a> is to bring positive disruption to the global healthcare industry by providing transparency and efficiency. With HuliHealth you can search for a top doctor, read his or her profile, communicate, and book an appointment with ease. All the information you need is at your fingertips: your doctor’s credentials, the price of the care you need, reviews from previous patients, and more. At HuliHealth we’re doing everything we can to close the information gap, move towards total transparency in the health care industry, and get you to your best state of health.         
+                </p>         
             </article> 
 
             <article class="span4">
-                <img alt="Masaba Coffee" src="htdocs/img/content/logo_masaba.png" title="Masaba Coffe for TEDxLausanneChange" />
+                <img alt="Masaba Coffee" src="htdocs/img/content/logo_masaba.png" title="Masaba Coffe for TEDxLausanneChange">
                 <p>
                     <a href="http://masabacoffee.com/" target="_blank">Masaba Coffee</a> helps small farmers in Uganda produce a coffee of excellence, in respect of fair trade and organic agriculture. They are supported by a Swiss NGO in the spirit of entrepreneurship, through investments in training, quality certification and infrastructure. Masaba Coffee will offer us their coffee of excellence during the apero.        
                 </p>            
@@ -108,7 +107,7 @@
     </section>
 
     <!--TEDxLausanne 2013 Partners-->
-    <section id="partners_tedxYear">
+    <section id="partners_tedxYear" class="span12">
         <h1>TEDxLausanne 2013 Partners</h1>
         <p>
             Instead of looking for sponsors who can only contribute financially in exchange for visibility during the event, TEDxLausanne finds partners who actively contribute to making the event a memorable experience.
@@ -182,9 +181,9 @@
             </article>
 
             <article class="span4">                
-                <img alt="cavin" src="htdocs/img/content/logo_prestige.png" title="Prestige enterprise | corporate gifts & leather creations" />
+                <img alt="prestige" src="htdocs/img/content/logo_prestige.jpg" title="Prestige enterprise | corporate gifts & leather creations" />
                 <p>
-                    <a href="http://www.imprimeriecavin.ch/" target="_blank">Prestige-Entreprise</a> is a company specialized in leather creations and corporate gifts, created in 1999 by James Cherian. Prestige Entreprise selects for their customers creative, innovative and harmonious gifts and objects that relay their image, values and message.             
+                    <a href="http://www.prestige-e.com//" target="_blank">Prestige-Entreprise</a> is a company specialized in leather creations and corporate gifts, created in 1999 by James Cherian. Prestige Entreprise selects for their customers creative, innovative and harmonious gifts and objects that relay their image, values and message.             
                 </p>            
             </article>        
 
@@ -209,6 +208,7 @@
                 </p>            
             </article>             
         </section>
+        
         <!--production partners-->
         <section class="span12">
             <h2>Production partners</h2>
