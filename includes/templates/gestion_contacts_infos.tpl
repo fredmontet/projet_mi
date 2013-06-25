@@ -89,7 +89,7 @@ Smarty variables available:
                     {foreach from=$registrations item=registration}
                         <tr>
                             <td>{$registration.event->getMainTopic()}</td>
-                            <td>{$registration.event->getStartingDate()}</td>
+                            <td>{$registration.event->getStartingDate()|date_format:"%d %B %Y"}</td>
                         </tr>
                     {/foreach}
                 {/if}
