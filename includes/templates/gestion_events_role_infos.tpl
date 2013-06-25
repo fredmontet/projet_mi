@@ -12,14 +12,15 @@ Smarty variables available:
         
         $role (Role Object)
 *}
-<article class="gestion_event_role">
-<form name="gestion_event_role" method="post" action="">
+<div class="span6">
+<article class="gestion_events_role_infos">
+    <form name="gestion_events_role_infos" method="post" action="">
             <!--button save-->
-    <fieldset>
-            <input type="hidden" name="action" value="gestion_events_role_send" />
-            <input type="submit" name="gestion_locations_send" value="Save" />
-    </fieldset>
-    <fieldset>
+            <p>
+                <input type="hidden" name="action" value="gestion_events_role_send" />
+                <input type="submit" name="gestion_events_role_send" value="Save" />
+            </p>
+
         <legend>Chose event</legend>   
         <select>
             <option value="{$role->getEventNo()}">Chose event</option>
@@ -27,21 +28,20 @@ Smarty variables available:
                 <option value="{$event.event->getNo()}">{$event.event->getMainTopic()}</option>
             {/foreach}
         </select>
-    </fieldset>
-
-    <fieldset>
-        <legend>Event role name</legend>   
+        <legend>Event role name</legend> 
+       <p>
         <input type="text" name="role" value="{$role->getName()}" />
-    </fieldset> 
-
-    <fieldset>
+       </p>
+        <!--
         <legend>Chose level</legend>   
         <select>
             <option>1</option>
             <option>2</option>
             <option>3</option>
-            <option>4</option>
+            <option>4</option> 
         </select>
-    </fieldset>
-</form>
+        -->
+ 
+    </form>
 </article>
+</div>

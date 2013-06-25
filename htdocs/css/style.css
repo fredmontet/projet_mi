@@ -1182,6 +1182,11 @@ on laisse comme ça ce n'est pas si grave*/
     padding:5px;
 }
 
+.gestion_events_role .scroll{
+    overflow-y:scroll;
+    height:400px;
+}
+
 
 
 /*end of gestion_events_role*/

@@ -11,12 +11,11 @@ Smarty variables available:
 	) [0..1]
 *}
 
-<article class="gestion_events_role span12">
-    
+<article class="gestion_events_role span12"> 
     <div class="span6">
         <!--button new-->
     <a href="?action=gestion_events_role_new" class="theButton">New</a>
-    
+    <div class="scroll">
     	{foreach from=$events item=event}
 	    	<dl>
 	            <dt>{$event.event->getMainTopic()}</dt>
@@ -25,9 +24,9 @@ Smarty variables available:
 				{/foreach}
 	        </dl>
     	{/foreach}
-    
     </div>
+    </div>
+ {$gestionEventsRoleInfos}
 </article>
 
 
-{$gestionEventsRoleInfos}
