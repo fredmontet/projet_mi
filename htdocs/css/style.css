@@ -1144,7 +1144,7 @@ on laisse comme ça ce n'est pas si grave*/
 /****************************************/
 /*gestion_events_role_infos*/
 /****************************************/
-/*Status = to fill*/
+/*Status = to fill, prob bd avec yoann, il y a des erreurs php*/
 
 .gestion_events_role_infos {
     float:right;
@@ -1162,7 +1162,9 @@ on laisse comme ça ce n'est pas si grave*/
 /****************************************/
 /*gestion_events_single*/
 /****************************************/
-/*Status = to fill*/
+/*Status = pas loin d'etre bon, il faut aligner les boutons et 
+styler les bouttons next et précédents, initialement nous voulions 
+mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 
 .gestion_events_single{}
 
