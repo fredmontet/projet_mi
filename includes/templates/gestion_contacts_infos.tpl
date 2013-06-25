@@ -30,6 +30,7 @@ Smarty variables available:
                     <input type="hidden" name="action" value="gestion_contacts_infos" />
                     <input class="buttonSave" type="submit" name="update" value="Save" />
                 </p>
+                <legend>Informations about this person</legend>
                 <p>
                     <label for="firstname">First name </label>
                     <input type="text" name="firstname" value="{$person->getFirstname()}"/>
@@ -40,11 +41,11 @@ Smarty variables available:
                     <input type="text" name="name" value="{$person->getName()}"/>
                     {if $errorState != null && !$errorState.name}<p class="errorvalue">{$errorFormMessage.username}</p>{/if}
                 </p>
-                <p>
+                <div id="troll">
                     <label for="dateOfBirth">Date of birth</label>
                     <input type="date" name="dateOfBirth" value="{$person->getDateOfBirth()}"/>
                     {if $errorState != null && !$errorState.dateOfBirth}<p class="errorvalue">{$errorFormMessage.dateOfBirth}</p>{/if}
-                </p>
+                </div>
                 <p>
                     <label for="email">Email</label>
                     <input type="email" name="email" value="{$person->getEmail()}"/>
@@ -72,42 +73,48 @@ Smarty variables available:
                 </p>
                 <p>
                     <label for="description">Description </label>
-                    <textarea type="text" name="description" rows="4" cols="8">{$person->getDescription()}</textarea>
+                    <textarea type="text" name="description">{$person->getDescription()}</textarea>
                 </p>
             </fieldset>
-
+            <legend>Event's participation</legend>
             <table>
                 <tr>
-                    <th>Event's participation</th>
+                    <th>Title of event</th>
+                    <th>Date of event</th>
                 </tr>
+                
                 {if $registrations != null}
                     {foreach from=$registrations item=registration}
                         <tr>
                             <td>{$registration.event->getMainTopic()}</td>
+                            <td>{$registration.event->getStartingDate()}</td>
                         </tr>
                     {/foreach}
                 {/if}
             </table>
-
+           <legend>Event's talk</legend>
             <table>
                 <tr>
-                    <th>Event's talk</th>
+                    <th>Title of the talk</th>
+                    <th>Title of the event</th>
                 </tr>
-            {foreach from=$talks item=talk}
-                <tr>
-                    <td>{$talk.talk->getVideoTitle()}</td>
-                    <td>{$talk.event->getMainTopic()}</td>
-                </tr>
-            {/foreach}
+                {foreach from=$talks item=talk}
+                    <tr>
+                        <td>{$talk.talk->getVideoTitle()}</td>
+                        <td>{$talk.event->getMainTopic()}</td>
+                    </tr>
+                {/foreach}
             </table>
-
+            <legend>Event's organization</legend>
             <table>
                 <tr>
-                    <th>Event's organization</th>
+                    <th>Title of event</th>
+                    <th>Role in the event</th>
                 </tr>
                 {if $roles != null}
                     {foreach from=$roles item=role}
                         <tr>
+                            <td>Title of event</td>
                             <td>{$role->getName()}</td>
                         </tr>
                     {/foreach}
