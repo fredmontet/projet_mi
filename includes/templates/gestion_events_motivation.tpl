@@ -13,9 +13,10 @@ Smarty variables available:
 *}
 <article class="gestion_events_motivation span12">
     
-    <section class="span12">
-	{foreach from=$registrations item=registration}
-            <h1>{$registration.person->getName()}</h1>
+    {foreach from=$registrations item=registration}  
+        
+        <section class="span8">
+	    <h1>{$registration.person->getName()}</h1>
             <p>			
 			{$registration.registration->getStatus()}
                         
@@ -26,19 +27,17 @@ Smarty variables available:
                                 <p>There is no entry for the motivation</p>
 			{/foreach}   
            </p>
-      
+        </section>    
            
-      <section class="span12">
+        <section class="span4">
             <ul>
                 <li><a href="?action=motivation_refuse">REFUSE</a></li
                 <li><a href="?action=motivation_wait">WAIT</a></li>
                 <li><a href="?action=motivation_accpet">ACCEPT</a></li>
             </ul>
-      </section>
+        </section>
            
-      </section>
-           
-	{foreachelse}
+        {foreachelse}
             <p>There is no entry for the whole participant</p>
 	{/foreach}
         
