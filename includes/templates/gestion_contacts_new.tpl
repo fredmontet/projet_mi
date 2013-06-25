@@ -5,7 +5,7 @@ Smarty variables available:
 	$errorState (Array of status about uncorrect values)
 *}
 
-<article class="gestion_contacts_new">
+<article class="gestion_contacts_new offset2 span8">
     <form id="contact" method="post" action="">
        <fieldset> 
 	        <p>
