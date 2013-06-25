@@ -390,11 +390,13 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = Il faut faire que les quand on clic sur la nav les ancres montes plus bas*/
 
+.about {}
+
 .about section{
         margin-top:50px;
 }
-.about h1{}
-.about p{
+.about section h1{}
+.about section article {
     -moz-column-count:3; /* Firefox */
     -webkit-column-count:3; /* Safari and Chrome */
     column-count:3;
@@ -402,15 +404,14 @@ and (min-width : 1224px) {
     -moz-column-gap:20px; /* Firefox */
     -webkit-column-gap:20px; /* Safari and Chrome */
     column-gap:20px;
-    
-    text-align:justify;
-    margin-bottom: 20px;
 }
-.about img{
-    margin:50px; 
+.about section article p{
+    margin-bottom:20px;
+}
+.about section img{
+    margin-top:50px; 
     padding:1px;
-    border-radius:3px;
-    border:1px solid #222222;
+
     display:block;
     margin-right:auto;
     margin-left:auto; 
