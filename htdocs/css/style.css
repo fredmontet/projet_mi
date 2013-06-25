@@ -720,33 +720,18 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .gestion_contacts_infos .buttonSave{
     display:inline-block;
     width:160px;
-    float:right;
-    margin-top:-50px;
+    margin-top: -50px;
 }
 
 .gestion_contacts_infos form{
-    margin-top:80px;
-    
-}
-
-.gestion_contacts_infos form #troll{
-    float:left;
-    width:100%;
-}
-.gestion_contacts_infos form #troll input{
-    width:64.5%;
-    float:right;
-}
-
-.gestion_contacts_infos form #troll label{
-    float:left;
-    width:20%;
+    margin-top:20px;
 }
 
 .gestion_contacts_infos form p label{
     font-size:1.2em;
-    width:20%;
+    width:25%;
 }
+
 .gestion_contacts_infos form p input{
     float:right;
     width:65%;
@@ -757,6 +742,16 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     width:65%;
     height:300px;
     margin-top:2px;
+}
+
+.gestion_contacts_infos form legend{ 
+    margin-top:25px;
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_infos table{
+    width:100%;
 }
 
 .gestion_contacts_infos table tr{
@@ -773,14 +768,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-size:1.2em;
 }
 
-.gestion_contacts_infos form tr th{
-}
-
-.gestion_contacts_infos form legend{ 
-    margin-top:25px;
-    font-size:2em;
-    font-weight:bold;
-}
 
 .gestion_contacts_infos form fieldset legend{
     font-size:2em;
@@ -791,9 +778,10 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-size:1.2em;
 }
 
-.gestion_contacts_infos table{
-    width:100%;
+.gestion_contacts_infos form fieldset ul{
+    list-style-type: none;
 }
+
 
 /*end of gestion_contacts_infos*/
 
@@ -871,7 +859,7 @@ etre bonne aussi.*/
     margin-top: -50px;
 }
 .gestion_contacts_new form {
-    margin-top:80px;
+    margin-top:50px;
 }
 
 .gestion_contacts_new form fieldset{}
