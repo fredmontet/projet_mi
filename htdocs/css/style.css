@@ -705,18 +705,18 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 
 .gestion_contacts_infos form p label{
-    font-size:1.2em;
+    font-size:1em;
     width:25%;
 }
 
 .gestion_contacts_infos form p input{
     float:right;
-    width:65%;
+    width:70%;
 }
 
 .gestion_contacts_infos form p textarea{
     float:right;
-    width:65%;
+    width:70%;
     height:300px;
     margin-top:2px;
 }
@@ -782,7 +782,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .gestion_contacts_list table tr th{
     font-weight:bold;
     font-size:1em; 
-    background-color:#E0E0E0;
+    background-color:#C0C0C0;
     padding:16px;
     border-bottom:3px solid white;
 }
@@ -849,12 +849,12 @@ etre bonne aussi.*/
 
 .gestion_contacts_new form fieldset p input{
     float:right;
-    width:65%;
+    width:70%;
 }
 
 .gestion_contacts_new form fieldset p textarea{
     float:right;
-    width:65%;
+    width:70%;
     height:300px;
     margin-top:2px;
 }
