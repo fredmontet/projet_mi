@@ -1780,13 +1780,73 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /*Status = a aligner vite fait!*/
 
 .user_infos{
-    margin-top:10px;
+    margin-top:50px;
 }
-.user_infos section{}
-.user_infos section form{}
-.user_infos section form p{}
-.user_infos section form p label{}
-.user_infos section form p input{}
+.user_infos section{
+   
+}
+.user_infos section form{
+    
+}
+.user_infos section form p{
+     
+}
+.user_infos section form p label{
+    font-size:1em;
+    width:30%;
+}
+.user_infos section form p input{
+    float:right;
+    width:70%;
+}
+
+.user_infos .buttonSaveModif{
+    display:block;
+    background-color:rgba(255,0,0,1);
+    width:200px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1.3em; 
+    border:2px solid #ff0000;
+    float:right;
+    margin-bottom:0px;
+   }
+   
+.user_infos .buttonSaveModif:hover{
+    color:#ff0000;
+    border:2px solid #ff0000;
+    background-color:white;
+   }
+   
+.user_infos .buttonSavePwd{
+    display:block;
+    background-color:rgba(255,0,0,1);
+    width:220px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1.3em; 
+    border:2px solid #ff0000;
+    float:right;
+   }
+   
+.user_infos .buttonSavePwd:hover{
+    color:#ff0000;
+    border:2px solid #ff0000;
+    background-color:white;
+   }
+
+.user_infos form p textarea{
+    float:right;
+    width:70%;
+    height:300px;
+    margin-top:2px;
+}
 
 /*end of user_infos*/
 
