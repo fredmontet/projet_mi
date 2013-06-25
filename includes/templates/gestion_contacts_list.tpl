@@ -10,25 +10,14 @@ Smarty variables available:
 	) [0..1]
 *}
 
-<article class="gestion_contacts_list">
-    <header class="gestion_subnav">
-        <nav>
-            <ul>
-                <li><a href="#all">all</a></li>
-                <li><a href="#teamTEDx">Team TEDx</a></li>
-                <li><a href="#teamEvent">Team Event</a></li>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#participants">Participants</a></li>
-            </ul>
-        </nav>
-    </header>
+<article class="gestion_contacts_list offset2 span8">
+    
    <table>
    		<tr>
 	   		<th>Firstname</th>
 	   		<th>Name</th>
-	   		<th>Organizer</th>
-	   		<th>Speaker</th>
-	   		<th>Participant</th>
+                        <th colspan=3>Team Role of TEDx'member</th>
+	   		
    		</tr>
 		{foreach from=$contacts item=contact}
 			<tr>
