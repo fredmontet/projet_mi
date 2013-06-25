@@ -6,6 +6,7 @@ Smarty variables available:
 *}
 
 <article class="gestion_contacts_new offset2 span8">
+
     <form id="contact" method="post" action="">
        <fieldset> 
 	        <p>
@@ -58,6 +59,7 @@ Smarty variables available:
 	            <textarea type="text" name="description" rows="4" cols="26"></textarea>
 	        </p>
 		</fieldset>
+
         <fieldset>
             <legend>Role in TEDx</legend>   
 	        <p>
