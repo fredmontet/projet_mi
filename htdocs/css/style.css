@@ -392,7 +392,7 @@ and (min-width : 1224px) {
 /*Status = Il faut faire que les quand on clic sur la nav les ancres montes plus bas*/
 
 .about section{
-        margin:50px;
+        margin-top:50px;
 }
 .about h1{}
 .about p{
@@ -405,7 +405,7 @@ and (min-width : 1224px) {
     column-gap:20px;
     
     text-align:justify;
-
+    margin-bottom: 20px;
 }
 .about img{
     margin:50px; 
@@ -414,8 +414,7 @@ and (min-width : 1224px) {
     border:1px solid #222222;
     display:block;
     margin-right:auto;
-    margin-left:auto;
-       
+    margin-left:auto; 
 }
 
 /*end of about*/
@@ -1660,19 +1659,20 @@ que pour la page*/
 
 .partners{}
 .partners section{}
+.partners section p{
+    text-align:justify;
+    margin-bottom:10px;
+}
 .partners section h1{
     margin-top:50px;
 }
-.partners section p{
-    margin-bottom:5px;
+.partners section h2{}
+.partners section article p{
+    text-align:justify;
+    margin-bottom:10px;
 }
+.partners section article p img{}
 
-.partners section .spec{
-    margin-bottom:30px;
-}
-.partners section #spec{
-    margin-bottom:30px;
-}
 .partners section p a{
     color: red;
     text-decoration: none;
