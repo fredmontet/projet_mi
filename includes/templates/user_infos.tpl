@@ -1,8 +1,13 @@
 <!--all user informations-->
-<article class="user_infos">
+<article class="user_infos span12">
     <!--modification informations form-->
-    <section>
+    <section class="span6">
         <form name="user_infos" method="post" action="">
+            <!--save modification button-->
+            <p>
+                <input type="hidden" name="action" value="user_infos_send" />
+                <input class="buttonSaveModif" type="submit" name="user_infos_send" value="Save Modification" />
+            </p>
             <!--firstname-->
             <p>
                 <label for="user_name">First name</label>
@@ -26,7 +31,7 @@
             <!--phoneNumber-->
             <p>
                 <label for="user_phoneNumber">Phone number</label>
-                <input type="number" name="user_phoneNumber" value="Phone number"/>
+                <input type="text" name="user_phoneNumber" value="Phone number"/>
             </p>
             <!--address-->
             <p>
@@ -48,18 +53,19 @@
                 <label for="user_description">Description</label>
                 <textarea type="text" name="user_description" value="Description" rows="4" cols="26"></textarea>
             </p>
-            <!--save modification button-->
-            <p>
-                <input type="hidden" name="action" value="user_infos_send" />
-                <input type="submit" name="user_infos_send" value="Save Modification" />
-            </p>
+            
         </form>  
     </section>
     <!--end modification informations form-->
     
     <!--new password form-->
-    <section>
+    <section class="span6">
         <form name="user_password" method="post" action="">
+            <!--save new password button-->
+            <p>
+                <input type="hidden" name="action" value="user_infos_password" />
+                <input class="buttonSavePwd" type="submit" name="user_infos_password" value="Save New Password" />
+            </p>
             <!--firstname-->
             <p>
                 <label for="current_password">Current Password</label>
@@ -75,11 +81,7 @@
                 <label for="repeat_new_password">Repeat New Password</label>
                 <input type="text" name="repeat_new_password" value="repeat_new_password"/>
             </p>
-            <!--save new password button-->
-            <p>
-                <input type="hidden" name="action" value="user_infos_password" />
-                <input type="submit" name="user_infos_password" value="Save New Password" />
-            </p>
+            
         </form>  
     </section>
     <!--end new password form-->
