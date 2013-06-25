@@ -1169,7 +1169,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 .gestion_events_single nav{
     display:inline-block;
     margin-bottom:20px;
-    margin-top:5px;
+    margin-top:20px;
     position:relative;
     left:0%;
 }
@@ -1536,6 +1536,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 #subnav{
     position:relative;
     display:inline-block;
+    left:-30%;
 }
 
 #subnav li{
@@ -1594,7 +1595,9 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 
 .partners{}
 .partners section{}
-.partners section h1{}
+.partners section h1{
+    margin-top:50px;
+}
 .partners section p{
     margin-bottom:5px;
 }
