@@ -1688,43 +1688,45 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 que pour la page*/
 
 .partners{}
+
 .partners section{}
+.partners section h1{
+    margin-top:50px;
+}
 .partners section p{
     text-align:justify;
     margin-bottom:10px;
 }
-.partners section h1{
-    margin-top:50px;
-}
-.partners section h2{}
-.partners section article p{
-    text-align:justify;
-    margin-bottom:10px;
-}
-.partners section article p img{}
 
 .partners section p a{
     color: red;
     text-decoration: none;
 }
-
 .partners section p a:hover{
   color: #c0c0c0;
   text-decoration:none;
 }
-.partners section section{}
-.partners section section h2{}
-.partners section section .debut{
-    margin-top:30px;
+.partners section article h2{}
+.partners section article p{
+    text-align:justify;
+    margin-bottom:20px;
 }
+.partners section article p img{}
+
+.partners section article p a{
+    color: red;
+    text-decoration: none;
+}
+.partners section article p a:hover{
+  color: #c0c0c0;
+  text-decoration:none;
+}
+
 .partners section section article{}
 .partners section section article img{
     margin-bottom:10px;
 }
-.partners section section article p{
-    margin-bottom:30px;
-}
-.partners section section article p a{}
+#partners_tedxChange, #partners_tedxYear
 
 /*end of partners*/
 
@@ -1734,7 +1736,6 @@ que pour la page*/
 /****************************************/
 /*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
-
 /*end of partners_nav*/
 
 

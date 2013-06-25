@@ -112,7 +112,7 @@
 
     <!--TEDxLausanne 2013 Partners-->
     <section id="partners_tedxYear" class="span12">
-        <h1>TEDxLausanne 2013 Partners</h1>
+        <h1 class="vspace">TEDxLausanne 2013 Partners</h1>
         <article>
             <p>
                 Instead of looking for sponsors who can only contribute financially in exchange for visibility during the event, TEDxLausanne finds partners who actively contribute to making the event a memorable experience.
