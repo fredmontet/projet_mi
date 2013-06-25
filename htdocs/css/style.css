@@ -1105,6 +1105,8 @@ and (min-width : 1224px) {
 .gestion_events_single{}
 
 .gestion_events_single form{}
+
+/*nav*/
 .gestion_events_single nav{
     display:inline-block;
     margin-bottom:20px;
@@ -1129,36 +1131,39 @@ and (min-width : 1224px) {
 .gestion_events_single nav ul li a:hover{
     color:#c0c0c0;
 }
+/*end of nav*/
 
-.gestion_events_single form fieldset{}
-.gestion_events_single form fieldset legend{
+.gestion_events_single form input{}
+
+/*gestion_events_single_infos*/
+.gestion_events_single form #gestion_events_single_infos{}
+.gestion_events_single form #gestion_events_single_infos legend{
     display:inline-block;
     float:left;
     width:30%;
     font-size:1.5em;
 }
-.gestion_events_single form fieldset #error{
-    float:left;
-    width:100%;
-}
-.gestion_events_single form fieldset input{
+.gestion_events_single form #gestion_events_single_infos input{
     display:block;
     float:right;
     width:68%;
 }
+.gestion_events_single form #gestion_events_single_infos #troll{
+    float:left;
+    width:100%;
+}
+.gestion_events_single form #gestion_events_single_infos textarea{
+    margin-top:0px;
+    width:68%;
+}
+.gestion_events_single form #gestion_events_single_infos legend table{}
+.gestion_events_single form #gestion_events_single_infos legend table tr{}
+.gestion_events_single form #gestion_events_single_infos legend table td{}
+.gestion_events_single form #gestion_events_single_infos legend table td select{}
+.gestion_events_single form #gestion_events_single_infos legend table td select option{}
+.gestion_events_single form #gestion_events_single_infos a{}
+/*end of gestion_events_single_infos*/
 
-.gestion_events_single form input{}
-
-.gestion_events_single form #gestion_events_single_infos{}
-.gestion_events_single form #gestion_events_single_infos fieldset{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend{}
-.gestion_events_single form #gestion_events_single_infos fieldset textarea{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend table{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend table tr{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend table td{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend table td select{}
-.gestion_events_single form #gestion_events_single_infos fieldset legend table td select option{}
-.gestion_events_single form #gestion_events_single_infos fieldset a{}
 .gestion_events_single form #gestion_events_single_details{}
 .gestion_events_single form #gestion_events_single_details fieldset{}
 .gestion_events_single form #gestion_events_single_details fieldset legend{}

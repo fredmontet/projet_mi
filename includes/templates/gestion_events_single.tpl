@@ -20,31 +20,30 @@ $gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
             </ul>
         </nav>
 
-        <!--date-->
-        <div class="offset1 span10">
-            <fieldset>
-                <legend>Starting date</legend>
-                <input type="date" name="startingDate" value="14april2013"/>
-                <div id="error"><legend>Ending date</legend>
-                    <input type="date" name="endingDate" value="17april2013"/></div>
-                <legend>Title</legend>                    
-                <input type="title" name="mainTopic" value="title of event" />
-            </fieldset>            
-
-            <!--button save-->
+        <!--button save-->
+        <div class="span12">
             <input type="hidden" name="id" value="{if $event != null}{$event->getNo()}{/if}" />
             <input type="hidden" name="action" value="gestion_events_single" />
             <input type="submit" name="update" value="Save" />
         </div>
 
-        <!--gestion_events_single_infos-->
-        <fieldset id="gestion_events_single_infos">
-            <fieldset>
-                <legend>Programme</legend>
-                <textarea type="text" name="programme">Please edit programme if not already edited</textarea>
-            </fieldset>
+        <div class="offset1 span10">
+            <!--date-->
+            <fieldset id="gestion_events_single_infos">
+                <legend>Starting date</legend>
+                <input type="date" name="startingDate" value="14april2013"/>
+                <!--problem with css solved with this div-->
+                <div id="troll">
+                    <legend>Ending date</legend>
+                    <input type="date" name="endingDate" value="17april2013"/>
+                </div>
+                <legend>Title</legend>                    
+                <input type="title" name="mainTopic" value="title of event" />
+                <div id="troll">
+                    <legend>Programme</legend>
+                    <textarea type="text" name="programme">Please edit programme if not already edited</textarea>
+                </div>
 
-            <fieldset>
                 <legend>Schedule</legend>
                 <table>
                     <tr>
@@ -64,33 +63,35 @@ $gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
                     </tr>
                 </table>
             </fieldset>
-        </fieldset>
 
-        <!--navigation buttons-->
-        <a href="#gestion_events_single_details">next</a>
-        <!--end of gestion_events_single_infos-->
+            <!--add slot button-->
+            <input type="hidden" name="action" value=""/>
+            <input type="submit" name="add_slot" value="Add a slot" />
 
-        <!--gestion_events_single_details-->
-        <fieldset id="gestion_events_single_details">
-            <fieldset>
+            <!--navigation buttons-->
+            <a href="#gestion_events_single_details">next</a>
+
+            <!--end of gestion_events_single_infos-->
+
+            <!--gestion_events_single_details-->
+            <fieldset id="gestion_events_single_details">
                 <legend>Location</legend>
                 <select>
                     <option>Affect a location</option>
                 </select>
-            </fieldset>
-            <fieldset>
-                <legend>Dress code</legend>
-                <textarea type="text">Please edit dress code if not already edited</textarea>
-            </fieldset>
-            <fieldset>
+                <div id="troll"
+                     <legend>Dress code</legend>
+                    <textarea>Please edit dress code if not already edited</textarea>
+                </div>
                 <legend>Language</legend>
                 <textarea type="text">Please edit language if not already edited</textarea>
             </fieldset>
-        </fieldset>
-        <!--navigation buttons-->
-        <a href="#gestion_events_single_infos">previous</a>
-        <a href="#gestion_events_single_speaker">next</a>
-        <!--end of gestion_events_single_details-->
+            <!--navigation buttons-->
+            <a href="#gestion_events_single_infos">previous</a>
+            <a href="#gestion_events_single_speaker">next</a>
+            <!--end of gestion_events_single_details-->
+        </div>
+
 
         <!--gestion_events_single_speaker-->
         <fieldset id="gestion_events_single_speaker">
@@ -121,7 +122,6 @@ $gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
         <!--navigation buttons-->
         <a href="#gestion_events_single_details">previous</a>
         <a href="#gestion_events_single_team">next</a>
-
         <!--end of speaker-->
 
         <!--gestion_events_single_team-->
@@ -148,7 +148,6 @@ $gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
         <!--navigation buttons-->
         <a href="#gestion_events_single_speaker">previous</a>
         <!--end of add organizer-->
-
     </form>
 </article>
 
