@@ -1,3 +1,4 @@
+
 {*
 Smarty variables available:
 	$teamRoles (Array of Object) [0..1]
@@ -15,6 +16,17 @@ Smarty variables available:
         		<dt><a href="?action=gestion_contacts_role_infos&id={$teamRole->getName()}">{$teamRole->getName()}</a></dt>
         	{/foreach}
         </dl> 
+        <dl>
+            <dt>Admin Staff</dt>  
+            <dd>Receptionist</dd>
+            <dd>Joker</dd>  
+        </dl>
+        <dl>
+            <dt>RootName</dt>  
+            <dd>Iron Man</dd>
+            <dd>Jedi</dd>
+            <dd>Water Man</dd>  
+        </dl>
    </ul>
 </article>
 {$gestionContactsRoleInfos}
