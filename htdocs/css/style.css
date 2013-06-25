@@ -1025,15 +1025,12 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 .gestion_events_mail{}
 
 .gestion_events_mail section{}
-.gestion_events_mail section .gestion_events_mail_nav{
+.gestion_events_mail_nav{
     width:100%;
     margin-top:30px;
     margin-bottom:30px;
 }
-.gestion_events_mail section .gestion_events_mail_nav:hover{
-   
-}
-.gestion_events_mail section .gestion_events_mail_nav a{}
+
 .gestion_events_mail section ul{
     display:inline-block;
     width:100%;
@@ -1051,6 +1048,20 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 .gestion_events_mail section ul li div{
     float:right;
     font-weight:bold;
+}
+.gestion_events_mail section nav a{
+    display:inline block;   
+    color:rgba(255,0,0,1);
+    text-decoration:none;
+    text-align:center;
+    font-size:1.8em;
+    padding:5px;
+    padding-bottom:0;
+    
+}
+.gestion_events_mail section nav a:hover{
+    color:#c0c0c0;
+    
 }
 .gestion_events_mail section ul li a{}
 .gestion_events_mail #refused{}

@@ -12,14 +12,15 @@ $registrations (Array [Registrations] => Array
     <!--list participants tab-->
     <section>
         <!--mail nav -->
-        <nav class="gestion_events_mail_nav offset2 span6">
+        
+      <!--  <nav class="gestion_events_mail_nav offset2 span6">
             <a href="#refused">Refused</a>
             <a href="#waiting">Waiting</a>
             <a href="#accepted">Accepted</a>
         </nav>
-
+      -->
+        
         <section id="refused" class="span6">
-
                 {foreach from=$registrations item=registration}
                     <ul>
                         <li><a href="?action=gestion_events_mail_edit">
@@ -32,7 +33,9 @@ $registrations (Array [Registrations] => Array
                 {foreachelse}
                     <p>There is no entry</p>
                 {/foreach}
+    
             </section>
+        
     </section>
 
     {$gestionEventsMailEdit}
