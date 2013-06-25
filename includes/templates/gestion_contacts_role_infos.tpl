@@ -12,7 +12,7 @@ Smarty variables available:
         <p>
             <input type="hidden" name="id" value="{$isTeamRole->getName()}" />
             <input type="hidden" name="action" value="gestion_contacts_role_infos" />
-            <input type="submit" name="update" value="Save" />
+            <input class="buttonRoleInfos" type="submit" name="update" value="Save" />
         </p>
         <h1>Team role</h1>             
         <p>

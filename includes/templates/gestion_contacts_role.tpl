@@ -8,10 +8,9 @@ Smarty variables available:
 
 <article class="gestion_contacts_role offset1 span10">
     <section class="span4">
-        <header>  
-        <a class="buttonRole" href="?action=gestion_contacts_role_new">New</a>
-        </header>
-        
+        <p>  
+            <a class="buttonRole" href="?action=gestion_contacts_role_new">New</a>
+        </p>
         <h1>Actual team role</h1>     
         <ul> 
             {foreach from=$teamRoles item=teamRole}
