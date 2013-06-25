@@ -7,10 +7,17 @@ Smarty variables available:
 			[Event] => Event Object
 		)
 	) [0..1]
+	$talks (Array [Talks] => Array
+		(	
+			[Talk] => Talk Object
+			[Event] => Event Object
+		)
+	) [0..1]
 	$roles (Array of Object) [0..1]
 	$teamRoles (Array of Object) [0..1]
 	$errorState (Array of status about uncorrect values)
 	$errorFormMessage (Array of error Formular message)
+	$isTeamRole (Object of TeamRole)
 *}
 
 <article class="gestion_contacts_infos">
@@ -69,24 +76,30 @@ Smarty variables available:
 		            <textarea type="text" name="description" rows="4" cols="26">{$person->getDescription()}</textarea>
 		        </p>
 			</fieldset>
+			
 	        <table>
 	        	<tr>
 	        		<th>Event's participation</th>
 	        	</tr>
-	        	{foreach from=$registrations item=registration}
-	        		<tr>
-	        			<td>{*$if $registration.event != null}{$registration.event->getMainTopic()}{/if*}</td>
-	        		</tr>
-	            {/foreach}
+	        	{if $registrations != null}
+		        	{foreach from=$registrations item=registration}
+		        		<tr>
+		        			<td>{$registration.event->getMainTopic()}</td>
+		        		</tr>
+		            {/foreach}
+	            {/if}
 	        </table>
 	           
 	        <table>
 	        	<tr>
 	        		<th>Event's talk</th>
 	        	</tr>
-	            <tr>
-	            	<td>Title of event</td>
-	            </tr>
+            	{foreach from=$talks item=talk}
+            		<tr>
+            			<td>{$talk.talk->getVideoTitle()}</td>
+						<td>{$talk.event->getMainTopic()}</td>
+            		</tr>
+            	{/foreach}
 	        </table>
 	        
 	        <table>
@@ -105,13 +118,12 @@ Smarty variables available:
 	        <fieldset>
 	            <legend>Role in TEDx</legend>   
 		        <p>
-		            <select name="teamRoleAffect" size="1">
-		            	{if $teamRoles != null}
-			            	{foreach from=$teamRoles item=teamRole}
-			            		<option selected value="{$teamRole->getName()}">{$teamRole->getName()}</option>
-			            	{/foreach}
-			            {/if}
-		            </select>  
+		            
+	            	{if $teamRoles != null}
+		            	{foreach from=$teamRoles item=teamRole}
+							<input {if $isTeamRole != null}{if in_array($teamRole, $isTeamRole)}checked="yes"{/if}{/if} type="checkbox" name="teamrole" value="{$teamRole->getName()}">{$teamRole->getName()}<br>
+		            	{/foreach}
+		            {/if}
 		        </p>
 	        </fieldset>
         </form>

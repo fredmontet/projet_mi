@@ -1,8 +1,9 @@
 {*
 Smarty variables available:
-	$location (Object)
+ $location (Object)
 *}
 
+<div class="span6">
 <!--form to create new locations-->
 <article class="gestion_locations_infos">
     <!--add form location-->
@@ -43,3 +44,4 @@ Smarty variables available:
    </form>
    <!--end add form location-->         
 </article>
+</div>

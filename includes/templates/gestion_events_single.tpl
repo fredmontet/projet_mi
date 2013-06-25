@@ -1,46 +1,49 @@
 {*
 Smarty variables available:
-	$event (Object)
-	$location (Object) [0..1]
-	$slots (Object) [0..1]
-	$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
-	$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
+$event (Object)
+$location (Object) [0..1]
+$slots (Object) [0..1]
+$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+$gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
 *}
 
-<article class="gestion_events_single offset1 span10">
+<article class="gestion_events_single">
     <form id="" method="post" action="">
-
-        <!--gestion event single header-->
-        <!--date-->
-        <fieldset>
-            <legend>date</legend>
-            <input type="date" name="date" value="14april2013"/>
-            <legend>title</legend>                    
-            <input type="title" name="title" value="title of event" />
-        </fieldset>
+        <!--gestion_events_single subnav -->
+        <nav class="offset3 span6">
+            <ul>
+                <li><a href="#gestion_events_single_infos">Infos</a></li>
+                <li><a href="#gestion_events_single_details">Details</a></li>
+                <li><a href="#gestion_events_single_speaker">Speaker</a></li>
+                <li><a href="#gestion_events_single_team">Team</a></li>  
+                <li><a href="?action=gestion_event_export">Export</a></li>
+            </ul>
+        </nav>
 
         <!--button save-->
-        <input type="hidden" name="action" value="gestion_events_send" />
-        <input type="submit" name="submit_send" value="Save" />
+        <div class="span12">
+            <input type="hidden" name="id" value="{if $event != null}{$event->getNo()}{/if}" />
+            <input type="hidden" name="action" value="gestion_events_single" />
+            <input type="submit" name="update" value="Save" />
+        </div>
 
-        <!--single nav -->
-        <nav class="gestion_events_nav">
-            <a href="#gestion_events_single_infos">Infos</a>
-            <a href="#gestion_events_single_details">Details</a>
-            <a href="#gestion_events_single_speaker">Speaker</a>
-            <a href="#gestion_events_single_team">Team</a>  
-            <a href="?action=gestion_event_export">Export</a> 
-        </nav>
-        <!--end gestion event single header-->
+        <div class="offset1 span10">
+            <!--date-->
+            <fieldset id="gestion_events_single_infos">
+                <legend>Starting date</legend>
+                <input type="date" name="startingDate" value="14april2013"/>
+                <!--problem with css solved with this div-->
+                <div id="troll">
+                    <legend>Ending date</legend>
+                    <input type="date" name="endingDate" value="17april2013"/>
+                </div>
+                <legend>Title</legend>                    
+                <input type="title" name="mainTopic" value="title of event" />
+                <div id="troll">
+                    <legend>Programme</legend>
+                    <textarea type="text" name="programme">Please edit programme if not already edited</textarea>
+                </div>
 
-        <!--gestion_events_single_infos-->
-        <fieldset id="gestion_events_single_infos">
-            <fieldset>
-                <legend>Programme</legend>
-                <textarea type="text" name="programme">Please edit programme if not already edited</textarea>
-            </fieldset>
-
-            <fieldset>
                 <legend>Schedule</legend>
                 <table>
                     <tr>
@@ -54,39 +57,41 @@ Smarty variables available:
                         <td>Slot 1</td>
                     </tr>
                     <tr>
-                    	<td></td>
+                        <td></td>
                         <td>17:00</td>
                         <td>End</td>
                     </tr>
                 </table>
             </fieldset>
-        </fieldset>
 
-        <!--navigation buttons-->
-        <a href="#gestion_events_single_details">next</a>
-        <!--end of gestion_events_single_infos-->
+            <!--add slot button-->
+            <input type="hidden" name="action" value=""/>
+            <input type="submit" name="add_slot" value="Add a slot" />
 
-        <!--gestion_events_single_details-->
-        <fieldset id="gestion_events_single_details">
-            <fieldset>
+            <!--navigation buttons-->
+            <a href="#gestion_events_single_details">next</a>
+
+            <!--end of gestion_events_single_infos-->
+
+            <!--gestion_events_single_details-->
+            <fieldset id="gestion_events_single_details">
                 <legend>Location</legend>
                 <select>
                     <option>Affect a location</option>
                 </select>
-            </fieldset>
-            <fieldset>
-                <legend>Dress code</legend>
-                <textarea type="text">Please edit dress code if not already edited</textarea>
-            </fieldset>
-            <fieldset>
+                <div id="troll"
+                     <legend>Dress code</legend>
+                    <textarea>Please edit dress code if not already edited</textarea>
+                </div>
                 <legend>Language</legend>
                 <textarea type="text">Please edit language if not already edited</textarea>
             </fieldset>
-        </fieldset>
-        <!--navigation buttons-->
-        <a href="#gestion_events_single_infos">previous</a>
-        <a href="#gestion_events_single_speaker">next</a>
-        <!--end of gestion_events_single_details-->
+            <!--navigation buttons-->
+            <a href="#gestion_events_single_infos">previous</a>
+            <a href="#gestion_events_single_speaker">next</a>
+            <!--end of gestion_events_single_details-->
+        </div>
+
 
         <!--gestion_events_single_speaker-->
         <fieldset id="gestion_events_single_speaker">
@@ -109,15 +114,14 @@ Smarty variables available:
             </p>
         </fieldset>
         <!--add speaker button-->
-        <input type="hidden" name="action" value="add_speaker_to_slot">
+        <input type="hidden" name="action2" value="add_speaker_to_slot">
         <input type="submit" name="submit_speaker" value="Add speaker">
         <!--add slot button-->
-        <input type="hidden" name="action" value="add_slot">
+        <input type="hidden" name="action3" value="add_slot">
         <input type="submit" name="submit_slot" value="Add slot">
         <!--navigation buttons-->
         <a href="#gestion_events_single_details">previous</a>
         <a href="#gestion_events_single_team">next</a>
-
         <!--end of speaker-->
 
         <!--gestion_events_single_team-->
@@ -138,13 +142,12 @@ Smarty variables available:
             </p>
         </fieldset>
         <!--button-->
-        <input type="hidden" name="action" value="add_organizer_to_event">
+        <input type="hidden" name="action4" value="add_organizer_to_event">
         <input type="submit" name="submit_add" value="Add organizer">
 
         <!--navigation buttons-->
         <a href="#gestion_events_single_speaker">previous</a>
         <!--end of add organizer-->
-
     </form>
 </article>
 

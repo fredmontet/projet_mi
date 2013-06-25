@@ -1,27 +1,31 @@
 {*
 Smarty variables available:
-	$registrations (Array [Registrations] => Array
-		(	
-			[Registration] => Registration Object
-			[Person] => Person Object
-		)
-	) [0..1]
+$registrations (Array [Registrations] => Array
+(	
+[Registration] => Registration Object
+[Person] => Person Object
+)
+) [0..1]
 *}
-<form class="gestion_events_mail_edit" method="post" action="">
-    <!--adress mail-->
-    <fieldset>
-        <legend for="to">To</legend>
-        <select>
-            <option>participant e_mail</option>
-        </select>
-    </fieldset>
 
-    <!--send email button-->
-    <input type="hidden" name="action" value="mail_send" />
-    <input type="submit" name="submit_send" value="Send" />
+<div class="span6">
+    <form class="gestion_events_mail_edit" method="post" action="">
 
-    <fieldset>
-        <legend>Subject</legend>
-        <textarea>Hi ! You have been refused. Best Regards TEDx Lausanne</textarea>
-    </fieldset>
-</form>
+        <!--send email button-->
+        <input type="hidden" name="action" value="mail_send" />
+        <input type="submit" name="submit_send" value="Send" />
+
+        <!--adress mail-->
+
+        <fieldset>
+           <select>
+                <option>select email address</option>
+            </select>
+
+            <label>Subject</label>
+            <input type="text" name="subject" value="subject">
+
+            <textarea>Hi ! You have been accepted. Best Regards TEDx Lausanne</textarea>
+        </fieldset>
+    </form>
+</div>
