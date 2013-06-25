@@ -767,8 +767,8 @@ and (min-width : 1224px) {
 }
 
 .gestion_contacts_list table{
-    margin-top: -100px;
- 
+    margin-top: 30px;
+    width:100%;
 }
 
 .gestion_contacts_list table tr{
@@ -781,13 +781,13 @@ and (min-width : 1224px) {
     font-weight:bold;
     font-size:1em; 
     background-color:#E0E0E0;
-    padding:16px 0;
+    padding:16px;
     border-bottom:3px solid white;
     
     
 }
 .gestion_contacts_list table tr td{
-    padding:7px 0;
+    padding:7px 7px 7px 16px;
     background-color:#EFEFEF;
 }
 .gestion_contacts_list table tr td a{
@@ -854,7 +854,7 @@ and (min-width : 1224px) {
     
 }
 .gestion_contacts_role ul dl dt{
-    margin-top:50px;
+    margin-top:20px;
 }
 .gestion_contacts_role ul dl dd{
     margin-top:5px;
@@ -871,8 +871,6 @@ and (min-width : 1224px) {
     font-weight:bold;
     font-size:1.3em; 
     border:2px solid #ff0000;
-    
-    
    }
    
 .gestion_contacts_role .buttonRole:hover{
