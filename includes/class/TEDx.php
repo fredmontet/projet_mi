@@ -234,6 +234,32 @@ class TEDx {
         // Return two arrays
         return array($role, $errorState);
     }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
+    protected function gestionRegistrationValidator($registration) {
+
+        // Validate all received values 
+        $errorState['name']         = $this->validator(array('String', $registration['name']));
+        $errorState['firstname']    = $this->validator(array('String', $registration['firstname']));
+        $errorState['dateOfBirth']  = $this->validator(array('Date', $registration['dateOfBirth']));
+        $errorState['address']      = $this->validator(array('String', $registration['address']));
+        $errorState['city']         = $this->validator(array('String', $registration['city']));
+        $errorState['country']      = $this->validator(array('String', $registration['country']));
+        $errorState['phoneNumber']  = $this->validator(array('String', $registration['phoneNumber']));
+        $errorState['email']        = $this->validator(array('Email', $registration['email']));
+        $errorState['description']  = $this->validator(array('0..1', $registration['description']));
+        
+
+        // Return two arrays
+        return array($contact, $errorState);
+    }
 
     /**
      * Valid values ​​received by _POST
@@ -436,18 +462,25 @@ class TEDx {
      */
     protected function drawEventsRegistration() {
         $id = $this->getId();
+        if (isset($_POST['update'])) {
+            var_dump($_POST);
+            list($registration, $errorState) = $this->gestionRegistrationsValidator($_POST);
 
-        $messageEvent = $this->tedx_manager->getEvent($id);
-
-        if ($messageEvent->getStatus()) {
-            $aValidEvent = $messageEvent->getContent();
-        } else {
-            $this->displayMessage('There isn\'t event!');
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+                
+            }
+        }else{
+            $messageEvent = $this->tedx_manager->getEvent($id);
+            if ($messageEvent->getStatus()) {
+                $aValidEvent = $messageEvent->getContent();
+            } else {
+                $this->displayMessage('There isn\'t event!');
+            }
+            $this->smarty->assign('event', $aValidEvent);
+            $content = $this->smarty->fetch('events_registration.tpl');
         }
-
-        $this->smarty->assign('event', $aValidEvent);
-
-        return $this->smarty->fetch('events_registration.tpl');
+        return $content;
     }
 
     /**
@@ -1688,7 +1721,7 @@ class TEDx {
     /**
      * Draw the Gestion Contacts New page
      * @return content HTML of the Gestion Contacts New page
-     */
+    */
     protected function drawGestionContactsNew() {
 
         if (isset($_POST['update'])) {
