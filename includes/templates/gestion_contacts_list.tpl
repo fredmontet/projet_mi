@@ -11,17 +11,6 @@ Smarty variables available:
 *}
 
 <article class="gestion_contacts_list offset1 span10">
-    <header class="gestion_subnav">
-        <nav>
-            <ul>
-                <li><a href="#all">all</a></li>
-                <li><a href="#teamTEDx">Team TEDx</a></li>
-                <li><a href="#teamEvent">Team Event</a></li>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#participants">Participants</a></li>
-            </ul>
-        </nav>
-    </header>
    <table class="span12">
    		<tr>
 	   		<th>Firstname</th>
