@@ -6,27 +6,18 @@ Smarty variables available:
 	$errorState (Array of status about uncorrect values)
 *}
 
-<article class="gestion_contacts_role offset2 span8">
-    <header>  
+<article class="gestion_contacts_role offset1 span10">
+    <section class="span4">
+        <header>  
         <a class="buttonRole" href="?action=gestion_contacts_role_new">New</a>
-    </header>
-    <ul> 
-        <dl>
-        	{foreach from=$teamRoles item=teamRole}
-        		<dt><a href="?action=gestion_contacts_role_infos&id={$teamRole->getName()}">{$teamRole->getName()}</a></dt>
-        	{/foreach}
-        </dl> 
-        <dl>
-            <dt>Admin Staff</dt>  
-            <dd>Receptionist</dd>
-            <dd>Joker</dd>  
-        </dl>
-        <dl>
-            <dt>RootName</dt>  
-            <dd>Iron Man</dd>
-            <dd>Jedi</dd>
-            <dd>Water Man</dd>  
-        </dl>
-   </ul>
+        </header>
+        
+        <h1>Actual team role</h1>     
+        <ul> 
+            {foreach from=$teamRoles item=teamRole}
+                <li><a href="?action=gestion_contacts_role_infos&id={$teamRole->getName()}">{$teamRole->getName()}</a></li> 
+            {/foreach}
+       </ul>
+    </section>
+    {$gestionContactsRoleInfos}
 </article>
-{$gestionContactsRoleInfos}
