@@ -388,7 +388,7 @@ and (min-width : 1224px) {
 /****************************************/
 /*about*/
 /****************************************/
-/*Status = Il faut faire que les quand on clic sur la nav les ancres montes plus bas*/
+/*Status = done*/
 
 .about {}
 
@@ -1673,8 +1673,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*partners*/
 /****************************************/
-/*Status = meme probleme d'ancre qui va sous le globalheader et qui cache le texte
-que pour la page*/
+/*Status = done*/
 
 .partners{}
 
@@ -1735,7 +1734,9 @@ que pour la page*/
 
 .press{}
 .press section{}
-.press section h1{}
+.press section h1{
+    margin-top:25px;
+}
 .press section p{}
 
 /*end of press*/

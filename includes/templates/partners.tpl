@@ -1,5 +1,5 @@
 <!--partners page-->
-<article class="partners offset2 span8">
+<article class="partners offset1 span10">
     <!--TEDxLausanneChange Partners-->
     <section id="partners_tedxChange">
         <h1>TEDxLausanneChange Partners</h1>

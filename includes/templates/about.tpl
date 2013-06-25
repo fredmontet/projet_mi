@@ -1,4 +1,4 @@
-<article class="about offset2 span8">
+<article class="about offset1 span10">
 
     <!--about tedxlausanne tab-->
     <section id="about_tedxlausanne">
