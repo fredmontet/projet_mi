@@ -21,6 +21,7 @@ $registrations (Array [Registrations] => Array
       -->
         
         <section id="refused" class="span6">
+            <div class="scroll">
                 {foreach from=$registrations item=registration}
                     <ul>
                         <li><a href="?action=gestion_events_mail_edit">
@@ -33,9 +34,8 @@ $registrations (Array [Registrations] => Array
                 {foreachelse}
                     <p>There is no entry</p>
                 {/foreach}
-    
+            </div>
             </section>
-        
     </section>
 
     {$gestionEventsMailEdit}

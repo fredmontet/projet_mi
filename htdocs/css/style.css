@@ -1063,7 +1063,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 .gestion_events_mail section ul li{
     display:block;
     background-color:#eeeeee;
-    margin:10px 0;
+
     padding:5px;
 }
 .gestion_events_mail section ul li div{
@@ -1083,6 +1083,11 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 .gestion_events_mail section nav a:hover{
     color:#c0c0c0;
     
+}
+.gestion_events_mail .scroll{
+    overflow-y:scroll;
+    height:400px;
+    margin-top:55px;
 }
 .gestion_events_mail section ul li a{}
 .gestion_events_mail #refused{}
