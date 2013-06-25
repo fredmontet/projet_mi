@@ -507,6 +507,7 @@ and (min-width : 1224px) {
         event_single.tpl
         event_nav.tpl
 */
+
 /*End of events*/ 
 
 
@@ -738,7 +739,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 .gestion_contacts_infos form p label{
     line-height:30px;
-    margin-top:20;
+    margin-top:20px;
 }
 .gestion_contacts_infos form h1{}
 .gestion_contacts_infos form p select{}
@@ -798,7 +799,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .gestion_contacts_nav{}
 .gestion_contacts_nav h1{}
 .gestion_contacts_nav ul{
-    poisition:relative;
+    position:relative;
     top:0;
 }
 .gestion_contacts_nav ul li{}
@@ -1034,7 +1035,8 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 /****************************************/
 /*gestion_events_mail_edit*/
 /****************************************/
-/*Status = done*/
+/*Status = il faut un tout petit peu realigner le boutton mais si
+on laisse comme ça ce n'est pas si grave*/
 
 .gestion_events_mail_edit{}
 
@@ -1094,7 +1096,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 /****************************************/
 /*gestion_events_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, stylé par gestion_subnav*/
 
 .gestion_events_nav{}
 
@@ -1109,7 +1111,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 /****************************************/
 /*gestion_events_role*/
 /****************************************/
-/*Status = to fill*/
+/*Status = enlever un peu d'espace entre chaque entrée*/
 
 .gestion_events_role .theButton {
     display:inline-block;
@@ -1125,6 +1127,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
     padding: 0;
     line-height: 20px;
 }
+
 .gestion_events_role dl dt{
     display:block;
     background-color:#eeeeee;
@@ -1437,7 +1440,6 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 #globalnav li a, #lognav li a{
         font-size:1.2em;
         display:block;
-        height:inherit;
         padding:0 10px;
         padding-top:5px;
         color:#c0c0c0;
@@ -1800,7 +1802,7 @@ width:250px;
 
 }
 /*End of Main layout*/   
-}
+
 /*End of Desktops and laptops layout*/
 
 
