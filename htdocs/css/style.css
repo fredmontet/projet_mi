@@ -409,9 +409,7 @@ and (min-width : 1224px) {
 }
 
 .about section img{
-    margin-top:50px; 
-    padding:1px;
-
+    margin-top:40px; 
     display:block;
     margin-right:auto;
     margin-left:auto; 
