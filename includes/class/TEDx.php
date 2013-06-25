@@ -168,6 +168,7 @@ class TEDx {
 		    // The type is a Date
 		    case 'Date':
 		    	$date = date_parse($value);
+		    	
 		    	return checkdate($date["month"], $date["day"], $date["year"]);
 		    break;
 		    
@@ -191,6 +192,10 @@ class TEDx {
 		    case '0..1':
 		        $isString = is_string($value);
 		        return $isString;
+		    break;
+		    
+            case 'Time0..1':
+		        return true;
 		    break;
 		    
 	    }
@@ -261,14 +266,12 @@ class TEDx {
 		$errorState['locationName'] 	= $this->validator(array('String', $event['locationName']));
 		$errorState['slot1StartingTime']= $this->validator(array('Time', $event['slot1StartingTime']));
 		$errorState['slot1EndingTime'] 	= $this->validator(array('Time', $event['slot1EndingTime']));
-		$errorState['slot2StartingTime']= $this->validator(array('Time', $event['slot2StartingTime']));
-		$errorState['slot2EndingTime'] 	= $this->validator(array('Time', $event['slot2EndingTime']));
-		$errorState['slot3StartingTime']= $this->validator(array('Time', $event['slot3StartingTime']));
-		$errorState['slot3EndingTime'] 	= $this->validator(array('Time', $event['slot3EndingTime']));
-		$errorState['slot4StartingTime']= $this->validator(array('Time', $event['slot4StartingTime']));
-		$errorState['slot4EndingTime'] 	= $this->validator(array('Time', $event['slot4EndingTime']));
-        
-        print_r($errorState);
+		$errorState['slot2StartingTime']= $this->validator(array('Time0..1', $event['slot2StartingTime']));
+		$errorState['slot2EndingTime'] 	= $this->validator(array('Time0..1', $event['slot2EndingTime']));
+		$errorState['slot3StartingTime']= $this->validator(array('Time0..1', $event['slot3StartingTime']));
+		$errorState['slot3EndingTime'] 	= $this->validator(array('Time0..1', $event['slot3EndingTime']));
+		$errorState['slot4StartingTime']= $this->validator(array('Time0..1', $event['slot4StartingTime']));
+		$errorState['slot4EndingTime'] 	= $this->validator(array('Time0..1', $event['slot4EndingTime']));
         
         // Return two arrays
         return array($event, $errorState);
@@ -777,31 +780,45 @@ class TEDx {
                 // Slot One
                 $slot1 = array (
                     'happeningDate'		=> $event['startingDate'],
-                    'startingTime'		=> $event['slot1EndingTime'],
+                    'startingTime'		=> $event['slot1StartingTime'],
                     'endingTime'		=> $event['slot1EndingTime'],
                 );
                 
-                // Slot Two
-                $slot2 = array (
-                    'happeningDate'		=> $event['startingDate'],
-                    'startingTime'		=> $event['slot2EndingTime'],
-                    'endingTime'		=> $event['slot2EndingTime'],
-                );
+                // If the Slot time is not empty, continue
+                if($errorState['slot2StartingTime'] && $errorState['slot2EndingTime']) {
+                    // Slot Two
+                    $slot2 = array (
+                        'happeningDate'		=> $event['startingDate'],
+                        'startingTime'		=> $event['slot2StartingTime'],
+                        'endingTime'		=> $event['slot2EndingTime'],
+                    );
+                } else {
+                    
+                }
                 
-                // Slot Three
-                $slot3 = array (
-                    'happeningDate'		=> $event['startingDate'],
-                    'startingTime'		=> $event['slot3EndingTime'],
-                    'endingTime'		=> $event['slot3EndingTime'],
-                );
+                // If the Slot time is not empty, continue
+                if($errorState['slot3StartingTime'] && $errorState['slot3EndingTime']) {
+                    // Slot Three
+                    $slot3 = array (
+                        'happeningDate'		=> $event['startingDate'],
+                        'startingTime'		=> $event['slot3StartingTime'],
+                        'endingTime'		=> $event['slot3EndingTime'],
+                    );
+                } else {
+                    
+                }
                 
-                // Slot Four
-                $slot4 = array (
-                    'happeningDate'		=> $event['startingDate'],
-                    'startingTime'		=> $event['slot4EndingTime'],
-                    'endingTime'		=> $event['slot4EndingTime'],
-                );
-                
+                // If the Slot time is not empty, continue
+                if($errorState['slot4StartingTime'] && $errorState['slot4EndingTime']) {
+                    // Slot Four
+                    $slot4 = array (
+                        'happeningDate'		=> $event['startingDate'],
+                        'startingTime'		=> $event['slot4StartingTime'],
+                        'endingTime'		=> $event['slot4EndingTime'],
+                    );
+                } else {
+                    
+                }
                 
                 $argsSlots = array($slot1, $slot2, $slot3, $slot4);
                 
@@ -816,7 +833,8 @@ class TEDx {
                 
                 // If the Event is created, continue
                 if($messageAddEvent->getStatus()) {
-                    $this->displayMessage("The event is created.");
+                    // Go to home page
+                    header("Location: ?action=gestion_events");
                 } else {
                     // Else give the error message about no created Event
                     $this->displayMessage($messageAddEvent->getMessage());
@@ -859,14 +877,18 @@ class TEDx {
 					$allValidSlots = $messageSlots->getContent();
 					
 		            // For each Valid Slots
-					foreach($allValidSlots as $aValidSlot) {
+					foreach($allValidSlots as $key=>$aValidSlot) {
+					
+					    $speakers[]['slot'] = $aValidSlot;
 						
 						// Get Places in a Slot
 						$messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
 						
 						// If Places are found, continue
 						if($messagePlaces->getStatus()) {
-							$allValidPlaces = $messagePlaces->getContent();		
+							$allValidPlaces = $messagePlaces->getContent();	
+							
+							$speakers[$key]['speakers'] = null;
 							
 							// For each Valid Places	
 							foreach($allValidPlaces as $aValidPlace) {
@@ -879,20 +901,18 @@ class TEDx {
 									$aValidSpeaker = $messageSpeaker->getContent();
 									
 									// Prepare an array for Smarty [Slots][Places][Speaker]
-									$speakers	[$aValidSlot->getNo()]
-												[$aValidPlace->getNo()]
-												[$aValidSpeaker->getNo()] = $aValidSpeaker;
+									$speakers[$key]['speakers']['speaker'] = $aValidSpeaker;
 									
 								} else {
 									// Else give the error message about no found Speaker
 									$aValidSpeaker = null;
-									$speakers [$aValidSlot->getNo()] = null;
+									//$speakers[$aValidSlot->getNo()] = null;
 								}
 							}
 						} else {
 							// Else give the error message about no found Place
 							$allValidPlaces = null;
-							$speakers [$aValidSlot->getNo()] = null;
+							$speakers[$key]['speakers'] = null;
 						}
 					}
 				} else {
@@ -1181,6 +1201,7 @@ class TEDx {
 		} else {
 		     // Else put the variables at null
 			$this->smarty->assign('gestionEventsRoleInfos', null);
+			$gestionEventsRoleInfos = null;
 		}
 		
 		// Assigns variables to Smarty

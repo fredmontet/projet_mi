@@ -33,21 +33,21 @@
             <!--date-->
             <fieldset id="gestion_events_single_infos">
                 <legend>Starting date</legend>
-                <input type="date" name="startingDate" value="14april2013"/>
+                <input type="date" name="startingDate" value="{$event->getStartingDate()}"/>
                 {if $errorState != null && !$errorState.startingDate}<p class="errorvalue">{$errorFormMessage.startingDate}</p>{/if}
                 <!--problem with css solved with this div-->
                 <div id="troll">
                     <legend>Ending date</legend>
-                    <input type="date" name="endingDate" value="17april2013"/>
+                    <input type="date" name="endingDate" value="{$event->getEndingDate()}"/>
                     {if $errorState != null && !$errorState.endingDate}<p class="errorvalue">{$errorFormMessage.endingDate}</p>{/if}
                 </div>
                 
                 <legend>Title</legend>                    
-                <input type="title" name="mainTopic" value="title of event" />
+                <input type="title" name="mainTopic" value="{$event->getMainTopic()}" />
                 {if $errorState != null && !$errorState.mainTopic}<p class="errorvalue">{$errorFormMessage.mainTopic}</p>{/if}
                 <div id="troll">
                     <legend>Programme</legend>
-                    <textarea type="text" name="description">Please edit programme if not already edited</textarea>
+                    <textarea type="text" name="description">{$event->getDescription()}</textarea>
                     {if $errorState != null && !$errorState.description}<p class="errorvalue">{$errorFormMessage.description}</p>{/if}
                 </div>
 
@@ -55,7 +55,7 @@
                 <table>
                     <tr>
                         <td></td>
-                        <td><input type="time" name="startingTime" value="Starting Time" /></td>
+                        <td><input type="time" name="startingTime" value="{$event->getStartingTime()}" /></td>
                         <td>Start</td>
                         {if $errorState != null && !$errorState.startingTime}<p class="errorvalue">{$errorFormMessage.startingTime}</p>{/if}
                     </tr>
@@ -89,7 +89,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="time" name="endingTime" value="Ending Time" /></td>
+                        <td><input type="time" name="endingTime" value="{$event->getEndingTime()}" /></td>
                         <td>End</td>
                         {if $errorState != null && !$errorState.endingTime}<p class="errorvalue">{$errorFormMessage.endingTime}</p>{/if}
                     </tr>
@@ -108,9 +108,11 @@
             <!--gestion_events_single_details-->
             <fieldset id="gestion_events_single_details">
                 <legend>Location</legend>
-                <select name="location">
+                <select name="locationName">
+                    <option value="noLocation">no location</option>
+                    
                     {foreach from=$locations item=location}
-                        <option value="{$location->getName()}">{$location->getName()}</option>
+                        <option {if $isLocation->getName() == $location->getName()}selected{/if} value="{$location->getName()}">{$location->getName()}</option>
                     {/foreach}
                 </select>
                 {if $errorState != null && !$errorState.locationName}<p class="errorvalue">{$errorFormMessage.locationName}</p>{/if}
@@ -124,9 +126,16 @@
         {if $event != null}
             <fieldset id="gestion_events_single_speaker">
     
-                <legend>Speaker of slot one</legend>
-                <a href="?action=gestion_speaker_infos">Jean-Paul Gautier</a>
-    
+                
+                {counter start=0 skip=1 print=false} 
+                {foreach from=$speakers item=slot }
+                        <legend>Slot n°{counter}</legend>
+                        {if $slot.speakers != null}
+                            {foreach from=$slot.speakers item=speaker}
+                                <a href="?action=gestion_speaker_infos"><span>{$speaker->getFirstname()}</span> <span>{$speaker->getName()}</span></a>
+                            {/foreach}
+                        {/if}
+                {/foreach}
                 <p>
                     <select>
                         <option>Chose a contact</option>
