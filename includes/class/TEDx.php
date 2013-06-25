@@ -1094,10 +1094,9 @@ class TEDx {
             $this->displayMessage($messageEvents->getMessage());
             $events[]['event'] = null;
         }
-
+        $this->smarty->assign('events', $events);
         // If there is a Role selected, continue
         if ($action == 'gestion_events_role_infos') {
-
             // Recover the Role required
             if (isset($_REQUEST['name'])) {
                 $name = $_REQUEST['name'];
@@ -1118,10 +1117,12 @@ class TEDx {
 
             if ($name != null && $eventNo != null && $organizerPersonNo != null) {
                 $messageValidEvent = $this->tedx_manager->getEvent($eventNo);
-
+                
+                // If the Event is found, continue
                 if ($messageValidEvent->getStatus()) {
                     $aValidEvent = $messageValidEvent->getContent();
                     $messageValidOrganizer = $this->tedx_manager->getOrganizer($organizerPersonNo);
+                    // If the Organizer is found, continue
                     if ($messageValidOrganizer->getStatus()) {
                         $aValidOrganizer = $messageValidOrganizer->getContent();
                         // Get the Role
@@ -1135,7 +1136,7 @@ class TEDx {
                         // If the Role is found, continue
                         if ($messageRole->getStatus()) {
                             $aValidRole = $messageRole->getContent();
-
+                            var_dump($aValidRole);
                             // Assigns variable to Smarty
                             $this->smarty->assign('role', $aValidRole);
                         } else {
@@ -1157,11 +1158,10 @@ class TEDx {
             }
         } else {
             // Else put the variables at null
-            $this->smarty->assign('gestionEventsRoleInfos', null);
+            $gestionEventsRoleInfos = null;
         }
 
         // Assigns variables to Smarty
-        $this->smarty->assign('events', $events);
         $this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
 
         // Get the content of Gestion Events Role
