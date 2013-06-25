@@ -92,8 +92,7 @@ label{
 }
 
 fieldset{
-    margin-left:20px;
-    margin:20px;
+    padding:20px;
 }
 
 legend, label{
@@ -867,19 +866,50 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 gestion_contacts_infos. Une fois gesiton_contacts_infos fini, cette page devrait
 etre bonne aussi.*/
 
-.gestion_contacts_new{}
-.gestion_contacts_new form p{}
-.gestion_contacts_new form p input{}
+.gestion_contacts_new .buttonSave{
+    display:inline-block;
+    width:160px;
+    margin-top: -50px;
+}
+.gestion_contacts_new form {
+    margin-top:80px;
+}
 
 .gestion_contacts_new form fieldset{}
-.gestion_contacts_new form fieldset legend{}
-.gestion_contacts_new form fieldset p{}
-.gestion_contacts_new form fieldset p label{}
-.gestion_contacts_new form fieldset p input{}
-.gestion_contacts_new form fieldset p textarea{}
 
-.gestion_contacts_new form fieldset p select{}
-.gestion_contacts_new form fieldset p select option{}
+.gestion_contacts_new form fieldset legend{
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_new form fieldset p{
+    
+}
+
+.gestion_contacts_new form fieldset p label{
+    font-size:1.2em;
+    width:25%;
+}
+
+.gestion_contacts_new form fieldset p input{
+    float:right;
+    width:65%;
+}
+
+.gestion_contacts_new form fieldset p textarea{
+    float:right;
+    width:65%;
+    height:300px;
+    margin-top:2px;
+}
+
+.gestion_contacts_new form fieldset ul{
+    list-style-type: none;
+    
+}
+.gestion_contacts_new form fieldset ul li{}
+.gestion_contacts_new form fieldset ul li input{}
+
 
 /*end of gestion_contacts_new*/
 
