@@ -752,11 +752,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*Status = to fill*/
 
-.gestion_contacts_list .gestion_subnav{
-    position:relative;
-    top:-120px;
-}
-
 .gestion_contacts_list header{}
 .gestion_contacts_list header nav{}
 .gestion_contacts_list header nav ul{}
@@ -768,32 +763,29 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 
 .gestion_contacts_list table{
-    margin-top: -100px;
- 
+    margin-top: 30px;
+    width:100%;
 }
 
 .gestion_contacts_list table tr{
     border-bottom:5px solid white;
     margin:10px;
-    font-size:1.2em;     
-    
+    font-size:1.2em;
 }
+
 .gestion_contacts_list table tr th{
     font-weight:bold;
     font-size:1em; 
     background-color:#E0E0E0;
-    padding:16px 0;
+    padding:16px;
     border-bottom:3px solid white;
-    
-    
 }
+
 .gestion_contacts_list table tr td{
-    padding:7px 0;
+    padding:7px 7px 7px 16px;
     background-color:#EFEFEF;
 }
-.gestion_contacts_list table tr td a{
-     
-}
+.gestion_contacts_list table tr td a{}
 
 /*end of gestion_contacts_list*/
 
@@ -855,7 +847,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     
 }
 .gestion_contacts_role ul dl dt{
-    margin-top:50px;
+    margin-top:20px;
 }
 .gestion_contacts_role ul dl dd{
     margin-top:5px;
@@ -872,8 +864,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-weight:bold;
     font-size:1.3em; 
     border:2px solid #ff0000;
-    
-    
    }
    
 .gestion_contacts_role .buttonRole:hover{

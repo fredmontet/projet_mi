@@ -20,7 +20,7 @@ Smarty variables available:
 	$isTeamRole (Object of TeamRole)
 *}
 
-<article class="gestion_contacts_infos">
+<article class="gestion_contacts_infos offset2 span8">
 
         
        <form id="contact" method="post" action="">

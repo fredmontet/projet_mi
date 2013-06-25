@@ -5,9 +5,9 @@ Smarty variables available:
 	$errorState (Array of status about uncorrect values)
 *}
 
-<article class="gestion_contacts_role">
+<article class="gestion_contacts_role offset2 span8">
     <header>  
-        <a class="button" href="?action=gestion_contacts_role_new">New</a>
+        <a class="buttonRole" href="?action=gestion_contacts_role_new">New</a>
     </header>
     <ul> 
         <dl>
