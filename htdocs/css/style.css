@@ -1111,12 +1111,13 @@ on laisse comme ça ce n'est pas si grave*/
 /****************************************/
 /*gestion_events_role*/
 /****************************************/
-/*Status = enlever un peu d'espace entre chaque entrée*/
+/*Status = done*/
 
 .gestion_events_role .theButton {
     display:inline-block;
     width:160px;
     float:right;
+    margin-bottom:10px;
 }
 
 .gestion_events_role dl{
@@ -1131,9 +1132,8 @@ on laisse comme ça ce n'est pas si grave*/
 .gestion_events_role dl dt{
     display:block;
     background-color:#eeeeee;
-    margin:10px 0;
+    margin:0px 0;
     padding:5px;
-    
 }
 
 
