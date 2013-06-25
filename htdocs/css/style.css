@@ -727,22 +727,74 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 .gestion_contacts_infos form{
     margin-top:80px;
+    
 }
-.gestion_contacts_infos form fieldset{}
 
-.gestion_contacts_infos form fieldset p{
-    margin-top:50px;
+.gestion_contacts_infos form #troll{
+    float:left;
+    width:100%;
+}
+.gestion_contacts_infos form #troll input{
+    width:64.5%;
+    float:right;
+}
+
+.gestion_contacts_infos form #troll label{
+    float:left;
+    width:20%;
+}
+
+.gestion_contacts_infos form p label{
+    font-size:1.2em;
+    width:20%;
 }
 .gestion_contacts_infos form p input{
-    line-height:20px;
+    float:right;
+    width:65%;
 }
-.gestion_contacts_infos form p label{
-    line-height:30px;
-    margin-top:20;
+
+.gestion_contacts_infos form p textarea{
+    float:right;
+    width:65%;
+    height:300px;
+    margin-top:2px;
 }
-.gestion_contacts_infos form h1{}
-.gestion_contacts_infos form p select{}
-.gestion_contacts_infos form p select option{}
+
+.gestion_contacts_infos table tr{
+    border:2px solid #E0E0E0;
+}
+
+.gestion_contacts_infos form table tr th{
+    font-weight:bold;
+    font-size:1.2em;
+    background-color:#E0E0E0;
+}
+
+.gestion_contacts_infos form table tr td{
+    font-size:1.2em;
+}
+
+.gestion_contacts_infos form tr th{
+}
+
+.gestion_contacts_infos form legend{ 
+    margin-top:25px;
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_infos form fieldset legend{
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_infos form fieldset p{
+    font-size:1.2em;
+}
+
+.gestion_contacts_infos table{
+    width:100%;
+}
 
 /*end of gestion_contacts_infos*/
 
