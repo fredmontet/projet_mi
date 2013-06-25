@@ -9,11 +9,14 @@ $locations (Array of Object)
         <!--CSS button done-->
         <a href="?action=gestion_locations_new" class="theButton">New</a>
         <!--Locations List-->    
+        <div class="scroll">
         <ul>
             {foreach from=$locations item=location}
                 <li><a href="?action=gestion_locations_infos&id={$location->getName()}">{$location->getName()}</a></li>
             {/foreach}
         </ul>
+        </div>
     </div>
+       
     {$gestionLocationsInfos}
 </article>

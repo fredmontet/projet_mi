@@ -1424,6 +1424,12 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 .gestion_locations_list ul li a{}
 
+.gestion_locations_list .scroll{
+    overflow-y:scroll;
+    height:400px;
+    margin-top:55px;
+}
+
 /*end of gestion_lcoations_list*/
 
 /****************************************/
