@@ -1136,7 +1136,6 @@ class TEDx {
                         // If the Role is found, continue
                         if ($messageRole->getStatus()) {
                             $aValidRole = $messageRole->getContent();
-                            var_dump($aValidRole);
                             // Assigns variable to Smarty
                             $this->smarty->assign('role', $aValidRole);
                         } else {
