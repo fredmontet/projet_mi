@@ -1113,105 +1113,110 @@ class TEDx {
      * Draw the Gestion Events Role page
      * @return content HTML of the Gestion Events Role page
      */
-	 protected function drawGestionEventsRole($action) {
-     	
-     	// Get all Events
-     	$messageEvents = $this->tedx_manager->getEvents();
-    	
-    	// If there is an Event, continue
-    	if($messageEvents->getStatus()) {
-		    $allValidEvents = $messageEvents->getContent();
-		    
-		    // For each Event
-		    foreach ($allValidEvents as $key=>$aValidEvent) {
-		    
-		    	$events[]['event'] = $aValidEvent;
-		    
-		    	// Get Roles in an Event
-			    $messageRoles = $this->tedx_manager->getRolesByEvent($aValidEvent);
-			    
-			    // If Roles are found, continue
-			    if($messageRoles->getStatus()) {
-				    $aValidRoles = $messageRoles->getContent();
-				    
-				    $events[$key]['roles'] = $aValidRoles;
-				    
-			    } else {
-				    $events[$key]['roles'] = null;
-			    }
-		    }
-		    		    
-		} else {
-			// Else give the error message about no Event found
-		    $this->displayMessage($messageEvents->getMessage()); 
-		    $events[]['event'] = null;
-	    }
-	
-     	// If there is a Role selected, continue
-	    if ($action == 'gestion_events_role_infos') {
-	    	
-	    	// Recover the Role required
-	    	if (isset($_REQUEST['name'])) {
-			    $name = $_REQUEST['name'];
-			} else {
-			    $name = null;
-			}
-			
-			if (isset($_REQUEST['event'])) {
-			    $eventNo = $_REQUEST['event'];
-			} else {
-			    $eventNo = null;
-			}
-			
-			if (isset($_REQUEST['organizer'])) {
-			    $organizerPersonNo = $_REQUEST['organizer'];
-			} else {
-			    $organizerPersonNo = null;
-			}
-	    	
-	    	if($name !=null && $eventNo != null && $organizerPersonNo != null) {
-		    	// Get the Role
-		    	$args = array(
-		    			'name'		=>	$name,
-		    			'event'		=>	$eventNo,
-		    			'organizer'	=>	$organizerPersonNo
-		    	);
-		    	$messageRole = $this->tedx_manager->getRole($args);
-		    	
-		    	// If the Role is found, continue
-		    	if($messageRole->getStatus()) {
-			    	$aValidRole = $messageRole->getContent();
-			    	
-			    	// Assigns variable to Smarty
-			    	$this->smarty->assign('role', $aValidRole);
-			    	
-		    	} else {
-			    	// Else give the error message about no Role found
-			    	$this->displayMessage($messageRole->getMessage());
-		    	}
-		    
-		    	// Get the content of Events Role Infos
-			    $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
-				$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
-				
-		    } else {
-			    $this->displayMessage("There is no Role with this ID");
-		    }
+protected function drawGestionEventsRole($action) {
 
-		} else {
-		     // Else put the variables at null
-			$this->smarty->assign('gestionEventsRoleInfos', null);
-			$gestionEventsRoleInfos = null;
-		}
-		
-		// Assigns variables to Smarty
-		$this->smarty->assign('events', $events);
-		$this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
-		
-		// Get the content of Gestion Events Role
-		return $this->smarty->fetch('gestion_events_role.tpl');
+        // Get all Events
+        $messageEvents = $this->tedx_manager->getEvents();
 
-     }
+        // If there is an Event, continue
+        if ($messageEvents->getStatus()) {
+            $allValidEvents = $messageEvents->getContent();
+
+            // For each Event
+            foreach ($allValidEvents as $key => $aValidEvent) {
+
+                $events[]['event'] = $aValidEvent;
+
+                // Get Roles in an Event
+                $messageRoles = $this->tedx_manager->getRolesByEvent($aValidEvent);
+
+                // If Roles are found, continue
+                if ($messageRoles->getStatus()) {
+                    $aValidRoles = $messageRoles->getContent();
+
+                    $events[$key]['roles'] = $aValidRoles;
+                } else {
+                    $events[$key]['roles'] = null;
+                }
+            }
+        } else {
+            // Else give the error message about no Event found
+            $this->displayMessage($messageEvents->getMessage());
+            $events[]['event'] = null;
+        }
+
+        // If there is a Role selected, continue
+        if ($action == 'gestion_events_role_infos') {
+
+            // Recover the Role required
+            if (isset($_REQUEST['name'])) {
+                $name = $_REQUEST['name'];
+            } else {
+                $name = null;
+            }
+
+            if (isset($_REQUEST['event'])) {
+                $eventNo = $_REQUEST['event'];
+            } else {
+                $eventNo = null;
+            }
+            if (isset($_REQUEST['organizer'])) {
+                $organizerPersonNo = $_REQUEST['organizer'];
+            } else {
+                $organizerPersonNo = null;
+            }
+
+            if ($name != null && $eventNo != null && $organizerPersonNo != null) {
+                $messageValidEvent = $this->tedx_manager->getEvent($eventNo);
+                
+                if ($messageValidEvent->getStatus()) {
+                    $aValidEvent = $messageValidEvent->getContent();
+                    $messageValidOrganizer = $this->tedx_manager->getOrganizer($organizerPersonNo);
+                    if($messageValidOrganizer->getStatus()){
+                        $aValidOrganizer = $messageValidOrganizer->getContent();
+                        // Get the Role
+                        $args = array(
+                            'name' => $name,
+                            'event' => $aValidEvent,
+                            'organizer' => $aValidOrganizer
+                        );
+                        $messageRole = $this->tedx_manager->getRole($args);
+
+                        // If the Role is found, continue
+                        if ($messageRole->getStatus()) {
+                            $aValidRole = $messageRole->getContent();
+
+                            // Assigns variable to Smarty
+                            $this->smarty->assign('role', $aValidRole);
+                        } else {
+                            // Else give the error message about no Role found
+                            $this->displayMessage($messageRole->getMessage());
+                        }
+
+                        // Get the content of Events Role Infos
+                        $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
+                        $this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+                    }else{
+                        $this->displayMessage($messageValidOrganizer->getMessage());
+                    }
+                } else {
+                    $this->displayMessage($messageValidEvent->getMessage());
+                }
+            } else {
+                $this->displayMessage("There is no Role with this ID");
+            }
+        } else {
+            // Else put the variables at null
+            $this->smarty->assign('gestionEventsRoleInfos', null);
+        }
+
+        // Assigns variables to Smarty
+        $this->smarty->assign('events', $events);
+        $this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
+
+        // Get the content of Gestion Events Role
+        return $this->smarty->fetch('gestion_events_role.tpl');
+    }
     
     
 	/**

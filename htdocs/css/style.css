@@ -92,8 +92,7 @@ label{
 }
 
 fieldset{
-    margin-left:20px;
-    margin:20px;
+    padding:20px;
 }
 
 legend, label{
@@ -389,13 +388,15 @@ and (min-width : 1224px) {
 /****************************************/
 /*about*/
 /****************************************/
-/*Status = Il faut faire que les quand on clic sur la nav les ancres montes plus bas*/
+/*Status = done*/
+
+.about {}
 
 .about section{
-        margin:50px;
+        margin-top:50px;
 }
-.about h1{}
-.about p{
+.about section h1{}
+.about section article {
     -moz-column-count:3; /* Firefox */
     -webkit-column-count:3; /* Safari and Chrome */
     column-count:3;
@@ -403,19 +404,17 @@ and (min-width : 1224px) {
     -moz-column-gap:20px; /* Firefox */
     -webkit-column-gap:20px; /* Safari and Chrome */
     column-gap:20px;
-    
-    text-align:justify;
-
 }
-.about img{
-    margin:50px; 
+.about section article p{
+    margin-bottom:20px;
+}
+.about section img{
+    margin-top:50px; 
     padding:1px;
-    border-radius:3px;
-    border:1px solid #222222;
+
     display:block;
     margin-right:auto;
-    margin-left:auto;
-       
+    margin-left:auto; 
 }
 
 /*end of about*/
@@ -434,6 +433,7 @@ and (min-width : 1224px) {
 /*Status = ok*/
 
 .contact{
+    margin-top:25px;
 }
 
 .contact section{
@@ -444,7 +444,7 @@ and (min-width : 1224px) {
 }
 
 .contact h1{
-    font-size:2em;
+    font-size:3em;
 }
 
 .contact form{
@@ -575,7 +575,17 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .events_registration section form fieldset p input{}
 .events_registration section form a{}
 .events_registration section form fieldset p textarea{}
-.events_registration seciton form button{}
+.events_registration section form button{}
+.events_registration .errorvalue{
+    color:red;
+    position:relative;
+    top:-19px;
+    left:5px;
+    clear:both;
+}
+.events_registration .theButton{
+    margin: 30px;
+}
 
 /*end of event_registration*/
 
@@ -722,33 +732,18 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .gestion_contacts_infos .buttonSave{
     display:inline-block;
     width:160px;
-    float:right;
-    margin-top:-50px;
+    margin-top: -50px;
 }
 
 .gestion_contacts_infos form{
-    margin-top:80px;
-    
-}
-
-.gestion_contacts_infos form #troll{
-    float:left;
-    width:100%;
-}
-.gestion_contacts_infos form #troll input{
-    width:64.5%;
-    float:right;
-}
-
-.gestion_contacts_infos form #troll label{
-    float:left;
-    width:20%;
+    margin-top:20px;
 }
 
 .gestion_contacts_infos form p label{
     font-size:1.2em;
-    width:20%;
+    width:25%;
 }
+
 .gestion_contacts_infos form p input{
     float:right;
     width:65%;
@@ -759,6 +754,16 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     width:65%;
     height:300px;
     margin-top:2px;
+}
+
+.gestion_contacts_infos form legend{ 
+    margin-top:25px;
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_infos table{
+    width:100%;
 }
 
 .gestion_contacts_infos table tr{
@@ -775,14 +780,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-size:1.2em;
 }
 
-.gestion_contacts_infos form tr th{
-}
-
-.gestion_contacts_infos form legend{ 
-    margin-top:25px;
-    font-size:2em;
-    font-weight:bold;
-}
 
 .gestion_contacts_infos form fieldset legend{
     font-size:2em;
@@ -793,9 +790,10 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-size:1.2em;
 }
 
-.gestion_contacts_infos table{
-    width:100%;
+.gestion_contacts_infos form fieldset ul{
+    list-style-type: none;
 }
+
 
 /*end of gestion_contacts_infos*/
 
@@ -804,16 +802,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /*gestion_contacts_list*/
 /****************************************/
 /*Status = ok, il y a quelques lignes vides bizarre mais ça le fait*/
-
-.gestion_contacts_list header{}
-.gestion_contacts_list header nav{}
-.gestion_contacts_list header nav ul{}
-.gestion_contacts_list header nav ul li{}
-.gestion_contacts_list header nav ul li a{
-    font-weight:normal;
-    color:red;
-    font-size:1.7em;
-}
 
 .gestion_contacts_list table{
     margin-top: 30px;
@@ -838,7 +826,19 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     padding:7px 7px 7px 16px;
     background-color:#EFEFEF;
 }
-.gestion_contacts_list table tr td a{}
+
+.gestion_contacts_list table tr td a{
+    width:300%;
+    height:100%;
+    display:block;
+    cursor:normal;
+    color:#000000;
+}  
+
+.gestion_contacts_list table tr:hover>td{
+    background-color:#E0E0E0;
+}
+
 
 /*end of gestion_contacts_list*/
 
@@ -867,19 +867,50 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 gestion_contacts_infos. Une fois gesiton_contacts_infos fini, cette page devrait
 etre bonne aussi.*/
 
-.gestion_contacts_new{}
-.gestion_contacts_new form p{}
-.gestion_contacts_new form p input{}
+.gestion_contacts_new .buttonSave{
+    display:inline-block;
+    width:160px;
+    margin-top: -50px;
+}
+.gestion_contacts_new form {
+    margin-top:50px;
+}
 
 .gestion_contacts_new form fieldset{}
-.gestion_contacts_new form fieldset legend{}
-.gestion_contacts_new form fieldset p{}
-.gestion_contacts_new form fieldset p label{}
-.gestion_contacts_new form fieldset p input{}
-.gestion_contacts_new form fieldset p textarea{}
 
-.gestion_contacts_new form fieldset p select{}
-.gestion_contacts_new form fieldset p select option{}
+.gestion_contacts_new form fieldset legend{
+    font-size:2em;
+    font-weight:bold;
+}
+
+.gestion_contacts_new form fieldset p{
+    
+}
+
+.gestion_contacts_new form fieldset p label{
+    font-size:1.2em;
+    width:25%;
+}
+
+.gestion_contacts_new form fieldset p input{
+    float:right;
+    width:65%;
+}
+
+.gestion_contacts_new form fieldset p textarea{
+    float:right;
+    width:65%;
+    height:300px;
+    margin-top:2px;
+}
+
+.gestion_contacts_new form fieldset ul{
+    list-style-type: none;
+    
+}
+.gestion_contacts_new form fieldset ul li{}
+.gestion_contacts_new form fieldset ul li input{}
+
 
 /*end of gestion_contacts_new*/
 
@@ -1655,46 +1686,48 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*partners*/
 /****************************************/
-/*Status = meme probleme d'ancre qui va sous le globalheader et qui cache le texte
-que pour la page*/
+/*Status = done*/
 
 .partners{}
+
 .partners section{}
 .partners section h1{
     margin-top:50px;
 }
 .partners section p{
-    margin-bottom:5px;
+    text-align:justify;
+    margin-bottom:10px;
 }
 
-.partners section .spec{
-    margin-bottom:30px;
-}
-.partners section #spec{
-    margin-bottom:30px;
-}
 .partners section p a{
     color: red;
     text-decoration: none;
 }
-
 .partners section p a:hover{
   color: #c0c0c0;
   text-decoration:none;
 }
-.partners section section{}
-.partners section section h2{}
-.partners section section .debut{
-    margin-top:30px;
+.partners section article h2{}
+.partners section article p{
+    text-align:justify;
+    margin-bottom:20px;
 }
+.partners section article p img{}
+
+.partners section article p a{
+    color: red;
+    text-decoration: none;
+}
+.partners section article p a:hover{
+  color: #c0c0c0;
+  text-decoration:none;
+}
+
 .partners section section article{}
 .partners section section article img{
     margin-bottom:10px;
 }
-.partners section section article p{
-    margin-bottom:30px;
-}
-.partners section section article p a{}
+#partners_tedxChange, #partners_tedxYear
 
 /*end of partners*/
 
@@ -1704,7 +1737,6 @@ que pour la page*/
 /****************************************/
 /*Status = ok*/
 /*Info: this template is styled by id="subnav"*/
-
 /*end of partners_nav*/
 
 
@@ -1715,7 +1747,9 @@ que pour la page*/
 
 .press{}
 .press section{}
-.press section h1{}
+.press section h1{
+    margin-top:25px;
+}
 .press section p{}
 
 /*end of press*/

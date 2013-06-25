@@ -5,14 +5,11 @@ Smarty variables available:
 	$errorState (Array of status about uncorrect values)
 *}
 
-<article class="gestion_contacts_new offset2 span8">
+<article class="gestion_contacts_new span12">
 
     <form id="contact" method="post" action="">
-       <fieldset> 
-	        <p>
-	            <input type="hidden" name="action" value="gestion_contacts_new" />
-	            <input type="submit" name="update" value="Save" />
-	        </p>
+       <fieldset class="span6"> 
+	        <legend>Informations about the new person</legend>
 	        <p>
 	            <label for="firstname">First name </label>
 	            <input type="text" name="firstname" value=""/>
@@ -24,7 +21,7 @@ Smarty variables available:
 	            {if $errorState != null && !$errorState.name}<p class="errorvalue">{$errorFormMessage.username}</p>{/if}
 	        </p>
 	        <p>
-	            <label for="dateOfBirth">Date of birth (dd/mm/yyyy) </label>
+	            <label for="dateOfBirth">Date of birth</label>
 	            <input type="date" name="dateOfBirth" value=""/>
 	            {if $errorState != null && !$errorState.dateOfBirth}<p class="errorvalue">{$errorFormMessage.dateOfBirth}</p>{/if}
 	        </p>
@@ -56,17 +53,23 @@ Smarty variables available:
 	        <p>
 	
 	            <label for="description">Description </label>
-	            <textarea type="text" name="description" rows="4" cols="26"></textarea>
+	            <textarea type="text" name="description"></textarea>
 	        </p>
-		</fieldset>
+        </fieldset>
 
-        <fieldset>
+        <fieldset class="span6">
+            <p>
+                <input type="hidden" name="action" value="gestion_contacts_new" />
+                <input class="buttonSave" type="submit" name="update" value="Create" />
+            </p>
             <legend>Role in TEDx</legend>   
-	        <p>
-            	{foreach from=$teamRoles item=teamRole}
-					<input type="checkbox" name="teamrole" value="{$teamRole->getName()}">{$teamRole->getName()}<br>
+            <ul>
+                {foreach from=$teamRoles item=teamRole}
+                    <li>
+                       <input type="checkbox" name="teamrole" value="{$teamRole->getName()}">{$teamRole->getName()}
+                    </li>
             	{/foreach}
-	        </p>
+            </ul>
         </fieldset>
     </form>
 </article>

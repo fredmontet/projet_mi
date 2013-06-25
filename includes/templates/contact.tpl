@@ -1,4 +1,4 @@
-<article class="contact">
+<article class="contact span12">
     <section class="span6">
         <h1>Contact</h1>
 
