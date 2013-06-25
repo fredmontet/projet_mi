@@ -390,12 +390,10 @@ and (min-width : 1224px) {
 /****************************************/
 /*Status = done*/
 
-.about {}
-
 .about section{
         margin-top:50px;
 }
-.about section h1{}
+
 .about section article {
     -moz-column-count:3; /* Firefox */
     -webkit-column-count:3; /* Safari and Chrome */
@@ -405,9 +403,11 @@ and (min-width : 1224px) {
     -webkit-column-gap:20px; /* Safari and Chrome */
     column-gap:20px;
 }
+
 .about section article p{
     margin-bottom:20px;
 }
+
 .about section img{
     margin-top:50px; 
     padding:1px;
@@ -433,7 +433,7 @@ and (min-width : 1224px) {
 /*Status = ok*/
 
 .contact{
-    margin-top:25px;
+    margin-top:40px;
 }
 
 .contact section{
@@ -441,18 +441,6 @@ and (min-width : 1224px) {
     display:block;
     position:relative;
     float:left;
-}
-
-.contact h1{
-    font-size:3em;
-}
-
-.contact form{
-
-}
-
-.contact p{
-    
 }
 
 .contact label{
@@ -532,11 +520,6 @@ and (min-width : 1224px) {
 /*Status = il faut mettre des ronds plus petit pour le status d'inscription ou alors
 enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite du javascript'*/
 
-.events_registration{
-    
-}
-
-.events_registration header{}
 .events_registration header h1{
     display: block;
     font-size: 2.5em;
@@ -549,8 +532,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     padding-left: 20px;
 }
 
-.events_registration header nav{
-}
 .events_registration header nav a{
         display:block;
         float:left;
@@ -562,20 +543,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
         display:none;
 }
 
-.events_registration header nav p{}
-
-
-
-.events_registration section{}
-.events_registration section form{}
-.events_registration section form fieldset{}
-.events_registration section form fieldset legend{}
-.events_registration section form fieldset p{}
-.events_registration section form fieldset p label{}
-.events_registration section form fieldset p input{}
-.events_registration section form a{}
-.events_registration section form fieldset p textarea{}
-.events_registration section form button{}
 .events_registration .errorvalue{
     color:red;
     position:relative;
@@ -597,7 +564,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 .events_single{
     margin-bottom:50px;
-    
+
 }
 
 .events_single header{
@@ -848,14 +815,10 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*Status = ok*/
 
-.gestion_contacts_nav{}
-.gestion_contacts_nav h1{}
 .gestion_contacts_nav ul{
     position:relative;
     top:0;
 }
-.gestion_contacts_nav ul li{}
-.gestion_contacts_nav ul li a{}
 
 /*end of gestion_contacts_nav*/
 
@@ -875,8 +838,6 @@ etre bonne aussi.*/
 .gestion_contacts_new form {
     margin-top:50px;
 }
-
-.gestion_contacts_new form fieldset{}
 
 .gestion_contacts_new form fieldset legend{
     font-size:2em;
@@ -908,8 +869,6 @@ etre bonne aussi.*/
     list-style-type: none;
     
 }
-.gestion_contacts_new form fieldset ul li{}
-.gestion_contacts_new form fieldset ul li input{}
 
 
 /*end of gestion_contacts_new*/
@@ -920,12 +879,7 @@ etre bonne aussi.*/
 /****************************************/
 /*Status = to fill*/
 
-.gestion_contacts_role {}
 
-.gestion_contacts_role header{}
-.gestion_contacts_role header a{
-    
-}
 .gestion_contacts_role ul{
     margin-top:50px;
 }
@@ -1688,9 +1642,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*Status = done*/
 
-.partners{}
-
-.partners section{}
 .partners section h1{
     margin-top:50px;
 }
@@ -1704,26 +1655,24 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     text-decoration: none;
 }
 .partners section p a:hover{
-  color: #c0c0c0;
-  text-decoration:none;
+    color: #c0c0c0;
+    text-decoration:none;
 }
-.partners section article h2{}
+
 .partners section article p{
     text-align:justify;
     margin-bottom:20px;
 }
-.partners section article p img{}
 
 .partners section article p a{
     color: red;
     text-decoration: none;
 }
 .partners section article p a:hover{
-  color: #c0c0c0;
-  text-decoration:none;
+    color: #c0c0c0;
+    text-decoration:none;
 }
 
-.partners section section article{}
 .partners section section article img{
     margin-bottom:10px;
 }
@@ -1748,9 +1697,12 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .press{}
 .press section{}
 .press section h1{
-    margin-top:25px;
+    margin-top:50px;
 }
-.press section p{}
+.press section p{
+     text-align:justify;
+    margin-bottom:10px;
+}
 
 /*end of press*/
 
