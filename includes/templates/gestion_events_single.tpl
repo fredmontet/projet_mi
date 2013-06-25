@@ -7,6 +7,9 @@
     $gestionEventsSpeakerInfos (HTML from gestion_events_speaker_infos)
     $locations (Array of Location) [0..1]
     $errorFormMessage (Array of error Formular message)
+    $organizers (Array of Object)
+    $roles (Array of Object)
+    $isOrganizers (Array of Object)
 *}
 
 <article class="gestion_events_single">
@@ -132,20 +135,10 @@
                         <legend>Slot n°{counter}</legend>
                         {if $slot.speakers != null}
                             {foreach from=$slot.speakers item=speaker}
-                                <a href="?action=gestion_speaker_infos"><span>{$speaker->getFirstname()}</span> <span>{$speaker->getName()}</span></a>
+                                <a href="?action=gestion_speaker_infos&id={$speaker->getNo()}&eventId={$event->getNo()}"><span>{$speaker->getFirstname()}</span> <span>{$speaker->getName()}</span></a>
                             {/foreach}
                         {/if}
                 {/foreach}
-                <p>
-                    <select>
-                        <option>Chose a contact</option>
-                    </select>
-                </p>
-                <p>
-                    <select>
-                        <option>Position</option>
-                    </select>
-                </p>
             </fieldset>
         {/if}
         
@@ -153,36 +146,42 @@
         <input type="submit" name="submit_speaker" value="Add speaker">
         
         
-        <input type="hidden" name="action3" value="add_slot">
-        <input type="submit" name="submit_slot" value="Add slot">
         
         
         <a href="#gestion_events_single_details">previous</a>
         <a href="#gestion_events_single_team">next</a>
         
-        
-
-        
         <fieldset id="gestion_events_single_team">
             <legend>Organizer</legend>
-            <p>
-                <select>
-                    <option>Jean-Paul Gautier</option>
-                </select>
-            </p>
-            <p><input type="text" name="kw" value="Keyword 1" /></p>
-            <p><input type="text" name="kw" value="Keyword 2" /></p>
-            <p><input type="text" name="kw" value="Keyword 3" /></p>
-            <p>
-                <select>
-                    <option>Role</option>
-                </select>
-            </p>
+            {foreach from=$isOrganizers item=isOrganizer}
+                <fieldset>
+                    <p>
+                        <select>
+                        
+                            {foreach from=$organizers item=organizer}
+                                <option {if $isOrganizer.organizer->getNo() == $organizer->getNo()}selected {/if}><span>{$organizer->getFirstname()}</span> <span>{$organizer->getName()}</span></option>
+                            {/foreach}
+                        </select>
+                    </p>
+                    <p><input type="text" name="kw" value="Keyword 1" /></p>
+                    <p><input type="text" name="kw" value="Keyword 2" /></p>
+                    <p><input type="text" name="kw" value="Keyword 3" /></p>
+                    <p>
+                        {foreach from=$isOrganizer.roles item=isRole}
+                            <select>
+                                {foreach from=$roles item=role}
+                                    <option {if $isRole->getName() == $role->getName()}selected{/if}>{$role->getName()}</option>
+                                {/foreach}
+                            </select>
+                        {/foreach}
+                    </p>
+                </fieldset>
+            {/foreach}
         </fieldset>
         
         <input type="hidden" name="action4" value="add_organizer_to_event">
         <input type="submit" name="submit_add" value="Add organizer">
-        -->
+        
         
         
         <a href="#gestion_events_single_speaker">previous</a>

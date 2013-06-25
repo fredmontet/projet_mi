@@ -791,7 +791,7 @@ class TEDx {
             case 'gestion_speaker_infos_send':
 
                 // Get the content of Gestion Events Speaker Infos
-                $content = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
+                $content = $this->drawGestionSpeakerInfos();
                 break;
 
             // Gestion Events Motivations
@@ -1000,16 +1000,51 @@ class TEDx {
                     $allValidSlots = null;
                     $speakers = null;
                 }
+                
+                // Get all Roles in the Event
+                $messageRoles = $this->tedx_manager->getRolesByEvent($aValidEvent);
+                
+                // If Roles are found, continue
+                if($messageRoles->getStatus()) {
+                    $allValidRoles = $messageRoles->getContent();
+                } else {
+                    
+                }
+                
+                // Get all Organizers for the Event
+                $messageIsOrganizers = $this->tedx_manager->getOrganizersByEvent($aValidEvent);
+                
+                // If Organizers are found, continue
+                if($messageIsOrganizers->getStatus()) {
+                    $allValidIsOrganizers = $messageIsOrganizers->getContent();
+                } else {
+                    
+                }
+                
             } else {
                 // Else give the error message about no found Event
                 $this->displayMessage($messageEvent->getMessage());
             }
+            
+            // Get all Organizer
+            $messageOrganizers = $this->tedx_manager->getOrganizers();
+            
+            if($messageOrganizers->getStatus()) {
+                $allValidOrganizers = $messageOrganizers->getContent();
+                
+            } else {
+                
+            }
+            
         } else { // There is no ID
             $speakers = null;
             $allValidSlots = null;
             $aValidLocation = null;
             $aValidEvent = null;
             $event = null;
+            $allValidRoles = null;
+            $allValidIsOrganizers = null;
+            $allValidOrganizers = null;
         }
 
         // Get Locations
@@ -1025,6 +1060,9 @@ class TEDx {
         $errorFormMessage = $this->errorFormMessage();
 
         // Assigns variables to Smarty
+        $this->smarty->assign('isOrganizers', $allValidIsOrganizers);
+        $this->smarty->assign('roles', $allValidRoles);
+        $this->smarty->assign('organizers', $allValidOrganizers);
         $this->smarty->assign('locations', $allValidLocations);
         $this->smarty->assign('errorFormMessage', $errorFormMessage);
         $this->smarty->assign('errorState', $errorState);
@@ -1296,16 +1334,79 @@ class TEDx {
         // Get the content of Gestion Events Role
         return $this->smarty->fetch('gestion_events_role.tpl');
     }
+    
 
     /**
      * Draw the Gestion Events Speaker Infos
      * @return content HTML of the Gestion Events Speaker Infos
      */
     protected function drawGestionSpeakerInfos() {
-        $gestionEventsSpeakerInfos = $this->smarty->fetch('gestion_events_speaker_infos.tpl');
-        $this->smarty->assign('gestionEventsSpeakerInfos', $gestionEventsSpeakerInfos);
+        
+        $id = $this->getId();
+        
+        $eventId = $_REQUEST['eventId'];
+        
+        // Get Speaker
+        $messageSpeaker = $this->tedx_manager->getSpeaker($id);
+        
+        // If the Speaker is found, continue
+        if($messageSpeaker->getStatus()) {
+            $aValidSpeaker = $messageSpeaker->getContent();
+            
+            // Get Event
+            $messageEvent = $this->tedx_manager->getEvent($eventId);
+            
+            // If the Event is found, continue
+            if($messageEvent->getStatus()) {
+                $aValidEvent = $messageEvent->getContent();
+                
+                // Get Keywords for the Speaker by the Event
+                $args = array (
+                    'person' 	=>	$aValidSpeaker,
+                    'event'		=>	$aValidEvent
+                );
+                
+                $messageKeywords = $this->tedx_manager->getKeywordsByPersonForEvent($args);
+                
+                // If Keywords are found, continue
+                if($messageKeywords->getStatus()) {
+                    $allValidKeywords = $messageKeywords->getContent();
+                } else {
+                    
+                }
+                
+                // Get Talks by Speaker
+                $messageTalks = $this->tedx_manager->getTalksBySpeaker($aValidSpeaker);
+                
+                // If Talks are found, continue
+                if($messageTalks->getStatus()) {
+                    $allValidTalks = $messageTalks->getContent();
+                } else {
+                    // Else give the error message about no found Talks
+                    $this->displayMessage($messageTalks->getMessage());
+                }
 
-        return $this->smarty->fetch('gestion_events_single.tpl');
+                
+            } else {
+                // Else give th error message about no foun Event
+                $this->displayMessage($messageEvent->getMessage());
+            }
+            
+                        
+        } else {
+            // Else give the error message about no found Speaker
+            $this->displayMessage($messageSpeaker->getMessage());
+            $allValidKeywords = null;
+        }
+        
+        print_r($aValidSpeaker);
+        
+        // Assigns variables to Smarty
+        $this->smarty->assign('talks', $allValidTalks);
+        $this->smarty->assign('speaker', $aValidSpeaker);
+        $this->smarty->assign('keywords', $allValidKeywords);
+        
+        return $this->smarty->fetch('gestion_events_speaker_infos.tpl');
     }
 
     /**
