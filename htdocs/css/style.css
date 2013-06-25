@@ -574,7 +574,17 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .events_registration section form fieldset p input{}
 .events_registration section form a{}
 .events_registration section form fieldset p textarea{}
-.events_registration seciton form button{}
+.events_registration section form button{}
+.events_registration .errorvalue{
+    color:red;
+    position:relative;
+    top:-19px;
+    left:5px;
+    clear:both;
+}
+.events_registration .theButton{
+    margin: 30px;
+}
 
 /*end of event_registration*/
 
