@@ -1371,13 +1371,21 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*Status = to fill*/
 
-.login{}
+.login .theButton{
+
+
+}
 .login section{}
 .login section h1{}
 .login section form{}
 .login section form p{}
 .login section form p label{}
-.login section form p input{}
+.login section form p input{
+    margin: 0px;
+    
+   
+  
+}
 .login section form a{}
 
 /*end of login*/
