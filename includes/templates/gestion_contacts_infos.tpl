@@ -24,7 +24,7 @@ Smarty variables available:
 
         
        <form id="contact" method="post" action="">
-            <fieldset> 
+            <fieldset class="span6"> 
                 <p>
                     <input type="hidden" name="id" value="{$person->getNo()}" />
                     <input type="hidden" name="action" value="gestion_contacts_infos" />
@@ -76,6 +76,8 @@ Smarty variables available:
                     <textarea type="text" name="description">{$person->getDescription()}</textarea>
                 </p>
             </fieldset>
+                
+            <fieldset>
             <legend>Event's participation</legend>
             <table>
                 <tr>
@@ -121,7 +123,7 @@ Smarty variables available:
                 {/if}
             </table>
 
-            <fieldset>
+            
                 <legend>Role in TEDx</legend>   
                 <p>
 
