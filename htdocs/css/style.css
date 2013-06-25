@@ -721,11 +721,11 @@ and (min-width : 1224px) {
     display:inline-block;
     width:160px;
     float:right;
-    margin-top:-10px;
+    margin-top:-50px;
 }
 
 .gestion_contacts_infos form{
-    
+    margin-top:80px;
 }
 .gestion_contacts_infos form fieldset{}
 
