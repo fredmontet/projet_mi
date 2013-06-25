@@ -25,8 +25,8 @@
                 <legend>General informations</legend>
                 <!--user_firstName-->
                 <p>
-                    <label for="firsName">First name</label>
-                    <input type="text" name="firstName"/>
+                    <label for="firsname">First name</label>
+                    <input type="text" name="firstname"/>
                     <p class="errorvalue">Please enter a first name</p>
                     
                 </p>
@@ -91,7 +91,7 @@
                 <p>
                     <label for="description">Description </label>
                     <p class="errorvalue">Please enter a message</p>
-                    <textarea type="text" name=description"></textarea>
+                    <textarea type="text" name="description"></textarea>
                     
                    
                 </p>
@@ -115,7 +115,7 @@
 
                 <p>
                     <label for="city">City </label>
-                    <input type="number" name="city"/>
+                    <input type="text" name="city"/>
                     <p class="errorvalue">Please enter a city</p>
  
                 </p>
@@ -164,7 +164,7 @@
     
             <p>
                 <input type="hidden" name="id" value="{$event->getNo()}" />
-                <input type="hidden" name="action" value="events_registrations" />
+                <input type="hidden" name="action" value="events_registration" />
                 <input class="buttonSave" type="submit" name="update" value="Save" />
             </p>
                 

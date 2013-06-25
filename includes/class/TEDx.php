@@ -255,10 +255,14 @@ class TEDx {
         $errorState['phoneNumber']  = $this->validator(array('String', $registration['phoneNumber']));
         $errorState['email']        = $this->validator(array('Email', $registration['email']));
         $errorState['description']  = $this->validator(array('0..1', $registration['description']));
-        
+        $errorState['password']     = $this->validator(array('String', $registration['password']));
+        $errorState['keyword1']     = $this->validator(array('String', $registration['keyword1']));
+        $errorState['keyword2']     = $this->validator(array('String', $registration['keyword2']));
+        $errorState['keyword3']     = $this->validator(array('String', $registration['keyword3']));
+        $errorState['motivation']   = $this->validator(array('String', $registration['motivation']));
 
         // Return two arrays
-        return array($contact, $errorState);
+        return array($registration, $errorState);
     }
 
     /**
@@ -462,23 +466,99 @@ class TEDx {
      */
     protected function drawEventsRegistration() {
         $id = $this->getId();
-        if (isset($_POST['update'])) {
-            var_dump($_POST);
-            list($registration, $errorState) = $this->gestionRegistrationsValidator($_POST);
-
-            // If all values are correct, continue
-            if (count(array_keys($errorState, true)) == count($errorState)) {
-                
+        $messageEvent = $this->tedx_manager->getEvent($id);
+        // Check if event_id is correct
+        if ($messageEvent->getStatus()) {
+            $aValidEvent = $messageEvent->getContent();
+            $this->smarty->assign('event', $aValidEvent);
+            // Check if the form is done
+            if (isset($_POST['update'])) {
+                var_dump($_POST);
+                list($registration, $errorState) = $this->gestionRegistrationValidator($_POST);
+                // If all values are correct, continue
+                if (count(array_keys($errorState, true)) == count($errorState)) {
+                    $argsVisitor = array(
+                        'name'        => $registration['name'], // String
+                        'firstname'   => $registration['firstname'],   // String
+                        'dateOfBirth' => $registration['dateOfBirth'], // Date
+                        'address'     => $registration['address'], // String
+                        'city'        => $registration['city'], // String
+                        'country'     => $registration['country'], // String
+                        'phoneNumber' => $registration['phoneNumber'], // String
+                        'email'       => $registration['email'], // String
+                        'description' => $registration['description'], // String
+                        'idmember'    => $registration['email'], // String
+                        'password'    => $registration['password'] // String
+                    );
+                    $messageAddVisitor = $this->tedx_manager->registerVisitor($argsVisitor);
+                    // If the visitor is added, continue
+                    if($messageAddVisitor->getStatus()){
+                        $this->tedx_manager->login($argsVisitor['email'], $argsVisitor['password']);
+                        $anAddingVisitor = $messageAddVisitor->getContent();
+                        $anAddedPerson = $anAddingVisitor['anAddedPerson'];
+                        $argsRegEvent = array(
+                            'person' => $anAddedPerson,         // object Person
+                            'event' => $aValidEvent,          // object Event
+                            'type' => 'Participant',           // String A EDITER
+                            'typeDescription' => $registration['description'] // String A EDITER
+                        );
+                        $messageRegisterToAnEvent = $this->tedx_manager->registerToAnEvent($argsRegEvent);
+                        // If the Registration to an event is added, continue
+                        if($messageRegisterToAnEvent->getStatus()){
+                            // Change the access to a Participant membership
+                            $this->tedx_manager->logout();
+                            $this->tedx_manager->login($argsVisitor['email'], $argsVisitor['password']);
+                            $argsKeywords = array(
+                                'listOfValues' => array($registration['keyword1'], $registration['keyword2'], $registration['keyword3']), //List of values
+                                'person' => $anAddedPerson, // object Person
+                                'event' => $aValidEvent // object Event
+                            );
+                            $messageAddKeywords = $this->tedx_manager->addKeywordsToAnEvent($argsKeywords);
+                            $flagAddedKeywords = true;
+                            foreach($messageAddKeywords as $message){
+                                if(!$message->getStatus() and $flagAddedKeywords){
+                                    $flagAddedKeywords = false;
+                                }
+                            }
+                            // If all keywords id added, continue
+                            if($flagAddedKeywords){
+                               // args add Motivation to an Event
+                                $argsMotivation= array(
+                                        'text'        => $registration['motivation'],
+                                        'event'       => $aValidEvent,
+                                        'participant' => $anAddedPerson
+                                );
+                                // adding Motivation to an Event
+                                $messageAddMotivationToAnEvent = $this->tedx_manager->addMotivationToAnEvent($argsMotivation);
+                                if($messageAddMotivationToAnEvent->getStatus()){
+                                    $this->displayMessage("Registration accepted! Thank you!");
+                                    $content = $this->drawHome(); 
+                                }else{
+                                    $this->displayMessage($messageAddMotivationToAnEvent->getMessage());
+                                    $content = $this->smarty->fetch('events_registration.tpl');
+                                }
+                            }else{
+                                $this->displayMessage("Problème de Keywords");
+                                $content = $this->smarty->fetch('events_registration.tpl');
+                            }
+                        }else{
+                            $this->displayMessage($messageRegisterToAnEvent->getMessage());
+                            $content = $this->smarty->fetch('events_registration.tpl');
+                        }
+                    }else{
+                        $this->displayMessage($messageAddVisitor->getMessage());
+                        $content = $this->smarty->fetch('events_registration.tpl');
+                    }    
+                }else{
+                    $this->displayMessage('Data Error');
+                    $content = $this->smarty->fetch('events_registration.tpl');
+                }
+            }else{
+                $content = $this->smarty->fetch('events_registration.tpl');
             }
         }else{
-            $messageEvent = $this->tedx_manager->getEvent($id);
-            if ($messageEvent->getStatus()) {
-                $aValidEvent = $messageEvent->getContent();
-            } else {
-                $this->displayMessage('There isn\'t event!');
-            }
-            $this->smarty->assign('event', $aValidEvent);
-            $content = $this->smarty->fetch('events_registration.tpl');
+            $this->displayMessage('There isn\'t event!');
+            $content = $this->drawHome();
         }
         return $content;
     }
