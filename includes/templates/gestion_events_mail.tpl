@@ -18,8 +18,7 @@ $registrations (Array [Registrations] => Array
             <a href="#accepted">Accepted</a>
         </nav>
 
-        <div class="span6">
-            <section id="refused">
+        <section id="refused" class="span6">
 
                 {foreach from=$registrations item=registration}
                     <ul>
@@ -33,7 +32,7 @@ $registrations (Array [Registrations] => Array
                 {foreachelse}
                     <p>There is no entry</p>
                 {/foreach}
-        </div>
+            </section>
     </section>
 
     {$gestionEventsMailEdit}

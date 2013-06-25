@@ -750,7 +750,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_list*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok, il y a quelques lignes vides bizarre mais ça le fait*/
 
 .gestion_contacts_list header{}
 .gestion_contacts_list header nav{}
@@ -793,7 +793,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_nav*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .gestion_contacts_nav{}
 .gestion_contacts_nav h1{}
@@ -810,7 +810,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_contacts_new*/
 /****************************************/
-/*Status = to fill*/
+/*Status = il faut aligner les forms selon la meme structure que 
+gestion_contacts_infos. Une fois gesiton_contacts_infos fini, cette page devrait
+etre bonne aussi.*/
 
 .gestion_contacts_new{}
 .gestion_contacts_new form p{}
@@ -897,7 +899,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 /*Info: this template is composed of different templates:
         gestion_events_nav.tpl
         gestion_events_single.tpl
@@ -909,7 +911,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_list*/
 /****************************************/
-/*Status = to fill*/
+/*Status = ok*/
 
 .gestion_events_list{}
 .gestion_events_list a{
@@ -978,7 +980,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*gestion_events_mail*/
 /****************************************/
-/*Status = to fill*/
+/*Status = c'est presque bon, il faut juste mettre un peu moins d'espace entre 
+chaque participants dans la list et un peu styler les status (accepted, pending,...)
+*/
 
 .gestion_events_mail{}
 
