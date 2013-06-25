@@ -1,4 +1,4 @@
-<article class="about offset1 span10">
+<article class="about span12">
 
     <!--about tedxlausanne tab-->
     <section id="about_tedxlausanne">
@@ -13,7 +13,7 @@
         <!--end about tedxlausanne tab-->
 
         <!--img-->    
-        <img alt="Photo" src="htdocs/img/content/TEDxLausanne.jpg">
+        <img alt="Photo" src="htdocs/img/content/TEDxLausBis.jpg">
     </section>
 
     <!--about TED tab-->
@@ -42,10 +42,10 @@
     <section id="about_tedx offset3 span6">
         <h1>About TEDx</h1>
         <article>
-        <p>In the spirit of “ideas worth spreading”, <a href="http://www.ted.com/" target="_blank">TED</a> created a program called <a href="http://www.ted.com/tedx" target="_blank">TEDx</a>, consisting of local, independently organized events that bring people together to share a TED-like experience. Live speakers and a few pre-recorded TEDTalk videos are combined to spark deep discussion and connection in a relatively small group. TED provides general guidance for the TEDx program, including rules and regulations that local organizers must follow. Hundreds of TEDx events have already been organized around the world.
+        <p>In the spirit of “ideas worth spreading”, <a href="http://www.ted.com/" target="_blank">TED</a> created a program called <a href="http://www.ted.com/tedx" target="_blank">TEDx</a>, consisting of local, independently organized events that bring people together to share a TED-like experience. Live speakers and a few pre-recorded TEDTalk videos are combined to spark deep discussion and connection in a relatively small group. TED provides general guidance for the TEDx program, including rules and regulations that local organizers must follow. Hundreds of TEDx events have already been organized around the world. The TED Conference provides general guidance for the TEDx program, but individual TEDx events, including ours, are self-organized.
         </p>
         <p>
-            The TED Conference provides general guidance for the TEDx program, but individual TEDx events, including ours, are self-organized.
+            
         </p>
         </article>
     </section>	
