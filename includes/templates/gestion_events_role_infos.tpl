@@ -13,25 +13,29 @@ Smarty variables available:
         $role (Role Object)
 *}
 <div class="span6">
-<article class="gestion_events_role_infos">
-    <form name="gestion_events_role_infos" method="post" action="">
-            <!--button save-->
-            <p>
+                <p>
                 <input type="hidden" name="action" value="gestion_events_role_send" />
                 <input type="submit" name="gestion_events_role_send" value="Save" />
             </p>
+<article class="gestion_events_role_infos">
+    <form name="gestion_event_role_infos" method="post" action="">
+            <!--button save-->
 
-        <legend>Chose event</legend>   
+
+        <legend>Choose event</legend>   
         <select>
-            <option value="{$role->getEventNo()}">Chose event</option>
+            
+            <option value="{$role->getEventNo()}">Choose event</option>
             {foreach from=$events item=event}
                 <option value="{$event.event->getNo()}">{$event.event->getMainTopic()}</option>
             {/foreach}
         </select>
-        <legend>Event role name</legend> 
-       <p>
+       
+       
+        <label for="eventRoleName">Event role name</label>
         <input type="text" name="role" value="{$role->getName()}" />
-       </p>
+        <p class="errorvalue">Please enter an event role name</p>
+       
         <!--
         <legend>Chose level</legend>   
         <select>

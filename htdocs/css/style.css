@@ -1186,7 +1186,6 @@ on laisse comme ça ce n'est pas si grave*/
     display:inline-block;
     width:160px;
     float:right;
-    margin-bottom:10px;
 }
 
 .gestion_events_role dl{
@@ -1208,6 +1207,7 @@ on laisse comme ça ce n'est pas si grave*/
 .gestion_events_role .scroll{
     overflow-y:scroll;
     height:400px;
+    margin-top:55px;
 }
 
 
@@ -1224,10 +1224,24 @@ on laisse comme ça ce n'est pas si grave*/
     float:right;
 }
 
-.gestion_events_role_infos form fieldset{
-    width:100%;
-    float:right;
+.gestion_events_role_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-19px;
+    left:5px;
+    clear:both;
 }
+.gestion_events_role_infos form input{
+    width:55%;
+    
+}
+.gestion_events_role_infos select{
+    float:right;
+    width:100%;
+    margin-bottom:20px;
+}
+
+
 
 
 /*end of gestion_events_role_infos*/
