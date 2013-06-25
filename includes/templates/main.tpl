@@ -30,9 +30,11 @@
                         <li id="gn-contact">
                             <a {if  $topAction=='contact'}class="selected"{/if} href="?action=contact">Contact</a>
                         </li>
-                        <li id="gn-gestion">
-                            <a {if  $topAction=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a>
-                        </li>
+                        {if $userIsLogged}
+                            <li id="gn-gestion">
+                                <a {if  $topAction=='gestion'}class="selected"{/if} href="?action=gestion">Gestion</a>
+                            </li>
+                        {/if}
                      </ul>
                      <ul id="lognav">
 		    {if $userIsLogged}                   

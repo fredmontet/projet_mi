@@ -2051,7 +2051,7 @@ class TEDx {
             // Home
             case 'home':
                 $topAction = 'home';
-
+                
                 try {
                     $subnav = null;
                     $content = $this->drawHome();
@@ -2064,6 +2064,7 @@ class TEDx {
 
             // About
             case 'about':
+            
                 $topAction = 'about';
 
                 try {
@@ -2079,6 +2080,7 @@ class TEDx {
 
             // Events
             case 'events':
+                
                 $topAction = 'events';
 
                 try {
@@ -2137,7 +2139,7 @@ class TEDx {
                 break;
 
             // Videos Event
-            case 'videos_event':
+            case 'videos_event':            
                 $topAction = 'videos';
 
                 try {
@@ -2209,17 +2211,25 @@ class TEDx {
 
             // Gestion
             case 'gestion':
-                $topAction = 'gestion';
-                $subAction = 'gestion';
-
-                try {
-                    $subnav = $this->drawGestionNav($subAction);
-                    $content = $this->drawGestion();
-                } catch (Exception $e) {
-                    $this->displayMessage('This page doesn\'t exist!');
-                    $content = null;
-                    $subnav = null;
+            
+                // If the user is loged, continue
+                if ($this->tedx_manager->isLogged()) {
+                    $topAction = 'gestion';
+                    $subAction = 'gestion';
+    
+                    try {
+                        $subnav = $this->drawGestionNav($subAction);
+                        $content = $this->drawGestion();
+                    } catch (Exception $e) {
+                        $this->displayMessage('This page doesn\'t exist!');
+                        $content = null;
+                        $subnav = null;
+                    }
+                } else {
+                    // Else redirect the user to the Login page
+                    header("Location: ?action=login");
                 }
+            
                 break;
 
             // Gestion Events
@@ -2243,18 +2253,25 @@ class TEDx {
             case 'gestion_events_send':
             case 'gestion_speaker_infos':
             case 'gestion_speaker_infos_send':
-
-                $topAction = 'gestion';
-                $subAction = 'gestion_events';
-
-                try {
-                    $subnav = $this->drawGestionNav($subAction);
-                    $content = $this->drawGestionEvents($action);
-                } catch (Exception $e) {
-                    $this->displayMessage('This page doesn\'t exist!');
-                    $content = null;
-                    $subnav = null;
+            
+                // If the user is loged, continue
+                if ($this->tedx_manager->isLogged()) {
+                    $topAction = 'gestion';
+                    $subAction = 'gestion_events';
+    
+                    try {
+                        $subnav = $this->drawGestionNav($subAction);
+                        $content = $this->drawGestionEvents($action);
+                    } catch (Exception $e) {
+                        $this->displayMessage('This page doesn\'t exist!');
+                        $content = null;
+                        $subnav = null;
+                    }
+                } else {
+                    // Else redirect the user to the Login page
+                    header("Location: ?action=login");
                 }
+
                 break;
 
             // Gestion Location
@@ -2262,18 +2279,25 @@ class TEDx {
             case 'gestion_locations_new':
             case 'gestion_locations_send':
             case 'gestion_locations_infos':
-
-                $topAction = 'gestion';
-                $subAction = 'gestion_locations';
-
-                try {
-                    $subnav = $this->drawGestionNav($subAction);
-                    $content = $this->drawGestionLocations($action);
-                } catch (Exception $e) {
-                    $this->displayMessage('This page doesn\'t exist!');
-                    $content = null;
-                    $subnav = null;
+            
+                // If the user is loged, continue
+                if ($this->tedx_manager->isLogged()) {
+                    $topAction = 'gestion';
+                    $subAction = 'gestion_locations';
+    
+                    try {
+                        $subnav = $this->drawGestionNav($subAction);
+                        $content = $this->drawGestionLocations($action);
+                    } catch (Exception $e) {
+                        $this->displayMessage('This page doesn\'t exist!');
+                        $content = null;
+                        $subnav = null;
+                    }
+                } else {
+                    // Else redirect the user to the Login page
+                    header("Location: ?action=login");
                 }
+
                 break;
 
             // Gestion Location
@@ -2286,24 +2310,31 @@ class TEDx {
             case 'gestion_contacts_role_new':
             case 'gestion_contacts_role_send':
             case 'new_contact_send':
-
-                $topAction = 'gestion';
-                $subAction = 'gestion_contacts';
-
-                try {
-                    $subnav = $this->drawGestionNav($subAction);
-                    $content = $this->drawGestionContacts($action);
-                } catch (Exception $e) {
-                    $this->displayMessage('This page doesn\'t exist!');
-                    $content = null;
-                    $subnav = null;
+            
+                // If the user is loged, continue
+                if ($this->tedx_manager->isLogged()) {
+                    $topAction = 'gestion';
+                    $subAction = 'gestion_contacts';
+    
+                    try {
+                        $subnav = $this->drawGestionNav($subAction);
+                        $content = $this->drawGestionContacts($action);
+                    } catch (Exception $e) {
+                        $this->displayMessage('This page doesn\'t exist!');
+                        $content = null;
+                        $subnav = null;
+                    }
+                } else {
+                    // Else redirect the user to the Login page
+                    header("Location: ?action=login");
                 }
+
+                
                 break;
 
             // Login
             case 'login':
             case 'login_send':
-                $topAction = 'login';
 
                 try {
                     $subnav = null;
@@ -2313,10 +2344,12 @@ class TEDx {
                     $content = null;
                     $subnav = null;
                 }
+            
                 break;
 
             // Logout
             case 'logout':
+            
                 $topAction = 'logout';
 
                 try {
@@ -2337,21 +2370,31 @@ class TEDx {
             case 'user_infos':
             case 'user_infos_send':
             case 'user_infos_password':
+            
+                // If the user is loged, continue
+                if ($this->tedx_manager->isLogged()) {
+                    try {
+                        $subnav = null;
+                        $content = $this->drawUserInfos($action);
+                    } catch (Exception $e) {
+                        $this->displayMessage('This page doesn\'t exist!');
+                        $content = null;
+                        $subnav = null;
+                    }
+                } else {
+                    // Else redirect the user to the Login page
+                    header("Location: ?action=login");
+                }
+            
                 $topAction = 'user_infos';
 
-                try {
-                    $subnav = null;
-                    $content = $this->drawUserInfos($action);
-                } catch (Exception $e) {
-                    $this->displayMessage('This page doesn\'t exist!');
-                    $content = null;
-                    $subnav = null;
-                }
+                
                 break;
 
             // Register
             case 'register':
             case 'register_send':
+            
                 $topAction = 'register';
 
                 try {
