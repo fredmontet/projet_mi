@@ -1782,6 +1782,14 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .user_infos{
     margin-top:50px;
 }
+
+.user_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-19px;
+    left:5px;
+    clear:both;
+
 .user_infos section{
    
 }
@@ -1793,7 +1801,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 .user_infos section form p label{
     font-size:1em;
-    width:30%;
+    width:50%;
 }
 .user_infos section form p input{
     float:right;
