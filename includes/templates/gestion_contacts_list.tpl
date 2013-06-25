@@ -16,7 +16,7 @@ Smarty variables available:
    		<tr>
 	   		<th>Firstname</th>
 	   		<th>Name</th>
-                        <th colspan=3>Team Role of TEDx'member</th>
+                        <th colspan=3>Team Role of TEDx's members</th>
 	   		
    		</tr>
 		{foreach from=$contacts item=contact}
