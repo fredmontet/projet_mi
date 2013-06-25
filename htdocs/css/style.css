@@ -433,6 +433,7 @@ and (min-width : 1224px) {
 /*Status = ok*/
 
 .contact{
+    margin-top:25px;
 }
 
 .contact section{
@@ -443,7 +444,7 @@ and (min-width : 1224px) {
 }
 
 .contact h1{
-    font-size:2em;
+    font-size:3em;
 }
 
 .contact form{
@@ -802,16 +803,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*Status = ok, il y a quelques lignes vides bizarre mais ça le fait*/
 
-.gestion_contacts_list header{}
-.gestion_contacts_list header nav{}
-.gestion_contacts_list header nav ul{}
-.gestion_contacts_list header nav ul li{}
-.gestion_contacts_list header nav ul li a{
-    font-weight:normal;
-    color:red;
-    font-size:1.7em;
-}
-
 .gestion_contacts_list table{
     margin-top: 30px;
     width:100%;
@@ -835,7 +826,19 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     padding:7px 7px 7px 16px;
     background-color:#EFEFEF;
 }
-.gestion_contacts_list table tr td a{}
+
+.gestion_contacts_list table tr td a{
+    width:300%;
+    height:100%;
+    display:block;
+    cursor:normal;
+    color:#000000;
+}  
+
+.gestion_contacts_list table tr:hover>td{
+    background-color:#E0E0E0;
+}
+
 
 /*end of gestion_contacts_list*/
 
