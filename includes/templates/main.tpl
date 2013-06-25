@@ -3,7 +3,9 @@
     <head>
 	    <meta charset="utf-8" />
 	    <link rel="stylesheet" media="all" href="htdocs/css/style.css" />
-	    <title>Project 143</title>
+            <script type='text/javascript' src='htdocs/js/jquery-2.0.2.min.js'></script>
+	    <script type='text/javascript' src='htdocs/js/script.js'></script>
+            <title>Project 143</title>
 	</head>
     <body>       
     <div id="container">

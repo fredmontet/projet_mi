@@ -562,7 +562,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 .events_single{
     margin-bottom:50px;
-
+    min-height:600px;
 }
 
 .events_single header{
@@ -572,8 +572,8 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 .grey_bar{
         background-color:#eeeeee;
-        height:100px;
-        margin-top:-10px;
+        height:200px;
+        margin-top:-110px;
         width:100%;
         left:0;
         position:absolute;
@@ -599,9 +599,12 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     margin-bottom:5px;
     margin-top:20px;
     position:relative;
-    left:0%;
+    left:50%
 }
-.events_single nav ul{}
+.events_single nav ul{
+    position:relative;
+    left:-50%;
+}
 .events_single nav ul li{
     display:block;
     float:left;
@@ -617,7 +620,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 
 .events_single nav ul li:hover{
-     color:#c0c0c0;
+     border-bottom:3px solid red;  
 }
 
 #events_single_infos, #events_single_details, #events_single_speaker{}
@@ -660,7 +663,9 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     font-weight:bold;
     font-size:1.3em; 
     border:2px solid #ff0000;
-    float:right;
+    position:absolute;
+    top:600px;
+    left:800px;
     
    }
    
@@ -668,6 +673,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     color:#ff0000;
     border:2px solid #ff0000;
     background-color:white;
+    
    }
 
 /*end of events_single*/
@@ -796,7 +802,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     width:300%;
     height:100%;
     display:block;
-    cursor:normal;
     color:#000000;
 }  
 
@@ -1071,7 +1076,7 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
     font-weight:bold;
 }
 .gestion_events_mail section nav a{
-    display:inline block;   
+    display:inline-block;   
     color:rgba(255,0,0,1);
     text-decoration:none;
     text-align:center;
@@ -1644,6 +1649,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     background-image: url("../img/layout/social/hover/youtubeHover.png");
 }
 
+
 #subnav{
     position:relative;
     display:inline-block;
@@ -1800,6 +1806,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     top:-19px;
     left:5px;
     clear:both;
+}
 
 .user_infos section{
    

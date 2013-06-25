@@ -21,13 +21,13 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
     <nav class="offset3 span6">
         <ul>
             <li>
-                <a href="#events_single_infos">Infos</a>
+                <a class="event_info" href="#" title="Infos">Infos</a>
             </li>
             <li>                
-                <a href="#events_single_details">Details</a>
+                <a class="event_details" href="#" title="Details">Details</a>
             </li>
             <li>
-                <a href="#events_single_speakers">Speakers</a> 
+                <a class="event_speakers" href="#" title="Speakers">Speakers</a> 
             </li>
         </ul>
     </nav>
@@ -35,7 +35,7 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
 
 
     <!--infos tab-->
-    <section id="events_single_infos">
+    <section class="events_single_infos">
         <!--event tab-->
         <section class="span8">
             <h2>Programme</h2>
@@ -64,7 +64,7 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
 
 
     <!--details tab-->
-    <section id="events_single_details">
+    <section class="events_single_details">
         {if ($location != null)}
             <!-- location tab-->
             <section class="span6">
@@ -91,7 +91,7 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
 
 
     <!--speaker tab-->
-    <section id="events_single_speakers">
+    <section class="events_single_speakers">
         <!--speaker slot-->
         <section class="span12">
             <h2>Speaker of slot one</h2>
