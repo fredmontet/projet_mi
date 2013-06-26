@@ -1609,6 +1609,10 @@ class TEDx {
      * @return content HTML of the Gestion Events Mail page
      */
     protected function drawGestionEventsMail($action) {
+    
+        if (isset($_POST['update'])) {
+            $this->displayMessage('This action is not yet implemented.');
+        }
 
         // Get Next Event
         $aValidNextEvent = $this->getNextEvent();
