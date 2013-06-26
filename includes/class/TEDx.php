@@ -17,8 +17,8 @@ class TEDx {
      */
     protected $smarty;
 
-    /**
-     * TEDx Manager object 
+    /**  
+     * TEDx Manager object
      * @var tedx_manager
      */
     protected $tedx_manager;
@@ -504,7 +504,9 @@ class TEDx {
                 $allValidSlots = $messageSlots->getContent();
 
                 // For each Valid Slots
-                foreach ($allValidSlots as $aValidSlot) {
+                foreach ($allValidSlots as $key=>$aValidSlot) {
+                
+                    $speakers[]['slot'] = $aValidSlot;
 
                     // Get Places in a Slot
                     $messagePlaces = $this->tedx_manager->getPlacesBySlot($aValidSlot);
@@ -523,20 +525,19 @@ class TEDx {
                             if ($messageSpeaker->getStatus()) {
                                 $aValidSpeaker = $messageSpeaker->getContent();
 
-                                // Prepare an array for Smarty [Slots][Places][Speaker]
-                                $speakers [$aValidSlot->getNo()]
-                                        [$aValidPlace->getNo()]
-                                        [$aValidSpeaker->getNo()] = $aValidSpeaker;
+                                // Prepare an array for Smarty [Slots][Places][Speaker]                                    
+                                $speakers[$key]['speakers'][$aValidPlace->getNo()] = $aValidSpeaker;
+                                        
                             } else {
                                 // Else give the error message about no found Speaker
                                 $aValidSpeaker = null;
-                                $speakers [$aValidSlot->getNo()] = null;
+                                $speakers[$key]['speakers'] = null;
                             }
                         }
                     } else {
                         // Else give the error message about no found Place
                         $allValidPlaces = null;
-                        $speakers [$aValidSlot->getNo()] = null;
+                        $speakers[$key]['speakers'] = null;
                     }
                 }
             } else {

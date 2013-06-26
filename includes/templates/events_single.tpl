@@ -1,9 +1,18 @@
 {*
 Smarty variables available:
-$event (Object)
-$location (Object) [0..1]
-$slots (Object) [0..1]
-$speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+    $event (Object)
+    $location (Object) [0..1]
+    $slots (Object) [0..1]
+    $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
+    
+    $speakers (Array [Speakers] => Array
+		(	
+			[Slot] => Registration Object
+			[Speakers] => Array
+			    (
+			        [Speaker] => Speaker Object
+			    )
+        )
 *}
 
 <article class="events_single offset2 span8">
@@ -70,43 +79,45 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
             <!-- location tab-->
             <section class="span6">
                 <h2>Location</h2>
+                <p>{$location->getName()}</p>
                 <p>{$location->getAddress()}</p>
-                <p>{$location->getCity()}</p> 
+                <p>{$location->getCity()}</p>
+                <p>{$location->getCountry()}</p> 
             </section>
             <!--end location tab-->
         {/if}
         <!--dress code-->
         <section class="span6">
             <h2>Dress Code</h2>
-            <p>This is the dress code</p>
+            <p>At TEDxLausanne 2012, Steve Edge, one of our speakers, encouraged the attendees to “dress for a party and the party will come to you”. We also encourage you to “dress for a party” while still expressing who you really are.</p>
         </section>
         <!--end dress code-->
         <!--language-->
         <section class="span6">
             <h2>Languages</h2>
-            <p>blbla english blblabla</p>
+            <p>Our programme for 2013 contains presentations in English.</p>
         </section>
         <!--end language-->
     </section>
     <!--end section tab-->
 
-
     <!--speaker tab-->
     <section class="events_single_speakers">
         <!--speaker slot-->
         <section class="span12">
-            <h2>Speaker of slot one</h2>
-            <ul>
-                <li>           
-                    {foreach from=$speakers item=places}
-                        {foreach from=$places item=speaker}
-                            {foreach from=$speaker item=person}
-                            {if $person!=null}{$person->getName()}{/if}
-                        {/foreach}
-                    {/foreach}
-                {/foreach}  
-            </li>
-        </ul> 
+            {counter start=0 skip=1 print=false}
+            {foreach from=$speakers item=slot}
+                <h2>Speaker of slot {counter}</h2>
+                {if $slot.speakers != null}
+                    <ul>
+                        <li>           
+                            {foreach from=$slot.speakers item=speaker}
+                                {if $speaker!=null}{$speaker->getName()}{/if}
+                            {/foreach}  
+                        </li>
+                    </ul>
+                {/if}
+            {/foreach}
         </section>
     <!--end speaker slot-->            
 </section>
