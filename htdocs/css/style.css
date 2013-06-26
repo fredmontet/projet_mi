@@ -1206,6 +1206,14 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 /*Status = il faut un tout petit peu realigner le boutton mais si
 on laisse comme ça ce n'est pas si grave*/
 
+.gestion_events_mail_edit .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:150px;
+    clear:both;
+}
+
 .gestion_events_mail_edit{}
 
 .gestion_events_mail_edit input{}
@@ -1230,7 +1238,10 @@ on laisse comme ça ce n'est pas si grave*/
     margin-bottom:20px;
 }
 .gestion_events_mail_edit fieldset select option{}
-.gestion_events_mail_edit fieldset textarea{}
+.gestion_events_mail_edit fieldset textarea{
+    height:280px;
+    
+}
 
 
 /*end of gestion_events_mail_edit*/

@@ -20,13 +20,17 @@ Smarty variables available:
         <!--adress mail-->
 
         <fieldset>
-            
-            <input type="email" name"mail" value="{$person->getEmail()}">
+            <label>Email</label>
+            <input type="email" name="mail" value="{$person->getEmail()}">
+            <p class="errorvalue">Please enter a adress mail</p>
 
             <label>Subject</label>
             <input type="text" name="subject" value="">
-
+            <p class="errorvalue">Please enter a subject</p>
+            
+            <label>Message</label>
             <textarea name="message"></textarea>
+            <p class="errorvalue">Please enter a message</p>
         </fieldset>
     </form>
 </div>
