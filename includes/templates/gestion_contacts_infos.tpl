@@ -69,6 +69,7 @@ Smarty variables available:
             <p>
                 <label for="description">Description </label>
                 <textarea type="text" name="description">{$person->getDescription()}</textarea>
+                <p class="errorvalue">Please enter a description</p>
             </p>
         </fieldset>
 

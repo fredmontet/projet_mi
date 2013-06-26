@@ -757,6 +757,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*Status = aligner les form*/
 
+.gestion_contacts_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:70px;
+    clear:both;
+}
+
 .gestion_contacts_infos .buttonSave{
     display:inline-block;
     width:160px;
