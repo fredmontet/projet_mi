@@ -1321,7 +1321,7 @@ on laisse comme ça ce n'est pas si grave*/
     font-size:2em;
 }
 .gestion_events_motivation section h2{
-    font-size:1em;
+    font-size:1.3em;
     margin-bottom:-5px;
 }
 
@@ -1538,11 +1538,9 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     float:left;
 }
 .gestion_events_single form table tr td{
-     width:200px;
+    width:200px;
     float:left;
     margin-right:-90px;
-    
-    
 }
 .gestion_events_single form div input{
     margin-right:0px;

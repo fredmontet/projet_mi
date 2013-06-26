@@ -20,7 +20,7 @@
     )
 *}
 
-<article class="gestion_events_single">
+<article class="gestion_events_single span12">
     <form id="" method="post" action="">
         <!--gestion_events_single subnav -->
         <!--
@@ -48,7 +48,7 @@
                 <input type="date" name="startingDate" value="{if $event != null}{$event->getStartingDate()}{/if}"/>
                 {if $errorState != null && !$errorState.startingDate}<p class="errorvalue">{$errorFormMessage.startingDate}</p>{/if}
                 <!--problem with css solved with this div-->
-                <div id="troll">
+                <div >
                     <legend>Ending date</legend>
                     <input type="date" name="endingDate" value="{if $event != null}{$event->getEndingDate()}{/if}"/>
                     {if $errorState != null && !$errorState.endingDate}<p class="errorvalue">{$errorFormMessage.endingDate}</p>{/if}
