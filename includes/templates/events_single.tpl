@@ -124,6 +124,6 @@ Smarty variables available:
 <!--end speaker tab-->
 
 <!--registration button-->           
-<a class="theButton offset2 span8" href="?action=events_registration&id=1">Register</a>
+<a class="theButton offset2 span8" href="?action=events_registration&id={$event->getNo()}">Register</a>
 <!--end registration button--> 
 </article>
