@@ -809,13 +809,6 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /****************************************/
 /*Status = aligner les form*/
 
-.gestion_contacts_infos .errorvalue{
-    color:red;
-    position:relative;
-    top:-10px;
-    left:70px;
-    clear:both;
-}
 
 .gestion_contacts_infos .buttonSave{
     display:inline-block;
@@ -1928,7 +1921,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-top:50px;
 }
 .press section p{
-     text-align:justify;
+    text-align:justify;
     margin-bottom:10px;
 }
 
@@ -1940,13 +1933,35 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*Status = espacer le bouton register*/
 
-.register{}
-.register h1{}
+.register .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:220px;
+    clear:both;
+}
+
+.register .buttonRegister{
+    display:inline-block;
+    width:160px;
+    margin-top: 10px;
+}
+
+.register{
+    margin-top:50px;
+}
+.register h1{
+    margin-bottom:40px;
+}
 
 .register form{}
 .register form p{}
-.register form p label{}
-.register form p input{}
+.register form p label{
+    width:35%;
+}
+.register form p input{
+    width:60%;
+}
 
 /*end of register*/
 
