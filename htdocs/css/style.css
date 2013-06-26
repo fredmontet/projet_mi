@@ -625,7 +625,11 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .events_registration header nav a span{
     display:none;
 }
-
+.events_registration .buttonSave{
+    margin-bottom:40px;
+    margin-right:20px;
+    
+}
 .events_registration .errorvalue{
     color:red;
     position:relative;
@@ -2040,7 +2044,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .register .buttonRegister{
     display:inline-block;
     width:160px;
-    margin-top: 10px;
+    margin-top: -80px;
 }
 
 .register{
