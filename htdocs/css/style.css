@@ -906,6 +906,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 gestion_contacts_infos. Une fois gesiton_contacts_infos fini, cette page devrait
 etre bonne aussi.*/
 
+.gestion_contacts_new .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:160px;
+    clear:both;
+}
+
 .gestion_contacts_new .buttonSave{
     display:inline-block;
     width:160px;
@@ -933,7 +941,7 @@ etre bonne aussi.*/
 .gestion_contacts_new form fieldset p textarea{
     float:right;
     width:70%;
-    height:300px;
+    height:140px;
     margin-top:2px;
 }
 

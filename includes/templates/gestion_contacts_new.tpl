@@ -54,6 +54,7 @@ Smarty variables available:
 	
 	            <label for="description">Description </label>
 	            <textarea type="text" name="description"></textarea>
+                    <p class="errorvalue">Please enter a description</p>                    
 	        </p>
         </fieldset>
 
