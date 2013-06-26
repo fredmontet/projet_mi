@@ -12,17 +12,20 @@ Smarty variables available:
 
 <!--wall of all videos-->
 <article class="videos_all">
+
     {if $isTalk != null}
         {$video_player}
     {/if}
     {foreach from=$talks item=talk}
-        <section>
-            <a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}">
-                <p><img src="{$talk.imgURL}" /></p>
-                <p><h1>{$talk.talk->getVideoTitle()}</h1></p>
-                <p><time>{$talk.event->getStartingDate()|date_format:"%d %B %Y"}</time></p>
-            </a>
-        </section>
+        {if $talk.imgURL != null}
+            <section>
+                <a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}">
+                    <p><img src="{$talk.imgURL}" /></p>
+                    <p><h1>{$talk.talk->getVideoTitle()}</h1></p>
+                    <p><time>{$talk.event->getStartingDate()|date_format:"%d %B %Y"}</time></p>
+                </a>
+            </section>
+        {/if}
     {/foreach}  
 </article>
 

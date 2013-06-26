@@ -781,8 +781,13 @@ class TEDx {
                 // Get YouTube ref
                 $videoRef = $this->getYoutubeRef($aValidTalk->getVideoURL());
                 
-                // Get Video Thumbnail
-                $imgURL = $this->createImgUrl($videoRef);
+                // If the URL correspond to a video
+                if($videoRef != false) {
+                    // Get Video Thumbnail
+                    $imgURL = $this->createImgUrl($videoRef);
+                } else {
+                    $imgURL = null;
+                }
                 
                 $talks[$key]['imgURL'] = $imgURL;
                 
