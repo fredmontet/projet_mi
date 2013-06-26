@@ -15,6 +15,7 @@
 <article class="gestion_events_single">
     <form id="" method="post" action="">
         <!--gestion_events_single subnav -->
+        <!--
         <nav class="offset3 span6">
             <ul>
                 <li><a href="#gestion_events_single_infos">Infos</a></li>
@@ -24,7 +25,7 @@
                 <li><a href="?action=gestion_event_export">Export</a></li>
             </ul>
         </nav>
-
+        -->
         <!--button save-->
         <div class="span12">
             {if $event != null}<input type="hidden" name="id" value="{$event->getNo()}" />{/if}
@@ -60,41 +61,53 @@
                         <td></td>
                         <td><input type="time" name="startingTime" value="{if $event != null}{$event->getStartingTime()}{/if}" /></td>
                         <td>Start</td>
+                        <td>
                         {if $errorState != null && !$errorState.startingTime}<p class="errorvalue">{$errorFormMessage.startingTime}</p>{/if}
+                        <td>
                     </tr>
                     <tr>
                         <td><input type="time" name="slot1StartingTime" value="{if $event != null}{if $slots[0] != null}{$slots[0]->getStartingTime()}{/if}{/if}" /></td>
                         <td><input type="time" name="slot1EndingTime" value="{if $event != null}{if $slots[0] != null}{$slots[0]->getEndingTime()}{/if}{/if}" /></td>
                         <td>Slot One</td>
+                        <td>
                         {if $errorState != null && !$errorState.slot1StartingTime}<p class="errorvalue">{$errorFormMessage.slot1StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot1EndingTime}<p class="errorvalue">{$errorFormMessage.slot1EndingTime}</p>{/if}
+                        </td>
                     </tr>
                     <tr>
                         <td><input type="time" name="slot2StartingTime" value="{if $event != null}{if $slots[1] != null}{$slots[1]->getStartingTime()}{/if}{/if}" /></td>
                         <td><input type="time" name="slot2EndingTime" value="{if $event != null}{if $slots[1] != null}{$slots[1]->getEndingTime()}{/if}{/if}" /></td>
                         <td>Slot Two</td>
+                        <td>
                         {if $errorState != null && !$errorState.slot2StartingTime}<p class="errorvalue">{$errorFormMessage.slot2StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot2EndingTime}<p class="errorvalue">{$errorFormMessage.slot2EndingTime}</p>{/if}
+                        </td>
                     </tr>
                     <tr>
                         <td><input type="time" name="slot3StartingTime" value="{if $event != null}{if $slots[2] != null}{$slots[2]->getStartingTime()}{/if}{/if}" /></td>
                         <td><input type="time" name="slot3EndingTime" value="{if $event != null}{if $slots[2] != null}{$slots[2]->getEndingTime()}{/if}{/if}" /></td>
                         <td>Slot Three</td>
+                        <td>
                         {if $errorState != null && !$errorState.slot3StartingTime}<p class="errorvalue">{$errorFormMessage.slot3StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot3EndingTime}<p class="errorvalue">{$errorFormMessage.slot3EndingTime}</p>{/if}
+                        </td>
                     </tr>
                     <tr>
                         <td><input type="time" name="slot4StartingTime" value="{if $event != null}{if $slots[3] != null}{$slots[3]->getStartingTime()}{/if}{/if}" /></td>
                         <td><input type="time" name="slot4EndingTime" value="{if $event != null}{if $slots[3] != null}{$slots[3]->getEndingTime()}{/if}{/if}" /></td>
                         <td>Slot Four</td>
+                        <td>
                         {if $errorState != null && !$errorState.slot4StartingTime}<p class="errorvalue">{$errorFormMessage.slot4StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot4EndingTime}<p class="errorvalue">{$errorFormMessage.slot4EndingTime}</p>{/if}
+                        </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td><input type="time" name="endingTime" value="{if $event != null}{$event->getEndingTime()}{/if}" /></td>
                         <td>End</td>
+                        <td>
                         {if $errorState != null && !$errorState.endingTime}<p class="errorvalue">{$errorFormMessage.endingTime}</p>{/if}
+                        </td>
                     </tr>
                 </table>
             </fieldset>

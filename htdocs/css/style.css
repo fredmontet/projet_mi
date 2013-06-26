@@ -1465,8 +1465,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 .gestion_events_single form #gestion_events_single_infos input{
     display:block;
-    float:right;
-    width:68%;
+    float:left;
+    width:38%;
 }
 .gestion_events_single form #gestion_events_single_infos #troll{
     float:left;
@@ -1474,19 +1474,22 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 .gestion_events_single form #gestion_events_single_infos textarea{
     margin-top:0px;
-    width:68%;
-}
-.gestion_events_single form table{
-    width:30%;
+    width:38%;
     float:left;
-    margin-left:-30px;
+}
+.gestion_events_single form table tr td{
+     width:200px;
+    float:left;
+    margin-right:-90px;
+    
     
 }
 .gestion_events_single form div input{
     margin-right:0px;
 }
 .gestion_events_single legend{
-    margin-left:10px;
+    margin-left:375px;
+    margin-right:-100px
     
 }
 .gestion_events_single form fieldset p input{
@@ -1501,6 +1504,22 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     display: inline-block;
     float:left;
     margin-left:10px;   
+}
+.gestion_events_single .errorvalue{
+    color:red;
+    position:relative;
+    top:-20px;
+    right:-600px;
+    clear:both;
+    
+}
+.gestion_events_single td p.errorvalue{
+    color:red;
+    position:relative;
+    top:0px;
+    right:40px;
+    clear:both;
+    
 }
 .gestion_events_single form #gestion_events_single_infos legend table{}
 .gestion_events_single form #gestion_events_single_infos legend table tr{}
