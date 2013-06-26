@@ -86,6 +86,7 @@ margin:0 10px;
 /*forms*/
 
 form{
+    
 }
 
 label{ 
@@ -109,14 +110,13 @@ legend, label{
     font-weight: normal;
 }
 
-legend{
+/*legend{
     display:block;
     width:100%;
     margin-bottom:20px;
     font-size:2em;
-    
-    float: left;
-}
+    float:left;
+}*/
 
 input, textarea{
     margin:0;
@@ -435,28 +435,38 @@ and (min-width : 1224px) {
 }
 
 .contact section{
-
-    display:block;
+    display:inline-block;
     position:relative;
-    float:left;
 }
 
 .contact label{
-    width:100px;
-    text-align:left;   
+    display:block;
+    width:30%;
+    text-align:left;
+    float:left;
+    margin:0px;
+}
+.contact input{
+    display:block;
+    float:right;
+    width:70%;
 }
 
-#message{
+.contact fieldset #message{
     margin-top:30px;
 }
 
-.contact textarea{
+.contact fieldset textarea{
     resize:none;
     height:300px;
 }
 
 .contact iframe{
     margin-left:20px;
+}
+.contact section small a{
+    color:red;
+    text-decoration: none;
 }
 /*end of contact*/
 
@@ -1569,7 +1579,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     top:-20px;
     right:-600px;
     clear:both;
-    
 }
 .gestion_events_single td p.errorvalue{
     color:red;
@@ -1577,7 +1586,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     top:0px;
     right:40px;
     clear:both;
-    
 }
 .gestion_events_single form #gestion_events_single_infos legend table{}
 .gestion_events_single form #gestion_events_single_infos legend table tr{}
@@ -1592,9 +1600,9 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .gestion_events_single form #gestion_events_single_details fieldset legend{}
 .gestion_events_single form #gestion_events_single_details fieldset select{}
 .gestion_events_single form #gestion_events_single_details fieldset select option{}
-.gestion_events_single form #gestion_events_single_details fieldset legend{}
 .gestion_events_single form #gestion_events_single_details fieldset textarea{}
 .gestion_events_single form #gestion_events_single_details fieldset a{}
+
 .gestion_events_single form #gestion_events_single_speaker{}
 .gestion_events_single form #gestion_events_single_speaker legend{}
 .gestion_events_single form #gestion_events_single_speaker a{}
@@ -1603,6 +1611,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .gestion_events_single form #gestion_events_single_speaker p select{}
 .gestion_events_single form #gestion_events_single_speaker p select option{}
 .gestion_events_single form #gestion_events_single_speaker input{}
+
 .gestion_events_single form #gestion_events_single_team{}
 .gestion_events_single form #gestion_events_single_team legend{}
 .gestion_events_single form #gestion_events_single_team p{}
