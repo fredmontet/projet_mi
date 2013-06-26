@@ -21,7 +21,7 @@ Smarty variables available:
             <li class="wait"><a href="?action=motivation_wait"></a></li>
             <li class="accept"><a href="?action=motivation_accpet"></a></li>
         </ul>
-        <h1>{$registration.person->getName()}</h1>
+        <h1>{$registration.person->getFirstName()} {$registration.person->getName()}</h1>
         <p>Status : {$registration.registration->getStatus()}</p>
         <h2>Motivation :</h2>
         <p class="motivation">
