@@ -13,5 +13,4 @@
     <nav class="span1">
         <a class="next" title="Next"></a>
     </nav>
-
 </article>
