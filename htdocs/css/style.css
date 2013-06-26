@@ -1326,8 +1326,8 @@ on laisse comme ça ce n'est pas si grave*/
 .gestion_events_role_infos .errorvalue{
     color:red;
     position:relative;
-    top:-19px;
-    left:5px;
+    top:-10px;
+    left:235px;
     clear:both;
 }
 .gestion_events_role_infos form input{
