@@ -1641,22 +1641,60 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*Status = petite modif d'alignement des bouttons à faire*/
 
+.login{
+    margin-top:50px;
+}
+
+.login section h1{
+    margin-bottom:25px;
+}
+
+.login .errorvalue{
+    color:red;
+    position:relative;
+    top:-5px;
+    left:165px;
+    clear:both;
+}
+
 .login .theButton{
-
-
+    display:block;
+    background-color:rgba(255,0,0,1);
+    width:160px;
+    text-align:center;
+    vertical-align:middle;
+    line-height:30px;
+    color:#ffffff;
+    font-weight:bold;
+    font-size:1.3em; 
+    border:2px solid #ff0000;
+    float:right;  
+    margin-right: -30px;
+    margin-top: 20px;
 }
-.login section{}
-.login section h1{}
-.login section form{}
-.login section form p{}
-.login section form p label{}
-.login section form p input{
-    margin: 0px;
-    
-   
-  
+
+.login .theButton:hover{
+    color:#ff0000;
+    border:2px solid #ff0000;
+    background-color:white;
 }
-.login section form a{}
+
+.login .button_login{
+    display:inline-block;
+    width:160px;
+    margin-left: 40px;
+     margin-top: 20px;
+}
+
+.login section form fieldset p label{
+    width:35%;
+}
+.login section form fieldset p input{
+    width:67%;
+    margin:0px;
+    margin-top:-35px;
+}
+
 
 /*end of login*/
 

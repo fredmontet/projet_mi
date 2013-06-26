@@ -11,22 +11,23 @@ Smarty variables available:
         <!--login form-->
         <form name="login" method="post" action="">
             <fieldset>
-             
-                <label for="email">Email</label>
-                <input type="text" name="email" value=""></input>
-                {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
-                
-                <label for="password">Password</label>
-                <input type="password" name="password" value=""></input>
-                {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.login_password}</p>{/if}
-        
-            <!--login button-->
-            <p>
-                <input type="hidden" name="action" value="login"/>
-                <input type="submit" name="update" value="Login"/>
-            <!--CSS register button-->
-           </p>    
-                <a class="theButton" href="?action=register">Register</a>
+                <p>
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value=""></input>
+                    {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value=""></input>
+                    {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.login_password}</p>{/if}
+                </p>
+                <!--login button-->
+                <p>
+                    <input type="hidden" name="action" value="login"/>
+                    <input class="button_login" type="submit" name="update" value="Login"/>
+                <!--CSS register button-->
+               </p>    
+                    <a class="theButton" href="?action=register">Register</a>
             </fieldset>
         </form>
 
