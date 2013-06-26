@@ -443,7 +443,7 @@ and (min-width : 1224px) {
 
 .contact label{
     width:100px;
-    text-align:right;   
+    text-align:left;   
 }
 
 #message{
@@ -452,6 +452,7 @@ and (min-width : 1224px) {
 
 .contact textarea{
     resize:none;
+    height:300px;
 }
 
 .contact iframe{
