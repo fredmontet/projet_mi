@@ -394,6 +394,53 @@ class TEDx {
         return array($speaker, $errorState);
     }
     
+    function createImgUrl($ref){
+        //create the good image url
+        $fullImgRef="http://img.youtube.com/vi/".$ref."/mqdefault.jpg";
+        
+        //return the image url
+        return $fullImgRef;
+    }
+    
+    //create a youtube embed url from the ref
+    function createVideoUrl($ref){
+        //create the good video url
+        $fullVideoRef="http://www.youtube.com/embed/".$ref."?autoplay=1&fs=1&rel=0&enablejsapi=1&playerapiid=ytplayer";
+        
+        //return the array
+        return $fullVideoRef;
+    }
+    
+    function getYoutubeRef($url){
+        //break it at the = sign
+        $url=explode("=",$url);
+        
+        //select the last part with the ref
+        if(sizeof($url)>=2){
+            $ref=$url[1];
+            
+            //break it at the & sign (to take away the &lists)
+            $ref=explode("&",$ref);
+            
+            //select the first part (clean ref)
+            $finalRef=$ref[0];
+            
+            //push it into the array
+            return $finalRef;
+        } else {
+            return false;
+        }
+    }
+    
+    //create a youtube embed url from the ref
+    function createIframe($ref){
+        //create the good video url
+        $fullVideoRef="<iframe width='853' height='480' src=\"http://www.youtube.com/embed/".$ref."?fs=1&autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>";
+        
+        //return the array
+        return $fullVideoRef;
+    }
+    
 
     /**
      * Draw the Home page
@@ -681,7 +728,136 @@ class TEDx {
      * @return content HTML of the Videos page
      */
     protected function drawVideos() {
-
+        
+        // Get Talks
+        $messageTalks = $this->tedx_manager->getTalks();
+        
+        // If Talks are found, countinue
+        if($messageTalks->getStatus()) {
+            $allValidTalks = $messageTalks->getContent();
+            
+            // For each Talk
+            foreach($allValidTalks as $key=>$aValidTalk) {
+                
+                $talks[]['talk'] = $aValidTalk;
+                
+                // Get YouTube ref
+                $videoRef = $this->getYoutubeRef($aValidTalk->getVideoURL());
+                
+                // Get Video Thumbnail
+                $imgURL = $this->createImgUrl($videoRef);
+                
+                $talks[$key]['imgURL'] = $imgURL;
+                
+                // Get Speaker
+                $messageSpeaker = $this->tedx_manager->getSpeaker($aValidTalk->getSpeakerPersonNo());
+                
+                // If the Speaker is found, continue
+                if($messageSpeaker->getStatus()) {
+                    $aValidSpeaker = $messageSpeaker->getContent();
+                    
+                    $talks[$key]['speaker'] = $aValidSpeaker;
+                    
+                } else {
+                    // Else give the error message about no found Speaker
+                    $this->displayMessage($messageSpeaker->getMessage());
+                }
+                
+                // Get the Event
+                $messageEvent = $this->tedx_manager->getEvent($aValidTalk->getEventNo());
+                
+                // If the Event is found, continue
+                if($messageEvent->getStatus()) {
+                    $aValidEvent = $messageEvent->getContent();
+                    
+                    $talks[$key]['event'] = $aValidEvent;
+                    
+                } else {
+                    // Else give the error message about no found Event
+                    $this->displayMessage($messageEvent->getMessage());
+                }
+                
+                
+            }
+            
+        } else {
+            $allValidTalks = null;
+        }
+        
+        
+        // If a video is asked, continue
+        if(isset($_REQUEST['speakerId']) && isset($_REQUEST['eventId'])) {
+            
+            $eventId = $_REQUEST['eventId'];
+            $speakerId = $_REQUEST['speakerId'];
+            
+            // Get Speaker
+            $messageSpeaker = $this->tedx_manager->getSpeaker($speakerId);
+            
+            // If the Speaker is found, continue
+            if($messageSpeaker->getStatus()) {
+                $aValidSpeaker = $messageSpeaker->getContent();
+            } else {
+                // Else give the error message about no found Speaker
+                $this->displayMessage($messageSpeaker->getMessage());
+            }
+            
+            // Get Event
+            $messageEvent = $this->tedx_manager->getEvent($eventId);
+            
+            // If the Event is found, continue
+            if($messageEvent->getStatus()) {
+                $aValidEvent = $messageEvent->getContent();
+            } else {
+                // Else give the error message about no found Event
+                $this->displayMessage($messageEvent->getMessage());
+            }
+            
+            $args = array (
+                'event'     =>  $aValidEvent,
+                'speaker'    => $aValidSpeaker
+            );
+            
+            // Get Talk
+            $messageTalk = $this->tedx_manager->getTalk($args);
+            
+            // If Talk is found, continue
+            if($messageTalk->getStatus()) {
+                $aValidTalk = $messageTalk->getContent();
+                
+                // Get YouTube ref
+                $videoRef = $this->getYoutubeRef($aValidTalk->getVideoURL());
+                
+                $videoIframe = $this->createIframe($videoRef);
+                
+            } else {
+                // Else give the error message about no found Talk
+                $this->displayMessage($messageTalk->getMessage());
+                $aValidTalk = null;
+                $videoIframe = null;
+            }
+            
+        } else {
+            $video_player = null;
+            $aValidTalk = null;
+            $videoIframe = null;
+            $aValidEvent = null;
+            $aValidSpeaker = null;
+        }
+        
+        // Assigns variables to Smarty
+        $this->smarty->assign('videoIframe', $videoIframe);
+        $this->smarty->assign('isTalk', $aValidTalk);
+        $this->smarty->assign('isEvent', $aValidEvent);
+        $this->smarty->assign('isSpeaker', $aValidSpeaker);
+        
+        // Get the content of the video player
+        $video_player = $this->smarty->fetch('video_player.tpl');
+        
+        // Assigns variables to Smarty
+        $this->smarty->assign('video_player', $video_player);
+        $this->smarty->assign('talks', $talks);
+        
         // Draw Videos page
         return $this->smarty->fetch('videos_all.tpl');
     }
