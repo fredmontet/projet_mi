@@ -606,35 +606,48 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 .events_registration header h1{
     display: block;
     font-size: 2.5em;
-    margin-bottom: 0;
+    margin-top: 50px;
 }
 
 .events_registration header time{
     display: block;
     font-size:1.5em;
     padding-left: 20px;
+    margin-bottom: 25px;
 }
 
 .events_registration header nav a{
-        display:block;
-        float:left;
-        background-image: url("../img/layout/circle.svg");
-        width:100px;
-        height:100px;
+    display:block;
+    float:left;
+    width:100px;
+    height:100px;
 }
 .events_registration header nav a span{
-        display:none;
+    display:none;
 }
 
 .events_registration .errorvalue{
     color:red;
     position:relative;
-    top:-19px;
-    left:5px;
+    top:-10px;
+    left:230px;
     clear:both;
 }
 .events_registration .theButton{
     margin: 30px;
+}
+
+.events_registration section form fieldset p textarea{
+    width:65%;
+    height:140px;
+}
+
+.events_registration section form fieldset p input{
+    width:65%;
+}
+
+.events_registration section form fieldset p label{
+    width:30%;
 }
 
 /*end of event_registration*/

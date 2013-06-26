@@ -42,13 +42,13 @@
                 <p>
                     <label for="email">Email </label>
                     <input type="email" name="email"/>
-                    <p class="errorvalue">Please enter an email</p>
+                    <p class="errorvalue">Please enter an email valid</p>
                 </p>
 
                 <p>
                     <label for="email">Repeat email </label>
                     <input type="email" name="email"/>
-                    <p class="errorvalue">Please repeat the email</p>
+                    <p class="errorvalue">Please repeat the email valid</p>
                 </p>
 
                 <!--user_pw-->
@@ -75,7 +75,7 @@
             
                 <!--user_dateofbirth-->
                 <p>
-                    <label for="dateOfBirth">Date of birth </label>
+                    <label for="dateOfBirth">Date of birth valid</label>
                     <input type="date" name="dateOfBirth"/>
                     <p class="errorvalue">Please enter a date of birth</p>
                 </p>
@@ -90,10 +90,8 @@
                 <!--message-->
                 <p>
                     <label for="description">Description </label>
-                    <p class="errorvalue">Please enter a message</p>
                     <textarea type="text" name="description"></textarea>
-                    
-                   
+                     <p class="errorvalue">Please enter a message</p>
                 </p>
             </fieldset>
         
@@ -156,9 +154,8 @@
                     <!--user_motivation-->
                     <p>
                         <label for="motivation">Motivation </label>
-                        <p class="errorvalue">Please enter your motivation</p>
                         <textarea type="text" name="motivation" rows="4" cols="26"></textarea>
-                        
+                        <p class="errorvalue">Please enter your motivation</p>
                     </p>
             </fieldset>
     
