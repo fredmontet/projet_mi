@@ -1,3 +1,9 @@
+{*
+Smarty variables available:
+	$errorState (Array of status about uncorrect values)
+	$errorFormMessage (Array of error Formular message)
+*}
+
 <article class="login">
     <!--login tab-->
     <section class="offset3 span6">
@@ -6,16 +12,18 @@
         <form name="login" method="post" action="">
             <fieldset>
              
-                <label for="user_email">Email</label>
-                <input type="email" name="user_email"></input>
+                <label for="email">Email</label>
+                <input type="text" name="email" value=""></input>
+                {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
                 
-                <label for="user_password">Password</label>
-                <input type="text" name="user_password"></input>
+                <label for="password">Password</label>
+                <input type="password" name="password" value=""></input>
+                {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.login_password}</p>{/if}
         
             <!--login button-->
             <p>
-                <input type="hidden" name="action" value="login_send"/>
-                <input type="submit" name="login_send" value="Login"/>
+                <input type="hidden" name="action" value="login"/>
+                <input type="submit" name="update" value="Login"/>
             <!--CSS register button-->
            </p>    
                 <a class="theButton" href="?action=register">Register</a>

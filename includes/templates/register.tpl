@@ -1,3 +1,9 @@
+{*
+Smarty variables available:
+	$errorState (Array of status about uncorrect values)
+	$errorFormMessage (Array of error Formular message)
+*}
+
 <!--user-informations tab-->
 <article class="register offset3 span6">
     <h1>Register</h1>
@@ -9,75 +15,75 @@
         <p>
             <label for="user_name">Firstname</label>
             <input type="text" name="firstname"/>
-            <p class="errorvalue">Please enter a firstname</p>
+            {if $errorState != null && !$errorState.firstname}<p class="errorvalue">{$errorFormMessage.firstname}</p>{/if}
         </p>
 
         <!--name-->
         <p>
             <label for="name">Name</label>
             <input type="text" name="name"/>
-            <p class="errorvalue">Please enter a name</p>
+            {if $errorState != null && !$errorState.name}<p class="errorvalue">{$errorFormMessage.name}</p>{/if}
         </p>
         
         <!--user_email-->
         <p>
             <label for="email">Email</label>
             <input type="email" name="email"/>
-            <p class="errorvalue">Please enter a correct email</p>
+            {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
         </p>
         <!--user_repeat_email-->
         <p>
             <label for="email_repeat">Repeat email</label>
             <input type="email" name="email_repeat"/>
-            <p class="errorvalue">Please enter a correct email</p>
+            {if $errorState != null && !$errorState.email_repeat}<p class="errorvalue">{$errorFormMessage.email_repeat}</p>{/if}
         </p>
 
         <!--user_pwd-->
         <p>
             <label for="user_password">Password</label>
-            <input type="text" name="user_password"/>
-            <p class="errorvalue">Please enter a correct password</p>
+            <input type="password" name="password"/>
+            {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.password}</p>{/if}
         </p>
         <!--user_repeat_pwd-->
         <p>
             <label for="user_repeat_password">Repeat password</label>
-            <input type="text" name="user_repeat_password"/>
-            <p class="errorvalue">Please enter a correct password</p>
+            <input type="password" name="password_repeat"/>
+            {if $errorState != null && !$errorState.password_repeat}<p class="errorvalue">{$errorFormMessage.password_repeat}</p>{/if}
         </p>
         
         <!--Date of Birth-->
         <p>
             <label for="dateOfBirth">Date of birth</label>
             <input type="date" name="dateOfBirth"/>
-            <p class="errorvalue">Please enter a correct date of birth</p>
+            {if $errorState != null && !$errorState.dateOfBirth}<p class="errorvalue">{$errorFormMessage.dateOfBirth}</p>{/if}
         </p>
         
         <!--Phone number-->
         <p>
             <label for="phoneNumber">Phone number</label>
             <input type="text" name="phoneNumber"/>
-            <p class="errorvalue">Please enter a phone number</p>
+            {if $errorState != null && !$errorState.phoneNumber}<p class="errorvalue">{$errorFormMessage.phoneNumber}</p>{/if}
         </p>
         
         <!--Address-->
         <p>
             <label for="address">Address</label>
             <input type="text" name="address"/>
-            <p class="errorvalue">Please enter an address</p>
+            {if $errorState != null && !$errorState.address}<p class="errorvalue">{$errorFormMessage.address}</p>{/if}
         </p>
         
         <!--City-->
         <p>
             <label for="city">City</label>
             <input type="text" name="city"/>
-            <p class="errorvalue">Please enter a city</p>
+            {if $errorState != null && !$errorState.city}<p class="errorvalue">{$errorFormMessage.city}</p>{/if}
         </p>
         
         <!--Country-->
         <p>
             <label for="country">Country</label>
             <input type="text" name="country"/>
-            <p class="errorvalue">Please enter a country</p>
+            {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
         </p>
 
         <p>

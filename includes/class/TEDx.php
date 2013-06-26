@@ -60,30 +60,35 @@ class TEDx {
      */
     protected function errorFormMessage() {
         return array(
-            'firstname' => 'Please enter a first name',
-            'username' => 'Please enter a name',
-            'email' => 'Please enter a valid email address',
-            'dateOfBirth' => 'Please enter a correct Birth date',
-            'email' => 'Please enter a correct email',
-            'phoneNumber' => 'Please enter a phone number',
-            'country' => 'Please enter a Country',
-            'address' => 'Please enter an address',
-            'city' => 'Please enter a City',
-            'mainTopic' => 'Please enter a Title',
-            'startingDate' => 'Please enter a valid Starting date',
-            'endingDate' => 'Please enter a valid Ending date',
-            'startingTime' => 'Please enter a valid Starting time',
-            'endingTime' => 'Please enter a valid Ending time',
-            'description' => 'Please enter a description',
-            'locationName' => 'Please choose a location',
+            'firstname' 		=> 'Please enter a first name',
+            'username' 			=> 'Please enter a name',
+            'name' 				=> 'Please enter a name',
+            'email' 			=> 'Please enter a valid email address',
+            'dateOfBirth' 		=> 'Please enter a correct Birth date',
+            'email' 			=> 'Please enter a correct email',
+            'email_repeat' 		=> 'Please enter the same email',
+            'password' 			=> 'Please enter a password',
+            'password_repeat' 	=> 'Please enter the same password',
+            'login_password' 	=> 'Wrong password',
+            'phoneNumber' 		=> 'Please enter a phone number',
+            'country' 			=> 'Please enter a Country',
+            'address' 			=> 'Please enter an address',
+            'city' 				=> 'Please enter a City',
+            'mainTopic' 		=> 'Please enter a Title',
+            'startingDate' 		=> 'Please enter a valid Starting date',
+            'endingDate' 		=> 'Please enter a valid Ending date',
+            'startingTime' 		=> 'Please enter a valid Starting time',
+            'endingTime' 		=> 'Please enter a valid Ending time',
+            'description' 		=> 'Please enter a description',
+            'locationName' 		=> 'Please choose a location',
             'slot1StartingTime' => 'Please enter a valid Starting time',
-            'slot1EndingTime' => 'Please enter a valid Ending time',
+            'slot1EndingTime' 	=> 'Please enter a valid Ending time',
             'slot2StartingTime' => 'Please enter a valid Starting time',
-            'slot2EndingTime' => 'Please enter a valid Ending time',
+            'slot2EndingTime' 	=> 'Please enter a valid Ending time',
             'slot3StartingTime' => 'Please enter a valid Starting time',
-            'slot3EndingTime' => 'Please enter a valid Ending time',
+            'slot3EndingTime' 	=> 'Please enter a valid Ending time',
             'slot4StartingTime' => 'Please enter a valid Starting time',
-            'slot4EndingTime' => 'Please enter a valid Ending time',
+            'slot4EndingTime' 	=> 'Please enter a valid Ending time',
         );
     }
 
@@ -254,6 +259,21 @@ class TEDx {
         $errorState['country']      = $this->validator(array('String', $registration['country']));
         $errorState['phoneNumber']  = $this->validator(array('String', $registration['phoneNumber']));
         $errorState['email']        = $this->validator(array('Email', $registration['email']));
+        
+        if($registration['email_repeat'] == $registration['email']) {
+            $errorState['email_repeat'] = true;
+        } else {
+            $errorState['email_repeat'] = false;
+        }
+        
+        $errorState['password']     = $this->validator(array('String', $registration['password']));
+        
+        if($registration['password_repeat'] == $registration['password']) {
+            $errorState['password_repeat'] = true;
+        } else {
+            $errorState['password_repeat'] = false;
+        }
+        
         $errorState['description']  = $this->validator(array('0..1', $registration['description']));
         $errorState['password']     = $this->validator(array('String', $registration['password']));
         $errorState['keyword1']     = $this->validator(array('String', $registration['keyword1']));
@@ -264,7 +284,64 @@ class TEDx {
         // Return two arrays
         return array($registration, $errorState);
     }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
+    protected function gestionRegisterValidator($register) {
 
+        // Validate all received values 
+        $errorState['name']         = $this->validator(array('String', $register['name']));
+        $errorState['firstname']    = $this->validator(array('String', $register['firstname']));
+        $errorState['dateOfBirth']  = $this->validator(array('Date', $register['dateOfBirth']));
+        $errorState['address']      = $this->validator(array('String', $register['address']));
+        $errorState['city']         = $this->validator(array('String', $register['city']));
+        $errorState['country']      = $this->validator(array('String', $register['country']));
+        $errorState['phoneNumber']  = $this->validator(array('String', $register['phoneNumber']));
+        $errorState['email']        = $this->validator(array('Email', $register['email']));
+        
+        if($register['email_repeat'] == $register['email']) {
+            $errorState['email_repeat'] = true;
+        } else {
+            $errorState['email_repeat'] = false;
+        }
+        
+        $errorState['password']     = $this->validator(array('String', $register['password']));
+        
+        if($register['password_repeat'] == $register['password']) {
+            $errorState['password_repeat'] = true;
+        } else {
+            $errorState['password_repeat'] = false;
+        }
+
+        // Return two arrays
+        return array($register, $errorState);
+    }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
+    protected function loginValidator($login) {
+
+        // Validate all received values 
+        $errorState['email']        = $this->validator(array('String', $login['email']));
+        $errorState['password']     = $this->validator(array('String', $login['password']));
+
+        // Return two arrays
+        return array($login, $errorState);
+    }
+    
+    
     /**
      * Valid values ​​received by _POST
      * @param Array _POST
@@ -2184,24 +2261,31 @@ class TEDx {
      * @return content HTML of the Login page
      */
     protected function drawLogin($action) {
-        switch ($action) {
-            case 'login_send':
-                $mail = $_POST['user_email'];
-                $password = $_POST['user_password'];
+    
+        if (isset($_POST['update'])) {
 
-                $this->tedx_manager->login('admin', $password);
-                if ($this->tedx_manager->isLogged()) {
-                    header("Location: ?action=gestion");
-                    return null;
-                } else {
-                    $this->displayMessage("Your email or password are false.");
-                }
-            default:
-                // Assign variables
-                //$this->tedx_manager->login('admin','admin');
-                return $this->smarty->fetch('login.tpl');
-                break;
+            list($login, $errorState) = $this->loginValidator($_POST);
+
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+                $this->tedx_manager->login($login['email'], $login['password']);
+                
+                header("Location: ?action=home");
+                
+            } else {
+                $errorState['password'] = false;
+            }
+        } else {
+            $errorState = null;
         }
+        
+        $errorFormMessage = $this->errorFormMessage();
+
+        // Assigns variables to Smarty
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
+        
+        return $this->smarty->fetch('login.tpl');
     }
 
     /**
@@ -2232,8 +2316,52 @@ class TEDx {
      * @return content HTML of the Register page
      */
     protected function drawRegister() {
+    
+        if (isset($_POST['update'])) {
+
+            list($register, $errorState) = $this->gestionRegisterValidator($_POST);
+
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+                
+                // Create a visitor
+                $args = array(
+                    'name'        => $register['name'], // String
+                    'firstname'   => $register['firstname'],   // String
+                    'dateOfBirth' => $register['dateOfBirth'], // Date
+                    'address'     => $register['address'], // String
+                    'city'        => $register['city'], // String
+                    'country'     => $register['country'], // String
+                    'phoneNumber' => $register['phoneNumber'], // String
+                    'email'       => $register['email'], // String
+                    'description' => '', // String
+                    'idmember'    => $register['email'], // String
+                    'password'    => $register['password'] // String
+                );
+                
+                $messageRegisteredVisitor = $this->tedx_manager->registerVisitor($args);
+                
+                // If the Person is created, continue
+                if($messageRegisteredVisitor->getStatus()) {
+                    $this->tedx_manager->login( $register['email'], $register['password']);
+                } else {
+                    // Else give the error message about no created Visitor
+                    $this->displayMessage($messageRegisteredVisitor->getMessage());
+                }
+                
+                
+            } else {
+                
+            }
+        } else {
+            
+        }
         
-        
+        $errorFormMessage = $this->errorFormMessage();
+
+        // Assigns variables to Smarty
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
         
         return $this->smarty->fetch('register.tpl');
     }
@@ -2532,6 +2660,8 @@ class TEDx {
             // Login
             case 'login':
             case 'login_send':
+            
+                $topAction = 'login';
 
                 try {
                     $subnav = null;

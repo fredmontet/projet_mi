@@ -47,7 +47,7 @@
 
                 <p>
                     <label for="email">Repeat email </label>
-                    <input type="email" name="email"/>
+                    <input type="email" name="email_repeat"/>
                     <p class="errorvalue">Please repeat the email</p>
                 </p>
 
@@ -60,7 +60,7 @@
 
                 <p>
                     <label for="password">Repeat password </label>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password_repeat"/>
                     <p class="errorvalue">Please repeat the password</p>
                 </p>
             </fieldset>
