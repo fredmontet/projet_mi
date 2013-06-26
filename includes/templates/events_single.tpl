@@ -32,7 +32,8 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
         </ul>
     </nav>
     <!--</nav>-->        
-
+    
+    <div class="grey_bar2"></div>
 
     <!--infos tab-->
     <section class="events_single_infos">
@@ -106,7 +107,7 @@ $speakers (Array [Slot][Place][Speaker][Person]) [0..1]
                 {/foreach}  
             </li>
         </ul> 
-    </section>
+        </section>
     <!--end speaker slot-->            
 </section>
 <!--end speaker tab-->

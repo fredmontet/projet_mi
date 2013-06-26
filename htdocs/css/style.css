@@ -492,7 +492,24 @@ and (min-width : 1224px) {
 /*Info: this template is composed of two templates:
         event_single.tpl
         event_nav.tpl
+        
+each event has to be displayed inline and not in a row in this 
+particular events_list, so i'll specialized the class here
 */
+.events{
+    white-space: nowrap;
+
+    height: 100%;
+}
+
+.events .events_single{
+    white-space: nowrap;
+    display:block;
+    float: left;
+
+    
+}
+
 
 /*End of events*/ 
 
@@ -505,9 +522,25 @@ and (min-width : 1224px) {
 .events_nav{}
 .events_nav ul{}
 .events_nav li{}
-.events_nav a{}
+.events_nav a{
+    position:absolute;
+    bottom:50px;
+    
+    
+}
 .events_nav h1{}
 .events_nav p{}
+.events_nav .next{
+    position:fixed;
+    bottom:50px;
+    right:50px;
+    
+}
+.events_nav .previous{
+   position:fixed;
+    bottom:50px;
+    left:50px;
+}
     
 /*end of event_nav*/
 
@@ -561,7 +594,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /*Status = il faut mettre le javascript ou alors faire enlever la bar de nav pour s'eviter de mettre le js*/
 
 .events_single{
-    margin-bottom:50px;
+    margin-bottom:0px;
     min-height:600px;
 }
 
@@ -574,13 +607,26 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
         background-color:#eeeeee;
         height:200px;
         margin-top:-110px;
-        width:100%;
-        left:0;
+        width:120%;
+        left:-10%;
         position:absolute;
         z-index:-100;
         transform:rotate(-3deg);
         -ms-transform:rotate(-3deg); /* IE 9 */
         -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
+}
+
+.grey_bar2{
+     background-color:#ff0000;
+        height:5px;
+        margin-top:14px;
+        width:120%;
+        left:-10%;
+        position:absolute;
+        z-index:-100;
+        transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg); /* IE 9 */
+        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */   
 }
 
 .events_single header h1{
@@ -595,32 +641,43 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 
 .events_single nav{
-    display:inline-block;
-    margin-bottom:5px;
-    margin-top:20px;
+    display:block;
+    margin:0;
+    top:-8px;
+    width:100%;
     position:relative;
-    left:50%
+    left:50%;
+            transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg); /* IE 9 */
+        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */ 
+    
 }
 .events_single nav ul{
     position:relative;
-    left:-50%;
+    left:-50%; 
 }
 .events_single nav ul li{
+    background-color:#ffffff;
     display:block;
     float:left;
+    margin:0px 20px 0px 65px;
 }
+
+.events_single nav ul li a:hover{
+    color:#c0c0c0;
+}
+
 .events_single nav ul li a{
     display:block;   
     color:rgba(255,0,0,1);
     text-decoration:none;
     text-align:center;
-    font-size:1.8em;
+    font-weight:bold;
+    font-size:1.2em;
     padding:5px;
     padding-bottom:0;
-}
-
-.events_single nav ul li:hover{
-     border-bottom:3px solid red;  
+    margin-left:7px;
+    margin-right:7px;
 }
 
 #events_single_infos, #events_single_details, #events_single_speaker{}
