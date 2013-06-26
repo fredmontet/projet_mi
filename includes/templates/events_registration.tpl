@@ -54,13 +54,13 @@
                 <!--user_pw-->
                 <p>
                     <label for="password">Password </label>
-                    <input type="text" name="password"/>
+                    <input type="password" name="password"/>
                     <p class="errorvalue">Please enter a password</p>
                 </p>
 
                 <p>
                     <label for="password">Repeat password </label>
-                    <input type="text" name="password"/>
+                    <input type="password" name="password"/>
                     <p class="errorvalue">Please repeat the password</p>
                 </p>
             </fieldset>
@@ -76,7 +76,7 @@
                 <!--user_dateofbirth-->
                 <p>
                     <label for="dateOfBirth">Date of birth </label>
-                    <input type="text" name="dateOfBirth"/>
+                    <input type="date" name="dateOfBirth"/>
                     <p class="errorvalue">Please enter a date of birth</p>
                 </p>
 
