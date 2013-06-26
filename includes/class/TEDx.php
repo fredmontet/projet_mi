@@ -89,6 +89,8 @@ class TEDx {
             'slot3EndingTime' 	=> 'Please enter a valid Ending time',
             'slot4StartingTime' => 'Please enter a valid Starting time',
             'slot4EndingTime' 	=> 'Please enter a valid Ending time',
+            'keyword'		 	=> 'Please enter a keyword',
+            'motivation'	 	=> 'Please enter a motivation',
         );
     }
 
@@ -613,18 +615,20 @@ class TEDx {
      * @return content HTML of the Events Registration page
      */
     protected function drawEventsRegistration() {
+    
         $id = $this->getId();
+        
+        // Get the Event
         $messageEvent = $this->tedx_manager->getEvent($id);
-        // Check if event_id is correct
+        
+        // If the Event is found, continue
         if ($messageEvent->getStatus()) {
             $aValidEvent = $messageEvent->getContent();
-            $this->smarty->assign('event', $aValidEvent);
+            
             // Check if the form is done
             if (isset($_POST['update'])) {
+            
                 list($registration, $errorState) = $this->gestionRegistrationValidator($_POST);
-                
-                var_dump($registration);
-                var_dump($errorState);
                 
                 // If all values are correct, continue
                 if (count(array_keys($errorState, true)) == count($errorState)) {
@@ -641,21 +645,30 @@ class TEDx {
                         'idmember'    => $registration['email'], // String
                         'password'    => $registration['password'] // String
                     );
+                    
+                    // Add the Visitor
                     $messageAddVisitor = $this->tedx_manager->registerVisitor($argsVisitor);
+                    
                     // If the visitor is added, continue
                     if($messageAddVisitor->getStatus()){
+                    
                         $this->tedx_manager->login($argsVisitor['email'], $argsVisitor['password']);
                         $anAddingVisitor = $messageAddVisitor->getContent();
                         $anAddedPerson = $anAddingVisitor['anAddedPerson'];
+                        
                         $argsRegEvent = array(
                             'person' => $anAddedPerson,         // object Person
                             'event' => $aValidEvent,          // object Event
                             'type' => 'Participant',           // String A EDITER
                             'typeDescription' => $registration['description'] // String A EDITER
                         );
+                        
+                        // Register to the Event
                         $messageRegisterToAnEvent = $this->tedx_manager->registerToAnEvent($argsRegEvent);
+                        
                         // If the Registration to an event is added, continue
                         if($messageRegisterToAnEvent->getStatus()){
+                        
                             // Change the access to a Participant membership
                             $this->tedx_manager->logout();
                             $this->tedx_manager->login($argsVisitor['email'], $argsVisitor['password']);
@@ -665,54 +678,77 @@ class TEDx {
                                 'event' => $aValidEvent // object Event
                             );
                             $messageAddKeywords = $this->tedx_manager->addKeywordsToAnEvent($argsKeywords);
+                            
                             $flagAddedKeywords = true;
+                            
+                            // For each message
                             foreach($messageAddKeywords as $message){
+                            
                                 if(!$message->getStatus() and $flagAddedKeywords){
                                     $flagAddedKeywords = false;
                                 }
                             }
+                            
                             // If all keywords id added, continue
                             if($flagAddedKeywords){
+                            
                                // args add Motivation to an Event
                                 $argsMotivation= array(
                                         'text'        => $registration['motivation'],
                                         'event'       => $aValidEvent,
                                         'participant' => $anAddedPerson
                                 );
+                                
                                 // adding Motivation to an Event
                                 $messageAddMotivationToAnEvent = $this->tedx_manager->addMotivationToAnEvent($argsMotivation);
                                 if($messageAddMotivationToAnEvent->getStatus()){
-                                    $this->displayMessage("Registration accepted! Thank you!");
-                                    $content = $this->drawHome(); 
-                                }else{
+                                    // Go to Thanks page
+                                    header("Location: ?action=events_registration_received");
+                                } else {
                                     $this->displayMessage($messageAddMotivationToAnEvent->getMessage());
-                                    $content = $this->smarty->fetch('events_registration.tpl');
                                 }
-                            }else{
-                                $this->displayMessage("Problème de Keywords");
-                                $content = $this->smarty->fetch('events_registration.tpl');
+                            } else {
+                                // Else give the error message about no Keywords added
+                                $this->displayMessage($messageAddKeywords->getMessage());
                             }
-                        }else{
+                        } else {
+                            // Else Give the error message about no registrated to the Event
                             $this->displayMessage($messageRegisterToAnEvent->getMessage());
-                            $content = $this->smarty->fetch('events_registration.tpl');
                         }
-                    }else{
+                    } else {
+                        // Else give the error message about no Visitor added
                         $this->displayMessage($messageAddVisitor->getMessage());
-                        $content = $this->smarty->fetch('events_registration.tpl');
                     }    
-                }else{
-                    $this->displayMessage('Data Error');
-                    $content = $this->smarty->fetch('events_registration.tpl');
+                } else {
                 }
-            }else{
-                $content = $this->smarty->fetch('events_registration.tpl');
+            } else {
+                
             }
-        }else{
-            $this->displayMessage('There isn\'t event!');
-            $content = $this->drawHome();
+        } else {
+            // Else give the error message about no found Event
+            $this->displayMessage($messageEvent->getMessage());
+            return $this->drawHome();
         }
-        return $content;
+        
+        $errorFormMessage = $this->errorFormMessage();
+        
+        // Assigns variables to Smarty
+        $this->smarty->assign('event', $aValidEvent);
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
+        
+        // Return the content of Events Registration
+        return $this->smarty->fetch('events_registration.tpl');
     }
+    
+    /**
+     * Draw the Events Registration Received page
+     * @return content HTML of the Events Registration Received page
+     */
+    protected function drawEventsRegistrationReceived() {
+        return $this->smarty->fetch('events_registration_received.tpl');
+    }
+    
 
     /**
      * Draw the Events participate page
@@ -1129,7 +1165,33 @@ class TEDx {
 
                 if($id != null) {
                     
-                    
+                    // Get Event
+                    $messageEvent = $this->tedx_manager->getEvent($id);
+        
+                    // If the Event is found, continue
+                    if ($messageEvent->getStatus()) {
+                        $aValidEvent = $messageEvent->getContent();
+                        
+                        $args = array (
+                            'event'			=>	$aValidEvent,
+                            'locationName'	=>	$event['locationName']
+                        );
+                        
+                        // Change Location
+                        $messageChangeEventLocation = $this->tedx_manager->changeEventLocation($args);
+                        
+                        // If the Location is changed 
+                        if($messageChangeEventLocation->getStatus()) {
+                            
+                        } else {
+                            // Else give the error message about no changed Location
+                            $this->displayMessage($messageChangeEventLocation->getMessage());
+                        }
+                        
+                    } else {
+                        // Else give the error message about no foud Event
+                        $this->displayMessage($messageEvent->getMessage());
+                    }
                     
                 } else {
                     // Else create an Event
@@ -1370,9 +1432,13 @@ class TEDx {
 
         // Get Next Event
         $aValidNextEvent = $this->getNextEvent();
+        
+        print_r($aValidNextEvent);
 
         // Get Registrations for an Event
         $messageRegistrations = $this->tedx_manager->getRegistrationsByEvent($aValidNextEvent);
+        
+        print_r($messageRegistrations);
 
         // If Registrations are found, continue
         if ($messageRegistrations->getStatus()) {
@@ -1431,6 +1497,7 @@ class TEDx {
             // Else give the error message about no found registration
             $this->displayMessage($messageRegistrations->getMessage());
             $allValidRegistrations = null;
+            $registrations = null;
         }
         // Assigns variables to Smarty
         $this->smarty->assign('registrations', $registrations);
@@ -1479,6 +1546,7 @@ class TEDx {
             // Else give the error message about no found registration
             $this->displayMessage($messageRegistrations->getMessage());
             $allValidRegistrations = null;
+            $registrations = null;
         }
         // Assigns variables to Smarty
         $this->smarty->assign('registrations', $registrations);
@@ -2609,6 +2677,20 @@ class TEDx {
                     $subnav = null;
                 }
 
+                break;
+                
+            // Events registration received
+            case 'events_registration_received':
+                $topAction = 'events';
+
+                try {
+                    $subnav = null;
+                    $content = $this->drawEventsRegistrationReceived();
+                } catch (Exception $e) {
+                    $this->displayMessage('This page doesn\'t exist!');
+                    $content = null;
+                    $subnav = null;
+                }
                 break;
 
             // Events participate

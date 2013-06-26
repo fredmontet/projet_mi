@@ -27,7 +27,7 @@
                 <p>
                     <label for="firsname">First name</label>
                     <input type="text" name="firstname"/>
-                    <p class="errorvalue">Please enter a first name</p>
+                    {if $errorState != null && !$errorState.firstname}<p class="errorvalue">{$errorFormMessage.firstname}</p>{/if}
                     
                 </p>
 
@@ -35,33 +35,33 @@
                 <p>
                     <label for="name">Name</label>
                     <input type="text" name="name"/>
-                    <p class="errorvalue">Please enter a name</p>
+                    {if $errorState != null && !$errorState.name}<p class="errorvalue">{$errorFormMessage.name}</p>{/if}
                 </p>
 
                 <!--user_email-->
                 <p>
                     <label for="email">Email </label>
                     <input type="email" name="email"/>
-                    <p class="errorvalue">Please enter an email valid</p>
+                    {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
                 </p>
 
                 <p>
                     <label for="email">Repeat email </label>
                     <input type="email" name="email_repeat"/>
-                    <p class="errorvalue">Please repeat the email</p>
+                    {if $errorState != null && !$errorState.email_repeat}<p class="errorvalue">{$errorFormMessage.email_repeat}</p>{/if}
                 </p>
 
                 <!--user_pw-->
                 <p>
                     <label for="password">Password </label>
                     <input type="password" name="password"/>
-                    <p class="errorvalue">Please enter a password</p>
+                    {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.password}</p>{/if}
                 </p>
 
                 <p>
                     <label for="password">Repeat password </label>
                     <input type="password" name="password_repeat"/>
-                    <p class="errorvalue">Please repeat the password</p>
+                    {if $errorState != null && !$errorState.password_repeat}<p class="errorvalue">{$errorFormMessage.password_repeat}</p>{/if}
                 </p>
             </fieldset>
         
@@ -77,21 +77,21 @@
                 <p>
                     <label for="dateOfBirth">Date of birth valid</label>
                     <input type="date" name="dateOfBirth"/>
-                    <p class="errorvalue">Please enter a date of birth</p>
+                    {if $errorState != null && !$errorState.dateOfBirth}<p class="errorvalue">{$errorFormMessage.dateOfBirth}</p>{/if}
                 </p>
 
                 <!--user_phone-->
                 <p>
                     <label for="phoneNumber">Phone number </label>
                     <input type="tel" name="phoneNumber"/> 
-                    <p class="errorvalue">Please enter a phone number</p>
+                    {if $errorState != null && !$errorState.phoneNumber}<p class="errorvalue">{$errorFormMessage.phoneNumber}</p>{/if}
                 </p>
 
                 <!--message-->
                 <p>
                     <label for="description">Description </label>
                     <textarea type="text" name="description"></textarea>
-                     <p class="errorvalue">Please enter a message</p>
+                    {if $errorState != null && !$errorState.description}<p class="errorvalue">{$errorFormMessage.description}</p>{/if}
                 </p>
             </fieldset>
         
@@ -106,7 +106,7 @@
                 <p>
                     <label for="address">Street </label> 
                     <input type="text" name="address"  />
-                    <p class="errorvalue">Please enter a street</p>
+                    {if $errorState != null && !$errorState.address}<p class="errorvalue">{$errorFormMessage.address}</p>{/if}
                 </p>
 
                 <!--user_city-->
@@ -114,7 +114,7 @@
                 <p>
                     <label for="city">City </label>
                     <input type="text" name="city"/>
-                    <p class="errorvalue">Please enter a city</p>
+                    {if $errorState != null && !$errorState.city}<p class="errorvalue">{$errorFormMessage.city}</p>{/if}
  
                 </p>
 
@@ -122,7 +122,7 @@
                 <p>
                     <label for="country">Country </label>
                     <input type="text" name="country"/>
-                    <p class="errorvalue">Please enter a country</p>
+                    {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
             </fieldset>
 
                     
@@ -138,24 +138,24 @@
                     <p>
                         <label for="keyword1">Keyword 1 </label>
                         <input type="text" name="keyword1" />
-                        <p class="errorvalue">Please enter a keyword</p>
+                        {if $errorState != null && !$errorState.keyword1}<p class="errorvalue">{$errorFormMessage.keyword}</p>{/if}
                     </p>
                     <p>
                         <label for="keyword2">Keyword 2 </label>
                         <input type="text" name="keyword2"  />
-                        <p class="errorvalue">Please enter a keyword</p>
+                        {if $errorState != null && !$errorState.keyword2}<p class="errorvalue">{$errorFormMessage.keyword}</p>{/if}
                     </p>
                     <p>
                         <label for="keyword3">Keyword 3 </label>
                         <input type="text" name="keyword3"  />
-                        <p class="errorvalue">Please enter a keyword</p>
+                        {if $errorState != null && !$errorState.keyword3}<p class="errorvalue">{$errorFormMessage.keyword}</p>{/if}
                     </p>
 
                     <!--user_motivation-->
                     <p>
                         <label for="motivation">Motivation </label>
                         <textarea type="text" name="motivation" rows="4" cols="26"></textarea>
-                        <p class="errorvalue">Please enter your motivation</p>
+                        {if $errorState != null && !$errorState.motivation}<p class="errorvalue">{$errorFormMessage.motivation}</p>{/if}
                     </p>
             </fieldset>
     
