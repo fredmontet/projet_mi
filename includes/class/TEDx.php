@@ -496,8 +496,11 @@ class TEDx {
             $this->smarty->assign('event', $aValidEvent);
             // Check if the form is done
             if (isset($_POST['update'])) {
-                var_dump($_POST);
                 list($registration, $errorState) = $this->gestionRegistrationValidator($_POST);
+                
+                var_dump($registration);
+                var_dump($errorState);
+                
                 // If all values are correct, continue
                 if (count(array_keys($errorState, true)) == count($errorState)) {
                     $argsVisitor = array(
@@ -2228,15 +2231,10 @@ class TEDx {
      * Draw the Register page
      * @return content HTML of the Register page
      */
-    protected function drawRegister($action) {
-        switch ($action) {
-            case 'register_send':
-                $this->displayMessage('This action is not yet implemented.');
-                return null;
-                break;
-            default:
-        }
-
+    protected function drawRegister() {
+        
+        
+        
         return $this->smarty->fetch('register.tpl');
     }
 
@@ -2592,13 +2590,12 @@ class TEDx {
 
             // Register
             case 'register':
-            case 'register_send':
             
                 $topAction = 'register';
 
                 try {
                     $subnav = null;
-                    $content = $this->drawRegister($action);
+                    $content = $this->drawRegister();
                 } catch (Exception $e) {
                     $this->displayMessage('This page doesn\'t exist!');
                     $content = null;
