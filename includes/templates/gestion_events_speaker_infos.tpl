@@ -28,10 +28,6 @@
                 <input type="text" name="keyword{$foo}" value="" />
             {/for}
         </fieldset>
-        <fieldset>
-            <legend>Description</legend>
-            <textarea>{$speaker->getDescription()}</textarea>
-        </fieldset>
     
         <!--talk link-->
         
@@ -39,13 +35,13 @@
             <fieldset>
                 <legend>Talk's video</legend>
                 <label>Title</label>
-                <input type="text" name="talk" value="{$talk->getVideoTitle()}" />
+                <input type="text" name="videoTitle" value="{$talk->getVideoTitle()}" />
                 
                 <label>Description</label>
-                <input type="text" name="talk" value="{$talk->getVideoDescription()}" />
+                <textarea name="videoDescription">{$talk->getVideoDescription()}"</textarea>
                 
                 <label>URL</label>
-                <input type="text" name="talk" value="{$talk->getVideoURL()}" />
+                <input type="text" name="videoURL" value="{$talk->getVideoURL()}" />
             </fieldset>
         {/foreach}
 

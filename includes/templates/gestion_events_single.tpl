@@ -63,29 +63,29 @@
                         {if $errorState != null && !$errorState.startingTime}<p class="errorvalue">{$errorFormMessage.startingTime}</p>{/if}
                     </tr>
                     <tr>
-                        <td><input type="time" name="slot1StartingTime" value="" /></td>
-                        <td><input type="time" name="slot1EndingTime" value="" /></td>
+                        <td><input type="time" name="slot1StartingTime" value="{if $slots[0] != null}{$slots[0]->getStartingTime()}{/if}" /></td>
+                        <td><input type="time" name="slot1EndingTime" value="{if $slots[0] != null}{$slots[0]->getEndingTime()}{/if}" /></td>
                         <td>Slot One</td>
                         {if $errorState != null && !$errorState.slot1StartingTime}<p class="errorvalue">{$errorFormMessage.slot1StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot1EndingTime}<p class="errorvalue">{$errorFormMessage.slot1EndingTime}</p>{/if}
                     </tr>
                     <tr>
-                        <td><input type="time" name="slot2StartingTime" value="" /></td>
-                        <td><input type="time" name="slot2EndingTime" value="" /></td>
+                        <td><input type="time" name="slot2StartingTime" value="{if $slots[1] != null}{$slots[1]->getStartingTime()}{/if}" /></td>
+                        <td><input type="time" name="slot2EndingTime" value="{if $slots[1] != null}{$slots[1]->getEndingTime()}{/if}" /></td>
                         <td>Slot Two</td>
                         {if $errorState != null && !$errorState.slot2StartingTime}<p class="errorvalue">{$errorFormMessage.slot2StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot2EndingTime}<p class="errorvalue">{$errorFormMessage.slot2EndingTime}</p>{/if}
                     </tr>
                     <tr>
-                        <td><input type="time" name="slot3StartingTime" value="" /></td>
-                        <td><input type="time" name="slot3EndingTime" value="" /></td>
+                        <td><input type="time" name="slot3StartingTime" value="{if $slots[2] != null}{$slots[2]->getStartingTime()}{/if}" /></td>
+                        <td><input type="time" name="slot3EndingTime" value="{if $slots[2] != null}{$slots[2]->getEndingTime()}{/if}" /></td>
                         <td>Slot Three</td>
                         {if $errorState != null && !$errorState.slot3StartingTime}<p class="errorvalue">{$errorFormMessage.slot3StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot3EndingTime}<p class="errorvalue">{$errorFormMessage.slot3EndingTime}</p>{/if}
                     </tr>
                     <tr>
-                        <td><input type="time" name="slot4StartingTime" value="" /></td>
-                        <td><input type="time" name="slot4EndingTime" value="" /></td>
+                        <td><input type="time" name="slot4StartingTime" value="{if $slots[3] != null}{$slots[3]->getStartingTime()}{/if}" /></td>
+                        <td><input type="time" name="slot4EndingTime" value="{if $slots[3] != null}{$slots[3]->getEndingTime()}{/if}" /></td>
                         <td>Slot Four</td>
                         {if $errorState != null && !$errorState.slot4StartingTime}<p class="errorvalue">{$errorFormMessage.slot4StartingTime}</p>{/if}
                         {if $errorState != null && !$errorState.slot4EndingTime}<p class="errorvalue">{$errorFormMessage.slot4EndingTime}</p>{/if}
@@ -142,8 +142,7 @@
             </fieldset>
         {/if}
         
-        <input type="hidden" name="action2" value="add_speaker_to_slot">
-        <input type="submit" name="submit_speaker" value="Add speaker">
+        <a class="theButton" href="?action=gestion_speaker_infos&eventId={$event->getNo()}">Add Speaker</a>
         
         
         
@@ -152,7 +151,7 @@
         <a href="#gestion_events_single_team">next</a>
         
         <fieldset id="gestion_events_single_team">
-            <legend>Organizer</legend>
+            <legend>Organizers</legend>
             {foreach from=$isOrganizers item=isOrganizer}
                 <fieldset>
                     <p>
@@ -178,10 +177,10 @@
                 </fieldset>
             {/foreach}
         </fieldset>
-        
+        <!--
         <input type="hidden" name="action4" value="add_organizer_to_event">
         <input type="submit" name="submit_add" value="Add organizer">
-        
+        -->
         
         
         <a href="#gestion_events_single_speaker">previous</a>

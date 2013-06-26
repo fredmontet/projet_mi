@@ -294,6 +294,29 @@ class TEDx {
         // Return two arrays
         return array($event, $errorState);
     }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     * 			The first contains the values ​​transmitted by _POST
+     * 			The second contains the state values ​​received by _POST
+     */
+    protected function gestionSpeakerValidator($speaker) {
+
+        // Validate all received values 
+        $errorState['keyword1'] 			= $this->validator(array('String', $speaker['keyword1']));
+        $errorState['keyword2'] 			= $this->validator(array('String', $speaker['keyword2']));
+        $errorState['keyword3'] 			= $this->validator(array('String', $speaker['keyword3']));
+        $errorState['videoTitle'] 			= $this->validator(array('String0..1', $speaker['videoTitle']));
+        $errorState['videoDescription'] 	= $this->validator(array('String0..1', $speaker['videoDescription']));
+        $errorState['videoURL'] 			= $this->validator(array('String0..1', $speaker['videoURL']));
+
+        // Return two arrays
+        return array($speaker, $errorState);
+    }
+    
 
     /**
      * Draw the Home page
@@ -847,80 +870,88 @@ class TEDx {
             // If all values are correct, continue
             if (count(array_keys($errorState, true)) == count($errorState)) {
 
-                // Array for Event creation
-                $argsCreateEvent = array(
-                    'mainTopic' => $event['mainTopic'],
-                    'startingDate' => $event['startingDate'],
-                    'endingDate' => $event['endingDate'],
-                    'startingTime' => $event['startingTime'],
-                    'endingTime' => $event['endingTime'],
-                    'description' => $event['description'],
-                    'locationName' => $event['locationName']
-                );
-
-
-                // Array for Slots creation
-                // Slot One
-                $slot1 = array(
-                    'happeningDate' => $event['startingDate'],
-                    'startingTime' => $event['slot1StartingTime'],
-                    'endingTime' => $event['slot1EndingTime'],
-                );
-
-                // If the Slot time is not empty, continue
-                if ($errorState['slot2StartingTime'] && $errorState['slot2EndingTime']) {
-                    // Slot Two
-                    $slot2 = array(
-                        'happeningDate' => $event['startingDate'],
-                        'startingTime' => $event['slot2StartingTime'],
-                        'endingTime' => $event['slot2EndingTime'],
-                    );
-                } else {
+                if($id != null) {
                     
-                }
-
-                // If the Slot time is not empty, continue
-                if ($errorState['slot3StartingTime'] && $errorState['slot3EndingTime']) {
-                    // Slot Three
-                    $slot3 = array(
-                        'happeningDate' => $event['startingDate'],
-                        'startingTime' => $event['slot3StartingTime'],
-                        'endingTime' => $event['slot3EndingTime'],
-                    );
-                } else {
                     
-                }
-
-                // If the Slot time is not empty, continue
-                if ($errorState['slot4StartingTime'] && $errorState['slot4EndingTime']) {
-                    // Slot Four
-                    $slot4 = array(
-                        'happeningDate' => $event['startingDate'],
-                        'startingTime' => $event['slot4StartingTime'],
-                        'endingTime' => $event['slot4EndingTime'],
-                    );
-                } else {
                     
-                }
-
-                $argsSlots = array($slot1, $slot2, $slot3, $slot4);
-
-                // Final array for the function addEvent
-                $megaArgsAddEvent = array(
-                    'event' => $argsCreateEvent,
-                    'slots' => $argsSlots
-                );
-
-                // Create Event
-                $messageAddEvent = $this->tedx_manager->addEvent($megaArgsAddEvent);
-
-                // If the Event is created, continue
-                if ($messageAddEvent->getStatus()) {
-                    // Go to home page
-                    header("Location: ?action=gestion_events");
                 } else {
-                    // Else give the error message about no created Event
-                    $this->displayMessage($messageAddEvent->getMessage());
+                    // Else create an Event
+                
+                    // Array for Event creation
+                    $argsCreateEvent = array(
+                        'mainTopic' => $event['mainTopic'],
+                        'startingDate' => $event['startingDate'],
+                        'endingDate' => $event['endingDate'],
+                        'startingTime' => $event['startingTime'],
+                        'endingTime' => $event['endingTime'],
+                        'description' => $event['description'],
+                        'locationName' => $event['locationName']
+                    );
+    
+    
+                    // Array for Slots creation
+                    // Slot One
+                    $slot1 = array(
+                        'happeningDate' => $event['startingDate'],
+                        'startingTime' => $event['slot1StartingTime'],
+                        'endingTime' => $event['slot1EndingTime'],
+                    );
+    
+                    // If the Slot time is not empty, continue
+                    if ($errorState['slot2StartingTime'] && $errorState['slot2EndingTime']) {
+                        // Slot Two
+                        $slot2 = array(
+                            'happeningDate' => $event['startingDate'],
+                            'startingTime' => $event['slot2StartingTime'],
+                            'endingTime' => $event['slot2EndingTime'],
+                        );
+                    } else {
+                        
+                    }
+    
+                    // If the Slot time is not empty, continue
+                    if ($errorState['slot3StartingTime'] && $errorState['slot3EndingTime']) {
+                        // Slot Three
+                        $slot3 = array(
+                            'happeningDate' => $event['startingDate'],
+                            'startingTime' => $event['slot3StartingTime'],
+                            'endingTime' => $event['slot3EndingTime'],
+                        );
+                    } else {
+                        
+                    }
+    
+                    // If the Slot time is not empty, continue
+                    if ($errorState['slot4StartingTime'] && $errorState['slot4EndingTime']) {
+                        // Slot Four
+                        $slot4 = array(
+                            'happeningDate' => $event['startingDate'],
+                            'startingTime' => $event['slot4StartingTime'],
+                            'endingTime' => $event['slot4EndingTime'],
+                        );
+                    } else {
+                        
+                    }
+    
+                    $argsSlots = array($slot1, $slot2, $slot3, $slot4);
+    
+                    // Final array for the function addEvent
+                    $megaArgsAddEvent = array(
+                        'event' => $argsCreateEvent,
+                        'slots' => $argsSlots
+                    );
+    
+                    // Create Event
+                    $messageAddEvent = $this->tedx_manager->addEvent($megaArgsAddEvent);
+    
+                    // If the Event is created, continue
+                    if ($messageAddEvent->getStatus()) {
+                        // Go to home page
+                        header("Location: ?action=gestion_events");
+                    } else {
+                        // Else give the error message about no created Event
+                        $this->displayMessage($messageAddEvent->getMessage());
+                    }
                 }
             } else {
                 
@@ -1345,6 +1376,34 @@ class TEDx {
         $id = $this->getId();
         
         $eventId = $_REQUEST['eventId'];
+        
+        if (isset($_POST['update'])) {
+
+            list($speaker, $errorState) = $this->gestionSpeakerValidator($_POST);
+
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+
+                if($id != null) {
+                    
+                    
+                    
+                    $errorState['keyword1'] 			= $this->validator(array('String', $speaker['keyword1']));
+                    $errorState['keyword2'] 			= $this->validator(array('String', $speaker['keyword2']));
+                    $errorState['keyword3'] 			= $this->validator(array('String', $speaker['keyword3']));
+                    $errorState['videoTitle'] 			= $this->validator(array('String0..1', $speaker['videoTitle']));
+                    $errorState['videoDescription'] 	= $this->validator(array('String0..1', $speaker['videoDescription']));
+                    $errorState['videoURL'] 			= $this->validator(array('String0..1', $speaker['videoURL']));
+                    
+                } else {
+                    
+                }
+            } else {
+                
+            }
+        } else {
+        
+        }
         
         // Get Speaker
         $messageSpeaker = $this->tedx_manager->getSpeaker($id);
