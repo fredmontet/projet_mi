@@ -32,7 +32,7 @@
             <input type="submit" name="update" value="Save" />
         </div>
 
-        <div class="offset1 span10">
+        <div class="offset1 span12">
             <!--date-->
             <fieldset id="gestion_events_single_infos">
                 <legend>Starting date</legend>
@@ -104,7 +104,7 @@
             <input type="submit" name="add_slot" value="Add a slot" />
             -->
             
-            <a href="#gestion_events_single_details">next</a>
+           <!-- <a href="#gestion_events_single_details">next</a> -->
 
             <!--end of gestion_events_single_infos-->
 
@@ -121,9 +121,11 @@
                 {if $errorState != null && !$errorState.locationName}<p class="errorvalue">{$errorFormMessage.locationName}</p>{/if}
             </fieldset>
             <!--navigation buttons-->
+            <!--
             <a href="#gestion_events_single_infos">previous</a>
             <a href="#gestion_events_single_speaker">next</a>
             <!--end of gestion_events_single_details-->
+            
         </div>
         
         {if $event != null}
@@ -148,10 +150,10 @@
         
         
         
-        
+        <!--
         <a href="#gestion_events_single_details">previous</a>
         <a href="#gestion_events_single_team">next</a>
-        
+        -->
         {if $event != null}
             <fieldset id="gestion_events_single_team">
                 <legend>Organizers</legend>
@@ -164,17 +166,17 @@
                                     <option {if $isOrganizer.organizer->getNo() == $organizer->getNo()}selected {/if}><span>{$organizer->getFirstname()}</span> <span>{$organizer->getName()}</span></option>
                                 {/foreach}
                             </select>
-                        </p>
-                        <p><input type="text" name="kw" value="Keyword 1" /></p>
-                        <p><input type="text" name="kw" value="Keyword 2" /></p>
-                        <p><input type="text" name="kw" value="Keyword 3" /></p>
-                        <p>
                             {foreach from=$isOrganizer.roles item=isRole}
                                 <select>
                                     {foreach from=$roles item=role}
                                         <option {if $isRole->getName() == $role->getName()}selected{/if}>{$role->getName()}</option>
                                     {/foreach}
                                 </select>
+                        </p>
+                        <p><input type="text" name="kw" value="Keyword 1" /></p>
+                        <p><input type="text" name="kw" value="Keyword 2" /></p>
+                        <p><input type="text" name="kw" value="Keyword 3" /></p>
+                        <p>
                             {/foreach}
                         </p>
                     </fieldset>
@@ -187,7 +189,9 @@
         -->
         
         
+        <!--
         <a href="#gestion_events_single_speaker">previous</a>
+        -->
         
     </form>
 </article>

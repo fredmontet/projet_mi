@@ -1476,6 +1476,32 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-top:0px;
     width:68%;
 }
+.gestion_events_single form table{
+    width:30%;
+    float:left;
+    margin-left:-30px;
+    
+}
+.gestion_events_single form div input{
+    margin-right:0px;
+}
+.gestion_events_single legend{
+    margin-left:10px;
+    
+}
+.gestion_events_single form fieldset p input{
+    width:10%;
+    display: inline-block;
+    float:left;
+    margin-left:10px;
+    margin-top:-10px;  
+}
+.gestion_events_single form fieldset select{
+    width:20%;
+    display: inline-block;
+    float:left;
+    margin-left:10px;   
+}
 .gestion_events_single form #gestion_events_single_infos legend table{}
 .gestion_events_single form #gestion_events_single_infos legend table tr{}
 .gestion_events_single form #gestion_events_single_infos legend table td{}
