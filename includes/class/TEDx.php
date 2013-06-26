@@ -1777,7 +1777,7 @@ class TEDx {
                     $this->displayMessage($messageValidEvent->getMessage());
                 }
             } else {
-                $this->displayMessage("There is no Role with this ID");
+                
             }
         } else {
             // Else put the variables at null

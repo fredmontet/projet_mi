@@ -34,7 +34,7 @@ Smarty variables available:
        
         <label for="eventRoleName">Event role name</label>
         <input type="text" name="role" value="{$role->getName()}" />
-        <p class="errorvalue">Please enter an event role name</p>
+        {*}<p class="errorvalue">Please enter an event role name</p>{*}
        
         <!--
         <legend>Chose level</legend>   
