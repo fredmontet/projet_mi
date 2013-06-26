@@ -1432,13 +1432,9 @@ class TEDx {
 
         // Get Next Event
         $aValidNextEvent = $this->getNextEvent();
-        
-        print_r($aValidNextEvent);
 
         // Get Registrations for an Event
         $messageRegistrations = $this->tedx_manager->getRegistrationsByEvent($aValidNextEvent);
-        
-        print_r($messageRegistrations);
 
         // If Registrations are found, continue
         if ($messageRegistrations->getStatus()) {
@@ -1494,8 +1490,6 @@ class TEDx {
                 }
             }
         } else {
-            // Else give the error message about no found registration
-            $this->displayMessage($messageRegistrations->getMessage());
             $allValidRegistrations = null;
             $registrations = null;
         }
@@ -1543,8 +1537,6 @@ class TEDx {
                 }
             }
         } else {
-            // Else give the error message about no found registration
-            $this->displayMessage($messageRegistrations->getMessage());
             $allValidRegistrations = null;
             $registrations = null;
         }
@@ -2599,7 +2591,7 @@ class TEDx {
                 
             }
         } else {
-            
+            $errorState = null;
         }
         
         $errorFormMessage = $this->errorFormMessage();

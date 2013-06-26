@@ -10,6 +10,11 @@ Smarty variables available:
 
     <!--formulaire-->
     <form name="register" method="post" action="">
+    
+        <p>
+            <input type="hidden" name="action" value="register"/>
+            <input class="buttonRegister" type="submit" name="update" value="Save"/>
+        </p>  
 
         <!--firstname-->
         <p>
@@ -85,11 +90,7 @@ Smarty variables available:
             <input type="text" name="country"/>
             {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
         </p>
-
-        <p>
-            <input type="hidden" name="action" value="register"/>
-            <input class="buttonRegister" type="submit" name="update" value="Save"/>
-        </p>       
+     
     </form>
     <!--end formulaire-->
 </article>
