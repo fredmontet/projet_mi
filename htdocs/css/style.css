@@ -498,17 +498,12 @@ each event has to be displayed inline and not in a row in this
 particular events_list, so i'll specialized the class here
 */
 .events{
-    white-space: nowrap;
-
-    height: 100%;
+   height: 100%;
 }
 
 .events .events_single{
-    white-space: nowrap;
     display:block;
     float: left;
-
-    
 }
 
 
@@ -524,23 +519,79 @@ particular events_list, so i'll specialized the class here
 .events_nav ul{}
 .events_nav li{}
 .events_nav a{
-    position:absolute;
     bottom:50px;
     
-    
 }
-.events_nav h1{}
-.events_nav p{}
+
+.events_nav span{
+    display:none;
+}
+
 .events_nav .next{
+    background-image:url("../img/layout/arrows/arrowRight.png");
+    background-repeat:no-repeat;
+    background-position:right; 
     position:fixed;
     bottom:50px;
     right:50px;
+    height:110px;
+}
+
+.events_nav .next h1{
+    top:10px;
+    font-size:2em;
+    display:block;
+    position:relative;
+    float:right;
+    right: 100px;
+}
+.events_nav .next time{
+   font-size:1.4em;
+    display:block;
+    float:left;
+    position:relative;
+    left:200px;
+    top:60px;
     
 }
+
+.events_nav .next:hover{
+  background-image:url("../img/layout/arrows/arrowRightHover.png");
+  background-repeat:no-repeat;   
+  background-position:right;  
+}
+
 .events_nav .previous{
-   position:fixed;
+    background-image:url("../img/layout/arrows/arrowLeft.png");
+    background-repeat:no-repeat;
+    background-position:left;
+    position:fixed;
     bottom:50px;
     left:50px;
+    height:110px;
+}
+
+.events_nav .previous h1{
+    top:10px;
+    font-size:2em;
+    display:block;
+    position:relative;
+    float:right;
+    left: 100px;
+}
+.events_nav .previous time{
+   font-size:1.4em;
+    display:block;
+    position:relative;
+    float:left;
+    left:100px;
+    
+}
+
+.events_nav .previous:hover{
+  background-image:url("../img/layout/arrows/arrowLeftHover.png");
+  background-repeat:no-repeat;
+  background-position:left; 
 }
     
 /*end of event_nav*/
