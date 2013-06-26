@@ -763,6 +763,14 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
     margin-top: -50px;
 }
 
+.gestion_contacts_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:155px;
+    clear:both;
+}
+
 .gestion_contacts_infos form{
     margin-top:20px;
 }
@@ -1860,33 +1868,31 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .user_infos .errorvalue{
     color:red;
     position:relative;
-    top:-19px;
-    left:5px;
+    top:-10px;
+    left:210px;
     clear:both;
 }
 
-.user_infos section{
-   
+.user_infos section form legend{
+    margin-bottom:40px;
+    font-size:2em;
+    font-weight:bold;
 }
-.user_infos section form{
-    
 }
-.user_infos section form p{
-     
-}
+
 .user_infos section form p label{
-    font-size:1em;
-    width:50%;
+    font-size:1.2em;
+    width:35%;
+
 }
 .user_infos section form p input{
-    float:right;
-    width:70%;
+    width:60%;
 }
 
 .user_infos .buttonSaveModif{
     display:block;
     background-color:rgba(255,0,0,1);
-    width:200px;
+    width:160px;
     text-align:center;
     vertical-align:middle;
     line-height:30px;
@@ -1895,19 +1901,19 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     font-size:1.3em; 
     border:2px solid #ff0000;
     float:right;
-    margin-bottom:0px;
-   }
+    margin-bottom:25px;
+}
    
 .user_infos .buttonSaveModif:hover{
     color:#ff0000;
     border:2px solid #ff0000;
     background-color:white;
-   }
+}
    
 .user_infos .buttonSavePwd{
     display:block;
     background-color:rgba(255,0,0,1);
-    width:220px;
+    width:160px;
     text-align:center;
     vertical-align:middle;
     line-height:30px;
@@ -1916,18 +1922,19 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     font-size:1.3em; 
     border:2px solid #ff0000;
     float:right;
-   }
+    margin-bottom:25px;
+}
    
 .user_infos .buttonSavePwd:hover{
     color:#ff0000;
     border:2px solid #ff0000;
     background-color:white;
-   }
+}
 
-.user_infos form p textarea{
+.user_infos section form p textarea{
     float:right;
-    width:70%;
-    height:300px;
+    width:60%;
+    height:250px;
     margin-top:2px;
 }
 
