@@ -2296,12 +2296,22 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-left:190px;
 }
 
+.videos_list ul li a:hover h1{
+    font-size:1.3em;
+    margin-left:190px;
+    color:#EE0000;
+}
+
 .videos_list ul li a time{
     font-size:1.2em;
     margin-left:30px;
 }
 
-
+.videos_list ul li a:hover time{
+    font-size:1.2em;
+    margin-left:30px;
+    color:#EE0000;
+}
 
 
 /*end of videos_list*/
