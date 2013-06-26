@@ -82,19 +82,19 @@
             <!--firstname-->
             <p>
                 <label for="current_password">Current Password</label>
-                <input type="text" name="password" value="Current password"/>
+                <input type="password" name="password" value="Current password"/>
                 <p class="errorvalue">Please enter your current password</p>
             </p>
             <!--surname-->
             <p>
                 <label for="new_password">New Password</label>
-                <input type="text" name="password" value="New password"/>
+                <input type="password" name="password" value="New password"/>
                 <p class="errorvalue">Please enter a password</p>
             </p>
             <!--email-->
             <p>
                 <label for="repeat_new_password">Repeat New Password</label>
-                <input type="text" name="password" value="Repeat new password"/>
+                <input type="password" name="password" value="Repeat new password"/>
                 <p class="errorvalue">Please enter a password</p>
             </p>
             
