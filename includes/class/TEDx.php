@@ -722,12 +722,13 @@ class TEDx {
                 } else {
                 }
             } else {
-                
+                $errorState = null;
             }
         } else {
             // Else give the error message about no found Event
             $this->displayMessage($messageEvent->getMessage());
             return $this->drawHome();
+            $errorState = null;
         }
         
         $errorFormMessage = $this->errorFormMessage();
