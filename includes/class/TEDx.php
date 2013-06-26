@@ -458,7 +458,7 @@ class TEDx {
         $events_single = $this->drawEventsSingle($id);
 
         // Draw video playlist
-        $video_list = $this->smarty->fetch('videos_list.tpl');
+        $video_list = $this->drawVideosList();
 
         // Assign variables to Smarty
         $this->smarty->assign('events_single', $events_single);
@@ -903,6 +903,80 @@ class TEDx {
         // Draw Videos page
         return $this->smarty->fetch('videos_all.tpl');
     }
+    
+    
+    /**
+     * Draw the Videos List
+     * @return content HTML of the Videos List
+     */
+    protected function drawVideosList() {
+    
+        // Get Talks
+        $messageTalks = $this->tedx_manager->getTalks();
+        
+        // If Talks are found, countinue
+        if($messageTalks->getStatus()) {
+            $allValidTalks = $messageTalks->getContent();
+            
+            // For each Talk
+            foreach($allValidTalks as $key=>$aValidTalk) {
+                
+                $talks[]['talk'] = $aValidTalk;
+                
+                // Get YouTube ref
+                $videoRef = $this->getYoutubeRef($aValidTalk->getVideoURL());
+                
+                // If the URL correspond to a video
+                if($videoRef != false) {
+                    // Get Video Thumbnail
+                    $imgURL = $this->createImgUrl($videoRef);
+                } else {
+                    $imgURL = null;
+                }
+                
+                $talks[$key]['imgURL'] = $imgURL;
+                
+                // Get Speaker
+                $messageSpeaker = $this->tedx_manager->getSpeaker($aValidTalk->getSpeakerPersonNo());
+                
+                // If the Speaker is found, continue
+                if($messageSpeaker->getStatus()) {
+                    $aValidSpeaker = $messageSpeaker->getContent();
+                    
+                    $talks[$key]['speaker'] = $aValidSpeaker;
+                    
+                } else {
+                    // Else give the error message about no found Speaker
+                    $this->displayMessage($messageSpeaker->getMessage());
+                }
+                
+                // Get the Event
+                $messageEvent = $this->tedx_manager->getEvent($aValidTalk->getEventNo());
+                
+                // If the Event is found, continue
+                if($messageEvent->getStatus()) {
+                    $aValidEvent = $messageEvent->getContent();
+                    
+                    $talks[$key]['event'] = $aValidEvent;
+                    
+                } else {
+                    // Else give the error message about no found Event
+                    $this->displayMessage($messageEvent->getMessage());
+                }
+                
+                
+            }
+            
+        } else {
+            $allValidTalks = null;
+        }
+        
+        // Assigns variables to Smarty
+        $this->smarty->assign('talks', $talks);
+    
+        return $this->smarty->fetch('videos_list.tpl');
+    }
+    
 
     /**
      * Draw the Videos Event page
