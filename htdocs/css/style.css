@@ -2151,9 +2151,40 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /*video_player*/
 /****************************************/
 /*Status = mmmh*/
-/*
-Il faut absolument créer le template
-de ce player video ma parole
+
+.video_player .align_right{
+    float:right;
+    margin-top:-480px;
+    margin-left:890px;
+}
+
+.video_player .align_left{
+    margin-top:50px;
+    margin-left:20px;
+}
+
+.video_player h1{
+    font-size:1.3em;
+    line-height:22px;
+}
+
+.video_player .align_right p time{
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+.video_player .align_right p{
+    font-size:1em;
+    margin-bottom:6px;
+    line-height:18px;
+    width:250px;
+}
+
+.video_player .align_right p span{
+    font-size:1.2em;
+    font-weight:bold;
+}
+
 /*end of video_player*/
 
 
@@ -2162,8 +2193,33 @@ de ce player video ma parole
 /****************************************/
 /*Status = to fill*/
 
-.videos_all{}
-.videos_all iframe{}
+.videos_all{
+    margin-top:50px;
+}
+.videos_all section{
+    display:inline-block;
+}
+
+.videos_all section a{
+}
+
+.videos_all section a h1{
+    font-size:1.3em;
+    margin-bottom:-5px;
+    margin-left:20px;
+}
+
+.videos_all section a time{
+    font-size:1.2em;
+    margin-left:20px;
+    
+}
+
+.videos_all section a img{
+    height:180px;
+    width:320px;
+    margin-top:30px;
+}
 
 /*end of videos_all*/
 
