@@ -987,6 +987,14 @@ etre bonne aussi.*/
 /****************************************/
 /*Status = to fill*/
 
+.gestion_contacts_role_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:70px;
+    clear:both;
+}
+
 .gestion_contacts_role_infos .buttonRoleInfos{
     display:block;
     background-color:rgba(255,0,0,1);
