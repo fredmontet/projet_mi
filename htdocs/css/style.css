@@ -2204,9 +2204,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     display:inline-block;
 }
 
-.videos_all section a{
-}
-
 .videos_all section a h1{
     font-size:1.3em;
     margin-bottom:-5px;
@@ -2216,7 +2213,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .videos_all section a time{
     font-size:1.2em;
     margin-left:20px;
-    
 }
 
 .videos_all section a img{
@@ -2245,22 +2241,22 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /*Status = to fill*/
 
 .videos_list{  
-position:relative;
-left:50%;
-width:auto;
-        transform:rotate(-3deg);
-        -ms-transform:rotate(-3deg); /* IE 9 */
-        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */  
+    position:relative;
+    left:50%;
+    width:auto;
+    transform:rotate(-3deg);
+    -ms-transform:rotate(-3deg); /* IE 9 */
+    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */  
 }
     
 .videos_list .grey_bar_video{
-        background-color:#eeeeee;
-        position:absolute;
-        display:inline-block;
-        height:230px;
-        width:1000%;
-        left:-500%;
-        z-index:-100;   
+    background-color:#eeeeee;
+    position:absolute;
+    display:inline-block;
+    height:310px;
+    width:1000%;
+    left:-500%;
+    z-index:-100;   
 }
 
 .videos_list h1{
@@ -2278,18 +2274,9 @@ width:auto;
     position:relative;
 }
 
-.videos_list nav .previous{
-    background-image: url("../img/layout/arrows/arrowLeft.svg");
-    float:left;
-}
-.videos_list nav .next{
-    background-image: url("../img/layout/arrows/arrowRight.svg");
-    float:right;
-}
 
 .videos_list ul{
     display:block;
-
     width:auto; 
     position:relative;
     left:-50%;
@@ -2301,11 +2288,21 @@ width:auto;
     margin:5px;
     margin-top:10px;
     margin-bottom:10px;
+    line-height:12px;
 }
 
-.videos_list ul li iframe{
-width:250px;
+.videos_list ul li a h1{
+    font-size:1.3em;
+    margin-left:190px;
 }
+
+.videos_list ul li a time{
+    font-size:1.2em;
+    margin-left:30px;
+}
+
+
+
 
 /*end of videos_list*/
 

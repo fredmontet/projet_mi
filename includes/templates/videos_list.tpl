@@ -22,7 +22,14 @@ Smarty variables available:
             {if $smarty.foreach.list.index == 3}
                 {break}
             {/if}
-            <li><a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}"><img src="{$talk.imgURL}" /></a></li>
+            <li>
+                <a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}">
+                    <img src="{$talk.imgURL}" />
+                    <h1>{$talk.talk->getVideoTitle()}</h1>
+                    <time>{$talk.event->getStartingDate()|date_format:"%d %B %Y"}</time>
+                </a>
+            </li>
+            
         {/foreach}     
     </ul>
     <nav class="span1">
