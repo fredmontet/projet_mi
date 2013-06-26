@@ -354,21 +354,21 @@ class TEDx {
     protected function gestionEventValidator($event) {
 
         // Validate all received values 
-        $errorState['mainTopic'] = $this->validator(array('String', $event['mainTopic']));
-        $errorState['startingDate'] = $this->validator(array('Date', $event['startingDate']));
-        $errorState['endingDate'] = $this->validator(array('Date', $event['endingDate']));
-        $errorState['startingTime'] = $this->validator(array('Time', $event['startingTime']));
-        $errorState['endingTime'] = $this->validator(array('Time', $event['endingTime']));
-        $errorState['description'] = $this->validator(array('String', $event['description']));
-        $errorState['locationName'] = $this->validator(array('String', $event['locationName']));
-        $errorState['slot1StartingTime'] = $this->validator(array('Time', $event['slot1StartingTime']));
-        $errorState['slot1EndingTime'] = $this->validator(array('Time', $event['slot1EndingTime']));
-        $errorState['slot2StartingTime'] = $this->validator(array('Time0..1', $event['slot2StartingTime']));
-        $errorState['slot2EndingTime'] = $this->validator(array('Time0..1', $event['slot2EndingTime']));
-        $errorState['slot3StartingTime'] = $this->validator(array('Time0..1', $event['slot3StartingTime']));
-        $errorState['slot3EndingTime'] = $this->validator(array('Time0..1', $event['slot3EndingTime']));
-        $errorState['slot4StartingTime'] = $this->validator(array('Time0..1', $event['slot4StartingTime']));
-        $errorState['slot4EndingTime'] = $this->validator(array('Time0..1', $event['slot4EndingTime']));
+        $errorState['mainTopic'] 			= $this->validator(array('String', $event['mainTopic']));
+        $errorState['startingDate'] 		= $this->validator(array('Date', $event['startingDate']));
+        $errorState['endingDate'] 			= $this->validator(array('Date', $event['endingDate']));
+        $errorState['startingTime'] 		= $this->validator(array('Time', $event['startingTime']));
+        $errorState['endingTime'] 			= $this->validator(array('Time', $event['endingTime']));
+        $errorState['description'] 			= $this->validator(array('String', $event['description']));
+        $errorState['locationName'] 		= $this->validator(array('String', $event['locationName']));
+        $errorState['slot1StartingTime']	= $this->validator(array('Time', $event['slot1StartingTime']));
+        $errorState['slot1EndingTime'] 		= $this->validator(array('Time', $event['slot1EndingTime']));
+        $errorState['slot2StartingTime']	= $this->validator(array('Time0..1', $event['slot2StartingTime']));
+        $errorState['slot2EndingTime'] 		= $this->validator(array('Time0..1', $event['slot2EndingTime']));
+        $errorState['slot3StartingTime']	= $this->validator(array('Time0..1', $event['slot3StartingTime']));
+        $errorState['slot3EndingTime'] 		= $this->validator(array('Time0..1', $event['slot3EndingTime']));
+        $errorState['slot4StartingTime']	= $this->validator(array('Time0..1', $event['slot4StartingTime']));
+        $errorState['slot4EndingTime'] 		= $this->validator(array('Time0..1', $event['slot4EndingTime']));
 
         // Return two arrays
         return array($event, $errorState);
@@ -1181,8 +1181,8 @@ class TEDx {
                   $this->displayMessage('There isn\'t an event with this id.');
                   } */
                 break;
-
-            // Gestion Events Speaker Infos
+            
+            // Gestion Events Speaker Infos 
             case 'gestion_speaker_infos':
             case 'gestion_speaker_infos_send':
 
@@ -1251,6 +1251,28 @@ class TEDx {
                     // If the Event is found, continue
                     if ($messageEvent->getStatus()) {
                         $aValidEvent = $messageEvent->getContent();
+                        
+                        $args = array (
+                            'no'			=>	$id,
+                            'mainTopic'		=>	$event['mainTopic'],
+                            'description'	=>	$event['description'],
+                            'startingDate'	=>	$event['startingDate'],
+                            'endingDate'	=>	$event['endingDate'],
+                            'startingTime'	=>	$event['startingTime'],
+                            'endingTime'	=>	$event['endingTime'],
+
+                        );
+                        
+                        // Change Event
+                        $messageChangeEvent = $this->tedx_manager->changeEvent($args);
+                        
+                        // If the Event is edited, continue
+                        if($messageChangeEvent->getStatus()) {
+                            $aValidEvent = $messageChangeEvent->getContent();                          
+                        } else {
+                            // Else give the error message about no edited Event
+                            $this->displayMessage($messageChangeEvent->getMessage());
+                        }
                         
                         $args = array (
                             'event'			=>	$aValidEvent,
@@ -1447,6 +1469,8 @@ class TEDx {
                 // If Organizers are found, continue
                 if($messageIsOrganizers->getStatus()) {
                     $allValidIsOrganizers = $messageIsOrganizers->getContent();
+                    
+                    
                 } else {
                     
                 }
@@ -1774,7 +1798,11 @@ class TEDx {
         
         $eventId = $_REQUEST['eventId'];
         
-        if (isset($_POST['update'])) {
+        
+        
+        if (isset($_POST['update'])) { 
+        
+            $this->displayMessage('This action is not yet implemented.');
 
             list($speaker, $errorState) = $this->gestionSpeakerValidator($_POST);
 
@@ -1783,15 +1811,6 @@ class TEDx {
 
                 if($id != null) {
                     
-                    
-                    
-                    $errorState['keyword1'] 			= $this->validator(array('String', $speaker['keyword1']));
-                    $errorState['keyword2'] 			= $this->validator(array('String', $speaker['keyword2']));
-                    $errorState['keyword3'] 			= $this->validator(array('String', $speaker['keyword3']));
-                    $errorState['videoTitle'] 			= $this->validator(array('String0..1', $speaker['videoTitle']));
-                    $errorState['videoDescription'] 	= $this->validator(array('String0..1', $speaker['videoDescription']));
-                    $errorState['videoURL'] 			= $this->validator(array('String0..1', $speaker['videoURL']));
-                    
                 } else {
                     
                 }
@@ -1799,7 +1818,7 @@ class TEDx {
                 
             }
         } else {
-        
+            
         }
         
         // Get Speaker
@@ -1828,7 +1847,7 @@ class TEDx {
                 if($messageKeywords->getStatus()) {
                     $allValidKeywords = $messageKeywords->getContent();
                 } else {
-                    
+                    $allValidKeywords = null;
                 }
                 
                 // Get Talks by Speaker
@@ -1850,12 +1869,10 @@ class TEDx {
             
                         
         } else {
-            // Else give the error message about no found Speaker
-            $this->displayMessage($messageSpeaker->getMessage());
             $allValidKeywords = null;
+            $aValidSpeaker = null;
+            $allValidTalks = null;
         }
-        
-        print_r($aValidSpeaker);
         
         // Assigns variables to Smarty
         $this->smarty->assign('talks', $allValidTalks);

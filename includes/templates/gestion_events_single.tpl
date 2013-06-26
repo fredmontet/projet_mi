@@ -9,7 +9,15 @@
     $errorFormMessage (Array of error Formular message)
     $organizers (Array of Object)
     $roles (Array of Object)
-    $isOrganizers (Array of Object)
+    $isOrganizers (Array [Organizers] 
+            (
+                [Organizer] => Object of Organizer,
+                [Keywords] => Array
+                    (
+                        [Keyword] => Object of Keyword
+                    )
+            )
+    )
 *}
 
 <article class="gestion_events_single">
@@ -156,7 +164,7 @@
                 {/foreach}
             </fieldset>
             
-            <a class="theButton" href="?action=gestion_speaker_infos&eventId={$event->getNo()}">Add Speaker</a>
+            {*}<a class="theButton" href="?action=gestion_speaker_infos&eventId={$event->getNo()}">Add Speaker</a>{*}
         {/if}
         
         
@@ -173,24 +181,19 @@
                 {foreach from=$isOrganizers item=isOrganizer}
                     <fieldset>
                         <p>
-                            <select>
-                            
-                                {foreach from=$organizers item=organizer}
-                                    <option {if $isOrganizer.organizer->getNo() == $organizer->getNo()}selected {/if}><span>{$organizer->getFirstname()}</span> <span>{$organizer->getName()}</span></option>
-                                {/foreach}
-                            </select>
+                            <label for="role"><span>{$isOrganizer.organizer->getFirstname()}</span> <span>{$isOrganizer.organizer->getName()}</span></label>
                             {foreach from=$isOrganizer.roles item=isRole}
                                 <select>
                                     {foreach from=$roles item=role}
-                                        <option {if $isRole->getName() == $role->getName()}selected{/if}>{$role->getName()}</option>
+                                        <option name="role" {if $isRole->getName() == $role->getName()}selected{/if}>{$role->getName()}</option>
                                     {/foreach}
                                 </select>
-                        </p>
-                        <p><input type="text" name="kw" value="Keyword 1" /></p>
-                        <p><input type="text" name="kw" value="Keyword 2" /></p>
-                        <p><input type="text" name="kw" value="Keyword 3" /></p>
-                        <p>
                             {/foreach}
+                            {*}
+                            <p><input type="text" name="{$isOrganizer.organizer->getNo()}-keyword1" value="Keyword 1" /></p>
+                            <p><input type="text" name="{$isOrganizer.organizer->getNo()}-keyword2" value="Keyword 2" /></p>
+                            <p><input type="text" name="{$isOrganizer.organizer->getNo()}-keyword3" value="Keyword 3" /></p>
+                            {*}
                         </p>
                     </fieldset>
                 {/foreach}

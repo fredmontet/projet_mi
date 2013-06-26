@@ -7,15 +7,17 @@
 
 <article class="gestion_events_speaker_infos">
 
-    <h1><span>{$speaker->getFirstname()}</span> <span>{$speaker->getName()}</span></h1>
+    {if $speaker != null}<h1><span>{$speaker->getFirstname()}</span> <span>{$speaker->getName()}</span></h1>{/if}
     
-    <!--button-->
-    <input type="hidden" name="id" value="{$speaker->getNo()}" />
-    <input type="hidden" name="action" value="gestion_speaker_infos" />
-    <input type="submit" name="update" value="Save" />
+    
     
     
     <form method="post" action="">
+    
+    <!--button-->
+    <input type="hidden" name="id" value="{if $speaker != null}{$speaker->getNo()}{/if}" />
+    <input type="hidden" name="action" value="gestion_speaker_infos" />
+    <input type="submit" name="update" value="Save" />
 
         <fieldset>
             <legend>Keywords</legend>
