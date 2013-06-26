@@ -14,7 +14,7 @@ Smarty variables available:
         <h1>Actual team role</h1>     
         <ul> 
             {foreach from=$teamRoles item=teamRole}
-                <li><a href="?action=gestion_contacts_role_infos&id={$teamRole->getName()}">{$teamRole->getName()}</a></li> 
+                <li>{$teamRole->getName()}</li> 
             {/foreach}
        </ul>
     </section>

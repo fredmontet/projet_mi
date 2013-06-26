@@ -18,6 +18,7 @@ Smarty variables available:
         <p>
             <label for="teamrole">Name</label>
             <input type="text" name="teamrole" value="{if $isTeamRole != null}{$isTeamRole->getName()}{/if}"/>
+            <p class="errorvalue">Please enter a name</p>
         </p>
         </fieldset>
     </form>
