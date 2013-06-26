@@ -18,28 +18,33 @@ Smarty variables available:
         <p>
             <label for="name">Name</label>
             <input type="text" name="name" value="{if $location != null}{$location->getName()}{/if}"/>
+            <p class="errorvalue">Please enter a name</p>
         </p>
         <!--direction-->
         <p>
             <label for="direction">Direction</label>
             <input type="text" name="direction" value="{if $location != null}{$location->getDirection()}{/if}"/>
+            <p class="errorvalue">Please enter a direction</p>
         </p>
         <!--address-->
         <p>
             <label for="address">Address</label>
             <input type="text" name="address" value="{if $location != null}{$location->getAddress()}{/if}"/>
+            <p class="errorvalue">Please enter an address</p>
         </p>
 
         <!--city-->
         <p>
             <label for="city">City</label>
             <input type="text" name="city" value="{if $location != null}{$location->getCity()}{/if}"/>
+            <p class="errorvalue">Please enter a city</p>
         </p>
 
         <!--country-->
         <p>
             <label for="country">Country</label>
             <input type="text" name="country" value="{if $location != null}{$location->getCountry()}{/if}"/>
+            <p class="errorvalue">Please enter a country</p>
         </p>  
    </form>
    <!--end add form location-->         

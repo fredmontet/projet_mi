@@ -1476,6 +1476,14 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /****************************************/
 /*Status = ok*/
 
+.gestion_locations_infos .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:150px;
+    clear:both;
+}
+
 .gestion_locations_infos {
     float:right;
 }
