@@ -461,13 +461,36 @@ class TEDx {
         $errorState['keyword1'] 			= $this->validator(array('String', $speaker['keyword1']));
         $errorState['keyword2'] 			= $this->validator(array('String', $speaker['keyword2']));
         $errorState['keyword3'] 			= $this->validator(array('String', $speaker['keyword3']));
-        $errorState['videoTitle'] 			= $this->validator(array('String0..1', $speaker['videoTitle']));
-        $errorState['videoDescription'] 	= $this->validator(array('String0..1', $speaker['videoDescription']));
-        $errorState['videoURL'] 			= $this->validator(array('String0..1', $speaker['videoURL']));
+        $errorState['videoTitle'] 			= $this->validator(array('0..1', $speaker['videoTitle']));
+        $errorState['videoDescription'] 	= $this->validator(array('0..1', $speaker['videoDescription']));
+        $errorState['videoURL'] 			= $this->validator(array('0..1', $speaker['videoURL']));
 
         // Return two arrays
         return array($speaker, $errorState);
     }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
+    protected function gestionLocationValidator($location) {
+
+        // Validate all received values 
+        $errorState['name']         = $this->validator(array('String', $location['name']));
+        $errorState['direction']    = $this->validator(array('0..1', $location['direction']));
+        $errorState['address']		= $this->validator(array('String', $location['address']));
+        $errorState['city']     	= $this->validator(array('String', $location['city']));
+        $errorState['country']      = $this->validator(array('String', $location['country']));
+        
+        // Return two arrays
+        return array($location, $errorState);
+    }
+    
+    
     
     function createImgUrl($ref){
         //create the good image url
@@ -1993,76 +2016,108 @@ class TEDx {
         $gestionLocationsNav = $this->smarty->fetch('gestion_locations_nav.tpl');
         $this->smarty->assign('gestionLocationsNav', $gestionLocationsNav);
 
-        switch ($action) {
+        $id = $this->getId();
+        
+        // Edit Location
+        if($id != null) {
 
-            // Gestion Locations New
-            case 'gestion_locations_new':
+            if (isset($_POST['update'])) {
+            
+                list($location, $errorState) = $this->gestionLocationValidator($_POST);
 
-                // Assigns variables to Smarty
-                $this->smarty->assign('location', null);
+                // If all values are correct, continue
+                if (count(array_keys($errorState, true)) == count($errorState)) {
 
-                $gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
-                break;
-
-
-            // Gestion Locations Infos
-            case 'gestion_locations_infos':
-
-                $id = $this->getId();
-
-                if (isset($_POST['update'])) {
-
-                    list($locations, $errorState) = $this->gestionLocationsValidator($_POST);
-
-                    // If all values are correct, continue
-                    if (count(array_keys($errorState, true)) == count($errorState)) {
-
-                        // Prepare the array to edit the Contact
-                        $args = array(
-                            'Name' => $locations['Name'], // String
-                            'Address' => $locations['Address'], // String
-                            'City' => $locations['City'], // Date
-                            'Country' => $locations['Country'], // String
-                            'Direction' => $locations['Direction'], // String Optional
-                        );
-                    } else {
+                    // Prepare the array to edit the Location
+                    $args = array(
+                        'name' => $id, // String
+                        'address' => $location['address'], // String
+                        'city' => $location['city'], // Date
+                        'country' => $location['country'], // String
+                        'direction' => $location['direction'], // String Optional
+                    );
+                    
+                    // Changing the Location
+                    $messageChangeLocation = $this->tedx_manager->changeLocation($args);
+                    
+                    // If the Location is changed, continue
+                    if($messageChangeLocation->getStatus()) {
                         
+                        $this->displayMessage("The Location is edited");
+                        
+                    } else {
+                        // Else give the error message about no edited Location
+                        $this->displayMessage($messageChangeLocation->getMessage());
                     }
+                    
                 } else {
-                    $errorState = null;
+
                 }
+            } else {
+                $errorState = null;
+            }
+            
+            // Get the Location concerned
+            $messageLocation = $this->tedx_manager->getLocation($id);
+    
+            // If the Location is found, continue
+            if ($messageLocation->getStatus()) {
+                $aValidLocation = $messageLocation->getContent();
+            } else {
+                // Else give the error about no found Location
+                $this->displayMessage($messageLocation->getMessage());
+            }
+            
+        } else {
+            // New Location
+            if (isset($_POST['update'])) {
 
-                // Get the Location concerned
-                $messageLocation = $this->tedx_manager->getLocation($id);
+                list($location, $errorState) = $this->gestionLocationValidator($_POST);
 
-                // If the Location is found, continue
-                if ($messageLocation->getStatus()) {
-                    $aValidLocation = $messageLocation->getContent();
+                // If all values are correct, continue
+                if (count(array_keys($errorState, true)) == count($errorState)) {
+
+                    // Prepare the array to edit the Location
+                    $args = array(
+                        'name' => $location['name'], // String
+                        'address' => $location['address'], // String
+                        'city' => $location['city'], // Date
+                        'country' => $location['country'], // String
+                        'direction' => $location['direction'], // String Optional
+                    );
+                    
+                    print_r($args);
+                    
+                    // Add a location
+                    $messageAddLocation = $this->tedx_manager->addLocation($args);
+                    
+                    // If the Location is added, continue
+                    if($messageAddLocation->getStatus()) {
+                        $this->displayMessage("The Location is created");
+                    } else {
+                        // Else give the error message about no added Location
+                        $this->displayMessage($messageAddLocation->getMessage());
+                    }
+                    
                 } else {
-                    // Else give the error about no found Location
-                    $this->displayMessage($messageLocation->getMessage());
+                    
                 }
+            } else {
+                $errorState = null;
+            }
+            
+            $aValidLocation = null;
 
-                // Assigns variables to Smarty
-                $this->smarty->assign('location', $aValidLocation);
-
-                $gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
-                break;
-
-
-            // Gestion Locations Send
-            case 'gestion_locations_send':
-                $this->displayMessage('This action is not yet implemented.');
-                return null;
-                break;
-
-
-            // Gestion Locations
-            case 'gestion_locations':
-            default:
-                $gestionLocationsInfos = null;
-                break;
         }
+                
+        $errorFormMessage = $this->errorFormMessage();
+
+        // Assigns variables to Smarty
+        $this->smarty->assign('location', $aValidLocation);
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
+
+        $gestionLocationsInfos = $this->smarty->fetch('gestion_locations_infos.tpl');
 
         // Get Locations
         $messageLocations = $this->tedx_manager->getLocations();
