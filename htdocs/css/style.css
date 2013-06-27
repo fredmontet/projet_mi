@@ -451,7 +451,9 @@ and (min-width : 1224px) {
     float:right;
     width:70%;
 }
-
+.contact input[type="submit"]{
+    width:160px;
+}
 .contact fieldset #message{
     margin-top:30px;
 }
