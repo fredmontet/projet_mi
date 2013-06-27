@@ -272,10 +272,6 @@ input[type="submit"]:hover{
     color:red;
 }
 
-.selected li{
-    color:red;
-}
-
 .theButton{
     display:block;
     background-color:rgba(255,0,0,1);

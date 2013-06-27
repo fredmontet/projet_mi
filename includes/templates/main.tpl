@@ -13,6 +13,9 @@
     <header id="globalheader">
         <nav id="topheader">
 		    <ul id="globalnav">
+                        <li id="gn-home">
+                            <a {if  $topAction=='about'}class="selected"{/if} href="?action=home">Home</a>
+                        </li>
                         <li id="gn-about">
                             <a {if  $topAction=='about'}class="selected"{/if} href="?action=about">About</a>
                         </li>
