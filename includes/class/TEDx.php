@@ -2462,7 +2462,7 @@ class TEDx {
                 // Prepare the array to edit the Contact
                 $args = array(
                     'name' => $contact['name'], // String
-                    'firstName' => $contact['firstname'], // String
+                    'firstname' => $contact['firstname'], // String
                     'dateOfBirth' => $contact['dateOfBirth'], // Date
                     'address' => $contact['address'], // String
                     'city' => $contact['city'], // String
