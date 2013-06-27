@@ -18,18 +18,21 @@ Smarty variables available:
         <a class="previous" title="Previous"></a>
     </nav>
     <ul class="span10">
+        {assign var="i" value=0}
         {foreach from=$talks item=talk name=list}
-            {if $smarty.foreach.list.index == 3}
-                {break}
+            {if $talk.imgURL != null}
+                {if $i == 3}
+                    {break}
+                {/if}
+                {$i = $i +1}
+                <li>
+                    <a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}">
+                        <img src="{$talk.imgURL}" />
+                        <h1>{$talk.talk->getVideoTitle()}</h1>
+                        <time>{$talk.event->getStartingDate()|date_format:"%d %B %Y"}</time>
+                    </a>
+                </li>
             {/if}
-            <li>
-                <a href="?action=videos&eventId={$talk.talk->getEventNo()}&speakerId={$talk.talk->getSpeakerPersonNo()}">
-                    <img src="{$talk.imgURL}" />
-                    <h1>{$talk.talk->getVideoTitle()}</h1>
-                    <time>{$talk.event->getStartingDate()|date_format:"%d %B %Y"}</time>
-                </a>
-            </li>
-            
         {/foreach}     
     </ul>
     <nav class="span1">
