@@ -49,7 +49,12 @@ Smarty variables available:
         <!--event tab-->
         <section class="span8">
             <h2>Programme</h2>
-            <p>{$event->getDescription()}</p>
+            <p>
+                <!--Our inspired team, in collaboration with TEDxLausanne, is pleased to announce TEDxLausanneChange 2013. This event, themed “positive disruption”, will feature a 
+                live stream of the main TEDxChange program in Seattle, Washington and three presentations by dynamic local speakers. Join us for an event that will challenge 
+                preconceived ideas, spark discussion, engage leaders and shed light on new perspectives.-->
+                {$event->getDescription()}
+            </p>
         </section>
         <!--end event tab-->
         <!-- schedule tab-->
@@ -58,6 +63,13 @@ Smarty variables available:
             <dl>
                 <dt>{$event->getStartingTime()|date_format:"%R"}</dt>
                 <dd>Starting</dd>
+                
+                <!--<dt>13:30-15:00</dt>
+                <dd>Slot 1</dd>
+                <dt>15:30-16:30</dt>
+                <dd>Slot 2</dd>
+                <dt>16:30-17:45</dt>
+                <dd>Slot 3</dd>-->
 
                 {foreach from=$slots item=slot}
                     <dt>{$slot->getStartingTime()|date_format:"%R"}-{$slot->getEndingTime()|date_format:"%R"}</dt>
