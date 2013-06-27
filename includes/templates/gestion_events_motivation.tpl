@@ -22,7 +22,6 @@ Smarty variables available:
             <li class="accept"><a href="?action=motivation_accpet"></a></li>
         </ul>
         <h1>{$registration.person->getFirstName()} {$registration.person->getName()}</h1>
-        <p>Status : {$registration.registration->getStatus()}</p>
         <h2>Motivation :</h2>
         <p class="motivation">
         {foreach from=$registration.motivations item=motivation}

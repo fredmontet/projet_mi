@@ -1330,43 +1330,43 @@ on laisse comme ça ce n'est pas si grave*/
 .gestion_events_motivation section ul .accept{
     background-image: url("../img/layout/registrationStatus/accept.svg");
     cursor:pointer;
-    width:32px;
-    height:34px;
+    width:31px;
+    height:31px;
 }
 
 .gestion_events_motivation section ul .accept:hover{
     background-image: url("../img/layout/registrationStatus/acceptHover.svg");
     cursor:pointer;
-    width:32px;
-    height:34px;
+    width:31px;
+    height:31px;
 }
 
 .gestion_events_motivation section ul .wait{
     background-image: url("../img/layout/registrationStatus/wait.svg");
     cursor:pointer;
-    width:32px;
-    height:32px;
+    width:31px;
+    height:31px;
 }
 
 .gestion_events_motivation section ul .wait:hover{
     background-image: url("../img/layout/registrationStatus/waitHover.svg");
     cursor:pointer;
-    width:32px;
-    height:32px;
+    width:31px;
+    height:31px;
 }
 
 .gestion_events_motivation section ul .refuse{
     background-image: url("../img/layout/registrationStatus/refuse.svg");
     cursor:pointer;
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
 }
 
 .gestion_events_motivation section ul .refuse:hover{
     background-image: url("../img/layout/registrationStatus/refuseHover.svg");
     cursor:pointer;
-    width:34px;
-    height:34px;
+    width:32px;
+    height:32px;
 }
     
 /*end of gestion_events_motivation*/
