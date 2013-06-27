@@ -83,6 +83,77 @@ margin:0 10px;
 }
 
 
+/*gestion_subnav*/
+.gestion_subnav .grey_bar{
+        background-color: #c0c0c0;
+        height: 100px;
+        margin-top:-50px;
+        left:-10%;
+        width:110%;
+        position:fixed;
+        transform:rotate(-1.3deg);
+        -ms-transform:rotate(-1.3deg); /* IE 9 */
+        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
+}
+
+.gestion_subnav{
+    width:100%;
+    z-index: 99;
+    position: fixed;
+    display:inline-block;
+    margin-top: 40px;
+    height: 0px;
+    margin-bottom:60px;
+}   
+
+.gestion_subnav h1{
+    color: #ffffff;
+    display:block;
+    position: relative;
+    float:left;
+    left:-110px;
+    top: -30px;
+    font-size: 4em;
+    text-transform:uppercase;
+}
+
+.gestion_subnav ul{
+    position: relative;
+    display:block;
+    transform:rotate(-1.3deg);
+    -ms-transform:rotate(-1.3deg); /* IE 9 */
+    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */
+    top:12px;
+}
+
+.gestion_subnav ul li{
+    display:block;
+    float:left;
+    margin-left: 20px;
+    text-align:center;
+
+}
+
+.gestion_subnav ul li a{
+    top:-4px;
+    display:block;
+    color:#ffffff;
+    font-size:2em;
+    border-bottom:4px solid #c0c0c0;
+    padding-bottom:5px;
+    text-decoration:none;
+    text-align:center;
+    
+}
+
+.gestion_subnav ul li a:hover{
+    border-bottom:4px solid #FF0000;  
+}
+
+
+/*end of gestion subnav*/
+
+
 /*forms*/
 
 form{
@@ -175,58 +246,7 @@ input[type="submit"]:hover{
    }
 /*End of forms*/
 
-.gestion_subnav{
-    width:100%;
-    z-index: 99;
-    position: relative;
-    display:inline-block;
-    margin-top: 40px;
-    height: 40px;
-    margin-bottom:60px;
-}   
 
-.gestion_subnav h1{
-    display:block;
-    position: relative;
-    float:left;
-    top: -4px;
-    font-size:5.5em;
-    text-transform:uppercase;
-    transform:rotate(-1.3deg);
-    -ms-transform:rotate(-1.3deg); /* IE 9 */
-    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */
-}
-
-.gestion_subnav ul{
-    position: relative;
-    display:block;
-    float:right;
-    transform:rotate(-1.3deg);
-    -ms-transform:rotate(-1.3deg); /* IE 9 */
-    -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */
-    top: 60px;
-}
-
-.gestion_subnav ul li{
-    display:block;
-    float:left;
-    margin-left: 20px;
-    text-align:center;
-}
-
-.gestion_subnav ul li a{
-    
-    display:block;
-    color:#ff0000;
-    font-size:2em;
-    font-weight:bold;
-    
-}
-
-
-.gestion_subnav ul li a:hover{
-    color:#c0c0c0;
-}
 
 #container>article{
     margin-top: 50px
@@ -1054,6 +1074,11 @@ etre bonne aussi.*/
 /*Status = ok*/
 
 .gestion_events_list{}
+
+.gestion_events_list a:first-child{
+    margin-top:130px;
+}
+
 .gestion_events_list a{
     margin-top:35px;
     display:inline-block;
@@ -1077,7 +1102,7 @@ etre bonne aussi.*/
         position: absolute;
         height:100px;
         margin:0;
-        margin-top:-10px;
+        margin-top: -16px;
 }
 
 .gestion_events_list a .grey_bar:hover{
@@ -1736,8 +1761,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     left:0;
     background-color: #ffffff;
     width: 100%;
-    height: 90px;
-    padding-bottom:12px;
+    height: 100px;
+    padding-bottom:10px;
     z-index:100; 
      
 }
@@ -1748,7 +1773,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
    width:100%;
    position: fixed;
    margin:0 auto;
-   /*border:0.5px solid #CCC;*/
+   padding-bottom:2px;
+   border-bottom: 2px solid #cccccc;
 }
 
 #globalnav, #lognav{
@@ -1766,35 +1792,38 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 #lognav{
-    padding-right:17%;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:74.5%; 
+    width:180px;
+    height:10px; 
+    float:right;  
     display:block;
-    width:auto;
-    float:right;
 }
 
 #globalnav li, #lognav li{
     display:block;    
     float: left;
     height:40px;
-    
 }
 
 #globalnav li a, #lognav li a{
     font-size:1.5em;
     display:block;
     padding:0 10px;
-    padding-top:5px;
+    padding-top:3px;
     color:black;
-    background-color:;
-    margin-top:5px;
-    border-left:1px solid #EEE;
-    border-right:1px solid #EEE;
     height:25px;
+    color:#222222;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+    border-top:4px solid #EEE;
 }
 
+
 #globalnav li a:hover, #lognav li a:hover{
-    background-color:#EEE;
+    border-top:4px solid #FF0000; 
     text-decoration:none; 
     height:25px;
 }
@@ -1815,7 +1844,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 
 #logo {
     position:fixed;
-    top:30px;
+    top:25px;
     left:17%;
     display:block;
     width:305px;
@@ -1826,10 +1855,12 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 .social{
-    right:17%;
     position:fixed;
+    top:20px;
+    left:75.5%; 
+    width:150px;
+    height:10px;   
     display:block;
-    float:right;
 }
 .social li{
     display:block;
@@ -1887,7 +1918,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 #subnav{
     position:relative;
     display:inline-block;
-    left:-30%;
+    left:-50%;
+    top:33px;
 }
 
 #subnav li{
@@ -1900,10 +1932,11 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     display:block; 
     color:#222222;
     text-decoration:none;
+    font-weight:bold;
     text-align:center;
     font-size:1.3em;
-    padding:5px;
-    border-bottom:2px solid #EEE;
+    padding:5px 5px 2px 5px;
+    border-bottom:4px solid #c0c0c0;
 }
 
 #subnav li:hover{
@@ -1911,7 +1944,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 #subnav a:hover{
-    border-bottom:2px solid #FF0000;  
+    border-bottom:4px solid #FF0000;  
 }
 
 #content{
@@ -1924,14 +1957,16 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     bottom:0;
     position:fixed;
     background-color: white;
-    border:0.5px solid #CCC;
+    border:0.5px solid #cccccc;
     width: 100%;
     height: 30px;
 }
 
 #globalfooter p {
+    border-top:1px solid #c0c0c0;
     margin-top:5px;
     font-style:italic;
+    vertical-align:middle;
     text-align: center;
     font-size:1.1em;
 }
