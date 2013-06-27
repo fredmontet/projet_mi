@@ -6,7 +6,7 @@ Smarty variables available:
 	$isTeamRole (Object of TeamRole)
 *}
 
-<section class="gestion_contacts_role_infos span8">
+<section class="gestion_contacts_role_infos offset2 span8">
     <form method="post" action="">
         <fieldset>
         <p>

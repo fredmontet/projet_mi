@@ -9,7 +9,7 @@ Smarty variables available:
 
     <form id="contact" method="post" action="">
        <fieldset class="span6"> 
-	        <legend>Informations about the new person</legend>
+	        <h3>Informations about the new person</h3>
 	        <p>
 	            <label for="firstname">First name </label>
 	            <input type="text" name="firstname" value=""/>
@@ -50,11 +50,6 @@ Smarty variables available:
 	            <input type="text" name="country" value=""/>
 	            {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
 	        </p>
-	        <p>
-	            <label for="description">Description </label>
-	            <textarea type="text" name="description"></textarea>
-                    <p class="errorvalue">Please enter a description</p>                    
-	        </p>
         </fieldset>
 
         <fieldset class="span6">
@@ -62,7 +57,7 @@ Smarty variables available:
                 <input type="hidden" name="action" value="gestion_contacts_new" />
                 <input class="buttonSave" type="submit" name="update" value="Create" />
             </p>
-            <legend>Role in TEDx</legend>   
+            <h3>Role in TEDx</h3>   
             <ul>
                 {foreach from=$teamRoles item=teamRole}
                     <li>
