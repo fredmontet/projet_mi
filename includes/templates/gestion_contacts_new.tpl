@@ -50,6 +50,10 @@ Smarty variables available:
 	            <input type="text" name="country" value=""/>
 	            {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
 	        </p>
+	        <p>
+	            <label for="description">Description</label>
+	            <textarea name="description"></textarea>
+	        </p>
         </fieldset>
 
         <fieldset class="span6">
