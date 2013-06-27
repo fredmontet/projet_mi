@@ -1845,7 +1845,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 #globalnav li, #lognav li{
     display:block;    
     float: left;
-    height:30px;
+    height:40px;
+    
 }
 
 #globalnav li a, #lognav li a{
@@ -1854,11 +1855,17 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     padding:0 10px;
     padding-top:5px;
     color:black;
+    background-color:;
+    margin-top:5px;
+    border-left:1px solid #EEE;
+    border-right:1px solid #EEE;
+    height:25px;
 }
 
 #globalnav li a:hover, #lognav li a:hover{
-    color:#CCC;
+    background-color:#EEE;
     text-decoration:none; 
+    height:25px;
 }
 
 #logout{}
@@ -1955,32 +1962,30 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 #subnav li{
     display:block;
     float:left;
-    padding:10px;
-    background-color:white;
-    margin-top:5px;
-    text-transform:uppercase;
+    padding-bottom:3px;
 }
 
 #subnav a{
-    display:block;
+    display:block; 
     color:#222222;
     text-decoration:none;
     text-align:center;
-    font-size:1.2em;
-    font-weight:bold;
+    font-size:1.3em;
     padding:5px;
+    border-bottom:1px solid #EEE;
 }
 
 #subnav li:hover{
-    background-color:#EE6666;;
+
 }
 
 #subnav a:hover{
+    background-color: #EEE;   
 }
 
 #content{
     margin-top:90px;
-    margin-bottom:30px;
+    margin-bottom:60px;
 }
 
 #globalfooter{
@@ -1997,6 +2002,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-top:5px;
     font-style:italic;
     text-align: center;
+    font-size:1.1em;
 }
 
 /*end of main*/
