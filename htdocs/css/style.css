@@ -787,7 +787,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 
 }
 .events_single section dl dt{
-        font-weight:normal;
+    font-weight:normal;
     display:block;
     float:left;
     width:100px;
@@ -1805,11 +1805,12 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 #topheader{
-   background-color:#222222;
+   background-color:white;
    height: 30px;
    width:100%;
    position: fixed;
    margin:0 auto;
+   /*border:0.5px solid #CCC;*/
 }
 
 #globalnav, #lognav{
@@ -1841,11 +1842,11 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 #globalnav li a, #lognav li a{
-    font-size:1.2em;
+    font-size:1.5em;
     display:block;
     padding:0 10px;
     padding-top:5px;
-    color:#FFFFFF;
+    color:black;
 }
 
 #globalnav li a:hover, #lognav li a:hover{
@@ -1861,7 +1862,10 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     position:absolute;
     display:inline-block;    
     left:50%;
-    top:50px;
+    top:30px;
+}
+#bottomheader a{
+    margin-top:20px;
 }
 
 #logo {
@@ -1976,7 +1980,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     left:0;
     bottom:0;
     position:fixed;
-    background-color: #222;
+    background-color: white;
+    border:0.5px solid #CCC;
     width: 100%;
     height: 30px;
 }
@@ -1985,7 +1990,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-top:5px;
     font-style:italic;
     text-align: center;
-    color:#c0c0c0;    
 }
 
 /*end of main*/
