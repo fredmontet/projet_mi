@@ -51,7 +51,6 @@ Smarty variables available:
 	            {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
 	        </p>
 	        <p>
-	
 	            <label for="description">Description </label>
 	            <textarea type="text" name="description"></textarea>
                     <p class="errorvalue">Please enter a description</p>                    

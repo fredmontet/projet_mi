@@ -63,8 +63,12 @@ Smarty variables available:
             </p>
             <p>
                 <label for="country">Country</label>
-                <input type="text" name="country" value="{$person->getCountry()}">
+                <input type="text" name="country" value="{$person->getCountry()}"/>
                 {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
+            </p>
+            <p>
+                <label for="description">Description </label>
+                <textarea type="text" name="description">{$person->getDescription()}</textarea>
             </p>
         </fieldset>
 
