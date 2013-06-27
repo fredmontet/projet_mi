@@ -2107,8 +2107,8 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .user_infos .errorvalue{
     color:red;
     position:relative;
-    top:-19px;
-    left:5px;
+    top:-12px;
+    left:160px;
     clear:both;
 }
 
