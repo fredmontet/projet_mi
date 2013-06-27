@@ -5,6 +5,7 @@
 	    <link rel="stylesheet" media="all" href="htdocs/css/style.css" />
             <script type='text/javascript' src='htdocs/js/jquery-2.0.2.min.js'></script>
 	    <script type='text/javascript' src='htdocs/js/script.js'></script>
+            <script type='text/javascript' src='htdocs/js/modernizr.js'></script>
             <title>Project 143</title>
 	</head>
     <body>       
