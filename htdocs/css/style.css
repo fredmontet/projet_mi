@@ -1939,7 +1939,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     background-image: url("../img/layout/social/hover/youtubeHover.png");
 }
 
-
 #subnav{
     position:relative;
     display:inline-block;
@@ -1947,21 +1946,22 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 #subnav li{
-     display:block;
-     float:left;
-     padding-bottom:3px;
-     background-color:#eeeeee;
+    display:block;
+    float:left;
+    padding:10px;
+    background-color:white;
+    margin-top:5px;
+    text-transform:uppercase;
 }
 
 #subnav a{
-    display:block;   
+    display:block;
     color:#222222;
     text-decoration:none;
     text-align:center;
     font-size:1.2em;
     font-weight:bold;
     padding:5px;
-    padding-bottom:0;
 }
 
 #subnav li:hover{
