@@ -564,6 +564,10 @@ particular events_list, so i'll specialized the class here
 /*Status = il faut mettre des ronds plus petit pour le status d'inscription ou alors
 enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite du javascript'*/
 
+.events_registration{
+    margin-top:10px;
+}
+
 .events_registration header h1{
     display: block;
     font-size: 2.5em;
@@ -870,7 +874,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 /*Status = ok, il y a quelques lignes vides bizarre mais ça le fait*/
 
 .gestion_contacts_list table{
-    margin-top: 30px;
+    margin-top: 140px;
     width:100%;
 }
 
@@ -981,7 +985,13 @@ etre bonne aussi.*/
 /*Status = to fill*/
 
 .gestion_contacts_role{
-    margin-top:25px;
+    position: relative;
+    
+    
+}
+
+.gestion_contacts_role section{
+    margin-top:140px;
 }
 
 .gestion_contacts_role h1{
@@ -1024,6 +1034,10 @@ etre bonne aussi.*/
 /****************************************/
 /*Status = to fill*/
 
+.gestion_contacts_role_infos{
+    width:470px;
+}
+
 .gestion_contacts_role_infos .buttonRoleInfos{
     display:block;
     background-color:rgba(255,0,0,1);
@@ -1045,11 +1059,15 @@ etre bonne aussi.*/
 
 .gestion_contacts_role_infos form{
     margin-left:30%;
+    
 }
 
 .gestion_contacts_role_infos form h1{
     margin-top:45px;
-    
+}
+
+.gestion_contacts_role_infos form p{
+    width:130%;
 }
 
 .gestion_contacts_role_infos form p label{
@@ -1229,7 +1247,9 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 /*Status = il faut un tout petit peu realigner le boutton mais si
 on laisse comme ça ce n'est pas si grave*/
 
-.gestion_events_mail_edit{}
+.gestion_events_mail_edit{
+    margin-top:115px;
+}
 
 .gestion_events_mail_edit input{}
 
@@ -1638,6 +1658,10 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /*gestion_locations_list*/
 /****************************************/
 /*Status = ok*/
+
+.gestion_locations_list div{
+    margin-top:120px;
+}
 
 .gestion_locations_list .theButton {
     display:inline-block;
