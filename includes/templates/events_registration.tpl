@@ -22,7 +22,7 @@
             
         <!--user_infos-->
             <fieldset id="event_user_infos">
-                <legend>General informations</legend>
+                <h3>General informations</h3>
                 <!--user_firstName-->
                 <p>
                     <label for="firsname">First name</label>
@@ -71,7 +71,7 @@
         
         <!--user details-->
             <fieldset id="event_user_details">
-            <legend>And a bit more details...</legend>
+            <h3>And a bit more details...</h3>
             
                 <!--user_dateofbirth-->
                 <p>
@@ -83,7 +83,7 @@
                 <!--user_phone-->
                 <p>
                     <label for="phoneNumber">Phone number </label>
-                    <input type="tel" name="phoneNumber"/> 
+                    <input type="text" name="phoneNumber"/> 
                     {if $errorState != null && !$errorState.phoneNumber}<p class="errorvalue">{$errorFormMessage.phoneNumber}</p>{/if}
                 </p>
 
@@ -101,7 +101,7 @@
             
 <!--user adress tab-->
             <fieldset id="adress">
-            <legend>Please give us your adress</legend>
+            <h3>Please give us your adress</h3>
                <!--user_street-->
                 <p>
                     <label for="address">Street </label> 
@@ -132,7 +132,7 @@
 
     <!--user_motivation tab-->
             <fieldset id="event_user_motivation">
-            <legend>Show us your motivations!</legend>
+            <h3>Show us your motivations!</h3>
 
                     <!--user_keywords-->
                     <p>
@@ -154,7 +154,7 @@
                     <!--user_motivation-->
                     <p>
                         <label for="motivation">Motivation </label>
-                        <textarea type="text" name="motivation" rows="4" cols="26"></textarea>
+                        <textarea type="text" name="motivation"></textarea>
                         {if $errorState != null && !$errorState.motivation}<p class="errorvalue">{$errorFormMessage.motivation}</p>{/if}
                     </p>
             </fieldset>
