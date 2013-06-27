@@ -91,6 +91,9 @@ class TEDx {
             'slot4EndingTime' 	=> 'Please enter a valid Ending time',
             'keyword'		 	=> 'Please enter a keyword',
             'motivation'	 	=> 'Please enter a motivation',
+            'subject'	 		=> 'Please enter a subject',
+            'message'	 		=> 'Please enter a message',
+            
         );
     }
 
@@ -198,6 +201,28 @@ class TEDx {
                 break;
         }
     }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     * 			The first contains the values ​​transmitted by _POST
+     * 			The second contains the state values ​​received by _POST
+     */
+    protected function gestionContactValidator($contact) {
+
+        // Validate all received values 
+        $errorState['firstname'] 	= $this->validator(array('String', $contact['firstname']));
+        $errorState['name'] 		= $this->validator(array('String', $contact['name']));
+        $errorState['email'] 		= $this->validator(array('Email', $contact['email']));
+        $errorState['subject'] 		= $this->validator(array('String', $contact['subject']));
+        $errorState['message'] 		= $this->validator(array('String', $contact['message']));
+        
+        // Return two arrays
+        return array($contact, $errorState);
+    }
+    
 
     /**
      * Valid values ​​received by _POST
@@ -1075,6 +1100,31 @@ class TEDx {
      * @return content HTML of the Contact page
      */
     protected function drawContact() {
+    
+        if (isset($_POST['update'])) {
+
+            list($contact, $errorState) = $this->gestionContactValidator($_POST);
+
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+                
+                // Envoi de l'email...
+                $this->displayMessage("This action is not yet implemented.");
+                
+            } else {
+                
+            }
+        } else {
+            $errorState = null;
+        }
+        
+        $errorFormMessage = $this->errorFormMessage();
+
+        // Assigns variables to Smarty
+        //$this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
+    
         return $this->smarty->fetch('contact.tpl');
     }
 
