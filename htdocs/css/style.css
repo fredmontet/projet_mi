@@ -178,32 +178,18 @@ input[type="submit"]:hover{
 .gestion_subnav{
     width:100%;
     z-index: 99;
-    top: 50px;
+    position: relative;
     display:inline-block;
     margin-top: 40px;
-    height:50px;
+    height: 40px;
     margin-bottom:60px;
-}
-
-.gestion_subnav .grey_bar{
-        background-color: #222222;
-        height: 100px;
-        margin-top:-10px;
-        width:110%;
-        left:-10px;
-        
-        z-index:-100;
-        transform:rotate(-1.3deg);
-        -ms-transform:rotate(-1.3deg); /* IE 9 */
-        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
-}
+}   
 
 .gestion_subnav h1{
     display:block;
     position: relative;
     float:left;
     top: -4px;
-    color: #ffffff;
     font-size:5.5em;
     text-transform:uppercase;
     transform:rotate(-1.3deg);
@@ -231,24 +217,10 @@ input[type="submit"]:hover{
 .gestion_subnav ul li a{
     
     display:block;
-    color:#ffffff;
+    color:#ff0000;
     font-size:2em;
     font-weight:bold;
     
-    /*display:block;
-    width:100px;
-    text-align:center;
-    vertical-align:middle;
-    line-height:15px;
-    color:#eeeeee;
-    font-size:1em;
-    background-color:#999999;
-    float:right;
-    margin-right:5px;
-    margin-left:5px;
-    padding-top:5px;
-    padding-bottom:5px;
-    */
 }
 
 
@@ -315,66 +287,17 @@ input[type="submit"]:hover{
 /*Smartphones (portrait and landscape)*/
 /***************************************************************/
 @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
+and (min-width : 320px) 
+and (max-width : 480px) {
+
+
+
+.social{
+   display:none;
 }
-/*Smartphones (portrait and landscape)*/
 
-
-/***************************************************************/
-/*Smartphones (landscape)*/
-/***************************************************************/
-@media only screen 
-and (min-width : 321px) {
-/* Styles */
+    
 }
-/*End of Smartphones (landscape) layout*/
-
-
-/***************************************************************/
-/*Smartphones (portrait)*/
-/***************************************************************/
-@media only screen 
-and (max-width : 320px) {
-/* Styles */
-}
-/*End of Smartphones (portrait) layout*/
-
-
-/***************************************************************/
-/*iPads (portrait and landscape)*/
-/***************************************************************/
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-}
-/*End of iPads (portrait and landscape) layout*/
-
-
-/***************************************************************/
-/*iPads (landscape)*/
-/***************************************************************/
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-}
-/*End of iPads (landscape) layout*/
-
-
-/***************************************************************/
-/*iPads (portrait)*/
-/***************************************************************/
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-/* Styles */
-}
-/*End of iPads (portrait) layout*/
 
 
 /***************************************************************/
@@ -383,7 +306,8 @@ and (orientation : portrait) {
 /*Status = to fill*/
 
 @media only screen 
-and (min-width : 1224px) {
+and (min-width : 481px) {
+    
 
 /****************************************/
 /*about*/
@@ -445,7 +369,6 @@ and (min-width : 1224px) {
     display:inline-block;
     position:relative;
 }
-
 
 .contact p {
     margin-bottom:10px;
@@ -691,7 +614,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
 }
 
 .grey_bar{
-        background-color:#eeeeee;
+        background-color: #eeeeee;
         height:200px;
         margin-top:-110px;
         width:120%;
@@ -703,6 +626,7 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
         -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
 }
 
+/*
 .grey_bar2{
      background-color:#ff0000;
         height:5px;
@@ -712,9 +636,10 @@ enlever ces etapes d'inscription pas nécéssairement utiles, ainsi on s'evite d
         position:absolute;
         z-index:-100;
         transform:rotate(-3deg);
-        -ms-transform:rotate(-3deg); /* IE 9 */
-        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */   
+        -ms-transform:rotate(-3deg);
+        -webkit-transform:rotate(-1.3deg);  
 }
+*/
 
 .events_single header h1{
     display: block;
@@ -1149,14 +1074,14 @@ etre bonne aussi.*/
 
 .gestion_events_list a .grey_bar{
         background-color:#eeeeee;
+        position: absolute;
         height:100px;
-        width:100%;
-        left:0;
-        position:absolute;
-        z-index:-100;
-        transform:rotate(-3deg);
-        -ms-transform:rotate(-3deg); /* IE 9 */
-        -webkit-transform:rotate(-1.3deg); /* Safari and Chrome */           
+        margin:0;
+        margin-top:-10px;
+}
+
+.gestion_events_list a .grey_bar:hover{
+        background-color:#eeeeee;
 }
 
 .gestion_events_list a article header{
@@ -1186,7 +1111,9 @@ etre bonne aussi.*/
 }
 
 .gestion_events_list a article p img{
-    height:50px;   
+    height:50px; 
+    position:relative;
+    top:-8px;  
 }
 
 /*end of gestion_events_list*/
@@ -1389,7 +1316,10 @@ on laisse comme ça ce n'est pas si grave*/
 .gestion_events_nav h1{}
 .gestion_events_nav ul{}
 .gestion_events_nav ul li{}
-.gestion_events_nav ul a{}
+.gestion_events_nav ul a{
+    position: relative;
+    top: -10px;
+}
 
 /*end of gestion_events_nav*/
 
@@ -2376,27 +2306,6 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 /*End of Main layout*/   
 
 /*End of Desktops and laptops layout*/
-
-
-/****************************************/
-/*Large screens*/
-/****************************************/
-@media only screen 
-and (min-width : 1824px) {
-/* Styles */
-}
-/*End of Large screens layout*/
-
-
-/***************************************************************/
-/*iPhone 4*/
-/***************************************************************/
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
-}
-/*End of iPhone 4 layout*/
 
 
 /***************************************************************/
