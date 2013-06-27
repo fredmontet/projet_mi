@@ -407,6 +407,13 @@ and (min-width : 1224px) {
 .about section article p{
     margin-bottom:20px;
 }
+.about section article a{
+    color:red;
+}
+
+.about section article a:hover{
+    color:#c0c0c0;
+}
 
 .about section img{
     margin-top:40px; 
