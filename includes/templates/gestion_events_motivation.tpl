@@ -17,9 +17,9 @@ Smarty variables available:
 
     <section class="span12">
         <ul>
-            <li class="refuse"><a href="?action=motivation_refuse"></a></li>
-            <li class="wait"><a href="?action=motivation_wait"></a></li>
-            <li class="accept"><a href="?action=motivation_accpet"></a></li>
+            <a href="?action=motivation_refuse"><li class="refuse"></li></a>
+            <a href="?action=motivation_wait"><li class="wait"></li></a>
+            <a href="?action=motivation_accept"><li class="accept"></li></a>
         </ul>
         <h1>{$registration.person->getFirstName()} {$registration.person->getName()}</h1>
         <h2>Motivation :</h2>

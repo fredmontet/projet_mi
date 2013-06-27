@@ -1227,26 +1227,6 @@ class TEDx {
                 break;
 
 
-            // Refused a Motivation
-            case 'motivation_refuse':
-                $this->displayMessage('This action is not yet implemented.');
-                $content = null;
-                break;
-
-
-            // Set the status Wait for a Motivation
-            case 'motivation_wait':
-                $this->displayMessage('This action is not yet implemented.');
-                $content = null;
-                break;
-
-
-            // Accept a Motivation
-            case 'motivation_accept':
-                $this->displayMessage('This action is not yet implemented.');
-                $content = null;
-                break;
-
 
             // Send a Mail
             case 'mail_send':
@@ -1311,8 +1291,12 @@ class TEDx {
                 $content = $this->drawGestionSpeakerInfos();
                 break;
 
+
             // Gestion Events Motivations
             case 'gestion_events_motivation':
+            case 'motivation_accept':
+            case 'motivation_refuse':
+            case 'motivation_wait':
                 // Get the content of Gestion Events Motivation
                 $content = $this->drawGestionEventsMotivation($action);
                 break;
@@ -1325,6 +1309,10 @@ class TEDx {
                 $content = $this->drawGestionEventsMail($action);
                 break;
                 
+                
+            // Gestion Events Role New
+            case 'gestion_events_role_new';
+                $this->displayMessage('This action is not yet implemented.');
 
             // Gestion Events Role
             case 'gestion_events_role':
@@ -1333,15 +1321,6 @@ class TEDx {
                 $content = $this->drawGestionEventsRole($action);
                 break;
 
-
-            // Gestion Events Role New
-            case 'gestion_events_role_new';
-                $gestionEventsRoleInfos = $this->smarty->fetch('gestion_events_role_infos.tpl');
-                $this->smarty->assign('gestionEventsRoleInfos', $gestionEventsRoleInfos);
-
-                // Get the content of Gestion Events Role
-                $content = $this->smarty->fetch('gestion_events_role.tpl');
-                break;
         }
 
         // Assigns the content of Gestion Events Motivation to Smarty
@@ -1653,7 +1632,13 @@ class TEDx {
      * Draw the Gestion Events Motivations page
      * @return content HTML of the Gestion Events Motivations page
      */
-    protected function drawGestionEventsMotivation($action) {
+    protected function drawGestionEventsMotivation($action){
+    
+        if($action == 'motivation_accept' || $action == 'motivation_refuse' || $action == 'motivation_wait') {
+            $this->displayMessage("This action is not yet implemented.");
+        } else {
+            
+        }
 
         // Get Next Event
         $aValidNextEvent = $this->getNextEvent();
