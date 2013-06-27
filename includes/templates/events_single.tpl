@@ -107,7 +107,7 @@ Smarty variables available:
         <section class="span12">
             {counter start=0 skip=1 print=false}
             {foreach from=$speakers item=slot}
-                <h2>Speaker of slot {counter}</h2>
+                <h2>Slot {counter}</h2>
                 {if $slot.speakers != null}
                     <ul>
                         <li>           

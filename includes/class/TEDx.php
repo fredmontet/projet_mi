@@ -333,6 +333,30 @@ class TEDx {
      *      The first contains the values ​​transmitted by _POST
      *      The second contains the state values ​​received by _POST
      */
+    protected function gestionUserValidator($user) {
+
+        // Validate all received values 
+        $errorState['name']         = $this->validator(array('String', $user['name']));
+        $errorState['firstname']    = $this->validator(array('String', $user['firstname']));
+        $errorState['dateOfBirth']  = $this->validator(array('Date', $user['dateOfBirth']));
+        $errorState['address']      = $this->validator(array('String', $user['address']));
+        $errorState['city']         = $this->validator(array('String', $user['city']));
+        $errorState['country']      = $this->validator(array('String', $user['country']));
+        $errorState['phoneNumber']  = $this->validator(array('String', $user['phoneNumber']));
+        $errorState['email']        = $this->validator(array('Email', $user['email']));
+        
+        // Return two arrays
+        return array($user, $errorState);
+    }
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
     protected function loginValidator($login) {
 
         // Validate all received values 
@@ -2608,7 +2632,7 @@ class TEDx {
             if (count(array_keys($errorState, true)) == count($errorState)) {
                 $this->tedx_manager->login($login['email'], $login['password']);
                 
-                header("Location: ?action=home");
+                header("Location: ?action=gestion ");
                 
             } else {
                 $errorState['password'] = false;
@@ -2642,9 +2666,41 @@ class TEDx {
                 break;
             default:
         }
+        
+        if (isset($_POST['update'])) {
 
-        // Assign variables
-        //$this->smarty->assign('firstname', $this->tedx_manager->getFirstname());
+            list($user, $errorState) = $this->gestionUserValidator($_POST);
+
+            // If all values are correct, continue
+            if (count(array_keys($errorState, true)) == count($errorState)) {
+                
+                
+                
+                
+            } else {
+                
+            }
+        } else {
+            // Get Person
+            $messagePerson = $this->tedx_manager->getLoggedPerson();
+            
+            // If the Person is found, continue
+            if($messagePerson->getStatus()) {
+                $aValidPerson = $messagePerson->getContent();
+            } else {
+                // Else give the error message about no found Person
+                $this->displayMessage($messagePerson->getMessage());
+            }
+            
+            $errorState = null;
+        }
+
+        $errorFormMessage = $this->errorFormMessage();
+
+        // Assigns variables to Smarty
+        $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorFormMessage', $errorFormMessage);
+        $this->smarty->assign('person', $aValidPerson);
 
         return $this->smarty->fetch('user_infos.tpl');
     }
