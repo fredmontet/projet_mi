@@ -1518,6 +1518,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
     margin-top:0px;
     width:38%;
     float:left;
+    height:240px;
 }
 .gestion_events_single form table tr td{
     width:200px;
@@ -1744,7 +1745,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 .login .theButton{
     display:block;
     background-color:rgba(255,0,0,1);
-    width:160px;
+    width:148px;
     text-align:center;
     vertical-align:middle;
     line-height:30px;
@@ -1764,9 +1765,10 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 .login .button_login{
-   margin-left: 40px;
+    margin-left: 40px;
     margin-top: 20px;
     width:160px;
+    height:44px;
 }
 
 .login section form fieldset p label{
