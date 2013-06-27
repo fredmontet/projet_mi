@@ -2123,7 +2123,7 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 .user_infos section form p label{
     font-size:1em;
-    width:50%;
+    width:100%;
 }
 .user_infos section form p input{
     float:right;
