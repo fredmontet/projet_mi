@@ -1012,6 +1012,13 @@ etre bonne aussi.*/
     list-style-type: none;
     
 }
+.gestion_contacts_new .errorvalue{
+    color:red;
+    position:relative;
+    top:-10px;
+    left:160px;
+    clear:both;
+}
 
 
 /*end of gestion_contacts_new*/
