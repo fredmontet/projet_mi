@@ -294,7 +294,10 @@ input[type="submit"]:hover{
     background-color:white;
    }
 
-   
+.content gestion:first-child{
+    margin-top:130px;
+}
+
 /*End of diverses*/
 /*End of Typography and CSS Base*/
 
@@ -1276,6 +1279,10 @@ on laisse comme ça ce n'est pas si grave*/
     line-height:15px;
 }
 
+.gestion_events_motivation section:first-child{
+    margin-top:120px;
+}
+
 .gestion_events_motivation section{
     margin:10px;
     background-color:#eeeeee;
@@ -1429,9 +1436,10 @@ on laisse comme ça ce n'est pas si grave*/
 styler les bouttons next et précédents, initialement nous voulions 
 mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 
-.gestion_events_single{}
 
-.gestion_events_single form{}
+.gestion_events_single form:first-child{
+    margin-top:120px;
+}
 
 /*nav*/
 .gestion_events_single nav{
