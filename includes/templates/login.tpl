@@ -4,7 +4,7 @@ Smarty variables available:
 	$errorFormMessage (Array of error Formular message)
 *}
 
-<article class="login">
+<article class="login span12">
     <!--login tab-->
     <section class="offset3 span6">
         <h1>Connexion</h1>
@@ -13,12 +13,12 @@ Smarty variables available:
             <fieldset>
                 <p>
                     <label for="email">Email</label>
-                    <input type="text" name="email" value=""></input>
+                    <input type="email" name="email"></input>
                     {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
                 </p>
                 <p>
                     <label for="password">Password</label>
-                    <input type="password" name="password" value=""></input>
+                    <input type="password" name="password"></input>
                     {if $errorState != null && !$errorState.password}<p class="errorvalue">{$errorFormMessage.login_password}</p>{/if}
                 </p>
                 <!--login button-->

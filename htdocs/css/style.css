@@ -1804,10 +1804,9 @@ mettre ça dans du javascript.... si on enleve ces bouttons, pas besoin de js'*/
 }
 
 .login .button_login{
-    display:inline-block;
+   margin-left: 40px;
+    margin-top: 20px;
     width:160px;
-    margin-left: 40px;
-     margin-top: 20px;
 }
 
 .login section form fieldset p label{
