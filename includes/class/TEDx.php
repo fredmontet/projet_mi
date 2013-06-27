@@ -357,6 +357,30 @@ class TEDx {
      *      The first contains the values ​​transmitted by _POST
      *      The second contains the state values ​​received by _POST
      */
+    protected function gestionUserPassValidator($user) {
+
+        // Validate all received values 
+        $errorState['password']     = $this->validator(array('String', $user['password']));
+        
+        if($user['password_repeat'] == $user['password']) {
+            $errorState['password_repeat'] = true;
+        } else {
+            $errorState['password_repeat'] = false; 
+        }
+        
+        // Return two arrays
+        return array($user, $errorState);
+    }
+    
+    
+    
+    /**
+     * Valid values ​​received by _POST
+     * @param Array _POST
+     * @return Array two arrays
+     *      The first contains the values ​​transmitted by _POST
+     *      The second contains the state values ​​received by _POST
+     */
     protected function loginValidator($login) {
 
         // Validate all received values 
@@ -2655,16 +2679,16 @@ class TEDx {
      * @return content HTML of the User Infos page
      */
     protected function drawUserInfos($action) {
-        switch ($action) {
-            case 'user_infos_send':
-                $this->displayMessage('This action is not yet implemented.');
-                return null;
-                break;
-            case 'user_infos_password':
-                $this->displayMessage('This action is not yet implemented.');
-                return null;
-                break;
-            default:
+        
+        // Get Person
+        $messagePerson = $this->tedx_manager->getLoggedPerson();
+        
+        // If the Person is found, continue
+        if($messagePerson->getStatus()) {
+            $aValidPerson = $messagePerson->getContent();
+        } else {
+            // Else give the error message about no found Person
+            $this->displayMessage($messagePerson->getMessage());
         }
         
         if (isset($_POST['update'])) {
@@ -2673,32 +2697,78 @@ class TEDx {
 
             // If all values are correct, continue
             if (count(array_keys($errorState, true)) == count($errorState)) {
+                  
+                $args = array(
+                    'no' 		  => $aValidPerson->getNo(), // int
+                    'name'        => $user['name'], // String
+                    'firstName'   => $user['firstname'], // String OPTIONAL
+                    'dateOfBirth' => $user['dateOfBirth'], // Date   OPTIONAL
+                    'address'     => $user['address'], // String OPTIONAL
+                    'city'        => $user['city'], // String OPTIONAL
+                    'country'     => $user['country'], // String OPTIONAL
+                    'phoneNumber' => $user['phoneNumber'], // String OPTIONAL
+                    'email'       => $user['email'], // String OPTIONAL
+                    'description' => $user['description']  // String OPTIONAL
+                );
                 
+                // Changing Profil
+                $messageChangeProfil = $this->tedx_manager->changeProfil($args);
                 
-                
+                // If the Profil is changed, continue
+                if($messageChangeProfil->getStatus()) {
+                    $aValidPerson = $messageChangeProfil->getContent();
+                    
+                } else {
+                    // Else give the error message about no changed Profil
+                    $this->displayMessage($messageChangeProfil->getMessage());
+                }
                 
             } else {
                 
             }
         } else {
-            // Get Person
-            $messagePerson = $this->tedx_manager->getLoggedPerson();
-            
-            // If the Person is found, continue
-            if($messagePerson->getStatus()) {
-                $aValidPerson = $messagePerson->getContent();
-            } else {
-                // Else give the error message about no found Person
-                $this->displayMessage($messagePerson->getMessage());
-            }
-            
             $errorState = null;
+        }
+        
+        if (isset($_POST['update_password'])) {
+    
+            list($user, $errorStatePass) = $this->gestionUserPassValidator($_POST);
+    
+            // If all values are correct, continue
+            if (count(array_keys($errorStatePass, true)) == count($errorStatePass)) {
+                
+                if( $this->tedx_manager->isLogged() ) {
+                    
+                    $args = array(
+                        'ID'    	=> $this->tedx_manager->getUsername(), // String
+                        'password'  => $user['password'] // String
+                    );
+                    
+                    // Changing Profil
+                    $messageChangeProfil = $this->tedx_manager->changePassword($args);
+                    
+                    // If the Profil is changed, continue
+                    if($messageChangeProfil->getStatus()) {
+                        
+                    } else {
+                        // Else give the error message about no changed Profil
+                        $this->displayMessage($messageChangeProfil->getMessage());
+                    }
+                    
+                }
+
+            } else {
+                
+            }
+        } else {
+            $errorStatePass = null;
         }
 
         $errorFormMessage = $this->errorFormMessage();
 
         // Assigns variables to Smarty
         $this->smarty->assign('errorState', $errorState);
+        $this->smarty->assign('errorStatePass', $errorStatePass);
         $this->smarty->assign('errorFormMessage', $errorFormMessage);
         $this->smarty->assign('person', $aValidPerson);
 

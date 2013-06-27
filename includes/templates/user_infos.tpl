@@ -22,55 +22,54 @@ Smarty variables available:
             <p>
                 <label for="firstname">First name</label>
                 <input type="text" name="firstname" value="{$person->getFirstname()}"/>
-                <p class="errorvalue">Please enter a first name</p>
+                {if $errorState != null && !$errorState.firstname}<p class="errorvalue">{$errorFormMessage.firstname}</p>{/if}
             </p>
             <!--surname-->
             <p>
                 <label for="name">Name</label>
                 <input type="text" name="name" value="{$person->getName()}"/>
-                <p class="errorvalue">Please enter a name</p>
+                {if $errorState != null && !$errorState.name}<p class="errorvalue">{$errorFormMessage.name}</p>{/if}
             </p>
             <!--email-->
             <p>
                 <label for="email">Email</label>
                 <input type="email" name="email" value="{$person->getEmail()}"/>
-                <p class="errorvalue">Please enter an email</p>
+                {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
             </p>
             <!--date-->
             <p>
                 <label for="dateofbirth">Date of birth</label>
                 <input type="date" name="dateOfBirth" value="{$person->getDateOfBirth()}"/>
-                <p class="errorvalue">Please enter a date of birth</p>
+                {if $errorState != null && !$errorState.dateOfBirth}<p class="errorvalue">{$errorFormMessage.dateOfBirth}</p>{/if}
             </p>
             <!--phoneNumber-->
             <p>
                 <label for="phoneNumber">Phone number</label>
                 <input type="text" name="phoneNumber" value="{$person->getPhoneNumber()}"/>
-                <p class="errorvalue">Please enter a phone number</p>
+                {if $errorState != null && !$errorState.phoneNumber}<p class="errorvalue">{$errorFormMessage.phoneNumber}</p>{/if}
             </p>
             <!--address-->
             <p>
                 <label for="address">Address</label>
                 <input type="text" name="address" value="{$person->getAddress()}"/>
-                <p class="errorvalue">Please enter an address</p>
+                {if $errorState != null && !$errorState.address}<p class="errorvalue">{$errorFormMessage.address}</p>{/if}
             </p>
             <!--City&npa-->
             <p>
                 <label for="city">City</label>
                 <input type="text" name="city" value="{$person->getCity()}"/>
-                <p class="errorvalue">Please enter a city</p>
+                {if $errorState != null && !$errorState.city}<p class="errorvalue">{$errorFormMessage.city}</p>{/if}
             </p>
             <!--country-->
             <p>
                 <label for="country">Country</label>
                 <input type="text" name="country" value="{$person->getCountry()}"/>
-                <p class="errorvalue">Please enter a country</p>
+                {if $errorState != null && !$errorState.country}<p class="errorvalue">{$errorFormMessage.country}</p>{/if}
             </p>
             <!--description-->
             <p>
                 <label for="description">Description</label>
                 <textarea type="text" name="description" value="{$person->getDescription()}"></textarea>
-                <p class="errorvalue">Please enter a description</p>
             </p>
             
         </form>  
@@ -82,28 +81,28 @@ Smarty variables available:
         <form name="user_password" method="post" action="">
             <!--save new password button-->
             <p>
-                <input type="hidden" name="action" value="infos_password" />
-                <input class="buttonSavePwd" type="submit" name="button_password" value="Save" />
+                <input type="hidden" name="action" value="user_infos" />
+                <input class="buttonSavePwd" type="submit" name="update_password" value="Save" />
             </p>
             <!--title-->
             <legend>Password edition</legend>
-            <!--firstname-->
+            {*}
             <p>
                 <label for="current_password">Current Password</label>
                 <input type="password" name="password" value="Current password"/>
                 <p class="errorvalue">Please enter your current password</p>
             </p>
-            <!--surname-->
+            {*}
             <p>
-                <label for="new_password">New Password</label>
-                <input type="password" name="password" value="New password"/>
-                <p class="errorvalue">Please enter a password</p>
+                <label for="password">New Password</label>
+                <input type="password" name="password"/>
+                {if $errorStatePass != null && !$errorStatePass.password}<p class="errorvalue">{$errorFormMessage.password}</p>{/if}
             </p>
-            <!--email-->
+            
             <p>
-                <label for="repeat_new_password">Repeat New Password</label>
-                <input type="password" name="password" value="Repeat new password"/>
-                <p class="errorvalue">Please enter a password</p>
+                <label for="password_repeat">Repeat New Password</label>
+                <input type="password" name="password_repeat"/>
+                {if $errorStatePass != null && !$errorStatePass.password_repeat}<p class="errorvalue">{$errorFormMessage.password_repeat}</p>{/if}
             </p>
             
         </form>  
