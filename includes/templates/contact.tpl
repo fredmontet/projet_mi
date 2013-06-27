@@ -5,12 +5,12 @@
         <!--form of contact-->
     <form name="contact" method="post" action="">
         <fieldset>
-            <label>Name </label><input type="text" name="name">
-            <label>Surname </label><input type="text" name="surname">
-            <label>Email </label><input type="email" name="email">
-            <label>Object </label><input type="text" name="subject">
-            <label id="message">Message</label>
-            <textarea></textarea>
+            <p><label>Name </label><input type="text" name="name"></p>
+            <p><label>Surname </label><input type="text" name="surname"></p>
+            <p><label>Email </label><input type="email" name="email"></p>
+            <p><label>Object </label><input type="text" name="subject"></p>
+            <p><label>Message</label></p>
+            <p><textarea></textarea></p>
         </fieldset>
         <!--button send-->
         <input type="hidden" name="action" value="contact_send">

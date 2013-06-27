@@ -439,26 +439,20 @@ and (min-width : 1224px) {
     position:relative;
 }
 
-.contact label{
-    display:block;
+.contact p {
+    margin-bottom:10px;
+}
+.contact p label{
     width:30%;
-    text-align:left;
-    float:left;
-    margin:0px;
-}
-.contact input{
     display:block;
-    float:right;
-    width:70%;
-}
-.contact input[type="submit"]{
-    width:160px;
-}
-.contact fieldset #message{
-    margin-top:30px;
 }
 
-.contact fieldset textarea{
+.contact p input{
+    width:65%;
+    display:block;
+}
+.contact p textarea{
+    margin-top:15px;
     resize:none;
     height:300px;
 }
