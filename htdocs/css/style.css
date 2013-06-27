@@ -451,6 +451,10 @@ and (min-width : 1224px) {
     width:65%;
     display:block;
 }
+.contact input[type="submit"]{
+    margin-right: -20px;
+}
+
 .contact p textarea{
     margin-top:15px;
     resize:none;
