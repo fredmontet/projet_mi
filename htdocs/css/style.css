@@ -414,6 +414,13 @@ and (min-width : 481px) {
     color:red;
     text-decoration: none;
 }
+.contact .errorvalue{
+    color:red;
+    position:relative;
+    top:-12px;
+    left:190px;
+    clear:both;
+}
 /*end of contact*/
 
 
