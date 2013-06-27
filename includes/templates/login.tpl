@@ -13,7 +13,7 @@ Smarty variables available:
             <fieldset>
                 <p>
                     <label for="email">Email</label>
-                    <input type="email" name="email"></input>
+                    <input type="text" name="email"></input>
                     {if $errorState != null && !$errorState.email}<p class="errorvalue">{$errorFormMessage.email}</p>{/if}
                 </p>
                 <p>
