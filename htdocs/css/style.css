@@ -1159,7 +1159,10 @@ chaque participants dans la list et un peu styler les status (accepted, pending,
 
 .gestion_events_mail{}
 
-.gestion_events_mail section{}
+.gestion_events_mail section:first-child{
+    margin-top:50px;    
+}
+
 .gestion_events_mail_nav{
     width:100%;
     margin-top:30px;
@@ -1363,6 +1366,10 @@ on laisse comme ça ce n'est pas si grave*/
 /*gestion_events_role*/
 /****************************************/
 /*Status = done*/
+
+.gestion_events_role div:first-child{
+    margin-top:120px;
+}
 
 .gestion_events_role .theButton {
     display:inline-block;
